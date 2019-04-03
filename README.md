@@ -10,7 +10,7 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 
 ## Demo
 
-- [Start page](https://clintoxx.github.io/dashboard)
+- [Start page](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
 
 ## Getting Started
