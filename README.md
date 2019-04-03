@@ -1,7 +1,7 @@
 
 
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![version](https://img.shields.io/badge/version-.5.0-blue.svg)
 
 ![Crud Table](https://i.imgur.com/rc3jKJu.png)
 
