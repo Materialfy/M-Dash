@@ -1,7 +1,7 @@
 
 
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) [![GitHub issues open]
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 ![Product Gif](./public/img/vuetify-material-dashboard.gif)
 
