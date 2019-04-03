@@ -5,7 +5,13 @@
 
 ![Crud Table](https://i.imgur.com/rc3jKJu.png)
 
+
 Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://vuetifyjs.com/en/) and [Vuex](https://vuex.vuejs.org/installation.html). It will help you get started developing dashboards in no time. Vuetify Material Dashboard is the official Vuejs version of the Original [Material Dashboard](https://www.creative-tim.com/product/material-dashboard). Using the Dashboard is pretty simple but requires basic knowledge of Javascript, [Vue](https://vuejs.org/v2/guide/), [Vuex](https://vuex.vuejs.org/installation.html) and [Vue-Router](https://router.vuejs.org/en/).
+
+## Demo
+
+- [Start page](https://clintoxx.github.io/dashboard)
+
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
@@ -58,9 +64,6 @@ Let us know your thoughts below. And good luck with development!
 * [Useful Links](#useful-links)
 
 
-## Demo
-
-- [Start page](https://clintoxx.github.io/dashboard)
 
 
 ## Quick start
@@ -181,6 +184,6 @@ original project template source:
 
 ##### Social Media
 
-Twitter: <https://twitter.com/CreativeTim>
+Twitter: <https://twitter.com/Cleesus>
 
-Instagram: <https://instagram.com/creativetimofficial>
+Instagram: <https://instagram.com/Cleesus>
