@@ -3,9 +3,9 @@
 
 ![version](https://img.shields.io/badge/version-.5.0-blue.svg)
 
-## Demo
 
-[Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
+
+## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
 ![Crud Table](2019-04-03_04-17-17.gif)
 
@@ -59,7 +59,7 @@ Let us know your thoughts below. And good luck with development!
 ## Table of Contents
 
 * [Versions](#versions)
-* [Demo](#demo)
+* [Demo](#Demo Site)
 * [Quick Start](#quick-start)
 * [Documentation](#documentation)
 * [File Structure](#file-structure)
