@@ -20,11 +20,11 @@
       >
         <v-list-tile avatar>
           <v-list-tile-avatar
-            color="white"
+            color="grey"
           >
             <v-img
               :src="logo"
-              height="34"
+              height="64"
               contain
             />
           </v-list-tile-avatar>

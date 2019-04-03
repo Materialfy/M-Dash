@@ -47,14 +47,14 @@
         <v-menu
           bottom
           left
-          content-class="dropdown-menu"
+          content-class=""
           offset-y
           transition="slide-y-transition">
           <router-link
             v-ripple
             slot="activator"
             class="toolbar-items"
-            to="/notifications"
+            to="/control/dashboard/notifications"
           >
             <v-badge
               color="error"
@@ -108,11 +108,11 @@ import {
 export default {
   data: () => ({
     notifications: [
-      'Mike, John responded to your email',
-      'You have 5 new tasks',
-      'You\'re now a friend with Andrew',
+      'Mike, Thanos is coming',
+      '5 new avengers joined the team',
+      'You\'re now friends with Capt',
       'Another Notification',
-      'Another One'
+      'Another One - Dj Khalid voice'
     ],
     title: "I got a digital dash -Future Hendrixx",
     responsive: false,
