@@ -1,13 +1,9 @@
 <template>
-  <v-app dark>
-    <core-filter />
-
-    <core-toolbar />
-
-    <core-drawer />
-
-    <core-view />
-  </v-app>
+   <main>
+      <transition mode="out-in">
+        <router-view></router-view>
+      </transition>
+   </main>
 </template>
 
 <style lang="scss">

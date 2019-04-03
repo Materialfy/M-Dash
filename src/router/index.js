@@ -15,24 +15,14 @@ import Meta from 'vue-meta'
 // Routes
 import paths from './paths'
 
-function route (path, view, name) {
-  return {
-    name: name || view,
-    path,
-    component: (resolve) => import(
-      `@/views/${view}.vue`
-    ).then(resolve)
-  }
-}
-
 Vue.use(Router)
 
 // Create a new router
 const router = new Router({
+  base: '/',
   mode: 'history',
-  routes: paths.map(path => route(path.path, path.view, path.name)).concat([
-    { path: '*', redirect: '/dashboard' }
-  ]),
+  routes: paths,
+    
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
