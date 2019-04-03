@@ -49,7 +49,7 @@ export default [
         path: '',
         name: 'Dashboard',
         component: () => import(
-          `@/views/Dashboard.vue`
+          `@/components/DashViews/Dashboard.vue`
         )
       },
       {
@@ -59,7 +59,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/UserProfile.vue`
+          `@/components/DashViews/UserProfile.vue`
         )
       },
       {
@@ -69,7 +69,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/SimpleTables.vue`
+          `@/components/DashViews/SimpleTables.vue`
         )
       },
       {
@@ -79,7 +79,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/ComplexTables.vue`
+          `@/components/DashViews/ComplexTables.vue`
         )
       },
       {
@@ -89,7 +89,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/TableList.vue`
+          `@/components/DashViews/TableList.vue`
         )
       },
       {
@@ -99,7 +99,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/Typography.vue`
+          `@/components/DashViews/Typography.vue`
         )
       },
       {
@@ -109,7 +109,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/Icons.vue`
+          `@/components/DashViews/Icons.vue`
         )
       },
       {
@@ -119,7 +119,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/Maps.vue`
+          `@/components/DashViews/Maps.vue`
         )
       },
       {
@@ -129,7 +129,7 @@ export default [
           requiresAuth: true
         },
         component: () => import(
-          `@/views/Notifications.vue`
+          `@/components/DashViews/Notifications.vue`
         )
       }
       ]
