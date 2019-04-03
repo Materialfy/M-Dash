@@ -59,6 +59,7 @@ export default {
 
 <style lang="scss">
   .v-card--material-chart {
+    
     .v-card--material__header {
       .ct-label {
         color: inherit;

@@ -42,7 +42,7 @@
           class="toolbar-items"
           to="/"
         >
-          <v-icon color="">mdi-view-dashboard</v-icon>
+          <v-icon color="">mdi-home</v-icon>
         </router-link>
         <v-menu
           bottom
@@ -86,6 +86,13 @@
           to="/user-profile"
         >
           <v-icon color="">mdi-account</v-icon>
+        </router-link>
+        <router-link
+          v-ripple
+          class="toolbar-items"
+          to="/logout"
+        >
+          <v-icon color="">mdi-power</v-icon>
         </router-link>
       </v-flex>
     </v-toolbar-items>

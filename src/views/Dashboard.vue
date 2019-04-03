@@ -427,7 +427,7 @@ export default {
           }
         },
         responsiveOptions: [
-          ['screen and (max-width: 640px)', {
+          ['screen and (max-width: 768x)', {
             seriesBarDistance: 5,
             axisX: {
               labelInterpolationFnc: function (value) {
