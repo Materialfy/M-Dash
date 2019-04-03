@@ -73,25 +73,15 @@ export default {
       showPassword: false
     }
   },
-  computed: {
-    form () {
-      return {
-        username: this.username,
-        password: this.password
-      }
-    },
 
-  },
   methods: {
     login: function () {
-      this.formHasErrors = false
-      Object.keys(this.form).forEach(f => {
-        if (!this.form[f]) {
-          this.formHasErrors = false
-        }
-        this.$refs[f].validate(true)
-      })
-    }
+      let username = this.username
+      let password = this.password
+      this.$store.dispatch('login', { email, password })
+      .then(() => this.$router.push('/control/dashboard'))
+      .catch(err => console.log(err))
+      }
   },
   metaInfo () {
     return {

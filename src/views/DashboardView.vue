@@ -2,16 +2,16 @@
 
     <v-app dark id="dashboard-view">
       <core-filter />
-
-      <core-toolbar />
-
-      <core-drawer />
       <v-content>
-      <v-fade-transition mode="out-in">
-        <router-view />
-      </v-fade-transition>
+        <core-toolbar />
+
+        <core-drawer />
       
-      <core-footer v-if="$route.name !== 'Maps'" />
+        <v-fade-transition mode="out-in">
+          <router-view />
+        </v-fade-transition>
+        
+        <core-footer v-if="$route.name !== 'Maps'" />
       </v-content>
     </v-app>
  

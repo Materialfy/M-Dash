@@ -71,7 +71,7 @@ import {
 
 export default {
   data: () => ({
-    logo: '../../../img/redditicon.png',
+    logo: './img/redditicon.png',
     links: [
       {
         to: '/control/dashboard',
