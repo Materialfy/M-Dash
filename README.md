@@ -183,11 +183,7 @@ Here is some advice for our users that want to report an issue:
 
 
 ## Licensing
-original project template source:
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
-- Creative Tim [license](https://www.creative-tim.com/license)
-
-
+MIT
 
 ##### Social Media
 
