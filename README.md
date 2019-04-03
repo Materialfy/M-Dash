@@ -7,6 +7,9 @@
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
+
+![Features](2019-04-03_19-43-06.gif)
+
 ![Crud Table](2019-04-03_04-17-17.gif)
 
 
