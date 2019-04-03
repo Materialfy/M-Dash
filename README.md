@@ -60,17 +60,18 @@ Let us know your thoughts below. And good luck with development!
 
 ## Demo
 
-- [Start page](https://demos.creative-tim.com/vuetify-material-dashboard)
-- [Notifications page](https://demos.creative-tim.com/vuetify-material-dashboard/#/notifications)
-
-[View More](https://demos.creative-tim.com/vue-material-dashboard-pro).
+- [Start page](https://clintoxx.github.io/dashboard)
 
 
 ## Quick start
 
 Quick start options:
 
-- Download from [Creative Tim](https://www.creative-tim.com/product/vuetify-material-dashboard)
+    Clone this repo
+
+    npm i or npm --install 
+
+    npm run serve 
 
 
 ## Documentation
