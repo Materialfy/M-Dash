@@ -3,22 +3,22 @@
 
 ![version](https://img.shields.io/badge/version-.5.0-blue.svg)
 
-## Few things on the roadmap
-* Fix the cards being giant in the dash
-* add login view
-* add in auth/user role 
-* log out button
-* user screen actually functioning
+## Demo
 
+[Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
 ![Crud Table](https://i.imgur.com/rc3jKJu.png)
 
 
 Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://vuetifyjs.com/en/) and [Vuex](https://vuex.vuejs.org/installation.html). It will help you get started developing dashboards in no time. Vuetify Material Dashboard is the official Vuejs version of the Original [Material Dashboard](https://www.creative-tim.com/product/material-dashboard). Using the Dashboard is pretty simple but requires basic knowledge of Javascript, [Vue](https://vuejs.org/v2/guide/), [Vuex](https://vuex.vuejs.org/installation.html) and [Vue-Router](https://router.vuejs.org/en/).
 
-## Demo
 
-- [Start page](https://clintoxx.github.io/vuetify-admin-dashboard/)
+## Few things on the roadmap
+* Fix the cards being giant in the dash
+* add login view
+* add in auth/user role 
+* log out button
+* user screen actually functioning
 
 
 ## Getting Started
