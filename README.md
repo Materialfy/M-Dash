@@ -3,6 +3,14 @@
 
 ![version](https://img.shields.io/badge/version-.5.0-blue.svg)
 
+## Few things on the roadmap
+* Fix the cards in the dash
+* add login view
+* add in auth/user role 
+* log out button
+* user screen actually functioning
+
+
 ![Crud Table](https://i.imgur.com/rc3jKJu.png)
 
 
