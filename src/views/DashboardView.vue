@@ -1,10 +1,10 @@
 <template>
-
+<v-content>
     <v-app dark id="dashboard-view">
       <core-filter />
-      <v-content>
+     
         <core-toolbar />
-
+ 
         <core-drawer />
       
         <v-fade-transition mode="out-in">
@@ -12,9 +12,9 @@
         </v-fade-transition>
         
         <core-footer v-if="$route.name !== 'Maps'" />
-      </v-content>
+      
     </v-app>
- 
+ </v-content>
 </template>
 
 <script>
@@ -29,7 +29,5 @@ export default {
 </script>
 
 <style>
-#core-view {
-  padding-bottom: 100px;
-}
+
 </style>
