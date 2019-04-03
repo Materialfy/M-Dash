@@ -1,5 +1,7 @@
+ // vue.config.js
+
 module.exports = {
-  devServer: {
-    disableHostCheck: true
-  }
-}
+ publicPath: '/vuetify-admin-PAGES/'
+} 
+
+
