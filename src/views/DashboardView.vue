@@ -1,18 +1,19 @@
 <template>
-  <v-content>
+
     <v-app dark id="dashboard-view">
       <core-filter />
 
       <core-toolbar />
 
       <core-drawer />
-
+      <v-content>
       <v-fade-transition mode="out-in">
         <router-view />
       </v-fade-transition>
+      </v-content>
+      <core-footer v-if="$route.name !== 'Maps'" />
     </v-app>
-    <core-footer v-if="$route.name !== 'Maps'" />
-  </v-content>
+ 
 </template>
 
 <script>

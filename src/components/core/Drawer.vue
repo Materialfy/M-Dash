@@ -71,47 +71,52 @@ import {
 
 export default {
   data: () => ({
-    logo: './img/redditicon.png',
+    logo: '../../../img/redditicon.png',
     links: [
       {
-        to: '/dashboard',
+        to: '/control/dashboard',
         icon: 'mdi-view-dashboard',
         text: 'Dashboard'
       },
       {
-        to: '/user-profile',
+        to: '/control/dashboard/user-profile',
         icon: 'mdi-account',
         text: 'User Profile'
       },
       {
-        to: '/table-list',
+        to: '/control/dashboard/table-list',
         icon: 'mdi-clipboard-outline',
         text: 'Table List'
       },
             {
-        to: '/tables',
-        icon: 'mdi-clipboard-outline',
+        to: '/control/dashboard/tables',
+        icon: 'mdi-table',
         text: 'CRUD Tables'
       },
       {
-        to: '/typography',
+        to: '/control/dashboard/typography',
         icon: 'mdi-format-font',
         text: 'Typography'
       },
       {
-        to: '/icons',
+        to: '/control/dashboard/icons',
         icon: 'mdi-chart-bubble',
         text: 'Icons'
       },
       {
-        to: '/maps',
+        to: '/control/dashboard/maps',
         icon: 'mdi-map-marker',
         text: 'Maps'
       },
       {
-        to: '/notifications',
+        to: '/control/dashboard/notifications',
         icon: 'mdi-bell',
         text: 'Notifications'
+      },
+      {
+        to: '/control/',
+        icon: 'mdi-login',
+        text: 'Login'
       }
     ],
     responsive: false

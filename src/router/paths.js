@@ -34,7 +34,7 @@ export default [
       }
     ]
   },
-  // add any extra routes that you want rendered in the dashboard as a child below
+  // add any extra routes that you want rendered in the dashboard as a child below. Change toolbar names here
   {
     path: '/control/dashboard',
     meta: {
@@ -115,7 +115,7 @@ export default [
       {
         path: 'maps',
         meta: {
-          name: '',
+          name: 'Maps',
           requiresAuth: true
         },
         component: () => import(
@@ -125,7 +125,7 @@ export default [
       {
         path: 'notifications',
         meta: {
-          name: '',
+          name: 'Notifications',
           requiresAuth: true
         },
         component: () => import(

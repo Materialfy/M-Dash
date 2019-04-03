@@ -13,7 +13,6 @@
           <v-card
             class="elevation-12">
             <v-toolbar
-              dark
               color="general">
               <v-toolbar-title>Admin Panel</v-toolbar-title>
               <v-spacer></v-spacer>
