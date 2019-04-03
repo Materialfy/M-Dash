@@ -23,13 +23,13 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
-- Open your terminal
+- Open your terminal(Shiift + right-click in the folder on windows)
 - Navigate to the project
 - Run `npm install` or `yarn install` if you use [Yarn](https://yarnpkg.com/en/)
 - Run `npm run dev` or `yarn serve` to start a local development server
 - A new tab will be opened in your browser
 
-You can also run additional npm tasks such as
+After installiing the dependencies you can also run additional npm tasks such as
 - `npm run build` to build your app for production
 - `npm run lint` to run linting.
 
@@ -51,8 +51,7 @@ Let us know what you think and what we can improve below. And good luck with dev
 
 
 #### Special thanks
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-- [Vuetify](https://vuetifyjs.com/en/) for the wonderful framework
+To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template 
 
 
 Let us know your thoughts below. And good luck with development!
