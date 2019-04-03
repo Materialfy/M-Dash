@@ -4,7 +4,7 @@
 ![version](https://img.shields.io/badge/version-.5.0-blue.svg)
 
 ## Few things on the roadmap
-* Fix the cards in the dash
+* Fix the cards being giant in the dash
 * add login view
 * add in auth/user role 
 * log out button
