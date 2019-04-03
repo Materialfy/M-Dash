@@ -14,10 +14,10 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 
 
 ## Few things on the roadmap
-* ~~Fix the cards being giant in the dash
-* ~~add login view
+* ~~Fix the cards being giant in the dash~~
+* ~~add login view~~
 * add in auth/user role 
-* ~~log out button
+* ~~log out button~~
 * user screen actually functioning
 
 
