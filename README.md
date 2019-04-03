@@ -85,7 +85,7 @@ Quick start options:
 
 
 ## Documentation
-The documentation for the Vuetify Material Dashboard is hosted at our [website](https://demos.creative-tim.com/vuetify-material-dashboard/documentation).
+The documentation for the Vuetify Material Dashboard is hosted at our [website]().
 
 
 ## File Structure
