@@ -62,7 +62,7 @@ Let us know your thoughts below. And good luck with development!
 ## Table of Contents
 
 * [Versions](#versions)
-* [Demo](#Demo Site)
+* [Demo](#Demo-Site)
 * [Quick Start](#quick-start)
 * [Documentation](#documentation)
 * [File Structure](#file-structure)
