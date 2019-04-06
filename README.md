@@ -191,5 +191,3 @@ MIT
 ##### Social Media
 
 Twitter: <https://twitter.com/Cleesus>
-
-Instagram: <https://instagram.com/Cleesus>
