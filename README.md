@@ -1,7 +1,7 @@
 
 
 
-![version](https://img.shields.io/badge/version-.5.0-blue.svg)
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 
 
@@ -91,94 +91,8 @@ Quick start options:
 The documentation for the Vuetify Material Dashboard is hosted at our [website]().
 
 
-## File Structure
-
-Within the download you'll find the following directories and files:
-
-```
-vuetify-material-dashboard
-├── README.md
-├── babel.config.js
-├── package.json
-├── public
-│   ├── favicon.ico
-│   └── index.html
-├── src
-│   ├── App.vue
-│   ├── assets
-│   ├── components
-│   │   ├── core
-│   │   │   ├── Drawer.vue
-│   │   │   ├── Filter.vue
-│   │   │   ├── Footer.vue
-│   │   │   ├── Toolbar.vue
-│   │   │   └── View.vue
-│   │   ├── helper
-│   │   │   └── Offset.vue
-│   │   ├── index.js
-│   │   └── material
-│   │       ├── Card.vue
-│   │       ├── ChartCard.vue
-│   │       ├── Notification.vue
-│   │       └── StatsCard.vue
-│   ├── i18n
-│   │   └── index.js
-│   ├── lang
-│   │   ├── en
-│   │   │   ├── Common.json
-│   │   │   ├── Core
-│   │   │   │   ├── Footer.json
-│   │   │   │   └── Toolbar.json
-│   │   │   └── Home.json
-│   │   └── index.js
-│   ├── main.js
-│   ├── plugins
-│   │   ├── axios.js
-│   │   ├── chartist.js
-│   │   ├── index.js
-│   │   ├── theme.js
-│   │   └── vuetify.js
-│   ├── router
-│   │   ├── index.js
-│   │   └── paths.js
-│   ├── store
-│   │   ├── actions.js
-│   │   ├── getters.js
-│   │   ├── index.js
-│   │   ├── modules
-│   │   │   ├── app
-│   │   │   │   ├── mutations.js
-│   │   │   │   └── state.js
-│   │   │   └── index.js
-│   │   ├── mutations.js
-│   │   └── state.js
-│   ├── styles
-│   │   ├── index.scss
-│   │   └── material-dashboard
-│   ├── utils
-│   │   └── vuex.js
-│   └── views
-│       ├── Dashboard.vue
-│       ├── Icons.vue
-│       ├── Maps.vue
-│       ├── Notifications.vue
-│       ├── TableList.vue
-│       ├── Typography.vue
-│       ├── Upgrade.vue
-│       └── UserProfile.vue
-├── vue.config.js
-└── yarn.lock
-```
-
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
-
 
 ## Reporting Issues
-Here is some advice for our users that want to report an issue:
 
 1. Make sure that you are using the latest version of the Vuetify Admin Dashboard. 
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
@@ -187,7 +101,3 @@ Here is some advice for our users that want to report an issue:
 
 ## Licensing
 MIT
-
-##### Social Media
-
-Twitter: <https://twitter.com/Cleesus>
