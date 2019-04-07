@@ -1,3 +1,1 @@
-import './axios'
 import './chartist'
-

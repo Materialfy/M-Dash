@@ -3,6 +3,7 @@
  * for more information on routes, see the
  * official documentation https://router.vuejs.org/en/
  */
+import store from '../store'
 export default [
   {
     path: '*',
@@ -21,16 +22,20 @@ export default [
       name: '',
       requiresAuth: false
     },
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/LoginHome.vue`
-    ),
+    component: () =>
+      import(/* webpackChunkName: "routes" */ `@/views/LoginHome.vue`),
+    // redirect if already signed in
+    beforeEnter: (to, from, next) => {
+      if (store.getters.authorized) {
+        next('/control/dashbaord')
+      } else {
+        next()
+      }
+    },
     children: [
       {
         path: '',
-        component: () => import(
-          `@/components/LoginForm.vue`
-        )
+        component: () => import(`@/components/LoginForm.vue`)
       }
     ]
   },
@@ -41,16 +46,12 @@ export default [
       name: 'Dashboard View',
       requiresAuth: true
     },
-    component: () => import(
-      `@/views/DashboardView.vue`
-    ),
+    component: () => import(`@/views/DashboardView.vue`),
     children: [
       {
         path: '',
         name: 'Dashboard',
-        component: () => import(
-          `@/components/DashViews/Dashboard.vue`
-        )
+        component: () => import(`@/components/DashViews/Dashboard.vue`)
       },
       {
         path: 'user-profile',
@@ -58,9 +59,7 @@ export default [
           name: 'User Profile',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/UserProfile.vue`
-        )
+        component: () => import(`@/components/DashViews/UserProfile.vue`)
       },
       {
         path: 'table-list',
@@ -68,19 +67,15 @@ export default [
           name: 'Table List',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/SimpleTables.vue`
-        )
+        component: () => import(`@/components/DashViews/SimpleTables.vue`)
       },
       {
-        path: 'tables',
+        path: 'user-tables',
         meta: {
-          name: 'Complex Tables',
+          name: 'User Table',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/ComplexTables.vue`
-        )
+        component: () => import(`@/components/DashViews/UsersTable.vue`)
       },
       {
         path: 'tablestest',
@@ -88,9 +83,7 @@ export default [
           name: 'Complex Tables test',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/TableList.vue`
-        )
+        component: () => import(`@/components/DashViews/TableList.vue`)
       },
       {
         path: 'typography',
@@ -98,9 +91,7 @@ export default [
           name: 'Typography',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/Typography.vue`
-        )
+        component: () => import(`@/components/DashViews/Typography.vue`)
       },
       {
         path: 'icons',
@@ -108,9 +99,7 @@ export default [
           name: 'Icons',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/Icons.vue`
-        )
+        component: () => import(`@/components/DashViews/Icons.vue`)
       },
       {
         path: 'maps',
@@ -118,9 +107,7 @@ export default [
           name: 'Maps',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/Maps.vue`
-        )
+        component: () => import(`@/components/DashViews/Maps.vue`)
       },
       {
         path: 'notifications',
@@ -128,10 +115,8 @@ export default [
           name: 'Notifications',
           requiresAuth: true
         },
-        component: () => import(
-          `@/components/DashViews/Notifications.vue`
-        )
+        component: () => import(`@/components/DashViews/Notifications.vue`)
       }
-      ]
+    ]
   }
 ]

@@ -71,10 +71,10 @@ import {
 
 export default {
   data: () => ({
-    logo: './img/redditicon.png',
+    logo: require('@/assets/img/redditicon.png'),
     links: [
       {
-        to: '/control/dashboard',
+        to: '/',
         icon: 'mdi-view-dashboard',
         text: 'Dashboard'
       },
@@ -88,10 +88,10 @@ export default {
         icon: 'mdi-clipboard-outline',
         text: 'Table List'
       },
-            {
-        to: '/control/dashboard/tables',
-        icon: 'mdi-table',
-        text: 'CRUD Tables'
+      {
+        to: '/control/dashboard/user-tables',
+        icon: 'mdi-table-edit',
+        text: 'Users Table'
       },
       {
         to: '/control/dashboard/typography',
@@ -113,17 +113,12 @@ export default {
         icon: 'mdi-bell',
         text: 'Notifications'
       },
-      {
-        to: '/control/',
-        icon: 'mdi-login',
-        text: 'Login'
-      }
     ],
     responsive: false
   }),
   computed: {
     ...mapState('app', ['image', 'color']),
-    inputValue: {
+        inputValue: {
       get () {
         return this.$store.state.app.drawer
       },

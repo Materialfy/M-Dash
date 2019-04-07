@@ -2,8 +2,7 @@
 import axios from 'axios'
 
 // Sets the default url used by all of this axios instance's requests
-axios.defaults.baseURL = 'https://vue-update.firebaseio.com'
-axios.defaults.headers.get['Accepts'] = 'application/json'
+axios.defaults.baseURL = 'https://vuetify-admin.firebaseio.com'
 
 const token = localStorage.getItem('token')
 if (token) {

@@ -8,20 +8,14 @@
       justify-center
       wrap
     >
-
       <v-flex
         md12
       >
-
         <material-card
-          color="general"
+          color="green"
           title="Simple Table"
           text="Here is a subtitle for this table"
         >
-          <v-btn
-            color="general"
-            dark
-            class="mb-2" >New Item</v-btn>
           <v-data-table
             :headers="headers"
             :items="items"
@@ -32,7 +26,7 @@
               slot-scope="{ header }"
             >
               <span
-                class="subheading font-weight-light text-general text--darken-3"
+                class="subheading font-weight-light text-success text--darken-3"
                 v-text="header.text"
               />
             </template>
@@ -48,12 +42,11 @@
           </v-data-table>
         </material-card>
       </v-flex>
-
       <v-flex
         md12
       >
         <material-card
-          color="general"
+          color="green"
           flat
           full-width
           title="Table on Plain Background"
@@ -69,7 +62,7 @@
               slot-scope="{ header }"
             >
               <span
-                class="subheading font-weight-light text-general  text--darken-3"
+                class="subheading font-weight-light text--darken-3"
                 v-text="header.text"
               />
             </template>

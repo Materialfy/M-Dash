@@ -8,20 +8,17 @@
       justify-center
       wrap
     >
-
-      <v-flex
+    
+    <v-flex
         md12
       >
-
+      
         <material-card
           color="general"
           title="Simple Table"
           text="Here is a subtitle for this table"
         >
-          <v-btn
-            color="general"
-            dark
-            class="mb-2" >New Item</v-btn>
+          <v-btn color="general" dark class="mb-2" v-on="on">New Item</v-btn>
           <v-data-table
             :headers="headers"
             :items="items"

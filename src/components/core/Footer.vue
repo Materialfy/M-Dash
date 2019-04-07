@@ -34,9 +34,8 @@ export default {
   data: () => ({
     links: [
       { name: 'Home', Link: '/dashboard' },
-      { name: 'Change later', Link: 'https://www.creative-tim.com' },
-      { name: 'About Us', Link: 'https://creative-tim.com/presentation' },
-      { name: 'Blog', Link: 'https://blog.creative-tim.com' }
+      { name: 'Demo', Link: 'https://clintoxx.github.io/vuetify-admin-dashboard/' },
+      { name: 'GitHub', Link: 'https://github.com/ClintOxx' },
     ]
   })
 }

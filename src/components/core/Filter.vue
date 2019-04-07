@@ -58,7 +58,7 @@
           </v-flex>
           <v-flex xs12>
             <v-btn
-              href="https://www.creative-tim.com/product/vuetify-material-dashboard"
+              href="https://github.com/ClintOxx/vuetify-admin-dashboard"
               target="_blank"
               color="success"
               block
@@ -68,7 +68,7 @@
           </v-flex>
           <v-flex xs12>
             <v-btn
-              href="https://demos.creative-tim.com/vuetify-material-dashboard/documentation"
+              href="https://github.com/ClintOxx/vuetify-admin-dashboard"
               target="_blank"
               class="white--text"
               color="primary"
@@ -84,16 +84,6 @@
               </div>
 
               <div>
-                <v-btn
-                  color="indigo"
-                  class="mr-2 v-btn-facebook"
-                  fab
-                  icon
-                  small
-                  round
-                >
-                  <v-icon>mdi-facebook</v-icon>
-                </v-btn>
                 <v-btn
                   color="cyan"
                   class="v-btn-twitter"

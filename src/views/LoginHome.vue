@@ -1,12 +1,14 @@
 <!-- This is the file that will render any external pages you do not want inside the dash, like login form-->
 <template>
-   <v-app dark id="login-home">
+  <v-app
+    id="login-home"
+    dark>
 
-        <transition mode="out-in">
-           <router-view></router-view>
-        </transition>
+    <transition mode="out-in">
+      <router-view/>
+    </transition>
 
-   </v-app>
+  </v-app>
 </template>
 
 <script>

@@ -12,14 +12,16 @@
       :ratio="ratio"
       :responsive-options="responsiveOptions"
       :type="type"
-    />
+    >
+    </chartist>
 
-    <slot />
+    <slot></slot>
 
     <slot
       slot="actions"
       name="actions"
-    />
+    >
+    </slot>
   </material-card>
 </template>
 
@@ -42,7 +44,7 @@ export default {
     },
     ratio: {
       type: String,
-      default: undefined
+      default: "ct-golden-section"
     },
     responsiveOptions: {
       type: Array,
@@ -59,7 +61,7 @@ export default {
 
 <style lang="scss">
   .v-card--material-chart {
-    
+
     .v-card--material__header {
       .ct-label {
         color: inherit;

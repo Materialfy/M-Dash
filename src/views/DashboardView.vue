@@ -1,20 +1,22 @@
 <template>
-<v-content>
-    <v-app dark id="dashboard-view">
+  <v-content>
+    <v-app
+      id="dashboard-view"
+      dark>
       <core-filter />
-     
-        <core-toolbar />
- 
-        <core-drawer />
-      
-        <v-fade-transition mode="out-in">
-          <router-view />
-        </v-fade-transition>
-        
-        <core-footer v-if="$route.name !== 'Maps'" />
-      
+
+      <core-toolbar />
+
+      <core-drawer />
+
+      <v-fade-transition mode="out-in">
+        <router-view />
+      </v-fade-transition>
+
+      <core-footer v-if="$route.name !== 'Maps'" />
+
     </v-app>
- </v-content>
+  </v-content>
 </template>
 
 <script>
