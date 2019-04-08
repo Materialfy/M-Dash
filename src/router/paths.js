@@ -12,12 +12,12 @@ export default [
       requiresAuth: true
     },
     redirect: {
-      path: '/control/dashboard'
+      path: '/dashboard'
     }
   },
-  // This /control allows you to have pages apart of the app but no rendered inside the dash
+  // This  allows you to have pages apart of the app but no rendered inside the dash
   {
-    path: '/control',
+    path: '/',
     meta: {
       name: '',
       requiresAuth: false
@@ -27,7 +27,7 @@ export default [
     // redirect if already signed in
     beforeEnter: (to, from, next) => {
       if (store.getters.authorized) {
-        next('/control/dashbaord')
+        next('/dashbaord')
       } else {
         next()
       }
@@ -41,7 +41,7 @@ export default [
   },
   // add any extra routes that you want rendered in the dashboard as a child below. Change toolbar names here
   {
-    path: '/control/dashboard',
+    path: '/dashboard',
     meta: {
       name: 'Dashboard View',
       requiresAuth: true

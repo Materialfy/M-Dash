@@ -27,7 +27,7 @@
 						v-ripple
 						slot="activator"
 						class="toolbar-items"
-						to="/control/dashboard/notifications"
+						to="/dashboard/notifications"
 					>
 						<v-badge color="error" overlap>
 							<template slot="badge">{{ notifications.length }}</template>
@@ -42,7 +42,7 @@
 						</v-list>
 					</v-card>
 				</v-menu>
-				<router-link v-ripple class="toolbar-items" to="/control/dashboard/user-profile">
+				<router-link v-ripple class="toolbar-items" to="/dashboard/user-profile">
 					<v-icon color>mdi-account</v-icon>
 				</router-link>
 
@@ -106,7 +106,7 @@
 			},
 			logout: function() {
 				this.$store.dispatch("logout").then(() => {
-					this.$router.push("/control");
+					this.$router.push("");
 				});
 			}
 		}

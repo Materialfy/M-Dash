@@ -57,7 +57,7 @@
             <v-snackbar
               v-model="snackbar"
               :color="color"
-              top='true'
+              :top='true'
             >
               {{ errorMessages }}
               <v-btn
@@ -95,7 +95,7 @@ export default {
       let username = this.username
       let password = this.password
       this.$store.dispatch('login', { username, password })
-        .then(() => this.$router.push('/control/dashboard'))
+        .then(() => this.$router.push('/dashboard'))
         .catch(err => {
         console.log(err)
         this.snackbar= true

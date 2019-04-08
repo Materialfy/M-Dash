@@ -21,7 +21,7 @@ Vue.use(Router)
 
 // Create a new router
 const router = new Router({
-  base: '/',
+  base: '/control',
   mode: 'history',
   routes: paths,
 
@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
       next()
       return
     }
-    next('/control')
+    next('/')
   } else {
     next()
   }
