@@ -23,6 +23,7 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 * [Documentation](#documentation)
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
+* [File Structure](#File-Structure)
 
 
 
@@ -32,6 +33,7 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 - Powerful **Edit Form Builder** can display/edit any value of text, image, boolean...
 - Fully support for REST Api's
 - Vue-Chart js built in 
+-  Rewrote the router to add support for nested/child routes. Also enabled external pages without the sidebar/footer/header etc.
 - **Highly Configurable** Such as: Dark/light themes, sidebar images, site name, colors, logo, Menu and footer...
 - Production ready.
 
@@ -90,7 +92,8 @@ Vuetify Material Dashboard is a beautiful resource built over [Vuetify](https://
 * jwt https cookie storage (still debating since cookies can be hit with xss)
 * change route gaurd verification 
 * selectable drawer colors 
-* notification api so notifications function  
+* notification api so notifications function
+* getting documentation up on vue press
 
 
 ## Getting Started
@@ -151,3 +154,9 @@ The documentation for the Vuetify Admin Dashboard is coming soon once i have som
 
 ## Licensing
 MIT
+
+
+## File Structure
+
+Within the download you'll find the following directories and files:
+
