@@ -113,8 +113,7 @@ After installiing the dependencies you can also run additional npm tasks such as
 - `npm run lint` to run linting.
 
 ## Vuetify
-Vuetify is developed exactly according to Material Design spec. Every component is hand crafted to bring you the best possible UI tools to your next great app. The development doesn't stop at the core components outlined in Google's spec. Through the support of community members and sponsors, additional components will be designed and made available for everyone to enjoy.
-
+Vuetify is developed exactly according to Material Design spec. 
 
 ## Vuex
 
@@ -125,8 +124,6 @@ Vuex is a state management pattern + library for Vue.js applications. It serves 
 We used the latest 3.x [Vue CLI](https://github.com/vuejs/vue-cli) which aims to reduce project configuration
 to as little as possible. Almost everything is inside `package.json` + some other related files such as
 `.babel.config.js`, `.eslintrc.js` and `.postcssrc.js`.
-
-Let us know what you think and what we can improve below. And good luck with development!
 
 
 ### Special thanks
