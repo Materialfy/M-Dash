@@ -36,7 +36,6 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 - Vue-Chart js built in 
 -  Rewrote the router to add support for nested/child routes. Also enabled external pages without the sidebar/footer/header etc.
 - **Highly Configurable** Such as: Dark/light themes, sidebar images, site name, colors, logo, Menu and footer...
-- Production ready.
 - data in demo is only hooked up to read from https://reqres.in/
 
 - **CRUD Table Features**
@@ -97,6 +96,9 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 * notification api so notifications function
 * getting documentation up on vue press
 
+## Bugs
+- Notification drawer is currently shifted due to a change in the layout
+- Chart js header is not correctly displaying in mobile due to aspect ration change
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
