@@ -115,11 +115,12 @@ After installiing the dependencies you can also run additional npm tasks such as
 - `npm run lint` to run linting.
 
 ### Vuetify
+
 Vuetify is developed exactly according to Material Design spec. 
 
 ### Vuex
 
-Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
+Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components.
 
 ### Vue-cli
 
@@ -128,7 +129,7 @@ We used the latest 3.x [Vue CLI](https://github.com/vuejs/vue-cli)
 ### Special thanks
 To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template 
 
-I added a lot of features to his base template but kept the overall theme.
+I added a lot of features to his base template but kept the overall theme/design. Wil lcontinue to add more!
 
 ## Quick start
 
