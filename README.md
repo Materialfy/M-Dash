@@ -7,7 +7,8 @@
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
-- Login system is disabled in demo along with every other api besides the Get request to the users table
+- Login auth system is disabled in demo along with every other api besides the Get request to the users table
+- demo has an extra login button on the side bar so you can see what it looks like
 
 ![Features](2019-04-05_22-31-17.gif)
 
