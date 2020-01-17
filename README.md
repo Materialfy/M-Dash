@@ -104,7 +104,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
-- Open your terminal(Shiift + right-click in the folder on windows)
+- Open your terminal(Shift + right-click in the folder on windows)
 - Navigate to the project
 - Run `npm install` or `yarn install` if you use [Yarn](https://yarnpkg.com/en/)
 - Run `npm run dev` or `yarn serve` to start a local development server
