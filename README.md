@@ -129,7 +129,7 @@ We used the latest 3.x [Vue CLI](https://github.com/vuejs/vue-cli)
 ### Special thanks
 To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template 
 
-I added a lot of features to his base template but kept the overall theme/design. Wil lcontinue to add more!
+I added a lot of features to his base template but kept the overall theme/design. Will continue to add more!
 
 ## Quick start
 
