@@ -27,7 +27,7 @@ export default [
     // redirect if already signed in
     beforeEnter: (to, from, next) => {
       if (store.getters.authorized) {
-        next('/dashbaord')
+        next('/dashboard')
       } else {
         next()
       }
