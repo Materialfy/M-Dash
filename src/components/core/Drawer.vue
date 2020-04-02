@@ -8,6 +8,7 @@
     persistent
     mobile-break-point="991"
     width="260"
+    absolute
   >
     <v-img
       :src="image"
@@ -112,13 +113,13 @@ export default {
         to: '/dashboard/notifications',
         icon: 'mdi-bell',
         text: 'Notifications'
-      },
+      }
     ],
     responsive: false
   }),
   computed: {
     ...mapState('app', ['image', 'color']),
-        inputValue: {
+    inputValue: {
       get () {
         return this.$store.state.app.drawer
       },

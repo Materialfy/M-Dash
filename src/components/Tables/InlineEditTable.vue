@@ -1,118 +1,118 @@
 <template>
-        <div>
-          <material-card
-            color="general"
-            title="Inline Edit Table(Fat & Protein)"
-            text="Such a classic table pt.2: revenge of the crud"
+  <div>
+    <material-card
+      color="general"
+      title="Inline Edit Table(Fat & Protein)"
+      text="Such a classic table pt.2: revenge of the crud"
 
-          >
+    >
 
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              class="elevation-1"
-            >
-              <!-- change table header color(or other properties) -->
-              <template
-                slot="headerCell"
-                slot-scope="{ header }"
-              >
-                <span
-                  class="subheading font-weight-light text-general text--darken-3"
-                  v-text="header.text"
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        class="elevation-1"
+      >
+        <!-- change table header color(or other properties) -->
+        <template
+          slot="headerCell"
+          slot-scope="{ header }"
+        >
+          <span
+            class="subheading font-weight-light text-general text--darken-3"
+            v-text="header.text"
+          />
+        </template>
+        <!-- inline editing data table -->
+        <template v-slot:items="props">
+          <td>
+            <v-edit-dialog
+              :return-value.sync="props.item.name"
+              lazy
+              @save="saveInline"
+              @cancel="cancelInline"
+              @open="openInline"
+              @close="closeInline"
+            > {{ props.item.name }}
+              <template v-slot:input>
+                <v-text-field
+                  v-model="props.item.name"
+                  :rules="[max25chars]"
+                  label="Edit"
+                  single-line
+                  counter
                 />
               </template>
-              <!-- inline editing data table -->
-              <template v-slot:items="props">
-                <td>
-                  <v-edit-dialog
-                    :return-value.sync="props.item.name"
-                    lazy
-                    @save="saveInline"
-                    @cancel="cancelInline"
-                    @open="openInline"
-                    @close="closeInline"
-                  > {{ props.item.name }}
-                    <template v-slot:input>
-                      <v-text-field
-                        v-model="props.item.name"
-                        :rules="[max25chars]"
-                        label="Edit"
-                        single-line
-                        counter
-                      />
-                    </template>
-                  </v-edit-dialog>
-                </td>
-                <td class="t">{{ props.item.calories }}</td>
-                <td class="text-xs-right">
-                  <v-edit-dialog
-                    :return-value.sync="props.item.fat"
-                    large
-                    lazy
-                    persistent
-                    @save="saveInline"
-                    @cancel="cancelInline"
-                    @open="openInline"
-                    @close="closeInline"
-                  >
-                    <div>{{ props.item.fat }}</div>
-                    <template v-slot:input>
-                      <div class="mt-3 title">Update Fat</div>
-                    </template>
-                    <template v-slot:input>
-                      <v-text-field
-                        v-model="props.item.fat"
-                        :rules="[max25chars]"
-                        label="Edit"
-                        single-line
-                        counter
-                        autofocus
-                      />
-                    </template>
-                  </v-edit-dialog>
-                </td>
-                <td class="">{{ props.item.carbs }}</td>
-                <td class="text-xs-right">
-                  <v-edit-dialog
-                    :return-value.sync="props.item.protein"
-                    large
-                    lazy
-                    persistent
-                    @save="saveInline"
-                    @cancel="cancelInline"
-                    @open="openInline"
-                    @close="closeInline"
-                  >
-                    <div>{{ props.item.protein }}</div>
-                    <template v-slot:input>
-                      <div class="mt-3 title">Update Protein</div>
-                    </template>
-                    <template v-slot:input>
-                      <v-text-field
-                        v-model="props.item.protein"
-                        :rules="[max25chars]"
-                        label="Edit"
-                        single-line
-                        counter
-                        autofocus
-                      />
-                    </template>
-                  </v-edit-dialog>
-                </td>
+            </v-edit-dialog>
+          </td>
+          <td class="t">{{ props.item.calories }}</td>
+          <td class="text-xs-right">
+            <v-edit-dialog
+              :return-value.sync="props.item.fat"
+              large
+              lazy
+              persistent
+              @save="saveInline"
+              @cancel="cancelInline"
+              @open="openInline"
+              @close="closeInline"
+            >
+              <div>{{ props.item.fat }}</div>
+              <template v-slot:input>
+                <div class="mt-3 title">Update Fat</div>
               </template>
-            </v-data-table>
-            <v-snackbar
-              v-model="snack"
-              :timeout="3000"
-              :color="snackColor">
-              {{ snackText }}
-              <v-btn
-                flat
-                @click="snack = false">Close</v-btn>
-            </v-snackbar>
-          </material-card>
-        </div>
+              <template v-slot:input>
+                <v-text-field
+                  v-model="props.item.fat"
+                  :rules="[max25chars]"
+                  label="Edit"
+                  single-line
+                  counter
+                  autofocus
+                />
+              </template>
+            </v-edit-dialog>
+          </td>
+          <td class="">{{ props.item.carbs }}</td>
+          <td class="text-xs-right">
+            <v-edit-dialog
+              :return-value.sync="props.item.protein"
+              large
+              lazy
+              persistent
+              @save="saveInline"
+              @cancel="cancelInline"
+              @open="openInline"
+              @close="closeInline"
+            >
+              <div>{{ props.item.protein }}</div>
+              <template v-slot:input>
+                <div class="mt-3 title">Update Protein</div>
+              </template>
+              <template v-slot:input>
+                <v-text-field
+                  v-model="props.item.protein"
+                  :rules="[max25chars]"
+                  label="Edit"
+                  single-line
+                  counter
+                  autofocus
+                />
+              </template>
+            </v-edit-dialog>
+          </td>
+        </template>
+      </v-data-table>
+      <v-snackbar
+        v-model="snack"
+        :timeout="3000"
+        :color="snackColor">
+        {{ snackText }}
+        <v-btn
+          flat
+          @click="snack = false">Close</v-btn>
+      </v-snackbar>
+    </material-card>
+  </div>
 </template>
 
 <script>
