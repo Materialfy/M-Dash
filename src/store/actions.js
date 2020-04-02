@@ -71,7 +71,7 @@ export default {
           reject(error)
         })
     })
-  },
+  }
 
   // autoRefreshToken ({ commit }) {
   //   return new Promise((resolve, reject) => {

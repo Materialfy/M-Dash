@@ -12,16 +12,14 @@
       :ratio="ratio"
       :responsive-options="responsiveOptions"
       :type="type"
-    >
-    </chartist>
+    />
 
-    <slot></slot>
+    <slot/>
 
     <slot
       slot="actions"
       name="actions"
-    >
-    </slot>
+    />
   </material-card>
 </template>
 
@@ -44,7 +42,7 @@ export default {
     },
     ratio: {
       type: String,
-      default: "ct-golden-section"
+      default: 'ct-golden-section'
     },
     responsiveOptions: {
       type: Array,

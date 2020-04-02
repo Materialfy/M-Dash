@@ -17,14 +17,13 @@
             title="Usernames Table"
             text="Such a classic table"
           >
-          <v-spacer></v-spacer>
-          <v-text-field
-            v-model="search"
-            append-icon="search"
-            label="Search"
-            single-line
-            hide-details>
-            </v-text-field>
+            <v-spacer/>
+            <v-text-field
+              v-model="search"
+              append-icon="search"
+              label="Search"
+              single-line
+              hide-details/>
             <v-dialog
               v-model="dialog"
               max-width="500px">
@@ -68,14 +67,18 @@
                         xs12
                         sm6
                         md4>
-                        <v-checkbox v-model="checkboxAdmin" :label="`IsAdmin`"></v-checkbox>
+                        <v-checkbox
+                          v-model="checkboxAdmin"
+                          :label="`IsAdmin`"/>
 
                       </v-flex>
                       <v-flex
                         xs12
                         sm6
                         md4>
-                        <v-checkbox v-model="checkboxActive" :label="`IsActive`"></v-checkbox>
+                        <v-checkbox
+                          v-model="checkboxActive"
+                          :label="`IsActive`"/>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -133,8 +136,8 @@
                     @cancel="cancelInline"
                     @open="openInline"
                     @close="closeInline"
-                  > 
-                  <div>{{ props.item.username }}</div>
+                  >
+                    <div>{{ props.item.username }}</div>
                     <template v-slot:input>
                       <v-text-field
                         v-model="props.item.username"
@@ -146,8 +149,8 @@
                       />
                     </template>
                   </v-edit-dialog>
-                </td> 
-                
+                </td>
+
                 <td>
                   <v-edit-dialog
                     :return-value.sync="props.item.email"
@@ -158,8 +161,8 @@
                     @cancel="cancelInline"
                     @open="openInline"
                     @close="closeInline"
-                  > 
-                  <div>{{ props.item.email }}</div>
+                  >
+                    <div>{{ props.item.email }}</div>
                     <template v-slot:input>
                       <v-text-field
                         v-model="props.item.email"
@@ -171,11 +174,11 @@
                       />
                     </template>
                   </v-edit-dialog>
-                </td>               
+                </td>
                 <td class="">{{ props.item.isAdmin }}</td>
                 <td class="">{{ props.item.isActive }}</td>
                 <td class="">{{ props.item.lastSeen }}</td>
-                <td v-show = false>{{ props.item.password }}</td>  
+                <td v-show = "false">{{ props.item.password }}</td>
               </template>
             </v-data-table>
             <v-snackbar
@@ -190,7 +193,6 @@
           </material-card>
         </div>
       </v-flex>
-
 
     </v-layout>
   </v-container>
@@ -207,7 +209,7 @@ export default {
     UserList: [],
     checkboxAdmin: true,
     checkboxActive: true,
-    rowsAmount: [15,20,25,{"text":"$vuetify.dataIterator.rowsPerPageAll","value":-1}],
+    rowsAmount: [15, 20, 25, {'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1}],
     dialog: false,
     search: '',
     headers: [
@@ -218,8 +220,7 @@ export default {
       { text: 'isAdmin', value: 'isAdmin' },
       { text: 'isActive', value: 'isActive' },
       { text: 'lastSeen', value: 'lastSeen' },
-      { text: 'password', value: 'password' },
-
+      { text: 'password', value: 'password' }
 
     ],
     editedIndex: -1,
@@ -227,8 +228,8 @@ export default {
       username: '',
       password: '',
       email: '',
-      isAdmin : true,
-      isActive : true,
+      isAdmin: true,
+      isActive: true
     },
     defaultItem: {
 
@@ -257,15 +258,14 @@ export default {
   methods: {
     getusernames () {
       this.$http.get('/users')
-      .then(response => {
-        this.UserList = response.data.Users
+        .then(response => {
+          this.UserList = response.data.Users
         })
-      .catch(error => console.log(error))
+        .catch(error => console.log(error))
     },
 
-
     // object.assign fills in the empty object with the properties of item
-    editItem (item, dbox=true ) {
+    editItem (item, dbox = true) {
       this.editedIndex = this.UserList.indexOf(item)
       item.isAdmin = this.checkboxAdmin
       item.isActive = this.checkboxActive
@@ -276,20 +276,20 @@ export default {
     callTableAction (item, endpoint, method) {
       let tableItem = this.editedItem
       this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-      .then((response) => this.saveInline())
-      .catch(error =>{ 
-        console.log(error)
-        this.cancelInline
-      }) 
+        .then((response) => this.saveInline())
+        .catch(error => {
+          console.log(error)
+          this.cancelInline
+        })
     },
-    
+
     deleteItem (item) {
       const index = this.UserList.indexOf(item)
       confirm('Are you sure you want to delete this item?') && this.UserList.splice(index, 1)
       this.editedItem = Object.assign({}, item)
       let endpoint = `users/delete/${this.editedItem.username}`
       let method = 'delete'
-      this.callTableAction(item, endpoint, method);
+      this.callTableAction(item, endpoint, method)
     },
 
     close () {
@@ -307,27 +307,26 @@ export default {
         let endpoint = `users/update/${this.editedItem.username}`
         let method = 'patch'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-        .then((response) => this.saveInline())
-        .catch(error =>{ 
-          console.log(error)
-          this.cancelInline
-        }) 
+          .then((response) => this.saveInline())
+          .catch(error => {
+            console.log(error)
+            this.cancelInline
+          })
       } else {
         let tableItem = this.editedItem
         this.UserList.push(this.editedItem)
         let endpoint = `users/new-user`
         let method = 'post'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-        .then((response) => console.log('new user'))
-        .catch(error =>{ 
-          console.log(error)
-          this.cancelInline
+          .then((response) => console.log('new user'))
+          .catch(error => {
+            console.log(error)
+            this.cancelInline
           })
-
       }
       this.close()
     },
-    //toasts/snackbar messages for actions
+    // toasts/snackbar messages for actions
     saveInline () {
       this.snack = true
       this.snackColor = 'success'

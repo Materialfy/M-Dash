@@ -1,6 +1,7 @@
 <template>
   <v-footer
     id="core-footer"
+    app
     absolute
     height="82"
   >
@@ -35,7 +36,7 @@ export default {
     links: [
       { name: 'Home', Link: '/dashboard' },
       { name: 'Demo', Link: 'https://clintoxx.github.io/vuetify-admin-dashboard/' },
-      { name: 'GitHub', Link: 'https://github.com/ClintOxx' },
+      { name: 'GitHub', Link: 'https://github.com/ClintOxx' }
     ]
   })
 }
