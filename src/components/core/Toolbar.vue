@@ -138,7 +138,7 @@ export default {
     },
     logout: function () {
       this.$store.dispatch('logout').then(() => {
-        this.$router.push('')
+        this.$router.push('/')
       })
     }
   }
