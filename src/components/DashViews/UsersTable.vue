@@ -274,9 +274,13 @@ export default {
     },
 
     callTableAction (item, endpoint, method) {
+      const index = this.UserList.indexOf(item)
       let tableItem = this.editedItem
       this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-        .then((response) => this.saveInline())
+        .then((response) => {
+          this.UserList.splice(index, 1)
+          this.saveInline()
+        })
         .catch(error => {
           console.log(error)
           this.cancelInline
@@ -284,12 +288,12 @@ export default {
     },
 
     deleteItem (item) {
-      const index = this.UserList.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.UserList.splice(index, 1)
-      this.editedItem = Object.assign({}, item)
-      let endpoint = `users/delete/${this.editedItem.username}`
-      let method = 'delete'
-      this.callTableAction(item, endpoint, method)
+      if(confirm('Are you sure you want to delete this item?')) {
+        this.editedItem = Object.assign({}, item)
+        let endpoint = `users/delete/${this.editedItem.username}`
+        let method = 'delete'
+        this.callTableAction(item, endpoint, method)
+      }
     },
 
     close () {
@@ -302,23 +306,27 @@ export default {
 
     save () {
       if (this.editedIndex > -1) {
-        Object.assign(this.UserList[this.editedIndex], this.editedItem)
         let tableItem = this.editedItem
         let endpoint = `users/update/${this.editedItem.username}`
         let method = 'patch'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then((response) => this.saveInline())
+          .then((response) => {
+            Object.assign(this.UserList[this.editedIndex], this.editedItem)
+            this.saveInline()
+          })
           .catch(error => {
             console.log(error)
             this.cancelInline
           })
       } else {
         let tableItem = this.editedItem
-        this.UserList.push(this.editedItem)
         let endpoint = `users/new-user`
         let method = 'post'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then((response) => console.log('new user'))
+          .then((response) => {
+            console.log('new user')
+            this.UserList.push(this.editedItem)
+          })
           .catch(error => {
             console.log(error)
             this.cancelInline
