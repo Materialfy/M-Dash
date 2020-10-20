@@ -9,7 +9,7 @@ export default [
     path: '*',
     meta: {
       name: '',
-      requiresAuth: true
+      requiresAuth: false
     },
     redirect: {
       path: '/dashboard'
