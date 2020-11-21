@@ -90,9 +90,9 @@ export default {
         text: 'Table List'
       },
       {
-        to: '/dashboard/user-tables',
+        to: '/dashboard/country',
         icon: 'mdi-table-edit',
-        text: 'Users Table'
+        text: 'Country'
       },
       {
         to: '/dashboard/typography',

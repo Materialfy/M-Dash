@@ -25,7 +25,7 @@ import axios from 'axios'
 
 Vue.prototype.$http = axios
 // Sets the default url used by all of this axios instance's requests
-axios.defaults.baseURL = 'http://127.0.0.1:8001/admin/'
+axios.defaults.baseURL = 'http://localhost:8001/api/v1'
 axios.defaults.headers.get['Accept'] = 'application/json'
 
 const token = localStorage.getItem('token')

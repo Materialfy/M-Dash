@@ -70,12 +70,12 @@ export default [
         component: () => import(`@/components/DashViews/SimpleTables.vue`)
       },
       {
-        path: 'user-tables',
+        path: 'country',
         meta: {
-          name: 'User Table',
+          name: 'Country',
           requiresAuth: true
         },
-        component: () => import(`@/components/DashViews/UsersTable.vue`)
+        component: () => import(`@/components/Domain/Country/CountriesTable.vue`)
       },
       {
         path: 'tablestest',
