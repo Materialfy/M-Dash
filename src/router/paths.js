@@ -62,6 +62,14 @@ export default [
         component: () => import(`@/components/DashViews/UserProfile.vue`)
       },
       {
+        path: 'user-groups',
+        meta: {
+          name: 'User Groups',
+          requiresAuth: true
+        },
+        component: () => import(`@/components/Domain/user_groups/UserGroups.vue`)
+      },
+      {
         path: 'table-list',
         meta: {
           name: 'Table List',

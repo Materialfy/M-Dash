@@ -80,6 +80,11 @@ export default {
         text: 'Dashboard'
       },
       {
+       to: '/dashboard/user-groups',
+       icon: 'mdi-clipboard-groups',
+       text: 'User Groups'
+      },
+      {
         to: '/dashboard/user-profile',
         icon: 'mdi-account',
         text: 'User Profile'
