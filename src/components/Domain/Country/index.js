@@ -13,14 +13,19 @@ export default {
     search: '',
     headers: [
       { text: 'Id', align: 'left', value: 'id'},
+      { text: '-----Actions-----', value: 'actions', sortable: false },
       { text: 'name', value: 'nameEn' },
       { text: 'arabic name', value: 'nameAr' },
-      { text: '-----Actions-----', value: 'actions', sortable: false }
+      { text: 'alias', value: 'alias' },
+
+
+      
     ],
     editedIndex: -1,
     editedItem: {
       nameEn: '',
-      nameAr: ''
+      nameAr: '',
+      alias:''
     },
     defaultItem: {}
   }),
@@ -62,6 +67,7 @@ export default {
     },
 
     callTableAction (item, endpoint, method) {
+      console.log(endpoint)
       let tableItem = this.editedItem
       this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
         .then((response) => this.saveInline())
@@ -75,8 +81,9 @@ export default {
       const index = this.itemsList.indexOf(item)
       confirm('Are you sure you want to delete this item?') && this.itemsList.splice(index, 1)
       this.editedItem = Object.assign({}, item)
-      let endpoint = `/countries/${this.editedItem.id}`
+      let endpoint = `countries/${this.editedItem.id}`
       let method = 'delete'
+console.log(endpoint)
       this.callTableAction(item, endpoint, method)
     },
 

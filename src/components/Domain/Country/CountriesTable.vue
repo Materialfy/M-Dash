@@ -55,6 +55,14 @@
                           v-model="editedItem.nameAr"
                           label="nameAr" />
                       </v-flex>
+                      <v-flex
+                        xs12
+                        sm6
+                        md4>
+                        <v-text-field
+                          v-model="editedItem.alias"
+                          label="alias" />
+                      </v-flex>
                     </v-layout>
                   </v-container>
                 </v-card-text>
@@ -76,7 +84,7 @@
             <v-data-table
               :headers="headers"
               :items="itemsList"
-              :rows-per-page-items ="rowsAmount"
+              :rows-per-page-items = "rowsAmount"
               :search="search"
               class="elevation-1"
             >
@@ -92,6 +100,7 @@
               </template>
               <template v-slot:items="props">
                 <td>{{ props.item.id }}</td>
+
                 <td class="justify-center ">
                   <v-icon
                     medium
@@ -140,6 +149,30 @@
                     <template v-slot:input>
                       <v-text-field
                         v-model="props.item.nameAr"
+                        :rules="[max25chars]"
+                        label="Edit"
+                        single-line
+                        counter
+                        autofocus
+                      />
+                    </template>
+                  </v-edit-dialog>
+                </td>
+                <td>
+                  <v-edit-dialog
+                    :return-value.sync="props.item.alias"
+                    large
+                    lazy
+                    persistent
+                    @save="saveInline"
+                    @cancel="cancelInline"
+                    @open="openInline"
+                    @close="closeInline"
+                  >
+                    <div>{{ props.item.alias }}</div>
+                    <template v-slot:input>
+                      <v-text-field
+                        v-model="props.item.alias"
                         :rules="[max25chars]"
                         label="Edit"
                         single-line
