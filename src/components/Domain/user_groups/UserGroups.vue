@@ -47,6 +47,7 @@
                           v-model="editedItem.nameEn"
                           label="English Name" />
                       </v-flex>
+
                       <v-flex
                         xs12
                         sm6
@@ -55,15 +56,7 @@
                           v-model="editedItem.nameAr"
                           label="Arabic Name" />
                       </v-flex>
-  <v-flex
-                        xs12
-                        sm6
-                        md4>
-                        <v-checkbox
-                        v-model="checkboxAdmin.isActive"
-                          :label="`IsActive`"/>
-                          
-                      </v-flex>
+
                     </v-layout>
                   </v-container>
                 </v-card-text>

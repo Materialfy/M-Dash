@@ -17,16 +17,11 @@ export default {
       { text: '-----Actions-----', value: 'actions', sortable: false },
       { text: 'English Name', value: 'nameEn' },
       { text: 'Arabic Name', value: 'nameAr' },
-      
-      
-    
     ],
     editedIndex: -1,
     editedItem: {
       nameEn: '',
       nameAr: '',
-      
-    
     },
     defaultItem: {},
 

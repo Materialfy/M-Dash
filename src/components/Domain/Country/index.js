@@ -46,7 +46,7 @@ export default {
 
   methods: {
     getItems () {
-      this.$http.get('/countries')
+      this.$http.get('countries')
         .then(response => {
           console.log(response.data.data.items)
           this.itemsList = response.data.data.items
@@ -75,7 +75,7 @@ export default {
       const index = this.itemsList.indexOf(item)
       confirm('Are you sure you want to delete this item?') && this.itemsList.splice(index, 1)
       this.editedItem = Object.assign({}, item)
-      let endpoint = `/countries/${this.editedItem.id}`
+      let endpoint = `countries/${this.editedItem.id}`
       let method = 'delete'
       this.callTableAction(item, endpoint, method)
     },
