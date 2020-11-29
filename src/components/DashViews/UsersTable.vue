@@ -209,11 +209,11 @@ export default {
     UserList: [],
     checkboxAdmin: true,
     checkboxActive: true,
-    rowsAmount: [15, 20, 25, {'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1}],
+    rowsAmount: [15, 20, 25, { 'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1 }],
     dialog: false,
     search: '',
     headers: [
-      { text: 'Id', align: 'left', value: 'id'},
+      { text: 'Id', align: 'left', value: 'id' },
       { text: '-----Actions-----', value: 'actions', sortable: false },
       { text: 'username', value: 'username' },
       { text: 'email', value: 'email' },
@@ -275,7 +275,7 @@ export default {
 
     callTableAction (item, endpoint, method) {
       let tableItem = this.editedItem
-      this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+      this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
         .then((response) => this.saveInline())
         .catch(error => {
           console.log(error)
@@ -306,7 +306,7 @@ export default {
         let tableItem = this.editedItem
         let endpoint = `users/update/${this.editedItem.username}`
         let method = 'patch'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => this.saveInline())
           .catch(error => {
             console.log(error)
@@ -317,7 +317,7 @@ export default {
         this.UserList.push(this.editedItem)
         let endpoint = `users/new-user`
         let method = 'post'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => console.log('new user'))
           .catch(error => {
             console.log(error)

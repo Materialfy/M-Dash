@@ -8,11 +8,11 @@ export default {
     itemsList: [],
     checkboxAdmin: true,
     checkboxActive: true,
-    rowsAmount: [15, 20, 25, {'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1}],
+    rowsAmount: [15, 20, 25, { 'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1 }],
     dialog: false,
     search: '',
     headers: [
-      { text: 'Id', align: 'left', value: 'id'},
+      { text: 'Id', align: 'left', value: 'id' },
       { text: 'name', value: 'nameEn' },
       { text: 'arabic name', value: 'nameAr' },
       { text: '-----Actions-----', value: 'actions', sortable: false }
@@ -63,7 +63,7 @@ export default {
 
     callTableAction (item, endpoint, method) {
       let tableItem = this.editedItem
-      this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+      this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
         .then((response) => this.saveInline())
         .catch(error => {
           console.log(error)
@@ -94,7 +94,7 @@ export default {
         let tableItem = this.editedItem
         let endpoint = `countries/${this.editedItem.id}`
         let method = 'put'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => this.saveInline())
           .catch(error => {
             console.log(error)
@@ -105,7 +105,7 @@ export default {
         this.itemsList.push(this.editedItem)
         let endpoint = `countries`
         let method = 'post'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => console.log('new Item'))
           .catch(error => {
             console.log(error)

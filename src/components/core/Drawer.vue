@@ -90,6 +90,11 @@ export default {
         text: 'Table List'
       },
       {
+        to: '/dashboard/author',
+        icon: 'mdi-table-edit',
+        text: 'Author'
+      },
+      {
         to: '/dashboard/country',
         icon: 'mdi-table-edit',
         text: 'Country'

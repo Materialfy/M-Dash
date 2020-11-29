@@ -78,6 +78,14 @@ export default [
         component: () => import(`@/components/Domain/Country/CountriesTable.vue`)
       },
       {
+        path: 'author',
+        meta: {
+          name: 'Author',
+          requiresAuth: true
+        },
+        component: () => import(`@/components/Domain/Author/AuthorsTable.vue`)
+      },
+      {
         path: 'tablestest',
         meta: {
           name: 'Complex Tables test',
