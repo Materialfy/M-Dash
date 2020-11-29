@@ -8,30 +8,29 @@ export default {
     itemsList: [],
     checkboxAdmin: true,
     checkboxActive: true,
-    rowsAmount: [15, 20, 25, {'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1}],
+    rowsAmount: [15, 20, 25, { 'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1 }],
     dialog: false,
     search: '',
-    
     headers: [
-      { text: 'Id', align: 'left', value: 'id'},
+      { text: 'Id', align: 'left', value: 'id' },
       { text: '-----Actions-----', value: 'actions', sortable: false },
-      { text: 'English Name', value: 'nameEn' },
-      { text: 'Arabic Name', value: 'nameAr' },
+      { text: 'name', value: 'nameEn' },
+      { text: 'arabic name', value: 'nameAr' },
+      { text: 'isActive', value: 'isActive' }
     ],
     editedIndex: -1,
     editedItem: {
       nameEn: '',
       nameAr: '',
+      isActive: true
     },
-    defaultItem: {},
-
+    defaultItem: {}
   }),
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      return this.editedIndex === -1 ? 'New user group' : 'Edit user group'
     }
-
   },
 
   watch: {
@@ -42,38 +41,34 @@ export default {
   // called when page is created before dom
   created () {
     this.getItems()
-     //this.$store.dispatch('autoRefreshToken')
-     //.then(response => console.log(response))
-     //.catch(error => console.log(error))
+    // this.$store.dispatch('autoRefreshToken')
+    // .then(response => console.log(response))
+    // .catch(error => console.log(error))
   },
 
   methods: {
     getItems () {
-      this.$http.get('/groups')
+      this.$http.get('groups')
         .then(response => {
           console.log(response.data.data.items)
           this.itemsList = response.data.data.items
         })
         .catch(error => console.log(error))
-
-        
     },
-    
-
     // object.assign fills in the empty object with the properties of item
     editItem (item, dbox = true) {
-      this.editedIndex = this.itemsList.indexOf (item)
+      this.editedIndex = this.itemsList.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = dbox
     },
 
     callTableAction (item, endpoint, method) {
       let tableItem = this.editedItem
-      this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+      this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
         .then((response) => this.saveInline())
         .catch(error => {
           console.log(error)
-          this.cancelInline
+           this.cancelInline
         })
     },
 
@@ -100,7 +95,7 @@ export default {
         let tableItem = this.editedItem
         let endpoint = `groups/${this.editedItem.id}`
         let method = 'put'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => this.saveInline())
           .catch(error => {
             console.log(error)
@@ -111,7 +106,7 @@ export default {
         this.itemsList.push(this.editedItem)
         let endpoint = `groups`
         let method = 'post'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
+        this.$store.dispatch('updateTableItem', { endpoint, tableItem, method })
           .then((response) => console.log('new Item'))
           .catch(error => {
             console.log(error)

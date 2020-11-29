@@ -14,7 +14,7 @@
         <div>
           <material-card
             color="general"
-            title="User Groups"
+            title="User Groups Table"
             text="Such a classic table"
           >
             <v-spacer/>
@@ -32,7 +32,7 @@
                   color="general"
                   dark
                   class="mb-2"
-                  v-on="on">New User</v-btn>
+                  v-on="on">New User Group</v-btn>
               </template>
 
               <v-card>
@@ -45,22 +45,27 @@
                         md4>
                         <v-text-field
                           v-model="editedItem.nameEn"
-                          label="English Name" />
+                          label="nameEn" />
                       </v-flex>
-
                       <v-flex
                         xs12
                         sm6
                         md4>
                         <v-text-field
                           v-model="editedItem.nameAr"
-                          label="Arabic Name" />
+                          label="nameAr" />
                       </v-flex>
-
+                      <v-flex
+                        xs12
+                        sm6
+                        md4>
+                        <v-checkbox
+                          v-model="checkboxActive"
+                          :label="`IsActive`"/>
+                      </v-flex>
                     </v-layout>
                   </v-container>
                 </v-card-text>
-
                 <v-card-actions>
                   <v-spacer/>
                   <v-btn
@@ -149,15 +154,6 @@
                         autofocus/>
                     </template>
                   </v-edit-dialog>
-
-
-                     
-      
-
-
-                 </td>
-                <td>
-
                 </td>
               </template>
             </v-data-table>

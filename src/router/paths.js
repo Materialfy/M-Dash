@@ -67,7 +67,15 @@ export default [
           name: 'User Groups',
           requiresAuth: true
         },
-        component: () => import(`@/components/Domain/user_groups/UserGroups.vue`)
+        component: () => import(`@/components/Domain/userGroups/UserGroups.vue`)
+      },
+      {
+        path: 'tags',
+        meta: {
+          name: 'Tags',
+          requiresAuth: true
+        },
+        component: () => import(`@/components/Domain/tags/Tags.vue`)
       },
       {
         path: 'table-list',

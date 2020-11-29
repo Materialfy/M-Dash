@@ -14,7 +14,7 @@
         <div>
           <material-card
             color="general"
-            title="Countries Table"
+            title="User Groups Table"
             text="Such a classic table"
           >
             <v-spacer/>
@@ -32,7 +32,7 @@
                   color="general"
                   dark
                   class="mb-2"
-                  v-on="on">New Country</v-btn>
+                  v-on="on">New Tag</v-btn>
               </template>
 
               <v-card>
@@ -44,25 +44,8 @@
                         sm6
                         md4>
                         <v-text-field
-                          v-model="editedItem.nameEn"
-                          label="nameEn" />
-                      </v-flex>
-                      <v-flex
-                        xs12
-                        sm6
-                        md4>
-                        <v-text-field
-                          v-model="editedItem.nameAr"
-                          label="nameAr" />
-                      </v-flex>
-
-                       <v-flex
-                        xs12
-                        sm6
-                        md4>
-                        <v-text-field
-                          v-model="editedItem.alias"
-                          label="alias" />
+                          v-model="editedItem.name"
+                          label="Name" />
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -112,7 +95,7 @@
                 </td>
                 <td>
                   <v-edit-dialog
-                    :return-value.sync="props.item.nameEn"
+                    :return-value.sync="props.item.name"
                     large
                     lazy
                     persistent
@@ -121,34 +104,10 @@
                     @open="openInline"
                     @close="closeInline"
                   >
-                    <div>{{ props.item.nameEn }}</div>
+                    <div>{{ props.item.name }}</div>
                     <template v-slot:input>
                       <v-text-field
-                        v-model="props.item.nameEn"
-                        :rules="[max25chars]"
-                        label="Edit"
-                        single-line
-                        counter
-                        autofocus
-                      />
-                    </template>
-                  </v-edit-dialog>
-                </td>
-                <td>
-                  <v-edit-dialog
-                    :return-value.sync="props.item.nameAr"
-                    large
-                    lazy
-                    persistent
-                    @save="saveInline"
-                    @cancel="cancelInline"
-                    @open="openInline"
-                    @close="closeInline"
-                  >
-                    <div>{{ props.item.nameAr }}</div>
-                    <template v-slot:input>
-                      <v-text-field
-                        v-model="props.item.nameAr"
+                        v-model="props.item.name"
                         :rules="[max25chars]"
                         label="Edit"
                         single-line

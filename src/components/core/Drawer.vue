@@ -84,6 +84,11 @@ export default {
        icon: 'mdi-clipboard-groups',
        text: 'User Groups'
       },
+       {
+       to: '/dashboard/tags',
+       icon: 'mdi-clipboard-groups',
+       text: 'Tags'
+      },
       {
         to: '/dashboard/user-profile',
         icon: 'mdi-account',
