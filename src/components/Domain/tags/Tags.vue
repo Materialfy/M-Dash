@@ -14,7 +14,7 @@
         <div>
           <material-card
             color="general"
-            title="User Groups Table"
+            title="Tags Table"
             text="Such a classic table"
           >
             <v-spacer/>

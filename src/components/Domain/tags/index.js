@@ -14,7 +14,7 @@ export default {
       headers: [
         { text: 'Id', align: 'left', value: 'id'},
         { text: '-----Actions-----', value: 'actions', sortable: false },
-        { text: 'name', value: 'name' },
+        { text: 'Name', value: 'name' },
       ],
       editedIndex: -1,
       editedItem: {
@@ -25,7 +25,7 @@ export default {
   
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New Tag' : 'Edit Tag'
       }
     },
   
@@ -71,7 +71,7 @@ export default {
   
       deleteItem (item) {
         const index = this.itemsList.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.itemsList.splice(index, 1)
+        confirm('Are you sure you want to delete this Tag?') && this.itemsList.splice(index, 1)
         this.editedItem = Object.assign({}, item)
         let endpoint = `tags/${this.editedItem.id}`
         let method = 'delete'
@@ -104,7 +104,7 @@ export default {
           let endpoint = `tags`
           let method = 'post'
           this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-            .then((response) => console.log('new Item'))
+            .then((response) => console.log('new Tag'))
             .catch(error => {
               console.log(error)
               this.cancelInline
