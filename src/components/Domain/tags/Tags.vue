@@ -33,8 +33,7 @@
                   dark
                   class="mb-2"
                   v-on="on">New Tag</v-btn>
-              </template>
-
+              </template>              
               <v-card>
                 <v-card-text>
                   <v-container grid-list-md >
