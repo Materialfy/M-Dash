@@ -8,7 +8,7 @@ export default {
       commit('auth_request')
       axios.post('/login', { username: userData.username, password: userData.password })
         .then(response => {
-          const token = response.data.access_token
+          const token = response.data.token
           const user = response.data.userId
           console.log(response)
           // storing jwt in localStorage. https cookie is safer place to store
