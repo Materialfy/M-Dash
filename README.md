@@ -100,7 +100,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 
 ## Bugs
 - Notification drawer is currently shifted due to a change in the layout
-- Chart js header is not correctly displaying in mobile due to aspect ration change
+- Chart js header is not correctly displaying in mobile due to aspect ratio change
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
@@ -110,7 +110,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 - Run `npm run dev` or `yarn serve` to start a local development server
 - A new tab will be opened in your browser
 
-After installiing the dependencies you can also run additional npm tasks such as
+After installing the dependencies you can also run additional npm tasks such as
 - `npm run build` to build your app for production
 - `npm run lint` to run linting.
 
@@ -183,7 +183,7 @@ Within the download you'll find the following directories and files:
     │   ├───DashViews
     │   │       ComplexTables.vue      # has pop up edit and inline edit crud tables without api. This is the page in the gif but its not         │   │        being used any more in the current build
     │   │
-    │   │       Dashboard.vue          # this is the actual home screen dashboard with chartis js and other stuff
+    │   │       Dashboard.vue          # this is the actual home screen dashboard with chartist js and other stuff
     │   │       Icons.vue
     │   │       Maps.vue 
     │   │       Notifications.vue
@@ -202,7 +202,7 @@ Within the download you'll find the following directories and files:
     │   │
     │   ├───material                   # all of these files where made by creative time to have a custom theme
     │   │       Card.vue  
-    │   │       ChartCard.vue                 # you can change the charts aspect ration and size with :ratio. 
+    │   │       ChartCard.vue                 # you can change the charts aspect ratio and size with :ratio. 
     │   │                                       use the settings here https://github.com/Yopadd/vue-chartist
     │   │       Notification.vue
     │   │       StatsCard.vue
