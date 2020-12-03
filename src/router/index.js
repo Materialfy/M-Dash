@@ -13,6 +13,7 @@ import VueAnalytics from 'vue-analytics'
 import Router from 'vue-router'
 import store from '../store'
 import Meta from 'vue-meta'
+import NProgress from "nprogress";
 
 // Routes
 import paths from './paths'
@@ -25,7 +26,7 @@ const router = new Router({
   mode: 'history',
   routes: paths,
 
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     }
@@ -48,7 +49,18 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-})
+});
+
+router.beforeResolve((to, from, next) => {
+  if (to.path) {
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
+});
 
 Vue.use(Meta)
 
