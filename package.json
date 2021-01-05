@@ -24,7 +24,7 @@
     "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-service": "^3.12.1",
     "@vue/eslint-config-standard": "^3.0.5",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "material-design-icons-iconfont": "^3.0.3",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
