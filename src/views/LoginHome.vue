@@ -4,9 +4,11 @@
     id="login-home"
     dark>
 
-    <transition mode="out-in">
-      <router-view/>
-    </transition>
+    <v-content>
+      <transition mode="out-in">
+        <router-view/>
+      </transition>
+    </v-content>
 
   </v-app>
 </template>

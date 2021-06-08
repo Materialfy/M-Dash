@@ -100,17 +100,17 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 
 ## Bugs
 - Notification drawer is currently shifted due to a change in the layout
-- Chart js header is not correctly displaying in mobile due to aspect ration change
+- Chart js header is not correctly displaying in mobile due to aspect ratio change
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
-- Open your terminal(Shiift + right-click in the folder on windows)
+- Open your terminal(Shift + right-click in the folder on windows)
 - Navigate to the project
 - Run `npm install` or `yarn install` if you use [Yarn](https://yarnpkg.com/en/)
 - Run `npm run dev` or `yarn serve` to start a local development server
 - A new tab will be opened in your browser
 
-After installiing the dependencies you can also run additional npm tasks such as
+After installing the dependencies you can also run additional npm tasks such as
 - `npm run build` to build your app for production
 - `npm run lint` to run linting.
 
@@ -129,7 +129,7 @@ We used the latest 3.x [Vue CLI](https://github.com/vuejs/vue-cli)
 ### Special thanks
 To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template 
 
-I added a lot of features to his base template but kept the overall theme/design. Wil lcontinue to add more!
+I added a lot of features to his base template but kept the overall theme/design. Will continue to add more!
 
 ## Quick start
 
@@ -183,7 +183,7 @@ Within the download you'll find the following directories and files:
     │   ├───DashViews
     │   │       ComplexTables.vue      # has pop up edit and inline edit crud tables without api. This is the page in the gif but its not         │   │        being used any more in the current build
     │   │
-    │   │       Dashboard.vue          # this is the actual home screen dashboard with chartis js and other stuff
+    │   │       Dashboard.vue          # this is the actual home screen dashboard with chartist js and other stuff
     │   │       Icons.vue
     │   │       Maps.vue 
     │   │       Notifications.vue
@@ -202,7 +202,7 @@ Within the download you'll find the following directories and files:
     │   │
     │   ├───material                   # all of these files where made by creative time to have a custom theme
     │   │       Card.vue  
-    │   │       ChartCard.vue                 # you can change the charts aspect ration and size with :ratio. 
+    │   │       ChartCard.vue                 # you can change the charts aspect ratio and size with :ratio. 
     │   │                                       use the settings here https://github.com/Yopadd/vue-chartist
     │   │       Notification.vue
     │   │       StatsCard.vue

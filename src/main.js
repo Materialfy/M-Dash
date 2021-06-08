@@ -22,6 +22,7 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import axios from 'axios'
+import NProgress from "nprogress";
 
 Vue.prototype.$http = axios
 // Sets the default url used by all of this axios instance's requests
@@ -32,6 +33,34 @@ const token = localStorage.getItem('token')
 if (token) {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }
+
+axios.interceptors.request.use(
+  function(request) {
+    // Do something before request is sent
+    NProgress.start();
+    return request;
+  },
+  function(error) {
+    // Do something with request error
+    console.log(error);
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(
+  function(response) {
+    NProgress.done();
+    return response;
+  },
+  function(error) {
+    // Do something with response error
+    console.log(error);
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);
 
 // Sync store with router
 sync(store, router)
