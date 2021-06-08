@@ -3,7 +3,11 @@
 
 ![version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 
-# Back under active development
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
+
+## Back under active development
+
+You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 

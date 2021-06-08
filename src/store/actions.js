@@ -15,7 +15,7 @@ Some do not need anything passed in besides the commit object like "logout"
 export default {
   login ({ commit }, userData) {
     return new Promise((resolve, reject) => {
-      //why am i commiting a mutation this early, should be getter?
+      //why am i commiting a mutation this early, should be getter? it is for an feature not implemented in this version
       commit('auth_request')
       axios.post('/auth', { username: userData.username, password: userData.password })
         .then(response => {
