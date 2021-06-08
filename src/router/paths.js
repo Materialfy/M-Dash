@@ -5,8 +5,9 @@
  */
 import store from '../store'
 export default [
+  // This is a catch all aka page not found route
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     meta: {
       name: '',
       requiresAuth: true
@@ -15,7 +16,7 @@ export default [
       path: '/dashboard'
     }
   },
-  // This  allows you to have pages apart of the app but no rendered inside the dash
+  // This section is primarily for the login but it allows to add other pages to app but rendered outside the dashboard layout like the login
   {
     path: '/',
     meta: {
