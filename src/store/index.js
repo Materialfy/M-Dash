@@ -1,8 +1,5 @@
 /**
  * Vuex
- *
- * @library
- *
  * https://vuex.vuejs.org/en/
  */
 
