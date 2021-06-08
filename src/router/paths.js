@@ -7,7 +7,7 @@ import store from '../store'
 export default [
   // This is a catch all aka page not found route
   {
-    path: '/:pathMatch(.*)*',
+    path: '*',
     meta: {
       name: '',
       requiresAuth: true

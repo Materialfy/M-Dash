@@ -10,7 +10,7 @@
 // Lib imports
 import Vue from 'vue'
 import VueAnalytics from 'vue-analytics'
-import { createRouter, createWebHistory } from 'vue-router'
+import Router from 'vue-router'
 import store from '../store'
 import Meta from 'vue-meta'
 
@@ -20,8 +20,9 @@ import paths from './paths'
 Vue.use(Router)
 
 // Create a new router
-const router = createRouter({
-  history: createWebHistory('/control'),
+const router = new Router({
+  base: '/control',
+  mode: 'history',
   routes: paths,
 
   scrollBehavior (to, from, savedPosition) {
