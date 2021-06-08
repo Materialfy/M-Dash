@@ -3,7 +3,7 @@
 
 ![version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 
-
+# Back under active development
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
