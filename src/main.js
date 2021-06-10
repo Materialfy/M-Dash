@@ -18,8 +18,9 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import axios from 'axios'
 import NProgress from "nprogress";
 
+// makes axios the default http handler
 Vue.prototype.$http = axios
-// Sets the default url used by all of this axios instance's requests
+// Sets the default global url used by all of this axios instance's requests
 axios.defaults.baseURL = 'http://127.0.0.1:8001/admin/'
 axios.defaults.headers.get['Accept'] = 'application/json'
 
@@ -28,6 +29,7 @@ if (token) {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }
 
+// research if this is used anywhere
 axios.interceptors.request.use(
   function(request) {
     // Do something before request is sent

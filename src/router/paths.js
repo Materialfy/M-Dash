@@ -16,7 +16,7 @@ export default [
       path: '/dashboard'
     }
   },
-  // This section is primarily for the login but it allows to add other pages to app but rendered outside the dashboard layout like the login
+  // This section is primarily for the login but it allows you to add other pages to be rendered outside the dashboard layout like the login
   {
     path: '/',
     meta: {
@@ -25,20 +25,20 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "routes" */ `@/views/LoginHome.vue`),
-    // redirect if already signed in
-    beforeEnter: (to, from, next) => {
-      if (store.getters.authorized) {
-        next('/dashboard')
-      } else {
-        next()
-      }
-    },
-    children: [
-      {
-        path: '',
-        component: () => import(`@/components/LoginForm.vue`)
-      }
-    ]
+      // redirect if already signed in
+      beforeEnter: (to, from, next) => {
+        if (store.getters.authorized) {
+          next('/dashboard')
+        } else {
+          next()
+        }
+      },
+      children: [
+        {
+          path: '',
+          component: () => import(`@/components/LoginForm.vue`)
+        }
+      ]
   },
   // add any extra routes that you want rendered in the dashboard as a child below. Change toolbar names here
   {

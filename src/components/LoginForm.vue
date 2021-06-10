@@ -83,22 +83,23 @@ export default {
       username: '',
       password: '',
       errorMessages: 'Incorrect login info',
-      snackbar: false,
+      snackbar: false, // this is the wrong pass notification
       color: 'general',
       showPassword: false
     }
   },
 
   // Sends action to Vuex that will log you in and redirect to the dash otherwise, error
+  //needs to finish implementing using the states in mutations
   methods: {
     login: function () {
-      let username = this.username
+      let username = this.username // you use this.username to access the username saved in the data
       let password = this.password
-      this.$store.dispatch('login', { username, password })
-        .then(() => this.$router.push('/dashboard'))
+      this.$store.dispatch('login', { username, password }) //calls the login action and passes login info
+        .then(() => this.$router.push('/dashboard')) //redirect to dash after login
         .catch(err => {
           console.log(err)
-          this.snackbar = true
+          this.snackbar = true //shows error on wrong pass
         }
         )
     }

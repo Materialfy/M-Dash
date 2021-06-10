@@ -74,7 +74,7 @@ export default {
   },
   updateTableItem ({ commit }, tableData) {
     return new Promise((resolve, reject) => {
-      let httpmethod = tableData.method
+      let httpmethod = tableData.method //allows you to delete/update and change the request method type without hardcoding
       axios({ url: `/${tableData.endpoint}`, method: httpmethod, data: tableData.tableItem })
         .then(response => {
           resolve(response)
