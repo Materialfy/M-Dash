@@ -1,3 +1,4 @@
+<!-- This renders any components insidet the dashboard with the elements you expect -->
 <template>
   <v-app
     id="dashboard-view"
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+//feel free to rename the title
 export default {
   name: 'DashboardView',
   metaInfo () {

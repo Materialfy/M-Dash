@@ -26,6 +26,7 @@ const router = new Router({
   mode: 'history',
   routes: paths,
 
+  // this allows your SPA to act more like a traditional webpage allowing the user to use back and forward buttons
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition

@@ -5,18 +5,9 @@
  */
 import store from '../store'
 export default [
-  // This is a catch all aka page not found route
-  {
-    path: '*',
-    meta: {
-      name: '',
-      requiresAuth: true
-    },
-    redirect: {
-      path: '/dashboard'
-    }
-  },
+ 
   // This section is primarily for the login but it allows you to add other pages to be rendered outside the dashboard layout like the login
+  //if you want to add more external routes make them in the children array
   {
     path: '/',
     meta: {
@@ -24,18 +15,20 @@ export default [
       requiresAuth: false
     },
     component: () =>
-      import(/* webpackChunkName: "routes" */ `@/views/LoginHome.vue`),
-      // redirect if already signed in
+      import(`@/views/ExternalView.vue`),
+      // This checks the state to see if you are already signed in, if so  it redirects. "to" and "from" are unused 
       beforeEnter: (to, from, next) => {
         if (store.getters.authorized) {
           next('/dashboard')
         } else {
-          next()
+          next("login")
         }
       },
       children: [
+        //any components in this path auto render in External
         {
-          path: '',
+          path: '', // you leave this blank if you want it to default to the parents path
+          name: "login",
           component: () => import(`@/components/LoginForm.vue`)
         }
       ]
@@ -44,7 +37,7 @@ export default [
   {
     path: '/dashboard',
     meta: {
-      name: 'Dashboard View',
+      name: 'DashboardView',
       requiresAuth: true
     },
     component: () => import(`@/views/DashboardView.vue`),
@@ -55,9 +48,9 @@ export default [
         component: () => import(`@/components/DashViews/Dashboard.vue`)
       },
       {
-        path: 'user-profile',
+        path: 'user-profile', // ends up as /dashboard/user-profile
         meta: {
-          name: 'User Profile',
+          name: 'UserProfile',
           requiresAuth: true
         },
         component: () => import(`@/components/DashViews/UserProfile.vue`)
@@ -65,7 +58,7 @@ export default [
       {
         path: 'table-list',
         meta: {
-          name: 'Table List',
+          name: 'TableList',
           requiresAuth: true
         },
         component: () => import(`@/components/DashViews/SimpleTables.vue`)
@@ -73,7 +66,7 @@ export default [
       {
         path: 'user-tables',
         meta: {
-          name: 'User Table',
+          name: 'UserTable',
           requiresAuth: true
         },
         component: () => import(`@/components/DashViews/UsersTable.vue`)
@@ -81,7 +74,7 @@ export default [
       {
         path: 'tablestest',
         meta: {
-          name: 'Complex Tables test',
+          name: 'ComplexTablesTest',
           requiresAuth: true
         },
         component: () => import(`@/components/DashViews/TableList.vue`)
@@ -119,5 +112,22 @@ export default [
         component: () => import(`@/components/DashViews/Notifications.vue`)
       }
     ]
+  },
+   // This is a catch all aka page not found route. it will send you to the dashboard 
+  {
+    path: '*',
+    redirect: {
+      path: '/dashboard'
+    },
+    meta: {
+      name: '',
+      requiresAuth: true
+    }
+  },
+  //Error component fallback
+  { 
+    path: '/:catchAll(.*)', 
+    component: NotFoundComponent,
+    name: 'NotFound'
   }
 ]

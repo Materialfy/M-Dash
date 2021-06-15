@@ -5,9 +5,7 @@
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
-## Back under active development
-
-You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
+### Back under active development
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
@@ -284,3 +282,4 @@ Within the download you'll find the following directories and files:
             DashboardView.vue  #/ any views that are a child of this will render inside the dash
             LoginHome.vue # any views/components that are a child of this will not have the toolbar etc around it
 ```
+You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
