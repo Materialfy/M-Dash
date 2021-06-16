@@ -10,10 +10,9 @@ import Vuex from 'vuex'
 // Store functionality
 import actions from './actions'
 import getters from './getters'
-import modules from './modules'
 import mutations from './mutations'
 import state from './state'
-import drawerapp from './modules/drawer,js'
+import drawer from './modules/drawer.js'
 
 Vue.use(Vuex)
 
@@ -21,9 +20,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   actions,
   getters,
-  modules,
+  modules: {
+    drawer
+  },
   mutations,
-  drawerapp,
   state
 })
 
