@@ -1,5 +1,7 @@
 module.exports = {
   devServer: {
-    disableHostCheck: true
-  }
+    disableHostCheck: true,
+  },
+  lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: true,
 }

@@ -1,6 +1,6 @@
 {
   "name": "vuetify-admin-dashboard",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,7 +15,8 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.11.1",
     "node-sass": "^6.0.0",
-    "sass-loader": "^12.1.0",
+    "nprogress": "^0.2.0",
+    "sass-loader": "10.1.1",
     "vue": "^2.6.14",
     "vue-chartist": "^2.3.1",
     "vue-meta": "^2.4.0",
