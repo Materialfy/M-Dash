@@ -8,7 +8,6 @@ module.exports = {
   },
   extends: [
     // use the recommended rule set for both plain javascript and vue
-    'standard',
     "eslint:recommended",
     'plugin:vue/recommended'
   ],
