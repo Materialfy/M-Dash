@@ -1,10 +1,15 @@
 module.exports = {
   root: true,
+  // this section will be used to determine which APIs are available to us
+  // (i.e are we running in a browser environment or a node.js env)
   env: {
-    node: true
+    node: true,
+    browser: true
   },
-  'extends': [
+  extends: [
+    // use the recommended rule set for both plain javascript and vue
     'standard',
+    "eslint:recommended",
     'plugin:vue/recommended'
   ],
   rules: {
