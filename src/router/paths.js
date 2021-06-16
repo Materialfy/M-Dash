@@ -29,7 +29,7 @@ export default [
         {
           path: '', // you leave this blank if you want it to default to the parents path
           name: "login",
-          component: () => import(`@/components/LoginForm.vue`)
+          component: () => import(`@/components/externalviews/LoginForm.vue`)
         }
       ]
   },
