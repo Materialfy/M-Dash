@@ -3,5 +3,5 @@ module.exports = {
     disableHostCheck: true,
   },
   lintOnSave: process.env.NODE_ENV !== 'production',
-  lintOnSave: true,
+  lintOnSave: false,
 }

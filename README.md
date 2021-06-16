@@ -5,7 +5,10 @@
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
-### Back under active development
+## Back under active development
+
+### Check changelog.markdown for updates on whats new
+
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
