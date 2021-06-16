@@ -13,6 +13,7 @@ import getters from './getters'
 import modules from './modules'
 import mutations from './mutations'
 import state from './state'
+import drawerapp from './modules/drawer,js'
 
 Vue.use(Vuex)
 
@@ -22,6 +23,7 @@ const store = new Vuex.Store({
   getters,
   modules,
   mutations,
+  drawerapp,
   state
 })
 
