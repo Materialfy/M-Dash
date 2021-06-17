@@ -1,9 +1,6 @@
-This is the public repo version, note changes made in this version that will need to be carried over
-
-This is also a general changelog
+This is a general changelog
 
 ## Additions/changes:
-
 updated loginview -> externalview.vue. Makes more sense and i suck at naming things
 moved externalview.vue into externalviews folder
 created drawer.js to house the modules in various file in one places
@@ -18,9 +15,11 @@ removed the extra <template> in the same slot that was unnecessary in Complextab
 renamed unused complextables.vue to complextables page to clarify what it is, its a view
 ranamed simpletable/tablelist
 renamed DashboardViews to dashboard views to clarify where those components render
+removed unused response from UsersTables .then((response) => {
+
+
 
 ## Made/Clarified documenting comments to explain code in:
-
 router index.js
 router paths.js
 getters.js

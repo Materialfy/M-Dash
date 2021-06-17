@@ -13,7 +13,7 @@ export default [
 			name: "",
 			requiresAuth: false,
 		},
-		component: () => import(`@/views/ExternalView.vue`),
+		component: () => import(`@/components/layout/ExternalView.vue`),
 		// This checks the state to see if you are already signed in, if so  it redirects. "to" and "from" are unused
 		beforeEnter: (to, from, next) => {
 			if (store.getters.authorized) {
@@ -38,7 +38,7 @@ export default [
 			name: "DashboardView",
 			requiresAuth: true,
 		},
-		component: () => import(`@/views/DashboardView.vue`),
+		component: () => import(`@/components/layout/DashboardView.vue`),
 		children: [
 			{
 				path: "",
@@ -59,7 +59,7 @@ export default [
 					name: "TableList",
 					requiresAuth: true,
 				},
-				component: () => import(`@/components/DashboardViews/SimpleTables.vue`),
+				component: () => import(`@/components/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
 				path: "user-tables",
@@ -75,7 +75,7 @@ export default [
 					name: "ComplexTablesTest",
 					requiresAuth: true,
 				},
-				component: () => import(`@/components/DashboardViews/TableList.vue`),
+				component: () => import(`@/components/DashboardViews/TableListView.vue`),
 			},
 			{
 				path: "typography",

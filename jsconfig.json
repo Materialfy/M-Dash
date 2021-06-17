@@ -1,4 +1,4 @@
-// tsconfig.json
+// jsconfig.json
 {
 	"compilerOptions": {
 	  "baseUrl": ".",

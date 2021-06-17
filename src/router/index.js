@@ -19,7 +19,7 @@ Vue.use(Router)
 
 // Create a new router
 const router = new Router({
-  base: '/control',
+  base: '/',
   mode: 'history',
   routes: paths,
 

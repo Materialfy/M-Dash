@@ -314,7 +314,7 @@ export default {
       const index = this.UserList.indexOf(item)
       let tableItem = this.editedItem
       this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-        .then((response) => {
+        .then(() => {
           this.UserList.splice(index, 1)
           this.saveInline()
         })
@@ -347,7 +347,7 @@ export default {
         let endpoint = `users/update/${this.editedItem.username}`
         let method = 'patch'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then((response) => {
+          .then(() => {
             Object.assign(this.UserList[this.editedIndex], this.editedItem)
             this.saveInline()
           })
@@ -360,7 +360,7 @@ export default {
         let endpoint = `users/new-user`
         let method = 'post'
         this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then((response) => {
+          .then(() => {
             console.log('new user')
             this.UserList.push(this.editedItem)
           })

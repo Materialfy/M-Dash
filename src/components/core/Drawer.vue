@@ -72,6 +72,7 @@ import {
 
 export default {
   data: () => ({
+    // eslint-disable-next-line no-undef
     logo: require('@/assets/img/redditicon.png'),
     links: [
       {

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
+// eslint-disable-next-line no-undef
 const requireComponent = require.context(
   '@/components', true, /\.vue$/
 )
