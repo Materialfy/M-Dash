@@ -46,6 +46,7 @@ export default {
       localStorage.removeItem('token')
       delete axios.defaults.headers.common['Authorization']
       resolve()
+      .catch(error => reject(error)
     })
   },
   refreshtoken ({ commit }) {
