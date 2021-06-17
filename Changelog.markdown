@@ -10,6 +10,7 @@ created drawer.js to house the modules in various file in one places
 deleted the vuex.vue file in utils and put the few functions into drawer.js
 removed app folder and index and put into drawer.js : I did this to simplify things 
 Moved packages from devdependencies to dependencies
+fixed a lot of the "dependency hell" lol
 
 
 
