@@ -120,14 +120,13 @@ export default [
       path: '/dashboard'
     },
     meta: {
-      name: '',
       requiresAuth: true
     }
   },
   //Error component fallback
   { 
     path: '/:catchAll(.*)', 
-    component: NotFoundComponent,
+    component:  () => import(`@/components/error/NotFound.vue`),
     name: 'NotFound'
   }
 ]
