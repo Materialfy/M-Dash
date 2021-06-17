@@ -62,8 +62,6 @@
                 <div class="mt-3 title">
                   Update Fat
                 </div>
-              </template>
-              <template #input>
                 <v-text-field
                   v-model="props.item.fat"
                   :rules="[max25chars]"
@@ -94,8 +92,7 @@
                 <div class="mt-3 title">
                   Update Protein
                 </div>
-              </template>
-              <template #input>
+
                 <v-text-field
                   v-model="props.item.protein"
                   :rules="[max25chars]"

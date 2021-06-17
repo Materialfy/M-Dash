@@ -2,24 +2,25 @@ This is the public repo version, note changes made in this version that will nee
 
 This is also a general changelog
 
-
 ## Additions/changes:
+
 updated loginview -> externalview.vue. Makes more sense and i suck at naming things
 moved externalview.vue into externalviews folder
 created drawer.js to house the modules in various file in one places
 deleted the vuex.vue file in utils and put the few functions into drawer.js
-removed app folder and index and put into drawer.js : I did this to simplify things 
+removed app folder and index and put into drawer.js : I did this to simplify things
 Moved packages from devdependencies to dependencies
 fixed a lot of the "dependency hell" lol
 added error catch to logout action
 removed unused commit on updatetable action
 updated drawer.js and created drawersettoggle.js
-removed the extra <template> in the same slot that was unnecessary in Complextables.vue
-
-
-
+removed the extra <template> in the same slot that was unnecessary in Complextables.vue/inlineedit.vue
+renamed unused complextables.vue to complextables page to clarify what it is, its a view
+ranamed simpletable/tablelist
+renamed DashboardViews to dashboard views to clarify where those components render
 
 ## Made/Clarified documenting comments to explain code in:
+
 router index.js
 router paths.js
 getters.js
