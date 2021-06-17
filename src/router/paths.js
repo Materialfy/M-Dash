@@ -14,8 +14,7 @@ export default [
       name: '',
       requiresAuth: false
     },
-    component: () =>
-      import(`@/views/ExternalView.vue`),
+    component: () => import(`@/views/ExternalView.vue`),
       // This checks the state to see if you are already signed in, if so  it redirects. "to" and "from" are unused 
       beforeEnter: (to, from, next) => {
         if (store.getters.authorized) {

@@ -7,7 +7,9 @@
 	"settings": {
 		"cSpell.words": [
 			"externalview",
-			"loginview"
+			"externalviews",
+			"loginview",
+			"tablestest"
 		]
 	}
 }

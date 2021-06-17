@@ -1,15 +1,12 @@
 
 /**
  * Vue Router
- *
- * @library
- *
  * https://router.vuejs.org/en/
  */
 
 // Lib imports
 import Vue from 'vue'
-import VueAnalytics from 'vue-analytics'
+//import VueAnalytics from 'vue-analytics'
 import Router from 'vue-router'
 import store from '../store'
 import Meta from 'vue-meta'
@@ -69,14 +66,14 @@ Vue.use(Meta)
 // Bootstrap Analytics
 // Set in .env
 // https://github.com/MatteoGabriele/vue-analytics
-if (process.env.GOOGLE_ANALYTICS) {
-  Vue.use(VueAnalytics, {
-    id: process.env.GOOGLE_ANALYTICS,
-    router,
-    autoTracking: {
-      page: process.env.NODE_ENV !== 'development'
-    }
-  })
-}
+// if (process.env.GOOGLE_ANALYTICS) {
+//   Vue.use(VueAnalytics, {
+//     id: process.env.GOOGLE_ANALYTICS,
+//     router,
+//     autoTracking: {
+//       page: process.env.NODE_ENV !== 'development'
+//     }
+//   })
+// }
 
 export default router
