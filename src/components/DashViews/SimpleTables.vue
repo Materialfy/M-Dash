@@ -8,11 +8,9 @@
       justify-center
       wrap
     >
-
       <v-flex
         md12
       >
-
         <material-card
           color="general"
           title="Simple Table"
@@ -21,7 +19,10 @@
           <v-btn
             color="general"
             dark
-            class="mb-2" >New Item</v-btn>
+            class="mb-2"
+          >
+            New Item
+          </v-btn>
           <v-data-table
             :headers="headers"
             :items="items"
@@ -43,7 +44,9 @@
               <td>{{ item.name }}</td>
               <td>{{ item.country }}</td>
               <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
+              <td class="text-xs-right">
+                {{ item.salary }}
+              </td>
             </template>
           </v-data-table>
         </material-card>
@@ -80,7 +83,9 @@
               <td>{{ item.name }}</td>
               <td>{{ item.country }}</td>
               <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
+              <td class="text-xs-right">
+                {{ item.salary }}
+              </td>
             </template>
           </v-data-table>
         </material-card>

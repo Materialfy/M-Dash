@@ -25,7 +25,9 @@
       <v-container grid-list-xl>
         <v-layout wrap>
           <v-flex xs12>
-            <div class="text-xs-center body-2 text-uppercase ">Sidebar Filters</div>
+            <div class="text-xs-center body-2 text-uppercase ">
+              Sidebar Filters
+            </div>
 
             <v-layout justify-center>
               <v-avatar
@@ -37,12 +39,14 @@
                 @click="setColor(c)"
               />
             </v-layout>
-            <v-divider class="mt-3"/>
+            <v-divider class="mt-3" />
           </v-flex>
           <v-flex
             xs12
           >
-            <div class="text-xs-center body-2 text-uppercase ">Images</div>
+            <div class="text-xs-center body-2 text-uppercase ">
+              Images
+            </div>
           </v-flex>
           <v-flex
             v-for="img in images"

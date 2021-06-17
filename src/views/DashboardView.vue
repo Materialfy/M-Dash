@@ -2,7 +2,8 @@
 <template>
   <v-app
     id="dashboard-view"
-    dark>
+    dark
+  >
     <core-filter />
 
     <core-toolbar />
@@ -16,7 +17,6 @@
     </v-content>
 
     <core-footer v-if="$route.meta.name !== 'Maps'" />
-
   </v-app>
 </template>
 

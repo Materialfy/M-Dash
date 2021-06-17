@@ -2,14 +2,13 @@
 <template>
   <v-app
     id="login-home"
-    dark>
-
+    dark
+  >
     <v-content>
       <transition mode="out-in">
-        <router-view/>
+        <router-view />
       </transition>
     </v-content>
-
   </v-app>
 </template>
 
