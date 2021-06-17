@@ -11,6 +11,10 @@ deleted the vuex.vue file in utils and put the few functions into drawer.js
 removed app folder and index and put into drawer.js : I did this to simplify things 
 Moved packages from devdependencies to dependencies
 fixed a lot of the "dependency hell" lol
+added error catch to logout action
+removed unused commit on updatetable action
+updated drawer.js and created drawersettoggle.js
+removed the extra <template> in the same slot that was unnecessary in Complextables.vue
 
 
 

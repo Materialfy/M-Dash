@@ -1,3 +1,5 @@
+import { set, toggle } from './drawersettoggle'
+
 //need to create some getters and replace some code in the drawer component files with this
 const getters = {};
 
@@ -6,12 +8,6 @@ const actions = {};
 
 //mutations
 const mutations = {
-	//these are nested arrow functions aka curried functions
-	// this passes in the state to thats gonna be changed and the payload with the data to change it
-	// example: set = color => return (state, newcolor) => return (state[color] = newcolor)
-	set: (property) => (state, payload) => (state[property] = payload),
-	toggle: (property) => (state) => (state[property] = !state[property]),
-
 	// calls just the first part of the nested functions, but the second part still happens
 	// they are called in toolbar.vue, filter.vue and drawer.vue
 	//they change the state of what they are setting(image,color etc)
@@ -22,6 +18,8 @@ const mutations = {
 };
 
 export default {
+
+
 	namespaced: true,
 	mutations,
 	actions,
