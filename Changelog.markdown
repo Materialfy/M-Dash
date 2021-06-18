@@ -27,6 +27,7 @@ tried adding v-main to externalviews.vue
 switching v-content to v-main Loginform.vue, Externalview, dashboardview
 moved helloworld to externalviews
 changed import of hellowworld
+removed the path from external view parent
 
 
 ## Made/Clarified documenting comments to explain code in:

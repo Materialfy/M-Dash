@@ -8,7 +8,7 @@ export default [
 	// This section is primarily for the login but it allows you to add external other pages to be rendered outside the dashboard layout like the login
 	//if you want to add more external routes make them in the children array
 	{// using the named route option 
-		path: "/",
+		path: "/main",
 		meta: {
 			name: "External",
 			requiresAuth: false,
@@ -25,27 +25,30 @@ export default [
 		children: [
 			//any components in this path auto render in External
 			{
-				path: "/login", // you leave this blank if you want it to default to the parents path
+				path: "", // you leave this blank if you want it to default to the parents path
 				name: "login",
 				component: () => import(`@/components/externalviews/LoginForm.vue`),
 			},
-			// {
-			// 	path: "/home", // you leave this blank if you want it to default to the parents path
-			// 	name: "home",
-			// 	component: () => import(`@/components/externalviews/Home.vue`),
-			// },
+			{
+				path: "/home", // you leave this blank if you want it to default to the parents path
+				name: "home",
+				component: () => import(`@/components/externalviews/Home.vue`),
+			},
 		],
 	},
+	
 	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
-	{
-		path: '/home',
-		meta: {
-			name: 'home',
-			requiresAuth: false,
-		},
-		component: () => import(`@/components/externalviews/Home.vue`)
-	},
-	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
+	// {
+	// 	path: '/home',
+	// 	meta: {
+	// 		name: 'home',
+	// 		requiresAuth: false,
+	// 	},
+	// 	component: () => import(`@/components/externalviews/Home.vue`)
+	// },
+	
+	// This section rendered inside the dashboard layout with the toolbar and footer etc, 
+	//add any extra routes that you want, as a child below. Change toolbar names here by changing name
 	{
 		path: '/dashboard',
 		meta: {
@@ -55,7 +58,7 @@ export default [
 		component: () => import(`@/components/layout/DashboardView.vue`),
 		children: [
 			{
-				path: "",
+				path: "", //defaults to /dashboard if left blank
 				name: "Dashboard",
 				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
 			},
@@ -134,7 +137,7 @@ export default [
 			path: "/dashboard",
 		},
 		meta: {
-			requiresAuth: true,
+			requiresAuth: false,
 		},
 	},
 	//Error component fallback
