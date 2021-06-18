@@ -53,7 +53,7 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-//progress bar
+//N progress bar
 router.beforeResolve((to, from, next) => {
    if (to.path) {
      NProgress.start();

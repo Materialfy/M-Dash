@@ -35,6 +35,10 @@ updated external meta data
 reverted switch and just used if else in global nav guard
 removed one of the per route guards, left one for example
 revert nprogress being commented out to test
+switched to use axios in plugins to simplfy main.js
+made base isntance called rest for axios and set the vue http to it
+hopefully it works otherwise gotta find proper way to import
+also imported rest into main.js and made vue use it
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js
