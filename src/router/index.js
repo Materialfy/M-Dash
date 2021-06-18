@@ -10,7 +10,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store'
 import Meta from 'vue-meta'
-//import NProgress from "nprogress";
+import NProgress from "nprogress";
 
 // Routes
 import paths from './paths'
@@ -53,17 +53,17 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-// //progress bar
-// router.beforeResolve((to, from, next) => {
-//   if (to.path) {
-//     NProgress.start();
-//   }
-//   next();
-// });
+//progress bar
+router.beforeResolve((to, from, next) => {
+   if (to.path) {
+     NProgress.start();
+   }
+   next();
+ });
 
-// router.afterEach(() => {
-//   NProgress.done();
-// });
+ router.afterEach(() => {
+   NProgress.done();
+ });
 
 Vue.use(Meta)
 

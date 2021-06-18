@@ -34,6 +34,7 @@ disabled per route guards, the are still theere if you want to use them
 updated external meta data
 reverted switch and just used if else in global nav guard
 removed one of the per route guards, left one for example
+revert nprogress being commented out to test
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js
