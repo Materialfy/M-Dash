@@ -30,6 +30,7 @@ changed import of hellowworld
 removed the path from external view parent
 changed beforeenter naivagation gaurds so they check for route name and auth status
 added switch to beforeeach route gaurd to check for auth or redirect
+disabled per route guards, the are still theere if you want to use them
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js

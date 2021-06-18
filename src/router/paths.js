@@ -57,8 +57,8 @@ export default [
 	{
 		path: '/dashboard',
 		meta: {
-			name: 'DashboardView',
-			requiresAuth: true,
+			name: 'dashboard-view',
+			requiresAuth: false,
 		},
 		component: () => import(`@/components/layout/DashboardView.vue`),
 		children: [
@@ -66,7 +66,7 @@ export default [
 				path: "", //defaults to /dashboard if left blank
 				meta: {
 					name: 'Dashboard',
-					requiresAuth: true,
+					requiresAuth: false,
 				},
 				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
 			},
