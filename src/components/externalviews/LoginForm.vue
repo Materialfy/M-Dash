@@ -1,5 +1,5 @@
 <template>
-  <v-content>
+  <v-main>
     <v-container
       fill-height
       fluid
@@ -79,7 +79,7 @@
         </v-flex>
       </v-layout>
     </v-container>
-  </v-content>
+  </v-main>
 </template>
 
 <script>

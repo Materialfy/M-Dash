@@ -23,6 +23,10 @@ removed extra vue/use(vuetify) in main
 add external and dashboard names in paths.js
 commented out nprogres in main.js and router/index.js
 updated vueitfy.js to new icon format
+tried adding v-main to externalviews.vue
+switching v-content to v-main Loginform.vue, Externalview, dashboardview
+moved helloworld to externalviews
+changed import of hellowworld
 
 
 ## Made/Clarified documenting comments to explain code in:

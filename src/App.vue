@@ -37,7 +37,8 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main> 
+      <!-- this is the main thing that renders apps using vue-router -->
       <router-view />
     </v-main>
   </v-app>

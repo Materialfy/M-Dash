@@ -29,12 +29,21 @@ export default [
 				name: "login",
 				component: () => import(`@/components/externalviews/LoginForm.vue`),
 			},
-			{
-				path: "/home", // you leave this blank if you want it to default to the parents path
-				name: "home",
-				component: () => import(`@/components/externalviews/Home.vue`),
-			},
+			// {
+			// 	path: "/home", // you leave this blank if you want it to default to the parents path
+			// 	name: "home",
+			// 	component: () => import(`@/components/externalviews/Home.vue`),
+			// },
 		],
+	},
+	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
+	{
+		path: '/home',
+		meta: {
+			name: 'home',
+			requiresAuth: false,
+		},
+		component: () => import(`@/components/externalviews/Home.vue`)
 	},
 	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
 	{
