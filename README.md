@@ -272,4 +272,4 @@ To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboa
 I added a lot of functionality and features to his base desgin template, but kept the overall theme/design. Will continue to add more!
 
 
-You can [send a tweet to me](https://twitter.com/SourBlueDream) if you need minor assistance 
+You can [send me a tweet](https://twitter.com/SourBlueDream) if you need minor assistance 
