@@ -5,8 +5,10 @@ import theme from './theme'
 import '@mdi/font/css/materialdesignicons.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 Vue.use(Vuetify, {
-    iconfont: 'mdi',
-    theme
+    icons: {
+      iconfont: 'mdi',
+    },
+      theme
   })
 
 export default new Vuetify({

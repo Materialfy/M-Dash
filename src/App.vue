@@ -1,55 +1,50 @@
+<!--  This is set up this way since i wanted to have two completely different website layouts 
+depending on if you are logged in or not , 
+so that is what ExternalView and DashboardView are for. LoginForm renders in Externalview-->
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer />
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
+  <main>
+    <transition mode="out-in">
       <router-view />
-    </v-main>
-  </v-app>
+    </transition>
+  </main>
 </template>
 
 <script>
-
+// checks to see if auth jwt token is valid or has expired, if it gets back 401 error log out
 export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
+  created: function () {
+    this.$http.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        if (error.response.status === 401) {
+          if (this.$store.getters.authorized) {
+            this.$store.dispatch("refreshtoken");
+          } else {
+            return Promise.reject(error);
+          }
+        } else {
+          return Promise.reject(error);
+        }
+      }
+    );
+  },
 };
 </script>
+
+
+<style lang="scss">
+	@import "@/styles/index.scss";
+	/* Remove in 1.2 */
+	.v-datatable thead th.column.sortable i {
+		vertical-align: unset;
+	}
+</style>
+
+
+
+d th.column.sortable i {
+  vertical-align: unset;
+}
+</style>

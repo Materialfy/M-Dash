@@ -20,6 +20,9 @@ switched from vuetify full install to vuetify plugin, same for vue router to the
 switched from vuetify in main.js to the one in the plugin folder to simplify that file(a lot ended up in there)
 switched icon imports into vuetify.js
 removed extra vue/use(vuetify) in main
+add external and dashboard names in paths.js
+commented out nprogres in main.js and router/index.js
+updated vueitfy.js to new icon format
 
 
 ## Made/Clarified documenting comments to explain code in:

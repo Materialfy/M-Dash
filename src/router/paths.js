@@ -5,12 +5,12 @@
  */
 import store from "../store";
 export default [
-	// This section is primarily for the login but it allows you to add other pages to be rendered outside the dashboard layout like the login
+	// This section is primarily for the login but it allows you to add external other pages to be rendered outside the dashboard layout like the login
 	//if you want to add more external routes make them in the children array
-	{
+	{// using the named route option 
 		path: "/",
 		meta: {
-			name: "",
+			name: "External",
 			requiresAuth: false,
 		},
 		component: () => import(`@/components/layout/ExternalView.vue`),
@@ -25,17 +25,22 @@ export default [
 		children: [
 			//any components in this path auto render in External
 			{
-				path: "", // you leave this blank if you want it to default to the parents path
+				path: "/login", // you leave this blank if you want it to default to the parents path
 				name: "login",
 				component: () => import(`@/components/externalviews/LoginForm.vue`),
 			},
+			{
+				path: "/home", // you leave this blank if you want it to default to the parents path
+				name: "home",
+				component: () => import(`@/components/externalviews/Home.vue`),
+			},
 		],
 	},
-	// add any extra routes that you want rendered in the dashboard as a child below. Change toolbar names here
+	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
 	{
-		path: "/dashboard",
+		path: '/dashboard',
 		meta: {
-			name: "DashboardView",
+			name: 'DashboardView',
 			requiresAuth: true,
 		},
 		component: () => import(`@/components/layout/DashboardView.vue`),
@@ -116,6 +121,7 @@ export default [
 	{
 		path: "*",
 		redirect: {
+			name: 'catchAll',
 			path: "/dashboard",
 		},
 		meta: {
