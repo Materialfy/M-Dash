@@ -4,9 +4,7 @@
       color="general"
       title="Inline Edit Table(Fat & Protein)"
       text="Such a classic table pt.2: revenge of the crud"
-
     >
-
       <v-data-table
         :headers="headers"
         :items="desserts"
@@ -23,7 +21,7 @@
           />
         </template>
         <!-- inline editing data table -->
-        <template v-slot:items="props">
+        <template #items="props">
           <td>
             <v-edit-dialog
               :return-value.sync="props.item.name"
@@ -32,8 +30,9 @@
               @cancel="cancelInline"
               @open="openInline"
               @close="closeInline"
-            > {{ props.item.name }}
-              <template v-slot:input>
+            >
+              {{ props.item.name }}
+              <template #input>
                 <v-text-field
                   v-model="props.item.name"
                   :rules="[max25chars]"
@@ -44,7 +43,9 @@
               </template>
             </v-edit-dialog>
           </td>
-          <td class="t">{{ props.item.calories }}</td>
+          <td class="t">
+            {{ props.item.calories }}
+          </td>
           <td class="text-xs-right">
             <v-edit-dialog
               :return-value.sync="props.item.fat"
@@ -57,10 +58,10 @@
               @close="closeInline"
             >
               <div>{{ props.item.fat }}</div>
-              <template v-slot:input>
-                <div class="mt-3 title">Update Fat</div>
-              </template>
-              <template v-slot:input>
+              <template #input>
+                <div class="mt-3 title">
+                  Update Fat
+                </div>
                 <v-text-field
                   v-model="props.item.fat"
                   :rules="[max25chars]"
@@ -72,7 +73,9 @@
               </template>
             </v-edit-dialog>
           </td>
-          <td class="">{{ props.item.carbs }}</td>
+          <td class="">
+            {{ props.item.carbs }}
+          </td>
           <td class="text-xs-right">
             <v-edit-dialog
               :return-value.sync="props.item.protein"
@@ -85,10 +88,11 @@
               @close="closeInline"
             >
               <div>{{ props.item.protein }}</div>
-              <template v-slot:input>
-                <div class="mt-3 title">Update Protein</div>
-              </template>
-              <template v-slot:input>
+              <template #input>
+                <div class="mt-3 title">
+                  Update Protein
+                </div>
+
                 <v-text-field
                   v-model="props.item.protein"
                   :rules="[max25chars]"
@@ -105,11 +109,15 @@
       <v-snackbar
         v-model="snack"
         :timeout="3000"
-        :color="snackColor">
+        :color="snackColor"
+      >
         {{ snackText }}
         <v-btn
           flat
-          @click="snack = false">Close</v-btn>
+          @click="snack = false"
+        >
+          Close
+        </v-btn>
       </v-snackbar>
     </material-card>
   </div>

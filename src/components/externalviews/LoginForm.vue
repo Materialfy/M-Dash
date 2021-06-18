@@ -1,24 +1,29 @@
 <template>
-  <v-content>
+  <v-main>
     <v-container
       fill-height
-      fluid>
+      fluid
+    >
       <v-layout
         align-center
-        justify-center>
+        justify-center
+      >
         <v-flex
           xs12
           sm8
-          md4>
+          md4
+        >
           <v-card
-            class="elevation-12">
+            class="elevation-12"
+          >
             <v-toolbar
-              color="general">
+              color="general"
+            >
               <v-toolbar-title>Admin Panel</v-toolbar-title>
-              <v-spacer/>
+              <v-spacer />
             </v-toolbar>
             <v-card-text>
-              <v-form >
+              <v-form>
                 <v-text-field
                   ref="username"
                   v-model="username"
@@ -44,14 +49,16 @@
                 />
               </v-form>
             </v-card-text>
-            <v-divider class="mt-5"/>
+            <v-divider class="mt-5" />
             <v-card-actions>
-              <v-spacer/>
+              <v-spacer />
               <v-btn
                 align-center
                 justify-center
                 color="general"
-                @click="login">Login
+                @click="login"
+              >
+                Login
               </v-btn>
             </v-card-actions>
             <v-snackbar
@@ -71,9 +78,8 @@
           </v-card>
         </v-flex>
       </v-layout>
-
     </v-container>
-  </v-content>
+  </v-main>
 </template>
 
 <script>

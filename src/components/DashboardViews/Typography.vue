@@ -14,7 +14,9 @@
           text="Created using Roboto Font Family"
         >
           <v-card-text>
-            <h2 class="font-weight-light mb-4">Typography</h2>
+            <h2 class="font-weight-light mb-4">
+              Typography
+            </h2>
 
             <v-container
               class="pa-0"
@@ -29,7 +31,8 @@
               >
                 <v-flex
                   xs1
-                  md3>
+                  md3
+                >
                   <span
                     class="tim-note"
                     v-text="t[0]"
@@ -44,7 +47,9 @@
                       {{ t[1] }}
                     </template>
 
-                    <p v-if="i === 'quote'">{{ t[1] }}</p>
+                    <p v-if="i === 'quote'">
+                      {{ t[1] }}
+                    </p>
                     <small v-if="i === 'quote'">Kanye West, Musician</small>
 
                     <template v-if="i === 'small'">

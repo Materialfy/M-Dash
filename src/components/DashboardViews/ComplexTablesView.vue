@@ -16,76 +16,95 @@
             color="general"
             title="CRUD Table"
             text="Such a classic table"
-
           >
             <v-dialog
               v-model="dialog"
-              max-width="500px">
-              <template v-slot:activator="{ on }">
+              max-width="500px"
+            >
+              <template #activator="{ on }">
                 <v-btn
                   color="general"
                   dark
                   class="mb-2"
-                  v-on="on">New Item</v-btn>
+                  v-on="on"
+                >
+                  New Item
+                </v-btn>
               </template>
               <v-card>
                 <v-card-text>
-                  <v-container grid-list-md >
+                  <v-container grid-list-md>
                     <v-layout wrap>
                       <v-flex
                         xs12
                         sm6
-                        md4>
+                        md4
+                      >
                         <v-text-field
                           v-model="editedItem.name"
-                          label="Dessert name" />
+                          label="Dessert name"
+                        />
                       </v-flex>
                       <v-flex
                         xs12
                         sm6
-                        md4>
+                        md4
+                      >
                         <v-text-field
                           v-model="editedItem.calories"
-                          label="Calories" />
+                          label="Calories"
+                        />
                       </v-flex>
                       <v-flex
                         xs12
                         sm6
-                        md4>
+                        md4
+                      >
                         <v-text-field
                           v-model="editedItem.fat"
-                          label="Fat (g)"/>
+                          label="Fat (g)"
+                        />
                       </v-flex>
                       <v-flex
                         xs12
                         sm6
-                        md4>
+                        md4
+                      >
                         <v-text-field
                           v-model="editedItem.carbs"
-                          label="Carbs (g)"/>
+                          label="Carbs (g)"
+                        />
                       </v-flex>
                       <v-flex
                         xs12
                         sm6
-                        md4>
+                        md4
+                      >
                         <v-text-field
                           v-model="editedItem.protein"
-                          label="Protein (g)"/>
+                          label="Protein (g)"
+                        />
                       </v-flex>
                     </v-layout>
                   </v-container>
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-spacer/>
+                  <v-spacer />
                   <v-btn
                     color="blue darken-1"
                     flat
-                    @click="close">Cancel</v-btn>
+                    @click="close"
+                  >
+                    Cancel
+                  </v-btn>
                   <v-btn
                     color="blue darken-1"
                     flat
-                    @click="save">Save</v-btn>
+                    @click="save"
+                  >
+                    Save
+                  </v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -94,7 +113,6 @@
               :headers="headers"
               :items="desserts"
               class="elevation-1"
-
             >
               <!-- change table header color(or other properties) -->
               <template
@@ -106,12 +124,20 @@
                   v-text="header.text"
                 />
               </template>
-              <template v-slot:items="props">
+              <template #items="props">
                 <td>{{ props.item.name }}</td>
-                <td class="">{{ props.item.calories }}</td>
-                <td class="">{{ props.item.fat }}</td>
-                <td class="">{{ props.item.carbs }}</td>
-                <td class="">{{ props.item.protein }}</td>
+                <td class="">
+                  {{ props.item.calories }}
+                </td>
+                <td class="">
+                  {{ props.item.fat }}
+                </td>
+                <td class="">
+                  {{ props.item.carbs }}
+                </td>
+                <td class="">
+                  {{ props.item.protein }}
+                </td>
                 <td class="justify-center ">
                   <v-icon
                     medium
@@ -134,10 +160,13 @@
                   </v-icon>
                 </td>
               </template>
-              <template v-slot:no-data>
+              <template #no-data>
                 <v-btn
                   color="primary"
-                  @click="initialize">Reset</v-btn>
+                  @click="initialize"
+                >
+                  Reset
+                </v-btn>
               </template>
             </v-data-table>
           </material-card>
@@ -151,9 +180,7 @@
             color="general"
             title="Inline Edit Table(Fat & Protein)"
             text="Such a classic table pt.2: revenge of the crud"
-
           >
-
             <v-data-table
               :headers="headers"
               :items="desserts"
@@ -170,7 +197,7 @@
                 />
               </template>
               <!-- inline editing data table -->
-              <template v-slot:items="props">
+              <template #items="props">
                 <td>
                   <v-edit-dialog
                     :return-value.sync="props.item.name"
@@ -179,8 +206,9 @@
                     @cancel="cancel"
                     @open="open"
                     @close="close"
-                  > {{ props.item.name }}
-                    <template v-slot:input>
+                  >
+                    {{ props.item.name }}
+                    <template #input>
                       <v-text-field
                         v-model="props.item.name"
                         :rules="[max25chars]"
@@ -191,7 +219,9 @@
                     </template>
                   </v-edit-dialog>
                 </td>
-                <td class="t">{{ props.item.calories }}</td>
+                <td class="t">
+                  {{ props.item.calories }}
+                </td>
                 <td class="text-xs-right">
                   <v-edit-dialog
                     :return-value.sync="props.item.fat"
@@ -204,10 +234,10 @@
                     @close="closeInline"
                   >
                     <div>{{ props.item.fat }}</div>
-                    <template v-slot:input>
-                      <div class="mt-3 title">Update Fat</div>
-                    </template>
-                    <template v-slot:input>
+                    <template #input>
+                      <div class="mt-3 title">
+                        Update Fat
+                      </div>
                       <v-text-field
                         v-model="props.item.fat"
                         :rules="[max25chars]"
@@ -219,7 +249,9 @@
                     </template>
                   </v-edit-dialog>
                 </td>
-                <td class="">{{ props.item.carbs }}</td>
+                <td class="">
+                  {{ props.item.carbs }}
+                </td>
                 <td class="text-xs-right">
                   <v-edit-dialog
                     :return-value.sync="props.item.protein"
@@ -232,10 +264,10 @@
                     @close="closeInline"
                   >
                     <div>{{ props.item.protein }}</div>
-                    <template v-slot:input>
-                      <div class="mt-3 title">Update Protein</div>
-                    </template>
-                    <template v-slot:input>
+                    <template #input>
+                      <div class="mt-3 title">
+                        Update Protein
+                      </div>
                       <v-text-field
                         v-model="props.item.protein"
                         :rules="[max25chars]"
@@ -252,11 +284,15 @@
             <v-snackbar
               v-model="snack"
               :timeout="3000"
-              :color="snackColor">
+              :color="snackColor"
+            >
               {{ snackText }}
               <v-btn
                 flat
-                @click="snack = false">Close</v-btn>
+                @click="snack = false"
+              >
+                Close
+              </v-btn>
             </v-snackbar>
           </material-card>
         </div>

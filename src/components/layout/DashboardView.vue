@@ -2,21 +2,21 @@
 <template>
   <v-app
     id="dashboard-view"
-    dark>
+    dark
+  >
     <core-filter />
 
     <core-toolbar />
 
     <core-drawer />
 
-    <v-content>
+    <v-main>
       <v-fade-transition mode="out-in">
         <router-view />
       </v-fade-transition>
-    </v-content>
+    </v-main>
 
     <core-footer v-if="$route.meta.name !== 'Maps'" />
-
   </v-app>
 </template>
 

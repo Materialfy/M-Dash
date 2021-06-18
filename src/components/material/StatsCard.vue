@@ -23,7 +23,8 @@
         v-text="title"
       />
       <h3
-        class="title display-1 font-weight-light">
+        class="title display-1 font-weight-light"
+      >
         {{ value }} <small>{{ smallValue }}</small>
       </h3>
     </div>

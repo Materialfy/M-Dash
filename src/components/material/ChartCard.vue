@@ -14,7 +14,7 @@
       :type="type"
     />
 
-    <slot/>
+    <slot />
 
     <slot
       slot="actions"

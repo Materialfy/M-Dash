@@ -33,7 +33,7 @@
             Vuetify Admin Dash
           </v-list-tile-title>
         </v-list-tile>
-        <v-divider/>
+        <v-divider />
         <v-list-tile
           v-if="responsive"
         >
@@ -72,6 +72,7 @@ import {
 
 export default {
   data: () => ({
+    // eslint-disable-next-line no-undef
     logo: require('@/assets/img/redditicon.png'),
     links: [
       {
@@ -118,10 +119,10 @@ export default {
     responsive: false
   }),
   computed: {
-    ...mapState('app', ['image', 'color']),
+    ...mapState('drawerapp', ['image', 'color']),
     inputValue: {
       get () {
-        return this.$store.state.app.drawer
+        return this.$store.state.drawerapp.drawer
       },
       set (val) {
         this.setDrawer(val)
@@ -139,7 +140,8 @@ export default {
     window.removeEventListener('resize', this.onResponsiveInverted)
   },
   methods: {
-    ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+    // imports and spreads the mutations into their own variables, easier than importing one by one
+    ...mapMutations('drawerapp', ['setDrawer', 'toggleDrawer']),
     onResponsiveInverted () {
       if (window.innerWidth < 991) {
         this.responsive = true

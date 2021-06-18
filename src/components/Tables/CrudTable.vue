@@ -7,73 +7,93 @@
     >
       <v-dialog
         v-model="dialog"
-        max-width="500px">
-        <template v-slot:activator="{ on }">
+        max-width="500px"
+      >
+        <template #activator="{ on }">
           <v-btn
             color="general"
             dark
             class="mb-2"
-            v-on="on">New Item</v-btn>
+            v-on="on"
+          >
+            New Item
+          </v-btn>
         </template>
 
         <v-card>
           <v-card-text>
-            <v-container grid-list-md >
+            <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex
                   xs12
                   sm6
-                  md4>
+                  md4
+                >
                   <v-text-field
                     v-model="editedItem.name"
-                    label="Dessert name" />
+                    label="Dessert name"
+                  />
                 </v-flex>
                 <v-flex
                   xs12
                   sm6
-                  md4>
+                  md4
+                >
                   <v-text-field
                     v-model="editedItem.calories"
-                    label="Calories" />
+                    label="Calories"
+                  />
                 </v-flex>
                 <v-flex
                   xs12
                   sm6
-                  md4>
+                  md4
+                >
                   <v-text-field
                     v-model="editedItem.fat"
-                    label="Fat (g)"/>
+                    label="Fat (g)"
+                  />
                 </v-flex>
                 <v-flex
                   xs12
                   sm6
-                  md4>
+                  md4
+                >
                   <v-text-field
                     v-model="editedItem.carbs"
-                    label="Carbs (g)"/>
+                    label="Carbs (g)"
+                  />
                 </v-flex>
                 <v-flex
                   xs12
                   sm6
-                  md4>
+                  md4
+                >
                   <v-text-field
                     v-model="editedItem.protein"
-                    label="Protein (g)"/>
+                    label="Protein (g)"
+                  />
                 </v-flex>
               </v-layout>
             </v-container>
           </v-card-text>
 
           <v-card-actions>
-            <v-spacer/>
+            <v-spacer />
             <v-btn
               color="blue darken-1"
               flat
-              @click="close">Cancel</v-btn>
+              @click="close"
+            >
+              Cancel
+            </v-btn>
             <v-btn
               color="blue darken-1"
               flat
-              @click="save">Save</v-btn>
+              @click="save"
+            >
+              Save
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -93,12 +113,20 @@
             v-text="header.text"
           />
         </template>
-        <template v-slot:items="props">
+        <template #items="props">
           <td>{{ props.item.name }}</td>
-          <td class="">{{ props.item.calories }}</td>
-          <td class="">{{ props.item.fat }}</td>
-          <td class="">{{ props.item.carbs }}</td>
-          <td class="">{{ props.item.protein }}</td>
+          <td class="">
+            {{ props.item.calories }}
+          </td>
+          <td class="">
+            {{ props.item.fat }}
+          </td>
+          <td class="">
+            {{ props.item.carbs }}
+          </td>
+          <td class="">
+            {{ props.item.protein }}
+          </td>
           <td class="justify-center ">
             <v-icon
               medium
@@ -121,10 +149,13 @@
             </v-icon>
           </td>
         </template>
-        <template v-slot:no-data>
+        <template #no-data>
           <v-btn
             color="primary"
-            @click="initialize">Reset</v-btn>
+            @click="initialize"
+          >
+            Reset
+          </v-btn>
         </template>
       </v-data-table>
     </material-card>

@@ -16,7 +16,9 @@
           color="warning"
           type="Line"
         >
-          <h4 class="title font-weight-light">Daily StackOverflow Visits</h4>
+          <h4 class="title font-weight-light">
+            Daily StackOverflow Visits
+          </h4>
           <p class="category d-inline-flex font-weight-light">
             <v-icon
               color="green"
@@ -51,8 +53,12 @@
           color="red"
           type="Bar"
         >
-          <h4 class="title font-weight-light">Emails telling you your code sucks</h4>
-          <p class="category d-inline-flex font-weight-light">Last Campaign Performance</p>
+          <h4 class="title font-weight-light">
+            Emails telling you your code sucks
+          </h4>
+          <p class="category d-inline-flex font-weight-light">
+            Last Campaign Performance
+          </p>
 
           <template slot="actions">
             <v-icon
@@ -76,8 +82,12 @@
           color="indigo"
           type="Line"
         >
-          <h3 class="title font-weight-light">Completed Tasks</h3>
-          <p class="category d-inline-flex font-weight-light">Last Last Campaign Performance</p>
+          <h3 class="title font-weight-light">
+            Completed Tasks
+          </h3>
+          <p class="category d-inline-flex font-weight-light">
+            Last Last Campaign Performance
+          </p>
 
           <template slot="actions">
             <v-icon
@@ -182,9 +192,15 @@
             >
               <td>{{ index + 1 }}</td>
               <td>{{ item.name }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
-              <td class="text-xs-right">{{ item.country }}</td>
-              <td class="text-xs-right">{{ item.city }}</td>
+              <td class="text-xs-right">
+                {{ item.salary }}
+              </td>
+              <td class="text-xs-right">
+                {{ item.country }}
+              </td>
+              <td class="text-xs-right">
+                {{ item.city }}
+              </td>
             </template>
           </v-data-table>
         </material-card>
@@ -195,7 +211,8 @@
       >
         <material-card
           class="card-tabs"
-          color="general">
+          color="general"
+        >
           <v-flex
             slot="header"
           >
@@ -209,15 +226,21 @@
                 style="align-self: center"
               >Tasks:</span>
               <v-tab class="mr-3">
-                <v-icon class="mr-2">mdi-bug</v-icon>
+                <v-icon class="mr-2">
+                  mdi-bug
+                </v-icon>
                 Bugs
               </v-tab>
               <v-tab class="mr-3">
-                <v-icon class="mr-2">mdi-code-tags</v-icon>
+                <v-icon class="mr-2">
+                  mdi-code-tags
+                </v-icon>
                 Website
               </v-tab>
               <v-tab>
-                <v-icon class="mr-2">mdi-cloud</v-icon>
+                <v-icon class="mr-2">
+                  mdi-cloud
+                </v-icon>
                 Server
               </v-tab>
             </v-tabs>
@@ -242,34 +265,39 @@
                   <div class="d-flex">
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="success"
                         icon
                       >
-                        <v-icon color="primary">mdi-pencil</v-icon>
+                        <v-icon color="primary">
+                          mdi-pencil
+                        </v-icon>
                       </v-btn>
                       <span>Edit</span>
                     </v-tooltip>
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="danger"
                         icon
                       >
-                        <v-icon color="error">mdi-close</v-icon>
+                        <v-icon color="error">
+                          mdi-close
+                        </v-icon>
                       </v-btn>
                       <span>Close</span>
                     </v-tooltip>
-
                   </div>
                 </v-list-tile>
-                <v-divider/>
+                <v-divider />
                 <v-list-tile @click="complete(1)">
                   <v-list-tile-action>
                     <v-checkbox
@@ -283,33 +311,40 @@
                   <div class="d-flex">
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="success"
                         icon
                       >
-                        <v-icon color="primary">mdi-pencil</v-icon>
+                        <v-icon color="primary">
+                          mdi-pencil
+                        </v-icon>
                       </v-btn>
                       <span>Edit</span>
                     </v-tooltip>
 
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="danger"
-                        icon>
-                        <v-icon color="error">mdi-close</v-icon>
+                        icon
+                      >
+                        <v-icon color="error">
+                          mdi-close
+                        </v-icon>
                       </v-btn>
                       <span>Close</span>
                     </v-tooltip>
                   </div>
                 </v-list-tile>
-                <v-divider/>
+                <v-divider />
                 <v-list-tile @click="complete(2)">
                   <v-list-tile-action>
                     <v-checkbox
@@ -323,31 +358,36 @@
                   <div class="d-flex">
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="success"
                         icon
                       >
-                        <v-icon color="primary">mdi-pencil</v-icon>
+                        <v-icon color="primary">
+                          mdi-pencil
+                        </v-icon>
                       </v-btn>
                       <span>Edit</span>
                     </v-tooltip>
                     <v-tooltip
                       top
-                      content-class="top">
+                      content-class="top"
+                    >
                       <v-btn
                         slot="activator"
                         class="v-btn--simple"
                         color="danger"
                         icon
                       >
-                        <v-icon color="error">mdi-close</v-icon>
+                        <v-icon color="error">
+                          mdi-close
+                        </v-icon>
                       </v-btn>
                       <span>Close</span>
                     </v-tooltip>
-
                   </div>
                 </v-list-tile>
               </v-list>

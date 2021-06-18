@@ -46,6 +46,8 @@ export default {
       localStorage.removeItem('token')
       delete axios.defaults.headers.common['Authorization']
       resolve()
+      //catches any errors and passed them to the promise for you to do something with
+      .catch(error => reject(error))
     })
   },
   refreshtoken ({ commit }) {
@@ -72,11 +74,11 @@ export default {
       })
       .catch(error => console.log(error))
   },
-  updateTableItem ({ commit }, tableData) {
+  updateTableItem ( tableData) {
     return new Promise((resolve, reject) => {
       let httpmethod = tableData.method //allows you to delete/update and change the request method type without hardcoding
       axios({ url: `/${tableData.endpoint}`, method: httpmethod, data: tableData.tableItem })
-        .then(response => {
+        .then(response => { // you can also do some kind of data alteration here if you want
           resolve(response)
         })
         .catch(error => {

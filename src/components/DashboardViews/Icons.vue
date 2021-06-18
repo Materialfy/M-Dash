@@ -8,7 +8,9 @@
       <div
         slot="header"
       >
-        <div class="title font-weight-light mb-2">Material Design Icons</div>
+        <div class="title font-weight-light mb-2">
+          Material Design Icons
+        </div>
         <div class="category font-weight-thin">
           See all available
           <a
@@ -33,7 +35,8 @@
         >
           <v-tooltip
             top
-            content-class="top">
+            content-class="top"
+          >
             <v-icon slot="activator">
               {{ icon }}
             </v-icon>
@@ -52,7 +55,9 @@
         target="_blank"
         round
       >
-        <v-icon left>mdi-material-design</v-icon>
+        <v-icon left>
+          mdi-material-design
+        </v-icon>
         <span>See all icons</span>
       </v-btn>
     </div>

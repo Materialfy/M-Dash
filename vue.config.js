@@ -1,5 +1,13 @@
 module.exports = {
   devServer: {
-    disableHostCheck: true
-  }
+    disableHostCheck: true,
+  },
+
+
+  lintOnSave: true,
+  runtimeCompiler: true,
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }
