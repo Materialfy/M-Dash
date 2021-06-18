@@ -14,6 +14,12 @@
 
 <script>
 export default {
+    name: 'ExternalView',
+  metaInfo () {
+    return {
+      title: 'Vuetify Admin Dashboard by ClintOxx'
+    }
+  }
 }
 </script>
 
