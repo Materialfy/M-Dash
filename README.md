@@ -130,6 +130,8 @@ We used the latest 4.x [Vue CLI](https://github.com/vuejs/vue-cli)
 
 The documentation for the Vuetify Admin Dashboard is coming soon once i have some freetime. for now there is brief documentation in the [File-Structure](#File-Structure)
 
+There is also a lot of comments in every file documenting functions
+
 ## Reporting Issues
 
 1. Make sure that you are using the latest version of the Vuetify Admin Dashboard.
@@ -270,4 +272,4 @@ To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboa
 I added a lot of functionality and features to his base desgin template, but kept the overall theme/design. Will continue to add more!
 
 
-You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
+You can [send a tweet to me](https://twitter.com/SourBlueDream) if you need minor assistance 
