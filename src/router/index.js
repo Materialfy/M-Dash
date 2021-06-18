@@ -36,16 +36,19 @@ const router = new Router({
 })
 
 // Route guard checks to see if you are logged in, if not reroutes to login
-// to is where you are going, matched.some is to find which routes have requiresAuth
+//"to" is where you are going, "matched.some" looks for any matching props, it uses it 
+//to find which routes(records) have requiresAuth meta data
+//this just checks to see if it should check for a auth token or just send you to your route
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.authorized) {
+  switch (to.matched.some(record => record.meta.requiresAuth)) {
+    case store.getters.authorized: // if you are authorized you can continue on
       next()
-      return
-    }
-    next('/')
-  } else {
-    next()
+      break;
+    case !store.getters.authorized:
+      next('/login') //sends to login if auth token isnt true
+      break;
+    default:
+      next() // external routes only: this forwards you to continue to your route outside the dash layout
   }
 });
 

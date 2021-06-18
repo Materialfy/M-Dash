@@ -28,7 +28,8 @@ switching v-content to v-main Loginform.vue, Externalview, dashboardview
 moved helloworld to externalviews
 changed import of hellowworld
 removed the path from external view parent
-
+changed beforeenter naivagation gaurds so they check for route name and auth status
+added switch to beforeeach route gaurd to check for auth or redirect
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js

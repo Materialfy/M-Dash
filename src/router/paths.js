@@ -3,29 +3,34 @@
  * for more information on routes, see the
  * official documentation https://router.vuejs.org/en/
  */
-import store from "../store";
+
+//import store from "../store";
 export default [
 	// This section is primarily for the login but it allows you to add external other pages to be rendered outside the dashboard layout like the login
 	//if you want to add more external routes make them in the children array
 	{// using the named route option 
-		path: "/main",
+		path: "/",
 		meta: {
 			name: "External",
 			requiresAuth: false,
 		},
 		component: () => import(`@/components/layout/ExternalView.vue`),
-		// This checks the state to see if you are already signed in, if so  it redirects. "to" and "from" are unused
-		beforeEnter: (to, from, next) => {
-			if (store.getters.authorized) {
-				next("/dashboard");
-			} else {
-				next("login");
-			}
-		},
+		//per route guard if you dont want global
+		// beforeEnter: (to, from, next) => {
+		// 	// This checks to see which route you are going to, if you are trying to go to dashboard, if so it also checks the state 
+		// 	// to see if you are already signed in, if not  it redirects to login. "from" is unused
+		// 	// eslint-disable-next-line no-mixed-spaces-and-tabs
+		// 	 if (to.name !== 'dashboard' && !store.getters.authorized) { //
+		// 		next("/login");
+		// 	}
+		// 	else {
+		// 		next(to.name); // this sends you to your original route if you arent trying to go to login
+		// 	}
+		//},
 		children: [
 			//any components in this path auto render in External
 			{
-				path: "", // you leave this blank if you want it to default to the parents path
+				path: "/login", // you leave this blank if you want it to default to the parents path
 				name: "login",
 				component: () => import(`@/components/externalviews/LoginForm.vue`),
 			},
@@ -59,7 +64,10 @@ export default [
 		children: [
 			{
 				path: "", //defaults to /dashboard if left blank
-				name: "Dashboard",
+				meta: {
+					name: 'Dashboard',
+					requiresAuth: true,
+				},
 				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
 			},
 			{
@@ -128,6 +136,20 @@ export default [
 					import(`@/components/DashboardViews/Notifications.vue`),
 			},
 		],
+		//per route guard if you dont want global
+		// beforeEnter: (to, from, next) => {
+		// 	// checks to see if you are trying to go to dashboard and are logged in
+		// 	if (to.name !== 'dashboard' && store.getters.authorized) {
+		// 		next("/dashboard");
+		// 	} 
+		// 	// sends you to login if you arent authorized
+		// 	else if (to.name !== 'dashboard' && !store.getters.authorized) { //
+		// 		next("/login");
+		// 	}
+		// 	else {
+		// 		next(to.name); // this sends you to your original route if you arent trying to go to login
+		// 	}
+		// },
 	},
 	// This is a catch all aka page not found route. it will send you to the dashboard
 	{
@@ -137,7 +159,7 @@ export default [
 			path: "/dashboard",
 		},
 		meta: {
-			requiresAuth: false,
+			requiresAuth: true,
 		},
 	},
 	//Error component fallback
