@@ -3,7 +3,11 @@ module.exports = {
     disableHostCheck: true,
   },
 
-  lintOnSave: process.env.NODE_ENV !== 'production',
+
   lintOnSave: true,
-  runtimeCompiler: true
+  runtimeCompiler: true,
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

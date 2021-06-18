@@ -16,7 +16,10 @@ renamed unused complextables.vue to complextables page to clarify what it is, it
 ranamed simpletable/tablelist
 renamed DashboardViews to dashboard views to clarify where those components render
 removed unused response from UsersTables .then((response) => {
-
+switched from vuetify full install to vuetify plugin, same for vue router to the plugin version
+switched from vuetify in main.js to the one in the plugin folder to simplify that file(a lot ended up in there)
+switched icon imports into vuetify.js
+removed extra vue/use(vuetify) in main
 
 
 ## Made/Clarified documenting comments to explain code in:

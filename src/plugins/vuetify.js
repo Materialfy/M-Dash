@@ -1,12 +1,13 @@
-import Vue from 'vue'
-import Vuetify from 'vuetify'
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib/framework';
+//import theme from './plugins/theme'
 import theme from './theme'
-import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
-
-// This is here just in case you prefer to have all your plugins in a folder like this, otherwise its currently unused
-
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 Vue.use(Vuetify, {
-  iconfont: 'mdi',
-  theme
-})
+    iconfont: 'mdi',
+    theme
+  })
+
+export default new Vuetify({
+});

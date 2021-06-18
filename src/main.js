@@ -10,13 +10,11 @@ import App from './App'
 import i18n from '@/i18n'
 import router from '@/router'
 import store from '@/store'
-import Vuetify from 'vuetify'
-import theme from './plugins/theme'
-import 'vuetify/dist/vuetify.min.css'
-import '@mdi/font/css/materialdesignicons.css'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
+
 import axios from 'axios'
 import NProgress from "nprogress";
+import vuetify from './plugins/vuetify'
 
 // makes axios the default http handler
 Vue.prototype.$http = axios
@@ -61,10 +59,6 @@ axios.interceptors.response.use(
 // Sync store with router
 sync(store, router)
 
-Vue.use(Vuetify, {
-  iconfont: 'mdi',
-  theme
-})
 
 Vue.config.productionTip = false
 
@@ -73,6 +67,6 @@ new Vue({
   i18n,
   router,
   store,
-  Vuetify,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

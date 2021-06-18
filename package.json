@@ -1,43 +1,47 @@
 {
-	"name": "vuetify-admin-dashboard",
-	"version": "1.2.0",
-	"private": true,
-	"scripts": {
-		"serve": "vue-cli-service serve",
-		"dev": "npm run serve",
-		"build": "vue-cli-service build",
-		"lint": "vue-cli-service lint"
-	},
-	"dependencies": {
-		"axios": "^0.21.1",
-		"chartist": "0.11.4",
-		"eslint-plugin-prettier": "^3.4.0",
-		"material-design-icons-iconfont": "^6.1.0",
-		"node-sass": "4.14.1",
-		"nprogress": "^0.2.0",
-		"sass-loader": "8.0.2",
-		"vue": "^2.6.14",
-		"vue-chartist": "^2.3.1",
-		"vue-meta": "^2.4.0",
-		"vue-router": "^3.5.1",
-		"vuex": "^3.6.2",
-		"vuex-router-sync": "^5.0.0"
-	},
-	"devDependencies": {
-		"@mdi/font": "^5.9.55",
-		"@vue/cli-plugin-babel": "^4.5.13",
-		"@vue/cli-plugin-eslint": "^4.5.13",
-		"@vue/cli-service": "^4.5.13",
-		"babel-eslint": "^10.1.0",
-		"eslint": "7.0.0",
-		"eslint-plugin-import": "^2.23.4",
-		"eslint-plugin-promise": "4.2.1",
-		"eslint-plugin-vue": "^7.11.1",
-		"prettier": "^2.3.1",
-		"stylus": "^0.54.8",
-		"stylus-loader": "^6.1.0",
-		"vue-analytics": "^5.8.0",
-		"vue-i18n": "^8.24.4",
-		"vue-template-compiler": "^2.6.14"
-	}
+  "name": "vuetify-admin-dashboard",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "npm run serve"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chartist": "0.11.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "material-design-icons-iconfont": "^6.1.0",
+    "node-sass": "4.14.1",
+    "nprogress": "^0.2.0",
+    "vue": "^2.6.14",
+    "vue-chartist": "^2.3.1",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.6.2",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^5.9.55",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "babel-eslint": "^10.1.0",
+    "eslint": "7.0.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-vue": "^7.11.1",
+    "prettier": "^2.3.1",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^6.1.0",
+    "vue-analytics": "^5.8.0",
+    "vue-cli-plugin-vuetify": "~2.4.1",
+    "vue-i18n": "^8.24.4",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0"
+  }
 }
