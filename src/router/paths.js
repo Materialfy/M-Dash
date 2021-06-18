@@ -15,18 +15,6 @@ export default [
 			requiresAuth: false,
 		},
 		component: () => import(`@/components/layout/ExternalView.vue`),
-		//per route guard if you dont want global
-		// beforeEnter: (to, from, next) => {
-		// 	// This checks to see which route you are going to, if you are trying to go to dashboard, if so it also checks the state 
-		// 	// to see if you are already signed in, if not  it redirects to login. "from" is unused
-		// 	// eslint-disable-next-line no-mixed-spaces-and-tabs
-		// 	 if (to.name !== 'dashboard' && !store.getters.authorized) { //
-		// 		next("/login");
-		// 	}
-		// 	else {
-		// 		next(to.name); // this sends you to your original route if you arent trying to go to login
-		// 	}
-		//},
 		children: [
 			//any components in this path auto render in External
 			{
@@ -42,18 +30,6 @@ export default [
 		],
 	},
 	
-	// add any extra routes that you want rendered inside the dashboard layout as a child below. Change toolbar names here
-	// {
-	// 	path: '/home',
-	// 	meta: {
-	// 		name: 'home',
-	// 		requiresAuth: false,
-	// 	},
-	// 	component: () => import(`@/components/externalviews/Home.vue`)
-	// },
-	
-	// This section rendered inside the dashboard layout with the toolbar and footer etc, 
-	//add any extra routes that you want, as a child below. Change toolbar names here by changing name
 	{
 		path: '/dashboard',
 		meta: {

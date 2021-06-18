@@ -32,6 +32,8 @@ changed beforeenter naivagation gaurds so they check for route name and auth sta
 added switch to beforeeach route gaurd to check for auth or redirect
 disabled per route guards, the are still theere if you want to use them
 updated external meta data
+reverted switch and just used if else in global nav guard
+removed one of the per route guards, left one for example
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js
