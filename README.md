@@ -87,8 +87,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 - user roles
 - ~~log out button~~
 - user screen api's
-- jwt https cookie storage (still debating since cookies can be hit with xss)
-- change route gaurd verification
+- ~~change route gaurd verification~~
 - selectable drawer colors
 - notification api so notifications function
 - getting documentation up on vue press
@@ -96,17 +95,17 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 
 ## Bugs
 
-- Notification drawer is currently shifted due to a change in the layout
-- Chart js header is not correctly displaying in mobile due to aspect ratio change
 
 ## Getting Started
-
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
+- Install @Vue/cli 4 [globally](https://cli.vuejs.org/guide/installation.html)
+- clone repo
+- in the folder you cloned the repo in
 - Open your terminal(Shift + right-click in the folder on windows)
-- Navigate to the project
-- Run `npm install` or `yarn install` if you use [Yarn](https://yarnpkg.com/en/)
-- Run `npm run dev` or `yarn serve` to start a local development server
-- A new tab will be opened in your browser
+- at project root (/Vuetify-Admin-Panel) run one of the following commands:
+- Run `npm install`, or [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui) or `yarn install`if you use [Yarn](https://yarnpkg.com/en/)
+- Run `npm run dev --open` or `yarn serve --open` to start a local development server
+- A new tab will be opened in your browser or click the url in the terminal
 
 After installing the dependencies you can also run additional npm tasks such as
 
@@ -115,31 +114,17 @@ After installing the dependencies you can also run additional npm tasks such as
 
 ### Vuetify
 
-Vuetify is developed exactly according to Material Design spec.
+Vuetify 2.x is a frontend Vue UI library that allows you o quickly develop designs according to Material Design spec.
 
 ### Vuex
 
-Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components.
+Vuex 3.x is a state management library for Vue.js applications. It serves as a centralized store for all the components.
 
 ### Vue-cli
 
-We used the latest 3.x [Vue CLI](https://github.com/vuejs/vue-cli)
+We used the latest 4.x [Vue CLI](https://github.com/vuejs/vue-cli)
 
-### Special thanks
 
-To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template
-
-I added a lot of features to his base template but kept the overall theme/design. Will continue to add more!
-
-## Quick start
-
-Quick start options:
-
-    Clone this repo
-
-    npm i or npm --install
-
-    npm run serve
 
 ## Documentation
 
@@ -278,5 +263,11 @@ Within the download you'll find the following directories and files:
             DashboardView.vue  #/ any views that are a child of this will render inside the dash
             LoginHome.vue # any views/components that are a child of this will not have the toolbar etc around it
 ```
+
+### Special thanks
+To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template
+
+I added a lot of functionality and features to his base desgin template, but kept the overall theme/design. Will continue to add more!
+
 
 You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
