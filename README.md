@@ -106,6 +106,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 - Run `npm install`, or [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui) or `yarn install`if you use [Yarn](https://yarnpkg.com/en/)
 - Run `npm run dev --open` or `yarn serve --open` to start a local development server
 - A new tab will be opened in your browser or click the url in the terminal
+- - You can use [Reqres](https://reqres.in/) to use as an api to log in and out, otherwise turn off auth in /src/router/paths.js line: 37, 40 etc
 
 After installing the dependencies you can also run additional npm tasks such as
 
