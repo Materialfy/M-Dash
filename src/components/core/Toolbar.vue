@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     id="core-toolbar"
-     app 
+    app 
     dark
     style="background: #424242;"
     flat
@@ -71,13 +71,13 @@
           </router-link>
           <v-card>
             <v-list dense>
-              <v-list-tile
+              <v-list-item
                 v-for="notification in notifications"
                 :key="notification"
                 @click="onClick"
               >
-                <v-list-tile-title v-text="notification" />
-              </v-list-tile>
+                <v-list-item-title v-text="notification" />
+              </v-list-item>
             </v-list>
           </v-card>
         </v-menu>
@@ -115,7 +115,7 @@ export default {
       'Another Notification',
       'Another One - Dj Khalid voice'
     ],
-    title: 'I got a digital dash -Future Hendrixx',
+    title: 'digital dash ',
     responsive: false,
     responsiveInput: false
   }),

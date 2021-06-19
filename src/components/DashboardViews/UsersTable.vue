@@ -102,14 +102,14 @@
                   <v-spacer />
                   <v-btn
                     color="blue darken-1"
-                    flat
+                    text
                     @click="close"
                   >
                     Cancel
                   </v-btn>
                   <v-btn
                     color="blue darken-1"
-                    flat
+                    text
                     @click="save"
                   >
                     Save
@@ -222,7 +222,7 @@
             >
               {{ snackText }}
               <v-btn
-                flat
+                text
                 @click="snack = false"
               >
                 Close

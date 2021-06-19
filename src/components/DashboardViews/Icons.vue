@@ -8,7 +8,7 @@
       <div
         slot="header"
       >
-        <div class="title font-weight-light mb-2">
+        <div class="text-h6 font-weight-light mb-2">
           Material Design Icons
         </div>
         <div class="category font-weight-thin">
@@ -53,7 +53,7 @@
         color="success"
         href="https://materialdesignicons.com/"
         target="_blank"
-        round
+        rounded
       >
         <v-icon left>
           mdi-material-design

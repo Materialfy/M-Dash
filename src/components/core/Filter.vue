@@ -25,7 +25,7 @@
       <v-container grid-list-xl>
         <v-layout wrap>
           <v-flex xs12>
-            <div class="text-xs-center body-2 text-uppercase ">
+            <div class="text-center text-body-2 text-uppercase ">
               Sidebar Filters
             </div>
 
@@ -44,7 +44,7 @@
           <v-flex
             xs12
           >
-            <div class="text-xs-center body-2 text-uppercase ">
+            <div class="text-center text-body-2 text-uppercase ">
               Images
             </div>
           </v-flex>
@@ -82,7 +82,7 @@
             </v-btn>
           </v-flex>
           <v-flex xs12>
-            <div class="text-xs-center body-2 text-uppercase">
+            <div class="text-center text-body-2 text-uppercase">
               <div class=" ">
                 Thank You for Sharing!
               </div>
@@ -94,7 +94,7 @@
                   fab
                   icon
                   small
-                  round
+                  rounded
                 >
                   <v-icon>mdi-twitter</v-icon>
                 </v-btn>

@@ -15,7 +15,7 @@
           <div
             slot="header"
           >
-            <div class="title font-weight-light mb-2">
+            <div class="text-h6 font-weight-light mb-2">
               Notifications
             </div>
             <div class="category">
@@ -30,14 +30,13 @@
 
           <v-card-text>
             <v-layout
-              row
               wrap
             >
               <v-flex
                 md6
                 sm12
               >
-                <h2 class="title font-weight-light mb-3">
+                <h2 class="text-h6 font-weight-light mb-3">
                   Notifications Style
                 </h2>
 
@@ -76,7 +75,7 @@
                 md6
                 sm12
               >
-                <h2 class="title font-weight-light">
+                <h2 class="text-h6 font-weight-light">
                   Notifcation States
                 </h2>
 
@@ -128,8 +127,8 @@
                 </material-notification>
               </v-flex>
             </v-layout>
-            <div class="text-xs-center">
-              <h2 class="title font-weight-light mb-2">
+            <div class="text-center">
+              <h2 class="text-h6 font-weight-light mb-2">
                 Notification Places
               </h2>
               <span class=" subheading font-weight-light grey--text">Click to view notifications</span>
@@ -138,7 +137,6 @@
             <v-container grid-list-lg>
               <v-layout
                 justify-center
-                row
                 wrap
               >
                 <v-flex
@@ -168,7 +166,6 @@
               </v-layout>
               <v-layout
                 justify-center
-                row
                 wrap
               >
                 <v-flex
@@ -198,7 +195,6 @@
               </v-layout>
               <v-layout
                 justify-center
-                row
                 wrap
               >
                 <v-flex

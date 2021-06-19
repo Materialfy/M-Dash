@@ -111,7 +111,7 @@
                 </v-flex>
                 <v-flex
                   xs12
-                  text-xs-right
+                  text-right
                 >
                   <v-btn
                     class="mx-0 font-weight-light"
@@ -139,7 +139,7 @@
               src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
             >
           </v-avatar>
-          <v-card-text class="text-xs-center">
+          <v-card-text class="text-center">
             <h6 class="category text-gray font-weight-thin mb-3">
               CEO / CO-FOUNDER - Astroworld
             </h6>
@@ -160,7 +160,7 @@
             </p>
             <v-btn
               color="general"
-              round
+              rounded
               class="font-weight-light"
             >
               Follow

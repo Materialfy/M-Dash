@@ -19,7 +19,7 @@
           <v-data-table
             :headers="headers"
             :items="items"
-            hide-actions
+            hide-default-footer
           >
             <template
               slot="headerCell"
@@ -37,7 +37,7 @@
               <td>{{ item.name }}</td>
               <td>{{ item.country }}</td>
               <td>{{ item.city }}</td>
-              <td class="text-xs-right">
+              <td class="text-right">
                 {{ item.salary }}
               </td>
             </template>
@@ -57,7 +57,7 @@
           <v-data-table
             :headers="headers"
             :items="items.slice(0, 7)"
-            hide-actions
+            hide-default-footer
           >
             <template
               slot="headerCell"
@@ -75,7 +75,7 @@
               <td>{{ item.name }}</td>
               <td>{{ item.country }}</td>
               <td>{{ item.city }}</td>
-              <td class="text-xs-right">
+              <td class="text-right">
                 {{ item.salary }}
               </td>
             </template>

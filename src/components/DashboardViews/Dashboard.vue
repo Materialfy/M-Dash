@@ -16,7 +16,7 @@
           color="warning"
           type="Line"
         >
-          <h4 class="title font-weight-light">
+          <h4 class="text-h6 font-weight-light">
             Daily StackOverflow Visits
           </h4>
           <p class="category d-inline-flex font-weight-light">
@@ -37,7 +37,7 @@
             >
               mdi-clock-outline
             </v-icon>
-            <span class="caption grey-lighten-1--text font-weight-light">updated 4 minutes ago</span>
+            <span class="text-caption grey-lighten-1--text font-weight-light">updated 4 minutes ago</span>
           </template>
         </material-chart-card>
       </v-flex>
@@ -53,7 +53,7 @@
           color="red"
           type="Bar"
         >
-          <h4 class="title font-weight-light">
+          <h4 class="text-h6 font-weight-light">
             Emails telling you your code sucks
           </h4>
           <p class="category d-inline-flex font-weight-light">
@@ -67,7 +67,7 @@
             >
               mdi-clock-outline
             </v-icon>
-            <span class="caption blue-grey--text font-weight-light">updated 10 minutes ago</span>
+            <span class="text-caption blue-grey--text font-weight-light">updated 10 minutes ago</span>
           </template>
         </material-chart-card>
       </v-flex>
@@ -82,7 +82,7 @@
           color="indigo"
           type="Line"
         >
-          <h3 class="title font-weight-light">
+          <h3 class="text-h6 font-weight-light">
             Completed Tasks
           </h3>
           <p class="category d-inline-flex font-weight-light">
@@ -96,7 +96,7 @@
             >
               mdi-clock-outline
             </v-icon>
-            <span class="caption grey--text font-weight-light">campaign sent 26 minutes ago</span>
+            <span class="text-caption grey--text font-weight-light">campaign sent 26 minutes ago</span>
           </template>
         </material-chart-card>
       </v-flex>
@@ -175,7 +175,7 @@
           <v-data-table
             :headers="headers"
             :items="items"
-            hide-actions
+            hide-default-footer
           >
             <template
               slot="headerCell"
@@ -192,13 +192,13 @@
             >
               <td>{{ index + 1 }}</td>
               <td>{{ item.name }}</td>
-              <td class="text-xs-right">
+              <td class="text-right">
                 {{ item.salary }}
               </td>
-              <td class="text-xs-right">
+              <td class="text-right">
                 {{ item.country }}
               </td>
-              <td class="text-xs-right">
+              <td class="text-right">
                 {{ item.city }}
               </td>
             </template>
@@ -252,16 +252,16 @@
               :key="n"
             >
               <v-list three-line>
-                <v-list-tile @click="complete(0)">
-                  <v-list-tile-action>
+                <v-list-item @click="complete(0)">
+                  <v-list-item-action>
                     <v-checkbox
                       :value="list[0]"
                       color="green"
                     />
-                  </v-list-tile-action>
-                  <v-list-tile-title>
+                  </v-list-item-action>
+                  <v-list-item-title>
                     Sign contract for "What are conference organized afraid of?"
-                  </v-list-tile-title>
+                  </v-list-item-title>
                   <div class="d-flex">
                     <v-tooltip
                       top
@@ -296,18 +296,18 @@
                       <span>Close</span>
                     </v-tooltip>
                   </div>
-                </v-list-tile>
+                </v-list-item>
                 <v-divider />
-                <v-list-tile @click="complete(1)">
-                  <v-list-tile-action>
+                <v-list-item @click="complete(1)">
+                  <v-list-item-action>
                     <v-checkbox
                       :value="list[1]"
                       color="success"
                     />
-                  </v-list-tile-action>
-                  <v-list-tile-title>
+                  </v-list-item-action>
+                  <v-list-item-title>
                     Lines From Great Russian Literature? Or E-mails From My Boss?
-                  </v-list-tile-title>
+                  </v-list-item-title>
                   <div class="d-flex">
                     <v-tooltip
                       top
@@ -343,18 +343,18 @@
                       <span>Close</span>
                     </v-tooltip>
                   </div>
-                </v-list-tile>
+                </v-list-item>
                 <v-divider />
-                <v-list-tile @click="complete(2)">
-                  <v-list-tile-action>
+                <v-list-item @click="complete(2)">
+                  <v-list-item-action>
                     <v-checkbox
                       :value="list[2]"
                       color="success"
                     />
-                  </v-list-tile-action>
-                  <v-list-tile-title>
+                  </v-list-item-action>
+                  <v-list-item-title>
                     Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                  </v-list-tile-title>
+                  </v-list-item-title>
                   <div class="d-flex">
                     <v-tooltip
                       top
@@ -389,7 +389,7 @@
                       <span>Close</span>
                     </v-tooltip>
                   </div>
-                </v-list-tile>
+                </v-list-item>
               </v-list>
             </v-tab-item>
           </v-tabs-items>
