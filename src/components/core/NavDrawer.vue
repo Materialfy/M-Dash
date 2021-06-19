@@ -1,3 +1,4 @@
+<!-- this is the sidebar you use for navigation -->
 <template>
   <v-navigation-drawer
     id="app-drawer"
@@ -122,7 +123,7 @@ export default {
     ...mapState('drawerapp', ['image', 'color']),
     inputValue: {
       get () {
-        return this.$store.state.drawerapp.drawer
+        return this.$store.state.app.drawer //selecting which state to pull from, the drawer has its own
       },
       set (val) {
         this.setDrawer(val)
@@ -154,7 +155,7 @@ export default {
 </script>
 
 <style lang="scss">
-  #app-drawer {
+  #app {
     .v-list__tile {
       border-radius: 4px;
 
