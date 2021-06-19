@@ -1,23 +1,24 @@
 <!-- This renders any components inside the dashboard with the elements you expect -->
 <template>
-  <v-app
-    id="dashboard-view"
-    dark
-  >
-    <core-filter />
+  <v-main>
+    <v-app
+      id="dashboard-view"
+      dark
+    >
+      <core-filter />
 
-    <core-toolbar />
+      <core-toolbar />
 
-    <core-drawer />
+      <core-drawer />
 
-    <v-main>
       <v-fade-transition mode="out-in">
         <router-view />
       </v-fade-transition>
-    </v-main>
-    <!-- turns off footer in the maps component -->
-    <core-footer v-if="$route.meta.name !== 'Maps'" />
-  </v-app>
+      <!-- turns off footer in the maps component -->
+      <core-footer v-if="$route.meta.name !== 'Maps'" />
+      <v-main />
+    </v-app>
+  </v-main>
 </template>
 
 <script>

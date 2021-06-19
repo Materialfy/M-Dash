@@ -21,7 +21,7 @@
     >
       <v-icon 
         large
-        color="green"
+        color="blue"
         size="60"
         
       >
