@@ -10,6 +10,9 @@
 			"externalviews",
 			"loginview",
 			"tablestest"
-		]
+		],
+		"search.exclude": {
+			"**/*.code-search": false
+		}
 	}
 }

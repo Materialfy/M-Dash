@@ -1,5 +1,6 @@
 // https://vuex.vuejs.org/en/modules.html
 
+// eslint-disable-next-line no-undef
 const requireModule = require.context('.', true, /\.js$/)
 const modules = {}
 

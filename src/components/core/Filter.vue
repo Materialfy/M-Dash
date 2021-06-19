@@ -22,6 +22,7 @@
       <v-icon 
         large
         color="green"
+        size="60"
       >
         {{ iconSelect[1] }}
       </v-icon>
@@ -118,7 +119,7 @@ import {
   mapMutations,
   mapState
 } from 'vuex'
-import { mdiAccount,mdiCogs } from '@mdi/js'
+import { mdiAccount,mdiCog } from '@mdi/js'
 export default {
   data: () => ({
     colors: [
@@ -129,7 +130,7 @@ export default {
       'danger',
       'general'
     ],
-    iconSelect: [mdiAccount, mdiCogs],
+    iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
     images: [
       'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg',
       'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg',
