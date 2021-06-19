@@ -139,7 +139,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations('drawerapp', ['setDrawer', 'toggleDrawer']),
+    ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
     onClickBtn () {
       this.setDrawer(!this.$store.state.app.drawer)
     },
