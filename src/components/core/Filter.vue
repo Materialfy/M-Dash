@@ -13,7 +13,6 @@
       <v-btn
         class="elevation-0"
         color="gray"
-        dark
         fab
         fixed
         style="top: 96px"

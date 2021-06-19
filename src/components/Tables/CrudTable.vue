@@ -12,7 +12,6 @@
         <template #activator="{ on }">
           <v-btn
             color="general"
-            dark
             class="mb-2"
             v-on="on"
           >
@@ -109,7 +108,11 @@
           slot-scope="{ header }"
         >
           <span
-            class="text-subtitle-1 font-weight-light text-general text--darken-3"
+            class="
+							text-subtitle-1
+							font-weight-light
+							text-general text--darken-3
+						"
             v-text="header.text"
           />
         </template>

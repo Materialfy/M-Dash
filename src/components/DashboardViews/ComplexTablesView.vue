@@ -22,7 +22,6 @@
               <template #activator="{ on }">
                 <v-btn
                   color="general"
-                  dark
                   class="mb-2"
                   v-on="on"
                 >

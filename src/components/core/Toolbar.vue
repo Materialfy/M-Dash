@@ -2,7 +2,6 @@
   <v-app-bar
     id="core-toolbar"
     app
-    dark
     style="background: #424242"
     flat
     prominent
