@@ -2,7 +2,7 @@
   <v-menu
     :close-on-content-click="false"
     bottom
-    left
+    float-left
     min-width="300"
     max-width="300"
     nudge-left="12"
@@ -16,14 +16,13 @@
       dark
       fab
       fixed
-      style="top: 96px;"
+      style="top: 96px"
       top
     >
-      <v-icon 
+      <v-icon
         large
         color="blue"
         size="60"
-        
       >
         mdi-cog
       </v-icon>
@@ -32,7 +31,7 @@
       <v-container grid-list-xl>
         <v-layout wrap>
           <v-flex xs12>
-            <div class="text-center text-body-2 text-uppercase ">
+            <div class="text-center text-body-2 text-uppercase">
               Sidebar Filters
             </div>
 
@@ -40,18 +39,17 @@
               <v-avatar
                 v-for="c in colors"
                 :key="c"
-                :class="[c === color ? 'color-active color-' + c: 'color-' + c]"
+                :class="[
+                  c === color ? 'color-active color-' + c : 'color-' + c,
+                ]"
                 size="23"
-
                 @click="setColor(c)"
               />
             </v-layout>
             <v-divider class="mt-3" />
           </v-flex>
-          <v-flex
-            xs12
-          >
-            <div class="text-center text-body-2 text-uppercase ">
+          <v-flex xs12>
+            <div class="text-center text-body-2 text-uppercase">
               Images
             </div>
           </v-flex>
@@ -90,7 +88,7 @@
           </v-flex>
           <v-flex xs12>
             <div class="text-center text-body-2 text-uppercase">
-              <div class=" ">
+              <div class="">
                 Thank You for Sharing!
               </div>
 
@@ -115,50 +113,40 @@
 </template>
 
 <script>
-// Utilities
-import {
-  mapMutations,
-  mapState
-} from 'vuex'
-import { mdiAccount,mdiCog } from '@mdi/js'
-export default {
-  data: () => ({
-    colors: [
-      'primary',
-      'info',
-      'success',
-      'warning',
-      'danger',
-      'general'
-    ],
-    iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
-    images: [
-      'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg',
-      'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg',
-      'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg',
-      'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-4.3b7e38ed.jpg'
-    ]
-  }),
+	// Utilities
+	import { mapMutations, mapState } from "vuex";
+	import { mdiAccount, mdiCog } from "@mdi/js";
+	export default {
+		data: () => ({
+			colors: ["primary", "info", "success", "warning", "danger", "general"],
+			iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
+			images: [
+				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg",
+				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg",
+				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg",
+				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-4.3b7e38ed.jpg",
+			],
+		}),
 
-  computed: {
-    ...mapState('app', ['image', 'color']),
-    color () {
-      return this.$store.state.app.color
-    }
-  },
+		computed: {
+			...mapState("app", ["image", "color"]),
+			color() {
+				return this.$store.state.app.color;
+			},
+		},
 
-  methods: {
-    ...mapMutations('app', ['setImage']),
-    setColor (color) {
-      this.$store.state.app.color = color
-    }
-  }
-}
+		methods: {
+			...mapMutations("app", ["setImage"]),
+			setColor(color) {
+				this.$store.state.app.color = color;
+			},
+		},
+	};
 </script>
 
 <style lang="scss">
-  .v-avatar,
-  .v-responsive {
-    cursor: pointer;
-  }
+	.v-avatar,
+	.v-responsive {
+		cursor: pointer;
+	}
 </style>

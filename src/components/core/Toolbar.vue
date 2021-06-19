@@ -1,9 +1,9 @@
 <template>
   <v-app-bar
     id="core-toolbar"
-    app 
+    app
     dark
-    style="background: #424242;"
+    style="background: #424242"
     flat
     prominent
   >
@@ -46,7 +46,7 @@
         </router-link>
         <v-menu
           bottom
-          left
+          float-left
           content-class
           offset-y
           transition="slide-y-transition"
@@ -104,65 +104,65 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+	import { mapMutations, mapGetters } from "vuex";
 
-export default {
-  data: () => ({
-    notifications: [
-      'Mike, Thanos is coming',
-      '5 new avengers joined the team',
-      "You're now friends with Capt",
-      'Another Notification',
-      'Another One - Dj Khalid voice'
-    ],
-    title: 'digital dash ',
-    responsive: false, //default values for responsiveness 
-    responsiveInput: false
-  }),
+	export default {
+		data: () => ({
+			notifications: [
+				"Mike, Thanos is coming",
+				"5 new avengers joined the team",
+				"You're now friends with Capt",
+				"Another Notification",
+				"Another One - Dj Khalid voice",
+			],
+			title: "digital dash ",
+			responsive: false, //default values for responsiveness
+			responsiveInput: false,
+		}),
 
-  computed: {
-    ...mapGetters(['authorized'])
-  },
+		computed: {
+			...mapGetters(["authorized"]),
+		},
 
-  watch: {
-    $route (val) {
-      this.title = val.meta.name
-    }
-  },
+		watch: {
+			$route(val) {
+				this.title = val.meta.name;
+			},
+		},
 
-  mounted () {
-    this.onResponsiveInverted()
-    window.addEventListener('resize', this.onResponsiveInverted)
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.onResponsiveInverted)
-  },
+		mounted() {
+			this.onResponsiveInverted();
+			window.addEventListener("resize", this.onResponsiveInverted);
+		},
+		beforeDestroy() {
+			window.removeEventListener("resize", this.onResponsiveInverted);
+		},
 
-  methods: {
-    ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
-    onClickBtn () {
-      this.setDrawer(!this.$store.state.app.drawer)
-    },
-    onClick () {
-      //
-    },
-    //setting breakpoints to change page layout depending on screen resolution
-    onResponsiveInverted () {
-      if (window.innerWidth < 991) {
-        this.responsive = true
-        this.responsiveInput = false
-      } else {
-        this.responsive = false
-        this.responsiveInput = true
-      }
-    },
-    logout: function () {
-      this.$store.dispatch('logout').then(() => {
-        this.$router.push('/')
-      })
-    }
-  }
-}
+		methods: {
+			...mapMutations("app", ["setDrawer", "toggleDrawer"]),
+			onClickBtn() {
+				this.setDrawer(!this.$store.state.app.drawer);
+			},
+			onClick() {
+				//
+			},
+			//setting breakpoints to change page layout depending on screen resolution
+			onResponsiveInverted() {
+				if (window.innerWidth < 991) {
+					this.responsive = true;
+					this.responsiveInput = false;
+				} else {
+					this.responsive = false;
+					this.responsiveInput = true;
+				}
+			},
+			logout: function () {
+				this.$store.dispatch("logout").then(() => {
+					this.$router.push("/");
+				});
+			},
+		},
+	};
 </script>
 
 <style>

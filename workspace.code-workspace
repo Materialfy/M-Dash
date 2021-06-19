@@ -12,7 +12,10 @@
 			"tablestest"
 		],
 		"search.exclude": {
-			"**/*.code-search": false
+			"./.markdown": true,
+			".md": true,
+			"**/*.code-search": false,
+			"**/*.md": true
 		}
 	}
 }
