@@ -10,6 +10,6 @@ Vue.use(Vuetify, {
 
 export default new Vuetify({
   icons: { // select from different types of icon libraries 
-    iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+    iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
   },
 });

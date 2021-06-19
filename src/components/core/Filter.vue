@@ -23,8 +23,9 @@
         large
         color="green"
         size="60"
+        
       >
-        {{ iconSelect[1] }}
+        mdi-cog
       </v-icon>
     </v-btn>
     <v-card>
