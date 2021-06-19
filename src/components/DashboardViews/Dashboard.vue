@@ -271,32 +271,36 @@
                       top
                       content-class="top"
                     >
-                      <v-btn
-                        slot="activator"
-                        class="v-btn--simple"
-                        color="success"
-                        icon
-                      >
-                        <v-icon color="primary">
-                          mdi-pencil
-                        </v-icon>
-                      </v-btn>
+                      <template #activator="{ on }">
+                        <v-btn
+                          class="v-btn--simple"
+                          color="success"
+                          icon
+                          v-on="on"
+                        >
+                          <v-icon color="primary">
+                            mdi-pencil
+                          </v-icon>
+                        </v-btn>
+                      </template>
                       <span>Edit</span>
                     </v-tooltip>
                     <v-tooltip
                       top
                       content-class="top"
                     >
-                      <v-btn
-                        slot="activator"
-                        class="v-btn--simple"
-                        color="danger"
-                        icon
-                      >
-                        <v-icon color="error">
-                          mdi-close
-                        </v-icon>
-                      </v-btn>
+                      <template #activator="{ on }">
+                        <v-btn
+                          class="v-btn--simple"
+                          color="danger"
+                          icon
+                          v-on="on"
+                        >
+                          <v-icon color="error">
+                            mdi-close
+                          </v-icon>
+                        </v-btn>
+                      </template>
                       <span>Close</span>
                     </v-tooltip>
                   </div>
@@ -318,16 +322,18 @@
                       top
                       content-class="top"
                     >
-                      <v-btn
-                        slot="activator"
-                        class="v-btn--simple"
-                        color="success"
-                        icon
-                      >
-                        <v-icon color="primary">
-                          mdi-pencil
-                        </v-icon>
-                      </v-btn>
+                      <template #activator="{ on }">
+                        <v-btn
+                          class="v-btn--simple"
+                          color="success"
+                          icon
+                          v-on="on"
+                        >
+                          <v-icon color="primary">
+                            mdi-pencil
+                          </v-icon>
+                        </v-btn>
+                      </template>
                       <span>Edit</span>
                     </v-tooltip>
 
@@ -335,16 +341,18 @@
                       top
                       content-class="top"
                     >
-                      <v-btn
-                        slot="activator"
-                        class="v-btn--simple"
-                        color="danger"
-                        icon
-                      >
-                        <v-icon color="error">
-                          mdi-close
-                        </v-icon>
-                      </v-btn>
+                      <template #activator="{ on }">
+                        <v-btn
+                          class="v-btn--simple"
+                          color="danger"
+                          icon
+                          v-on="on"
+                        >
+                          <v-icon color="error">
+                            mdi-close
+                          </v-icon>
+                        </v-btn>
+                      </template>
                       <span>Close</span>
                     </v-tooltip>
                   </div>
@@ -367,10 +375,10 @@
                       content-class="top"
                     >
                       <v-btn
-                        slot="activator"
                         class="v-btn--simple"
                         color="success"
                         icon
+                        v-on="on"
                       >
                         <v-icon color="primary">
                           mdi-pencil
@@ -383,10 +391,10 @@
                       content-class="top"
                     >
                       <v-btn
-                        slot="activator"
                         class="v-btn--simple"
                         color="danger"
                         icon
+                        v-on="on"
                       >
                         <v-icon color="error">
                           mdi-close

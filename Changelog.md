@@ -49,6 +49,7 @@ This is a general changelog
 - installed MDI icon packfixed filter button not rendering
 - moved theme into vuetify.js and deleted the prior plugins/theme.js file
 continuing to update componenets to vueitfy 2.x 
+fixed filter and notications since they werent being activated due to depreciation of slot -> v-slot
 
 
 ## Made/Clarified documenting comments to explain code in:

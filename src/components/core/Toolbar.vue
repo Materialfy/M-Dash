@@ -51,24 +51,27 @@
           offset-y
           transition="slide-y-transition"
         >
-          <router-link
-            slot="activator"
-            v-ripple
-            class="toolbar-items"
-            to="/dashboard/notifications"
-          >
-            <v-badge
-              color="error"
-              overlap
+          <!-- activators are what cause the button and menu to render/open-->
+          <template #activator="{ on }">
+            <router-link
+              v-ripple
+              class="toolbar-items"
+              to="/dashboard/notifications"
+              v-on="on"
             >
-              <template slot="badge">
-                {{ notifications.length }}
-              </template>
-              <v-icon color>
-                mdi-bell
-              </v-icon>
-            </v-badge>
-          </router-link>
+              <v-badge
+                color="error"
+                overlap
+              >
+                <template slot="badge">
+                  {{ notifications.length }}
+                </template>
+                <v-icon color>
+                  mdi-bell
+                </v-icon>
+              </v-badge>
+            </router-link>
+          </template>
           <v-card>
             <v-list dense>
               <v-list-item
