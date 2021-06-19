@@ -46,7 +46,7 @@
           <td class="t">
             {{ props.item.calories }}
           </td>
-          <td class="text-xs-right">
+          <td class="text-right">
             <v-edit-dialog
               :return-value.sync="props.item.fat"
               large
@@ -59,7 +59,7 @@
             >
               <div>{{ props.item.fat }}</div>
               <template #input>
-                <div class="mt-3 title">
+                <div class="mt-3 text-h6">
                   Update Fat
                 </div>
                 <v-text-field
@@ -76,7 +76,7 @@
           <td class="">
             {{ props.item.carbs }}
           </td>
-          <td class="text-xs-right">
+          <td class="text-right">
             <v-edit-dialog
               :return-value.sync="props.item.protein"
               large
@@ -89,7 +89,7 @@
             >
               <div>{{ props.item.protein }}</div>
               <template #input>
-                <div class="mt-3 title">
+                <div class="mt-3 text-h6">
                   Update Protein
                 </div>
 
@@ -113,7 +113,7 @@
       >
         {{ snackText }}
         <v-btn
-          flat
+          text
           @click="snack = false"
         >
           Close

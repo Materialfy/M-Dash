@@ -10,7 +10,7 @@
       >
         <div class="text-md-center">
           <h1>404</h1>
-          <h2 class="my-3 headline ">
+          <h2 class="my-3 text-h5 ">
             Sorry, page not found
           </h2>
           <div>

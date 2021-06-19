@@ -9,6 +9,7 @@
 </template>
 
 <script>
+// controls the page deminsions
 export default {
   props: {
     fullWidth: {

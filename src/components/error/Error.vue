@@ -7,7 +7,6 @@
       <v-layout
         align-center
         justify-center
-        row
       >
         <div class="mr-3 hidden-sm-and-down">
           <img
@@ -17,7 +16,7 @@
         </div>
         <div class="text-md-center">
           <h1>500</h1>
-          <h2 class="my-3 headline ">
+          <h2 class="my-3 text-h5 ">
             Sorry, the server is down.
           </h2>
           <div>
