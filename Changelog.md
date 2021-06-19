@@ -48,6 +48,7 @@ This is a general changelog
 - added default nav sidebar (drawer) bACKGROUND IMAGINE IN /MODULES/APP/state.js
 - installed MDI icon packfixed filter button not rendering
 - moved theme into vuetify.js and deleted the prior plugins/theme.js file
+continuing to update componenets to vueitfy 2.x 
 
 
 ## Made/Clarified documenting comments to explain code in:

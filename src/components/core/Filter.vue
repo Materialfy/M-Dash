@@ -9,24 +9,26 @@
     offset-x
     transition="slide-y-transition"
   >
-    <v-btn
-      slot="activator"
-      class="elevation-0"
-      color="gray"
-      dark
-      fab
-      fixed
-      style="top: 96px"
-      top
-    >
-      <v-icon
-        large
-        color="blue"
-        size="60"
+    <template #activator="{ on }">
+      <v-btn
+        class="elevation-0"
+        color="gray"
+        dark
+        fab
+        fixed
+        style="top: 96px"
+        top
+        v-on="on"
       >
-        mdi-cog
-      </v-icon>
-    </v-btn>
+        <v-icon
+          large
+          color="blue"
+          size="60"
+        >
+          mdi-cog
+        </v-icon>
+      </v-btn>
+    </template>
     <v-card>
       <v-container grid-list-xl>
         <v-layout wrap>
