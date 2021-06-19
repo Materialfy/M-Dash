@@ -45,6 +45,7 @@ This is a general changelog
 - autofixed components to convert from Vuetify 1.5 to 2.5, their was plenty of depreciated tags previously
 - This fixed a lot of ui issues but not everything, card still messed up
 - fixed the redirecting errors for base external url (/)
+- added default nav sidebar (drawer) bACKGROUND IMAGINE IN /MODULES/APP/state.js
 
 
 ## Made/Clarified documenting comments to explain code in:

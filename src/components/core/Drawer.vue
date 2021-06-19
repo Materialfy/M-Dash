@@ -91,7 +91,7 @@ export default {
         text: 'Table List'
       },
             {
-        to: '/dashboard/tables',
+        to: '/dashboard/user-tables',
         icon: 'mdi-clipboard-outline',
         text: 'CRUD Tables'
       },
