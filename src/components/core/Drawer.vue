@@ -10,7 +10,7 @@
     mobile-breakpoint
     width="260"
   >
-    <!-- this below controls the background image --> 
+    <!-- this section below controls the sidebar background image --> 
     <v-img
       :src="image"
       height="100%"

@@ -38,7 +38,7 @@
         <router-link
           v-ripple
           class="toolbar-items"
-          to="/"
+          to="/dashboard"
         >
           <v-icon color>
             mdi-home
@@ -116,7 +116,7 @@ export default {
       'Another One - Dj Khalid voice'
     ],
     title: 'digital dash ',
-    responsive: false,
+    responsive: false, //default values for responsiveness 
     responsiveInput: false
   }),
 
@@ -146,6 +146,7 @@ export default {
     onClick () {
       //
     },
+    //setting breakpoints to change page layout depending on screen resolution
     onResponsiveInverted () {
       if (window.innerWidth < 991) {
         this.responsive = true
