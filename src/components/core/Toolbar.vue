@@ -1,7 +1,7 @@
 <template>
-  <v-toolbar
+  <v-app-bar
     id="core-toolbar"
-    app
+     app 
     dark
     style="background: #424242;"
     flat
@@ -100,7 +100,7 @@
         </v-icon>
       </v-flex>
     </v-toolbar-items>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>

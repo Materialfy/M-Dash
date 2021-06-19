@@ -18,17 +18,17 @@
         tag="v-list"
         column
       >
-        <v-list-item >
+        <v-list-item>
           <!-- this section builds the avatar and info surrounding it -->
           <v-avatar 
             color="white"
-            size="80"
+            size="60"
           >
-            <v-img
+            <img
               :src="logo"
-              height="34"
+              height="35"
               contain
-            />
+            >
           </v-avatar>
           <v-list-item-title class="text-h6">
             Vuetify Admin Dash
