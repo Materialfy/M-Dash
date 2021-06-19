@@ -1,4 +1,4 @@
-<!-- This renders any components insidet the dashboard with the elements you expect -->
+<!-- This renders any components inside the dashboard with the elements you expect -->
 <template>
   <v-app
     id="dashboard-view"
@@ -15,7 +15,7 @@
         <router-view />
       </v-fade-transition>
     </v-main>
-
+    <!-- turns off footer in the maps component -->
     <core-footer v-if="$route.meta.name !== 'Maps'" />
   </v-app>
 </template>

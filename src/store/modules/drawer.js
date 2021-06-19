@@ -1,5 +1,11 @@
 import { set, toggle } from "./drawersettoggle";
 
+state: () => ({
+	drawer: null,
+	color: 'general',
+	image: '' // change if you want a picture but if you are using this internally get rid of the picture links here and in filter.vue
+})
+
 //need to create some getters and replace some code in the drawer component files with this
 const getters = {};
 

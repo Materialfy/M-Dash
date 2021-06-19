@@ -1,7 +1,6 @@
-<!-- this is the sidebar you use for navigation -->
 <template>
   <v-navigation-drawer
-    id="core-drawer"
+    id="app-drawer"
     v-model="inputValue"
     app
     dark
@@ -9,7 +8,6 @@
     persistent
     mobile-break-point="991"
     width="260"
-    absolute
   >
     <v-img
       :src="image"
@@ -22,11 +20,11 @@
       >
         <v-list-tile avatar>
           <v-list-tile-avatar
-            color="grey"
+            color="white"
           >
             <v-img
               :src="logo"
-              height="64"
+              height="34"
               contain
             />
           </v-list-tile-avatar>
@@ -34,7 +32,7 @@
             Vuetify Admin Dash
           </v-list-tile-title>
         </v-list-tile>
-        <v-divider />
+        <v-divider/>
         <v-list-tile
           v-if="responsive"
         >
@@ -73,57 +71,56 @@ import {
 
 export default {
   data: () => ({
-    // eslint-disable-next-line no-undef
-    logo: require('@/assets/img/redditicon.png'),
+    logo: './img/redditicon.png',
     links: [
       {
-        to: '/',
+        to: '/dashboard',
         icon: 'mdi-view-dashboard',
         text: 'Dashboard'
       },
       {
-        to: '/dashboard/user-profile',
+        to: '/user-profile',
         icon: 'mdi-account',
         text: 'User Profile'
       },
       {
-        to: '/dashboard/table-list',
+        to: '/table-list',
         icon: 'mdi-clipboard-outline',
         text: 'Table List'
       },
-      {
-        to: '/dashboard/user-tables',
-        icon: 'mdi-table-edit',
-        text: 'Users Table'
+            {
+        to: '/tables',
+        icon: 'mdi-clipboard-outline',
+        text: 'CRUD Tables'
       },
       {
-        to: '/dashboard/typography',
+        to: '/typography',
         icon: 'mdi-format-font',
         text: 'Typography'
       },
       {
-        to: '/dashboard/icons',
+        to: '/icons',
         icon: 'mdi-chart-bubble',
         text: 'Icons'
       },
       {
-        to: '/dashboard/maps',
+        to: '/maps',
         icon: 'mdi-map-marker',
         text: 'Maps'
       },
       {
-        to: '/dashboard/notifications',
+        to: '/notifications',
         icon: 'mdi-bell',
         text: 'Notifications'
       }
     ],
     responsive: false
-  }), 
+  }),
   computed: {
-    ...mapState('drawerapp', ['image', 'color']),
+    ...mapState('app', ['image', 'color']),
     inputValue: {
       get () {
-        return this.$store.state.drawer //selecting which state to pull from, the drawer has its own
+        return this.$store.state.app.drawer
       },
       set (val) {
         this.setDrawer(val)
@@ -141,8 +138,7 @@ export default {
     window.removeEventListener('resize', this.onResponsiveInverted)
   },
   methods: {
-    // imports and spreads the mutations into their own variables, easier than importing one by one
-    ...mapMutations('drawerapp', ['setDrawer', 'toggleDrawer']),
+    ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
     onResponsiveInverted () {
       if (window.innerWidth < 991) {
         this.responsive = true
@@ -155,7 +151,7 @@ export default {
 </script>
 
 <style lang="scss">
-  #app {
+  #app-drawer {
     .v-list__tile {
       border-radius: 4px;
 
