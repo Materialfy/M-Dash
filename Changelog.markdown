@@ -39,6 +39,7 @@ switched to use axios in plugins to simplfy main.js
 made base isntance called rest for axios and set the vue http to it
 hopefully it works otherwise gotta find proper way to import
 also imported rest into main.js and made vue use it
+reverted change to state app folder, will talke that again later
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js
