@@ -17,13 +17,13 @@
         {{ icon }}
       </v-icon>
     </v-card>
-    <div class="text-xs-right">
+    <div class="text-right">
       <p
         class="category grey--text font-weight-light"
         v-text="title"
       />
       <h3
-        class="title display-1 font-weight-light"
+        class="text-h6 text-h4 font-weight-light"
       >
         {{ value }} <small>{{ smallValue }}</small>
       </h3>
@@ -39,7 +39,7 @@
       </v-icon>
       <span
         :class="subTextColor"
-        class="caption font-weight-light"
+        class="text-caption font-weight-light"
         v-text="subText"
       />
     </template>
