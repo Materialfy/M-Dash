@@ -133,16 +133,16 @@ export default {
   }),
 
   computed: {
-    ...mapState('drawerapp', ['image', 'color']),
+    ...mapState('app', ['image', 'color']),
     color () {
-      return this.$store.state.drawerapp.color
+      return this.$store.state.app.color
     }
   },
 
   methods: {
-    ...mapMutations('drawerapp', ['setImage']),
+    ...mapMutations('app', ['setImage']),
     setColor (color) {
-      this.$store.state.drawerapp.color = color
+      this.$store.state.app.color = color
     }
   }
 }
