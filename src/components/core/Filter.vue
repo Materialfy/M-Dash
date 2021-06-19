@@ -20,9 +20,11 @@
       top
     >
       <v-icon 
-      medium
-      color="green"
-      >mdi-settings</v-icon>
+        large
+        color="green"
+      >
+        {{ iconSelect[1] }}
+      </v-icon>
     </v-btn>
     <v-card>
       <v-container grid-list-xl>
@@ -116,7 +118,7 @@ import {
   mapMutations,
   mapState
 } from 'vuex'
-
+import { mdiAccount,mdiCogs } from '@mdi/js'
 export default {
   data: () => ({
     colors: [
@@ -127,6 +129,7 @@ export default {
       'danger',
       'general'
     ],
+    iconSelect: [mdiAccount, mdiCogs],
     images: [
       'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg',
       'https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg',
