@@ -51,6 +51,8 @@ This is a general changelog
 - continuing to update componenets to vueitfy 2.x 
 - fixed filter and notications since they werent being activated due to depreciation of slot -> v-slot
 - removed the dark prop from components, it is now controlled globally in vutify.js
+- updated rows-per-page-items → items-per-page-options 
+
 
 
 ## Made/Clarified documenting comments to explain code in:

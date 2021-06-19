@@ -114,11 +114,11 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-
+			<!-- lets you change the options for the data table -->
             <v-data-table
               :headers="headers"
               :items="UserList"
-              :rows-per-page-items="rowsAmount"
+              :items-per-page-options="rowsAmount"
               :search="search"
               class="elevation-1"
             >
