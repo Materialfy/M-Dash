@@ -1,7 +1,8 @@
 <template>
+<!-- v-model calls input value method in scripts below -->
   <v-navigation-drawer
     id="app-drawer"
-    v-model="inputValue"
+    v-model="inputValue" 
     app
     dark
     floating
@@ -9,6 +10,7 @@
     mobile-breakpoint
     width="260"
   >
+    <!-- this below controls the background image --> 
     <v-img
       :src="image"
       height="100%"
@@ -51,7 +53,7 @@
           :to="link.to"
           :active-class="color"
           class="v-list-item"
-        >
+        > <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
           <v-list-item-action>
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>

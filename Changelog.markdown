@@ -46,6 +46,7 @@ This is a general changelog
 - This fixed a lot of ui issues but not everything, card still messed up
 - fixed the redirecting errors for base external url (/)
 - added default nav sidebar (drawer) bACKGROUND IMAGINE IN /MODULES/APP/state.js
+- installed MDI icon pack
 
 
 ## Made/Clarified documenting comments to explain code in:

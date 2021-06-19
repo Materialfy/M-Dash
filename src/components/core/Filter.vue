@@ -12,14 +12,17 @@
     <v-btn
       slot="activator"
       class="elevation-0"
-      color="grey"
+      color="gray"
       dark
       fab
       fixed
       style="top: 96px;"
       top
     >
-      <v-icon>mdi-settings</v-icon>
+      <v-icon 
+      medium
+      color="green"
+      >mdi-settings</v-icon>
     </v-btn>
     <v-card>
       <v-container grid-list-xl>
