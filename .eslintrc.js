@@ -12,6 +12,7 @@ module.exports = {
     "eslint:recommended",
     'plugin:vue/essential',
     'plugin:vue/recommended',
+    'plugin:vuetify/base'
     //'prettier/vue',
     //'plugin:prettier/recommended'
   ],

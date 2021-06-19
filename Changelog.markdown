@@ -41,6 +41,7 @@ hopefully it works otherwise gotta find proper way to import
 also imported rest into main.js and made vue use it
 reverted change to state app folder, will talke that again later
 added dark theme to vuetify.js
+added vuetify linter to eslintrc.js and package.json
 
 ## Made/Clarified documenting comments to explain code in:
 router index.js
