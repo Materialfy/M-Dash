@@ -10,7 +10,7 @@
 					<v-data-table :headers="headers" :items="items" hide-default-footer>
 						<template slot="headerCell" slot-scope="{ header }">
 							<span
-								class="subheading font-weight-light text-success text--darken-3"
+								class="subtitle-1 font-weight-light text-success text--darken-3"
 								v-text="header.text"
 							/>
 						</template>
@@ -40,7 +40,7 @@
 					>
 						<template slot="headerCell" slot-scope="{ header }">
 							<span
-								class="subheading font-weight-light text--darken-3"
+								class="subtitle-1 font-weight-light text--darken-3"
 								v-text="header.text"
 							/>
 						</template>

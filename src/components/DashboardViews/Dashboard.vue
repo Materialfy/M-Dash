@@ -226,7 +226,7 @@
               slider-color="white"
             >
               <span
-                class="subheading font-weight-light mr-3"
+                class="text-subtitle-1 font-weight-light mr-3"
                 style="align-self: center"
               >Tasks:</span>
               <v-tab class="mr-3">
