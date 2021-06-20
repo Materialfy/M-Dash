@@ -1,5 +1,5 @@
 <template>
-<!-- in vuetify 2.x it is has a value of true by default now -->
+  <!-- in vuetify 2.x it is has a value of true by default now -->
   <v-alert
     v-bind="$attrs"
     :class="[`elevation-${elevation}`]"

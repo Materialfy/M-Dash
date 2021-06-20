@@ -1,7 +1,7 @@
 <template>
   <v-container
     fill-height
-    fluid
+    container--fluid
     grid-list-xl
   >
     <v-layout wrap>
@@ -219,17 +219,24 @@
           class="card-tabs"
           color="general"
         >
+          <!-- v-tabs makes the name and icons for the todo list table/chart on the dash -->
           <v-flex slot="header">
             <v-tabs
               v-model="tabs"
               color="transparent"
               slider-color="white"
             >
+              <!-- v-tab-item -> v-tab -->
               <span
                 class="text-subtitle-1 font-weight-light mr-3"
                 style="align-self: center"
-              >Tasks:</span>
-              <v-tab class="mr-3">
+              >
+                Tasks:
+              </span>
+              <v-tab 
+                class="mr-3"
+                eager
+              >
                 <v-icon class="mr-2">
                   mdi-bug
                 </v-icon>

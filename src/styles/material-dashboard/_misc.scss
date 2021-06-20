@@ -47,6 +47,7 @@ strong {
   height: auto;
 }
 
+//  these work in the globally background so you can set colors in styles/material-dashboard/_variable.scss/
 @include drawer-active-colors('primary', $brand-primary);
 @include drawer-active-colors('success', $brand-success);
 @include drawer-active-colors('danger', $brand-danger);
