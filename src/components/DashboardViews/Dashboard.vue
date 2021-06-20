@@ -192,6 +192,7 @@
                 v-text="header.text"
               />
             </template>
+            <!-- use a scoped slot to send data to child to be processed and returned -->
             <template
               slot="items"
               slot-scope="{ index, item }"
@@ -221,12 +222,13 @@
         >
           <!-- v-tabs makes the name and icons for the todo list table/chart on the dash -->
           <v-flex slot="header">
+            <!-- color is the text color of the card heade-->r
             <v-tabs
               v-model="tabs"
-              color="transparent"
+              color="transparent" 
               slider-color="white"
             >
-              <!-- v-tab-item -> v-tab -->
+              <!-- v-tab-item -> v-tab , span is the card text span-->
               <span
                 class="text-subtitle-1 font-weight-light mr-3"
                 style="align-self: center"
@@ -256,7 +258,7 @@
               </v-tab>
             </v-tabs>
           </v-flex>
-
+          <!-- this is for the list items in the tod list card -->
           <v-tabs-items v-model="tabs">
             <v-tab-item
               v-for="n in 3"
@@ -271,7 +273,7 @@
                     />
                   </v-list-item-action>
                   <v-list-item-title>
-                    Sign contract for "What are conference organized afraid of?"
+                    Sign contract for "What are afraid of?"
                   </v-list-item-title>
                   <div class="d-flex">
                     <v-tooltip
