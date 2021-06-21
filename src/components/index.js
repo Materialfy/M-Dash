@@ -12,27 +12,42 @@ const requireComponent = require.context(
   '@/components',
   // Whether or not to look in subfolders
   true,
-  // The regular expression used to match base component filenames
-  // /Base[A-Z]\w+\.(vue|js)$/
-  
-  //  line 17 is regex that came with template
+  //matches component filenames that have: .vue f
   /\.vue$/
 )
+//iterates using the keys of each context module require function 
 requireComponent.keys().forEach(fileName => {
   // Get component config
   const componentConfig = requireComponent(fileName)
-  // Get PascalCase name of component
+ 
+  /* 
+  Get PascalCase name of component. This uses two lodash methods to convert to pascal
+  The _.upperFirst() method is used to convert the first character of the string to the upper case. 
+  */
   const componentName = upperFirst(
+    /*The _.camelCase() method is used to convert a string into a camel case string. 
+    The string can be space,  dash, underscores separated */
     camelCase(
       // Gets the file name regardless of folder depth
       fileName
-      /* first line 28 is custom regex that came with template
+      /* 
+      searches for a "./" and deletes them
       ^ asserts position at start of a line
       \. matches the character "." literally (case sensitive)
       \/ matches the character "/" literally (case sensitive)
       '' matches the characters , "''" literally (case sensitive)
+      .replace method searches a string for a specified value, or a regular expression, 
+      and replaces first value with second
       */
         .replace(/^\.\//, '')
+
+      /* 
+      searches for ".vue"
+      \. matches the character "." literally (case sensitive)
+      \w matches any word character (equivalent to [a-zA-Z0-9_])
+      + matches the previous token between one and unlimited times, as many times as possible, giving back as needed (greedy)
+      $ asserts position at the end of a line
+      */
         .replace(/\.\w+$/, '')
     )
   )

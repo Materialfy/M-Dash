@@ -1,17 +1,27 @@
 // https://vuex.vuejs.org/en/modules.html
-//files like the the drawer app get their name from the folder name + the file name i.e app.drawer
+//module names are set in here automatically, the name will be modulefoldername to access that modules state
 
 // eslint-disable-next-line no-undef
-const requireModule = require.context('.', true, /\.js$/)
+const requireModule = require.context(
+  '.', // The relative path of this folder
+  true, //This turns on  check subfolders
+  /\.js$/ //regex is searching for ".js"
+  )
+//create modules object to export and set a level up in "const store = new Vuex.Store({""
 const modules = {}
 
+/* 
+iterates through the .keys array with foreach.
+passes in each filename and checks to see if any of them matches ./index.js
+*/
 requireModule.keys().forEach(fileName => {
   if (fileName === './index.js') return
 
-  // Replace ./ and .js
+  // Remove ./ and .js with with replace() which returns: modulename/file.js i.e app/state.js
   const path = fileName.replace(/(\.\/|\.js)/g, '')
+  //split into two different variables based on '/'
   const [moduleName, imported] = path.split('/')
-
+// ifd the modules exists, turn on name spacing for modules
   if (!modules[moduleName]) {
     modules[moduleName] = {
       namespaced: true
