@@ -8,11 +8,14 @@ Aka Automatic Global Registration
 // eslint-disable-next-line no-undef
 const requireComponent = require.context(
   // The relative path of the components folder
-  './components',
+  '@/components',
   // Whether or not to look in subfolders
-  false,
+  true,
   // The regular expression used to match base component filenames
-  /Base[A-Z]\w+\.(vue|js)$/
+  // /Base[A-Z]\w+\.(vue|js)$/
+  
+  //  line 17 is regex that came with template
+  /\.vue$/
 )
 requireComponent.keys().forEach(fileName => {
   // Get component config
@@ -22,8 +25,8 @@ requireComponent.keys().forEach(fileName => {
     camelCase(
       // Gets the file name regardless of folder depth
       fileName
-        .split('/')
-        .pop()
+      // first line 28 is custom regex that came with template
+        .replace(/^\.\//, '')
         .replace(/\.\w+$/, '')
     )
   )

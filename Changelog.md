@@ -52,7 +52,7 @@ This is a general changelog
 - fixed filter and notications since they werent being activated due to depreciation of slot -> v-slot
 - removed the dark prop from components, it is now controlled globally in vutify.js
 - updated rows-per-page-items → items-per-page-options 
-clairified that /compoenets/index.js is importing all files with comments and rewrite
+- clairified that /compoenets/index.js is importing all files with comments and rewrite
 
 
 
