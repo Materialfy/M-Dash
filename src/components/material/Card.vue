@@ -56,7 +56,7 @@
 <script>
 	export default {
 		inheritAttrs: false,
-
+		// this componenet uses this to set the css  above
 		props: {
 			color: {
 				type: String,

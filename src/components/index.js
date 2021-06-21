@@ -26,7 +26,12 @@ requireComponent.keys().forEach(fileName => {
     camelCase(
       // Gets the file name regardless of folder depth
       fileName
-      // first line 28 is custom regex that came with template
+      /* first line 28 is custom regex that came with template
+      ^ asserts position at start of a line
+      \. matches the character "." literally (case sensitive)
+      \/ matches the character "/" literally (case sensitive)
+      '' matches the characters , "''" literally (case sensitive)
+      */
         .replace(/^\.\//, '')
         .replace(/\.\w+$/, '')
     )
