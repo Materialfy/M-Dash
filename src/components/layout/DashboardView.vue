@@ -2,9 +2,9 @@
 core-toolbar is core/toolbar.vue etc -->
 <template>
   <v-app id="dashboard-view">
-  <core-navbar />> <!-- this can also be called using <nav-bar /> -->
+    <core-navbar />> 
 
-   <!-- <core-toolbar /> -->
+    <!-- <core-toolbar /> -->
     <core-drawer />
     <core-filter />
 
@@ -21,10 +21,9 @@ core-toolbar is core/toolbar.vue etc -->
 </template>
 
 <script>
-import NavBar from '../core/NavBar.vue';
+
 	//feel free to rename the title
 	export default {
-	components: { NavBar },
 		name: "DashboardView",
 		metaInfo() {
 			return {
