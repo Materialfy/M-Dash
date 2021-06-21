@@ -1,5 +1,6 @@
 <template>
-  <v-app-bar
+<!-- this is for the css class to apply to this -->
+  <v-app-bar 
     id="core-toolbar"
     app
     style="background: #424242"
@@ -141,7 +142,7 @@
 		},
 
 		methods: {
-			...mapMutations("app", ["setDrawer", "toggleDrawer"]),
+			...mapMutations("app", ["setDrawer", "toggleDrawer"]), // chooses which namespaced state to get the mutations from
 			onClickBtn() {
 				this.setDrawer(!this.$store.state.app.drawer);
 			},

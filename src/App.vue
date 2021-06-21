@@ -52,6 +52,7 @@ None of this stuff is in use but it can be if you want
 $nprogress-color: #389df1;
 $nprogress-height: 4px;
 //@import "nprogress/css/nprogress.scss";
+// this imports the global styles used in components
 @import "@/styles/index.scss";
 /* Remove in 1.2 */
 .v-datatable thead th.column.sortable i {

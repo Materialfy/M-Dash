@@ -21,7 +21,7 @@ requireModule.keys().forEach(fileName => {
   //if not index.js, Remove ./ and .js with with replace() which returns: modulename/file.js i.e app/state.js
   const path = fileName.replace(/(\.\/|\.js)/g, '')
   //split into two different variables based on '/', modulename is the name of the folder the modules files are in
-  const [moduleName, imported] = path.split('/')
+  const [moduleName, imported] = path.split('/') //imported is the file.js that was inside the module
 // ifd the modules exists, turn on name spacing for modules
   if (!modules[moduleName]) {
     modules[moduleName] = {

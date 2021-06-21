@@ -2,12 +2,12 @@ import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
-/* This file automatically imports the base components so it can be used anywhere without implicitly importing
-Aka Automatic Global Registration
+/* This file automatically imports the components in this folder Aka Automatic Global Registration
+Components are registered using the PascalCased version of their file name.
 files like the nav bar get them name from the folder name + the component file name i.e core-nav-bar, material-card
 */
 // eslint-disable-next-line no-undef
-const requireComponent = require.context(
+const requireComponent = require.context( //gets config of component
   // The relative path of the components folder
   '@/components',
   // Whether or not to look in subfolders
@@ -15,9 +15,10 @@ const requireComponent = require.context(
   //matches component filenames that have: .vue f
   /\.vue$/
 )
-//iterates using the keys of each context module require function 
+//iterates using the context module  .keys array with foreach
+//passes in each filename and sets the config with the filename for each file
 requireComponent.keys().forEach(fileName => {
-  // Get component config
+  // sets component config with the filename
   const componentConfig = requireComponent(fileName)
  
   /* 
@@ -25,10 +26,9 @@ requireComponent.keys().forEach(fileName => {
   The _.upperFirst() method is used to convert the first character of the string to the upper case. 
   */
   const componentName = upperFirst(
-    /*The _.camelCase() method is used to convert a string into a camel case string. 
+    /* then  _.camelCase() is used to convert a string into a camel case string. 
     The string can be space,  dash, underscores separated */
     camelCase(
-      // Gets the file name regardless of folder depth
       fileName
       /* 
       searches for a "./" and deletes them
@@ -36,8 +36,7 @@ requireComponent.keys().forEach(fileName => {
       \. matches the character "." literally (case sensitive)
       \/ matches the character "/" literally (case sensitive)
       '' matches the characters , "''" literally (case sensitive)
-      .replace method searches a string for a specified value, or a regular expression, 
-      and replaces first value with second
+      .replace method  replaces first value with second
       */
         .replace(/^\.\//, '')
 
@@ -50,7 +49,7 @@ requireComponent.keys().forEach(fileName => {
       */
         .replace(/\.\w+$/, '')
     )
-  )
+  )// this leaves the componantName whatever the .vue file name was ./vuefilename.vue componentName =Vuefilename
 
   // Register component globally
   Vue.component(
