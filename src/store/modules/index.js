@@ -13,13 +13,14 @@ const modules = {}
 /* 
 iterates through the .keys array with foreach.
 passes in each filename and checks to see if any of them matches ./index.js
+line:19 just checks for and stops this if index is returned
 */
 requireModule.keys().forEach(fileName => {
   if (fileName === './index.js') return
 
-  // Remove ./ and .js with with replace() which returns: modulename/file.js i.e app/state.js
+  //if not index.js, Remove ./ and .js with with replace() which returns: modulename/file.js i.e app/state.js
   const path = fileName.replace(/(\.\/|\.js)/g, '')
-  //split into two different variables based on '/'
+  //split into two different variables based on '/', modulename is the name of the folder the modules files are in
   const [moduleName, imported] = path.split('/')
 // ifd the modules exists, turn on name spacing for modules
   if (!modules[moduleName]) {
