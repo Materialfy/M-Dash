@@ -1,4 +1,5 @@
-<!-- This renders any components inside the dashboard with the elements you expect -->
+<!-- This renders any components inside the dashboard with the elements you expect
+core-toolbar is core/toolbar.vue etc -->
 <template>
 	<v-app id="dashboard-view">
 		<core-toolbar />

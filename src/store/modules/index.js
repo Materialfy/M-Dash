@@ -1,4 +1,5 @@
 // https://vuex.vuejs.org/en/modules.html
+//files like the the drawer app get their name from the folder name + the file name i.e app.drawer
 
 // eslint-disable-next-line no-undef
 const requireModule = require.context('.', true, /\.js$/)

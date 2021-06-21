@@ -16,6 +16,7 @@
         :class="`elevation-${elevation}`"
         class="v-card--material__header"
       >
+        <!-- this is importing the header from the SCSS down below _header -->
         <slot
           v-if="!title && !text"
           name="header"

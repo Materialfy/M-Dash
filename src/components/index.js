@@ -4,6 +4,7 @@ import camelCase from 'lodash/camelCase'
 
 /* This file automatically imports the base components so it can be used anywhere without implicitly importing
 Aka Automatic Global Registration
+files like the nav bar get them name from the folder name + the component file name i.e core-nav-bar, material-card
 */
 // eslint-disable-next-line no-undef
 const requireComponent = require.context(
