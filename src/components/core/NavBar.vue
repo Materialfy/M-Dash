@@ -1,8 +1,14 @@
+<!-- <nav-bar /> in the DashboardView.vue -->
 <template>
+  <!-- app-bar props below customize bevaviotr and looks -->
   <v-app-bar
     app
-    ></v-app-bar>
-    
+    absolute
+    dense
+    elevate-on-scroll 
+  >
+  <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  </v-app-bar>
 </template>
 
 <script>
