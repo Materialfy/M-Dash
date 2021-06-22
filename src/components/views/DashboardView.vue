@@ -5,7 +5,7 @@ core-toolbar is core/toolbar.vue etc -->
     <core-navbar />> 
 
     <!-- <core-toolbar /> -->
-    <core-drawer />
+    <core-sidedrawer />
     <core-filter />
 
     <v-main>
