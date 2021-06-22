@@ -119,7 +119,7 @@
 			...mapState("app", ["image", "color"]),
 			inputValue: {
 				get() {
-					return this.$store.state.app.drawer;
+					return this.$store.state.drawertoggle.drawer;
 				},
 				set(val) {
 					this.setDrawer(val);

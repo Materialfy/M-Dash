@@ -132,14 +132,14 @@
 		computed: {
 			...mapState("app", ["image", "color"]),
 			color() {
-				return this.$store.state.app.color;
+				return this.$store.state.drawertoggle.color;
 			},
 		},
 
 		methods: {
 			...mapMutations("app", ["setImage"]),
 			setColor(color) {
-				this.$store.state.app.color = color;
+				this.$store.state.drawertoggle.color = color;
 			},
 		},
 	};
