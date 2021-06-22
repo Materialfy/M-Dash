@@ -53,6 +53,8 @@ This is a general changelog
 - removed the dark prop from components, it is now controlled globally in vutify.js
 - updated rows-per-page-items → items-per-page-options 
 - clairified that /compoenets/index.js is importing all files with comments and rewrite
+- component/layout has been renamed back to views
+- made new toolbar with vuetify so it will be easier to update and less complicated, easier to customize
 
 
 
