@@ -55,6 +55,8 @@ This is a general changelog
 - clairified that /compoenets/index.js is importing all files with comments and rewrite
 - component/layout has been renamed back to views
 - made new toolbar with vuetify so it will be easier to update and less complicated, easier to customize
+- changed the name of vuex.js to setToggle.js, its imported currently into modules/app
+- changed /modules/app to drawertoggle
 
 
 

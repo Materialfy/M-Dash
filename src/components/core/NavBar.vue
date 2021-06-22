@@ -56,7 +56,7 @@
 		},
 
 		methods: {
-			...mapMutations("app", ["setDrawer", "toggleDrawer"]), // chooses which namespaced state to get the mutations from
+			...mapMutations("drawertoggle", ["setDrawer", "toggleDrawer"]), // chooses which namespaced state to get the mutations from
 			onClickBtn() {
 				this.setDrawer(!this.$store.state.drawertoggle.drawer);
 			},
