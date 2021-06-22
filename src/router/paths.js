@@ -14,7 +14,7 @@ export default [
 			name: "External",
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/layout/ExternalView.vue`), // this renders the children in this layout
+		component: () => import(`@/components/views/ExternalView.vue`), // this renders the children in this layout
 		children: [
 			//any components in this path auto render in External
 			{
@@ -36,7 +36,7 @@ export default [
 			name: 'dashboard-view',
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/layout/DashboardView.vue`),
+		component: () => import(`@/components/views/DashboardView.vue`),
 		children: [
 			{
 				path: "", //defaults to /dashboard if left blank
@@ -105,7 +105,7 @@ export default [
 					import(`@/components/DashboardViews/Notifications.vue`),
 			},
 		],
-		//per route guard if you dont want global
+		//per route guard if you dont want to use the global version in /router/index
 		// beforeEnter: (to, from, next) => {
 		// 	// checks to see if you are trying to go to dashboard and are logged in
 		// 	if (to.name !== 'dashboard' && store.getters.authorized) {

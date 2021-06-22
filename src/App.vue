@@ -12,6 +12,7 @@ so that is what ExternalView and DashboardView are for. LoginForm renders in Ext
 <script>
 // checks to see if auth jwt token is valid or has expired, if it gets back 401 error log out
 export default {
+  name: 'App',
   created: function () {
     this.$http.interceptors.response.use(
       (response) => {
