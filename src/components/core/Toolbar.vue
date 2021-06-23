@@ -1,109 +1,76 @@
 <template>
-  <!-- this is for the css class to apply to this -->
-  <v-app-bar
-    id="core-toolbar"
-    app
-    style="background: #424242"
-    flat
-    prominent
-  >
-    <div class="v-toolbar-title">
-      <v-toolbar-title class="font-weight-light text-general">
-        <v-btn
-          v-if="responsive"
-          class="default v-btn--simple"
-          icon
-          @click.stop="onClickBtn"
-        >
-          <v-icon>mdi-view-list</v-icon>
-        </v-btn>
-        {{ title }}
-      </v-toolbar-title>
-    </div>
+	<!-- this is for the css class to apply to this -->
+	<v-app-bar id="core-toolbar" app style="background: #424242" flat prominent>
+		<div class="v-toolbar-title">
+			<v-toolbar-title class="font-weight-light text-general">
+				<v-btn
+					v-if="responsive"
+					class="default v-btn--simple"
+					icon
+					@click.stop="onClickBtn"
+				>
+					<v-icon>mdi-view-list</v-icon>
+				</v-btn>
+				{{ title }}
+			</v-toolbar-title>
+		</div>
 
-    <v-spacer />
-    <v-toolbar-items>
-      <v-flex
-        align-center
-        layout
-        py-2
-      >
-        <v-text-field
-          v-if="responsiveInput"
-          class="mr-4 mt-2 purple-input"
-          label="Search..."
-          hide-details
-          color="purple"
-        />
-        <router-link
-          v-ripple
-          class="toolbar-items"
-          to="/dashboard"
-        >
-          <v-icon color>
-            mdi-home
-          </v-icon>
-        </router-link>
-        <v-menu
-          bottom
-          float-left
-          content-class
-          offset-y
-          transition="slide-y-transition"
-        >
-          <!-- activators are what cause the button and menu to render/open-->
-          <template #activator="{ on }">
-            <router-link
-              v-ripple
-              class="toolbar-items"
-              to="/dashboard/notifications"
-              v-on="on"
-            >
-              <v-badge
-                color="error"
-                overlap
-              >
-                <template slot="badge">
-                  {{ notifications.length }}
-                </template>
-                <v-icon color>
-                  mdi-bell
-                </v-icon>
-              </v-badge>
-            </router-link>
-          </template>
-          <v-card>
-            <v-list dense>
-              <v-list-item
-                v-for="notification in notifications"
-                :key="notification"
-                @click="onClick"
-              >
-                <v-list-item-title v-text="notification" />
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </v-menu>
-        <router-link
-          v-ripple
-          class="toolbar-items"
-          to="/dashboard/user-profile"
-        >
-          <v-icon color>
-            mdi-account
-          </v-icon>
-        </router-link>
+		<v-spacer />
+		<v-toolbar-items>
+			<v-flex align-center layout py-2>
+				<v-text-field
+					v-if="responsiveInput"
+					class="mr-4 mt-2 purple-input"
+					label="Search..."
+					hide-details
+					color="purple"
+				/>
+				<router-link v-ripple class="toolbar-items" to="/">
+					<v-icon color> mdi-home </v-icon>
+				</router-link>
+				<v-menu
+					bottom
+					float-left
+					content-class
+					offset-y
+					transition="slide-y-transition"
+				>
+					<!-- activators are what cause the button and menu to render/open-->
+					<template #activator="{ on }">
+						<router-link
+							v-ripple
+							class="toolbar-items"
+							to="/notifications"
+							v-on="on"
+						>
+							<v-badge color="error" overlap>
+								<template slot="badge">
+									{{ notifications.length }}
+								</template>
+								<v-icon color> mdi-bell </v-icon>
+							</v-badge>
+						</router-link>
+					</template>
+					<v-card>
+						<v-list dense>
+							<v-list-item
+								v-for="notification in notifications"
+								:key="notification"
+								@click="onClick"
+							>
+								<v-list-item-title v-text="notification" />
+							</v-list-item>
+						</v-list>
+					</v-card>
+				</v-menu>
+				<router-link v-ripple class="toolbar-items" to="/user-profile">
+					<v-icon color> mdi-account </v-icon>
+				</router-link>
 
-        <v-icon
-          class="toolbar-items"
-          color
-          @click="logout"
-        >
-          mdi-power
-        </v-icon>
-      </v-flex>
-    </v-toolbar-items>
-  </v-app-bar>
+				<v-icon class="toolbar-items" color @click="logout"> mdi-power </v-icon>
+			</v-flex>
+		</v-toolbar-items>
+	</v-app-bar>
 </template>
 
 <script>

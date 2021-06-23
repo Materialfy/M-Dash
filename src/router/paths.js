@@ -9,7 +9,7 @@ export default [
 	// This section is primarily for the login but it allows you to add external other pages to be rendered outside the dashboard layout like the login
 	//if you want to add more external routes make them in the children array
 	{// using the named route option 
-		path: "/",
+		path: "/login",
 		meta: {
 			name: "External",
 			requiresAuth: false,
@@ -20,18 +20,18 @@ export default [
 			{
 				path: "", // you leave this blank if you want it to default to the parents path
 				name: "login",
-				component: () => import(`@/components/externalviews/LoginForm.vue`),
+				component: () => import(`@/components/core/LoginForm.vue`),
 			},
 			{
 				path: "/home", // you leave this blank if you want it to default to the parents path
 				name: "home",
-				component: () => import(`@/components/externalviews/Home.vue`),
+				component: () => import(`@/components/unusedviews/Home.vue`),
 			},
 		],
 	},
 	
 	{
-		path: '/dashboard',
+		path: '/',
 		meta: {
 			name: 'dashboard-view',
 			requiresAuth: false,
