@@ -26,6 +26,7 @@
     >
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
+	<CoreSidedrawer />
   </v-app-bar>
 </template>
 

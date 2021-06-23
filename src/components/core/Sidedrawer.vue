@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="toggle"
+    :value ="toggle"
     absolute
     temporary
     app
@@ -45,12 +45,7 @@ export default {
         ['drawerState']
     ),
       toggle: function (){ //checks the drawertoggle module state to see if drawer is open or not
-        console.log("the sidedrawer.vue: -" + this.drawerState)
-        if (this.drawerState == false){
-          this.stateToggle()
-          console.log("inside IF: " + this.drawerState)
-          return this.drawerState }
-        console.log("outisde: " + this.drawerState)
+
         return this.drawerState
     }
 

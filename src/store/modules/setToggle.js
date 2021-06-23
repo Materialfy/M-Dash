@@ -12,7 +12,8 @@ export const set = property => (state, newdata) => (state[property] = newdata)
 
 export const toggle = property => state => {
     console.log("setToggle:  " + state.drawerState)
-    //state.drawer = true
+    //state.drawerState = true
+    state.skip = true
     return (state[property] = !state[property])
 } 
 
