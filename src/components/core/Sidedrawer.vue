@@ -41,11 +41,11 @@ export default {
     },
     computed : {
     ...mapState(
-       'drawertoggle',
+        'drawertoggle',
         ['drawer']
     ),
-    toggle (){
-      console.log(this.drawer)
+    toggle (){ //checks the drawertoggle module state to see if drawer is open or not
+      console.log("the sidedrawer.vue: -" + this.drawer)
         return this.drawer
     }
 

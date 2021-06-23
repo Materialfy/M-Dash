@@ -30,7 +30,7 @@
 </template>
 
 <script>
-	import { mapActions, mapGetters } from "vuex";
+	import { mapActions, mapGetters, mapMutations } from "vuex";
 
 	export default {
 		data: () => ({
@@ -42,7 +42,7 @@
 				"Another One - Dj Khalid voice",
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
-      group: null,
+			group: null,
 		}),
 
 		computed: {
@@ -58,13 +58,15 @@
 		},
 
 		methods: {
-      
+			...mapMutations('drawertoggle', ["toggleOn"]),
 			...mapActions(
         "drawertoggle",// chooses which namespaced state module to get the mutations from
         ["drawerOn"]
         ), 
 			drawerbutton() { // this calls the action drawerOn which then commits the toggle mutation
-				this.drawerOn();
+				//this.$store.state.drawertoggle.drawer = false
+				this.toggleOn()
+				//this.drawerOn();
 			},
 			onClick() {
         //this.toggleDrawer(this.)

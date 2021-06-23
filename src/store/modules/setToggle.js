@@ -10,9 +10,12 @@ drawerapp state: color, drawer, image
 //you state[property] and state.property mean the same thing
 export const set = property => (state, newdata) => (state[property] = newdata)
 
-export const toggle = property => state => {
-    console.log(property)
-    console.log(state)
-    return (state[property] = !state[property])
+export const toggle = property => state => {(state[property] = !state[property])
     //console.log("im inside the toggle mutation:  "+ state.property)
 } 
+
+export const toggleOn = state => {
+    state.drawer = true
+    state.update = !state.update
+    console.log("Insile toggleReset after state change to false. its now:  " + state.drawer)
+}
