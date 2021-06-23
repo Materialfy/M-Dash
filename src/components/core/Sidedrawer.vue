@@ -41,7 +41,7 @@ export default {
     },
     computed : {
     ...mapState(
-        "drawertoggle",
+       'drawertoggle',
         ['drawer']
     ),
     toggle (){
