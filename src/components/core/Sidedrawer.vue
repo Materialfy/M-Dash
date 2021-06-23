@@ -45,7 +45,8 @@ export default {
         ['drawer']
     ),
     toggle (){
-        return this.$store.drawertoggle.state.drawer
+      console.log(this.drawer)
+        return this.drawer
     }
 
     },
