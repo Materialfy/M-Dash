@@ -9,7 +9,7 @@
     elevate-on-scroll
   >
     <v-app-bar-nav-icon 
-      @click="drawerButton" 
+      @click="drawerButton = true" 
     /> <!-- controls the sidebar colapssing-->
     <v-app-bar-title 
       shrink-on-scroll 
@@ -26,12 +26,11 @@
     >
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
-	<CoreSidedrawer />
   </v-app-bar>
 </template>
 
 <script>
-	import { mapActions, mapGetters, mapMutations } from "vuex";
+	//import { mapActions, mapGetters, mapMutations } from "vuex";
 
 	export default {
 		data: () => ({
@@ -44,10 +43,11 @@
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
+			drawerButton : false
 		}),
 
 		computed: {
-			...mapGetters(["authorized"]),
+			//...mapGetters(["authorized"]),
 		},
 
 		watch: {
@@ -59,6 +59,7 @@
 		},
 
 		methods: {
+			/*
 			...mapMutations('drawertoggle', ["toggleReset"]),
 			...mapActions(
         "drawertoggle",// chooses which namespaced state module to get the mutations from
@@ -71,7 +72,7 @@
 			},
 			onClick() {
         //this.toggleDrawer(this.)
-			},
+			}, */
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {
 					this.$router.push("/");
