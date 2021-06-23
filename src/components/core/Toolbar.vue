@@ -1,9 +1,9 @@
 <template>
-  <v-toolbar
+  <!-- this is for the css class to apply to this -->
+  <v-app-bar
     id="core-toolbar"
     app
-    dark
-    style="background: #424242;"
+    style="background: #424242"
     flat
     prominent
   >
@@ -38,7 +38,7 @@
         <router-link
           v-ripple
           class="toolbar-items"
-          to="/"
+          to="/dashboard"
         >
           <v-icon color>
             mdi-home
@@ -46,38 +46,41 @@
         </router-link>
         <v-menu
           bottom
-          left
+          float-left
           content-class
           offset-y
           transition="slide-y-transition"
         >
-          <router-link
-            slot="activator"
-            v-ripple
-            class="toolbar-items"
-            to="/dashboard/notifications"
-          >
-            <v-badge
-              color="error"
-              overlap
+          <!-- activators are what cause the button and menu to render/open-->
+          <template #activator="{ on }">
+            <router-link
+              v-ripple
+              class="toolbar-items"
+              to="/dashboard/notifications"
+              v-on="on"
             >
-              <template slot="badge">
-                {{ notifications.length }}
-              </template>
-              <v-icon color>
-                mdi-bell
-              </v-icon>
-            </v-badge>
-          </router-link>
+              <v-badge
+                color="error"
+                overlap
+              >
+                <template slot="badge">
+                  {{ notifications.length }}
+                </template>
+                <v-icon color>
+                  mdi-bell
+                </v-icon>
+              </v-badge>
+            </router-link>
+          </template>
           <v-card>
             <v-list dense>
-              <v-list-tile
+              <v-list-item
                 v-for="notification in notifications"
                 :key="notification"
                 @click="onClick"
               >
-                <v-list-tile-title v-text="notification" />
-              </v-list-tile>
+                <v-list-item-title v-text="notification" />
+              </v-list-item>
             </v-list>
           </v-card>
         </v-menu>
@@ -100,68 +103,69 @@
         </v-icon>
       </v-flex>
     </v-toolbar-items>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+	import { mapMutations, mapGetters } from "vuex";
 
-export default {
-  data: () => ({
-    notifications: [
-      'Mike, Thanos is coming',
-      '5 new avengers joined the team',
-      "You're now friends with Capt",
-      'Another Notification',
-      'Another One - Dj Khalid voice'
-    ],
-    title: 'I got a digital dash -Future Hendrixx',
-    responsive: false,
-    responsiveInput: false
-  }),
+	export default {
+		data: () => ({
+			notifications: [
+				"Mike, Thanos is coming",
+				"5 new avengers joined the team",
+				"You're now friends with Capt",
+				"Another Notification",
+				"Another One - Dj Khalid voice",
+			],
+			title: "digital dash ",
+			responsive: false, //default values for responsiveness
+			responsiveInput: false,
+		}),
 
-  computed: {
-    ...mapGetters(['authorized'])
-  },
+		computed: {
+			...mapGetters(["authorized"]),
+		},
 
-  watch: {
-    $route (val) {
-      this.title = val.meta.name
-    }
-  },
+		watch: {
+			$route(val) {
+				this.title = val.meta.name;
+			},
+		},
 
-  mounted () {
-    this.onResponsiveInverted()
-    window.addEventListener('resize', this.onResponsiveInverted)
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.onResponsiveInverted)
-  },
+		mounted() {
+			this.onResponsiveInverted();
+			window.addEventListener("resize", this.onResponsiveInverted);
+		},
+		beforeDestroy() {
+			window.removeEventListener("resize", this.onResponsiveInverted);
+		},
 
-  methods: {
-    ...mapMutations('drawerapp', ['setDrawer', 'toggleDrawer']),
-    onClickBtn () {
-      this.setDrawer(!this.$store.state.app.drawer)
-    },
-    onClick () {
-      //
-    },
-    onResponsiveInverted () {
-      if (window.innerWidth < 991) {
-        this.responsive = true
-        this.responsiveInput = false
-      } else {
-        this.responsive = false
-        this.responsiveInput = true
-      }
-    },
-    logout: function () {
-      this.$store.dispatch('logout').then(() => {
-        this.$router.push('/')
-      })
-    }
-  }
-}
+		methods: {
+			...mapMutations("drawertoggle", ["setDrawer", "toggleDrawer"]), // chooses which namespaced state to get the mutations from
+			onClickBtn() {
+				this.setDrawer(!this.$store.state.app.drawer);
+			},
+			onClick() {
+				//
+			},
+			//setting breakpoints to change page layout depending on screen resolution
+			onResponsiveInverted() {
+				if (window.innerWidth < 991) {
+					this.responsive = true;
+					this.responsiveInput = false;
+				} else {
+					this.responsive = false;
+					this.responsiveInput = true;
+				}
+			},
+			logout: function () {
+				this.$store.dispatch("logout").then(() => {
+					this.$router.push("/");
+				});
+			},
+		},
+	};
 </script>
 
 <style>

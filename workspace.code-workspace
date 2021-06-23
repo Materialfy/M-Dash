@@ -9,7 +9,14 @@
 			"externalview",
 			"externalviews",
 			"loginview",
+			"newdata",
 			"tablestest"
-		]
+		],
+		"search.exclude": {
+			"./.markdown": true,
+			".md": true,
+			"**/*.code-search": false,
+			"**/*.md": true
+		}
 	}
 }

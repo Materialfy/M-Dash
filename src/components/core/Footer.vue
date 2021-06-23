@@ -21,14 +21,14 @@
       &copy;
       {{ (new Date()).getFullYear() }}
       <a
-        href="https://twitter.com/Cleesus"
+        href="https://twitter.com/SourBlueDream"
         target="_blank"
-      >@cleesus</a>, made with
+      >@SBD</a>, made with
       <v-icon
         color="tertiary"
         size="17"
       >mdi-heart</v-icon>
-      for a better web
+      for a better web(Vue)
     </span>
   </v-footer>
 </template>

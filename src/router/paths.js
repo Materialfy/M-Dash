@@ -14,11 +14,11 @@ export default [
 			name: "External",
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/layout/ExternalView.vue`),
+		component: () => import(`@/components/views/ExternalView.vue`), // this renders the children in this layout
 		children: [
 			//any components in this path auto render in External
 			{
-				path: "/login", // you leave this blank if you want it to default to the parents path
+				path: "", // you leave this blank if you want it to default to the parents path
 				name: "login",
 				component: () => import(`@/components/externalviews/LoginForm.vue`),
 			},
@@ -36,13 +36,12 @@ export default [
 			name: 'dashboard-view',
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/layout/DashboardView.vue`),
+		component: () => import(`@/components/views/DashboardView.vue`),
 		children: [
 			{
 				path: "", //defaults to /dashboard if left blank
 				meta: {
 					name: 'Dashboard',
-					requiresAuth: false,
 				},
 				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
 			},
@@ -50,7 +49,7 @@ export default [
 				path: "user-profile", // ends up as /dashboard/user-profile
 				meta: {
 					name: "UserProfile",
-					requiresAuth: true,
+					
 				},
 				component: () => import(`@/components/DashboardViews/UserProfile.vue`),
 			},
@@ -58,7 +57,6 @@ export default [
 				path: "table-list",
 				meta: {
 					name: "TableList",
-					requiresAuth: true,
 				},
 				component: () => import(`@/components/DashboardViews/SimpleTablesView.vue`),
 			},
@@ -66,7 +64,7 @@ export default [
 				path: "user-tables",
 				meta: {
 					name: "UserTable",
-					requiresAuth: true,
+					
 				},
 				component: () => import(`@/components/DashboardViews/UsersTable.vue`),
 			},
@@ -74,7 +72,6 @@ export default [
 				path: "tablestest",
 				meta: {
 					name: "ComplexTablesTest",
-					requiresAuth: true,
 				},
 				component: () => import(`@/components/DashboardViews/TableListView.vue`),
 			},
@@ -82,7 +79,6 @@ export default [
 				path: "typography",
 				meta: {
 					name: "Typography",
-					requiresAuth: true,
 				},
 				component: () => import(`@/components/DashboardViews/Typography.vue`),
 			},
@@ -90,7 +86,6 @@ export default [
 				path: "icons",
 				meta: {
 					name: "Icons",
-					requiresAuth: true,
 				},
 				component: () => import(`@/components/DashboardViews/Icons.vue`),
 			},
@@ -98,21 +93,19 @@ export default [
 				path: "maps",
 				meta: {
 					name: "Maps",
-					requiresAuth: true,
 				},
 				component: () => import(`@/components/DashboardViews/Maps.vue`),
 			},
 			{
 				path: "notifications",
 				meta: {
-					name: "Notifications",
-					requiresAuth: true,
+					name: "Notifications",	
 				},
 				component: () =>
 					import(`@/components/DashboardViews/Notifications.vue`),
 			},
 		],
-		//per route guard if you dont want global
+		//per route guard if you dont want to use the global version in /router/index
 		// beforeEnter: (to, from, next) => {
 		// 	// checks to see if you are trying to go to dashboard and are logged in
 		// 	if (to.name !== 'dashboard' && store.getters.authorized) {

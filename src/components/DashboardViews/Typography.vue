@@ -1,7 +1,7 @@
 <template>
   <v-container
     fill-height
-    fluid
+    container--fluid
   >
     <v-layout
       justify-center
@@ -21,7 +21,7 @@
             <v-container
               class="pa-0"
               grid-list-xl
-              fluid
+              container--fluid
             >
               <v-layout
                 v-for="(t, i) in typography"

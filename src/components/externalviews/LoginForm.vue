@@ -2,7 +2,7 @@
   <v-main>
     <v-container
       fill-height
-      fluid
+      container--fluid
     >
       <v-layout
         align-center
@@ -13,12 +13,8 @@
           sm8
           md4
         >
-          <v-card
-            class="elevation-12"
-          >
-            <v-toolbar
-              color="general"
-            >
+          <v-card class="elevation-12">
+            <v-toolbar color="general">
               <v-toolbar-title>Admin Panel</v-toolbar-title>
               <v-spacer />
             </v-toolbar>
@@ -68,8 +64,7 @@
             >
               {{ errorMessages }}
               <v-btn
-                dark
-                flat
+                text
                 @click="snackbar = false"
               >
                 Close
@@ -83,37 +78,37 @@
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      username: '',
-      password: '',
-      errorMessages: 'Incorrect login info',
-      snackbar: false, // this is the wrong pass notification
-      color: 'general',
-      showPassword: false
-    }
-  },
+	export default {
+		data: function () {
+			return {
+				username: "",
+				password: "",
+				errorMessages: "Incorrect login info",
+				snackbar: false, // this is the wrong pass notification
+				color: "general",
+				showPassword: false,
+			};
+		},
 
-  // Sends action to Vuex that will log you in and redirect to the dash otherwise, error
-  //needs to finish implementing using the states in mutations
-  methods: {
-    login: function () {
-      let username = this.username // you use this.username to access the username saved in the data
-      let password = this.password
-      this.$store.dispatch('login', { username, password }) //calls the login action and passes login info
-        .then(() => this.$router.push('/dashboard')) //redirect to dash after login
-        .catch(err => {
-          console.log(err)
-          this.snackbar = true //shows error on wrong pass
-        }
-        )
-    }
-  },
-  metaInfo () {
-    return {
-      title: 'Super Secret | Login'
-    }
-  }
-}
+		// Sends action to Vuex that will log you in and redirect to the dash otherwise, error
+		//needs to finish implementing using the states in mutations
+		methods: {
+			login: function () {
+				let username = this.username; // you use this.username to access the username saved in the data
+				let password = this.password;
+				this.$store
+					.dispatch("login", { username, password }) //calls the login action and passes login info
+					.then(() => this.$router.push("/dashboard")) //redirect to dash after login
+					.catch((err) => {
+						console.log(err);
+						this.snackbar = true; //shows error on wrong pass
+					});
+			},
+		},
+		metaInfo() {
+			return {
+				title: "Super Secret | Login",
+			};
+		},
+	};
 </script>

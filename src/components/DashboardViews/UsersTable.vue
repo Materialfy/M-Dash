@@ -1,16 +1,14 @@
 <template>
   <v-container
     fill-height
-    fluid
+    container--fluid
     grid-list-xl
   >
     <v-layout
       justify-center
       wrap
     >
-      <v-flex
-        md12
-      >
+      <v-flex md12>
         <div>
           <material-card
             color="general"
@@ -32,7 +30,6 @@
               <template #activator="{ on }">
                 <v-btn
                   color="general"
-                  dark
                   class="mb-2"
                   v-on="on"
                 >
@@ -102,14 +99,14 @@
                   <v-spacer />
                   <v-btn
                     color="blue darken-1"
-                    flat
+                    text
                     @click="close"
                   >
                     Cancel
                   </v-btn>
                   <v-btn
                     color="blue darken-1"
-                    flat
+                    text
                     @click="save"
                   >
                     Save
@@ -117,11 +114,11 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-
+            <!-- lets you change the options for the data table -->
             <v-data-table
               :headers="headers"
               :items="UserList"
-              :rows-per-page-items="rowsAmount"
+              :items-per-page-options="rowsAmount"
               :search="search"
               class="elevation-1"
             >
@@ -131,13 +128,17 @@
                 slot-scope="{ header }"
               >
                 <span
-                  class="subheading font-weight-light text-general text--darken-3"
+                  class="
+										subheading
+										font-weight-light
+										text-general text--darken-3
+									"
                   v-text="header.text"
                 />
               </template>
               <template #items="props">
                 <td>{{ props.item.id }}</td>
-                <td class="justify-center ">
+                <td class="justify-center">
                   <v-icon
                     medium
                     class="mr-2"
@@ -222,7 +223,7 @@
             >
               {{ snackText }}
               <v-btn
-                flat
+                text
                 @click="snack = false"
               >
                 Close
@@ -236,174 +237,180 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    snack: false,
-    snackColor: '',
-    snackText: '',
-    max25chars: v => v.length <= 25 || 'Input too long!',
-    pagination: {},
-    UserList: [],
-    checkboxAdmin: true,
-    checkboxActive: true,
-    rowsAmount: [15, 20, 25, {'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1}],
-    dialog: false,
-    search: '',
-    headers: [
-      { text: 'Id', align: 'left', value: 'id'},
-      { text: '-----Actions-----', value: 'actions', sortable: false },
-      { text: 'username', value: 'username' },
-      { text: 'email', value: 'email' },
-      { text: 'isAdmin', value: 'isAdmin' },
-      { text: 'isActive', value: 'isActive' },
-      { text: 'lastSeen', value: 'lastSeen' },
-      { text: 'password', value: 'password' }
+	export default {
+		data: () => ({
+			snack: false,
+			snackColor: "",
+			snackText: "",
+			max25chars: (v) => v.length <= 25 || "Input too long!",
+			pagination: {},
+			UserList: [],
+			checkboxAdmin: true,
+			checkboxActive: true,
+			rowsAmount: [
+				15,
+				20,
+				25,
+				{ text: "$vuetify.dataIterator.rowsPerPageAll", value: -1 },
+			],
+			dialog: false,
+			search: "",
+			headers: [
+				{ text: "Id", align: "left", value: "id" },
+				{ text: "-----Actions-----", value: "actions", sortable: false },
+				{ text: "username", value: "username" },
+				{ text: "email", value: "email" },
+				{ text: "isAdmin", value: "isAdmin" },
+				{ text: "isActive", value: "isActive" },
+				{ text: "lastSeen", value: "lastSeen" },
+				{ text: "password", value: "password" },
+			],
+			editedIndex: -1,
+			editedItem: {
+				username: "",
+				password: "",
+				email: "",
+				isAdmin: true,
+				isActive: true,
+			},
+			defaultItem: {},
+		}),
 
-    ],
-    editedIndex: -1,
-    editedItem: {
-      username: '',
-      password: '',
-      email: '',
-      isAdmin: true,
-      isActive: true
-    },
-    defaultItem: {
+		computed: {
+			formTitle() {
+				return this.editedIndex === -1 ? "New Item" : "Edit Item";
+			},
+		},
 
-    }
-  }),
+		watch: {
+			dialog(val) {
+				val || this.close();
+			},
+		},
+		// called when page is created before dom
+		created() {
+			this.getusernames();
+			// this.$store.dispatch('autoRefreshToken')
+			// .then(response => console.log(response))
+			// .catch(error => console.log(error))
+		},
 
-  computed: {
-    formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-    }
-  },
+		methods: {
+			getusernames() {
+				this.$http
+					.get("/users")
+					.then((response) => {
+						this.UserList = response.data.Users;
+					})
+					.catch((error) => console.log(error));
+			},
 
-  watch: {
-    dialog (val) {
-      val || this.close()
-    }
-  },
-  // called when page is created before dom
-  created () {
-    this.getusernames()
-    // this.$store.dispatch('autoRefreshToken')
-    // .then(response => console.log(response))
-    // .catch(error => console.log(error))
-  },
+			// object.assign fills in the empty object with the properties of item
+			editItem(item, dbox = true) {
+				this.editedIndex = this.UserList.indexOf(item);
+				item.isAdmin = this.checkboxAdmin;
+				item.isActive = this.checkboxActive;
+				this.editedItem = Object.assign({}, item);
+				this.dialog = dbox;
+			},
 
-  methods: {
-    getusernames () {
-      this.$http.get('/users')
-        .then(response => {
-          this.UserList = response.data.Users
-        })
-        .catch(error => console.log(error))
-    },
+			callTableAction(item, endpoint, method) {
+				const index = this.UserList.indexOf(item);
+				let tableItem = this.editedItem;
+				this.$store
+					.dispatch("updateTableItem", { endpoint, tableItem, method })
+					.then(() => {
+						this.UserList.splice(index, 1);
+						this.saveInline();
+					})
+					.catch((error) => {
+						console.log(error);
+						this.cancelInline;
+					});
+			},
 
-    // object.assign fills in the empty object with the properties of item
-    editItem (item, dbox = true) {
-      this.editedIndex = this.UserList.indexOf(item)
-      item.isAdmin = this.checkboxAdmin
-      item.isActive = this.checkboxActive
-      this.editedItem = Object.assign({}, item)
-      this.dialog = dbox
-    },
+			deleteItem(item) {
+				if (confirm("Are you sure you want to delete this item?")) {
+					this.editedItem = Object.assign({}, item);
+					let endpoint = `users/delete/${this.editedItem.username}`;
+					let method = "delete";
+					this.callTableAction(item, endpoint, method);
+				}
+			},
 
-    callTableAction (item, endpoint, method) {
-      const index = this.UserList.indexOf(item)
-      let tableItem = this.editedItem
-      this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-        .then(() => {
-          this.UserList.splice(index, 1)
-          this.saveInline()
-        })
-        .catch(error => {
-          console.log(error)
-          this.cancelInline
-        })
-    },
+			close() {
+				this.dialog = false;
+				setTimeout(() => {
+					this.editedItem = Object.assign({}, this.defaultItem);
+					this.editedIndex = -1;
+				}, 300);
+			},
 
-    deleteItem (item) {
-      if(confirm('Are you sure you want to delete this item?')) {
-        this.editedItem = Object.assign({}, item)
-        let endpoint = `users/delete/${this.editedItem.username}`
-        let method = 'delete'
-        this.callTableAction(item, endpoint, method)
-      }
-    },
-
-    close () {
-      this.dialog = false
-      setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      }, 300)
-    },
-
-    save () {
-      if (this.editedIndex > -1) {
-        let tableItem = this.editedItem
-        let endpoint = `users/update/${this.editedItem.username}`
-        let method = 'patch'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then(() => {
-            Object.assign(this.UserList[this.editedIndex], this.editedItem)
-            this.saveInline()
-          })
-          .catch(error => {
-            console.log(error)
-            this.cancelInline
-          })
-      } else {
-        let tableItem = this.editedItem
-        let endpoint = `users/new-user`
-        let method = 'post'
-        this.$store.dispatch('updateTableItem', {endpoint, tableItem, method})
-          .then(() => {
-            console.log('new user')
-            this.UserList.push(this.editedItem)
-          })
-          .catch(error => {
-            console.log(error)
-            this.cancelInline
-          })
-      }
-      this.close()
-    },
-    // toasts/snackbar messages for actions
-    saveInline () {
-      this.snack = true
-      this.snackColor = 'success'
-      this.snackText = 'Data saved'
-    },
-    cancelInline () {
-      this.snack = true
-      this.snackColor = 'error'
-      this.snackText = 'Canceled'
-    },
-    reset () {
-      this.snack = true
-      this.snackColor = 'success'
-      this.snackText = 'Data reset to default'
-    },
-    openInline () {
-      this.snack = true
-      this.snackColor = 'info'
-      this.snackText = 'Dialog opened'
-    },
-    closeInline () {
-      console.log('Dialog closed')
-    }
-  }
-}
+			save() {
+				if (this.editedIndex > -1) {
+					let tableItem = this.editedItem;
+					let endpoint = `users/update/${this.editedItem.username}`;
+					let method = "patch";
+					this.$store
+						.dispatch("updateTableItem", { endpoint, tableItem, method })
+						.then(() => {
+							Object.assign(this.UserList[this.editedIndex], this.editedItem);
+							this.saveInline();
+						})
+						.catch((error) => {
+							console.log(error);
+							this.cancelInline;
+						});
+				} else {
+					let tableItem = this.editedItem;
+					let endpoint = `users/new-user`;
+					let method = "post";
+					this.$store
+						.dispatch("updateTableItem", { endpoint, tableItem, method })
+						.then(() => {
+							console.log("new user");
+							this.UserList.push(this.editedItem);
+						})
+						.catch((error) => {
+							console.log(error);
+							this.cancelInline;
+						});
+				}
+				this.close();
+			},
+			// toasts/snackbar messages for actions
+			saveInline() {
+				this.snack = true;
+				this.snackColor = "success";
+				this.snackText = "Data saved";
+			},
+			cancelInline() {
+				this.snack = true;
+				this.snackColor = "error";
+				this.snackText = "Canceled";
+			},
+			reset() {
+				this.snack = true;
+				this.snackColor = "success";
+				this.snackText = "Data reset to default";
+			},
+			openInline() {
+				this.snack = true;
+				this.snackColor = "info";
+				this.snackText = "Dialog opened";
+			},
+			closeInline() {
+				console.log("Dialog closed");
+			},
+		},
+	};
 </script>
 
 <style>
-table.v-table thead tr {
-  color: red !important;
-}
-tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, .05);
-}
+	table.v-table thead tr {
+		color: red !important;
+	}
+	tbody tr:nth-of-type(odd) {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
 </style>

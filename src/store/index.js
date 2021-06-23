@@ -1,5 +1,8 @@
 /**
  * Vuex
+ *
+ * @library
+ *
  * https://vuex.vuejs.org/en/
  */
 
@@ -10,9 +13,9 @@ import Vuex from 'vuex'
 // Store functionality
 import actions from './actions'
 import getters from './getters'
+import modules from './modules'
 import mutations from './mutations'
 import state from './state'
-import drawer from './modules/drawer.js'
 
 Vue.use(Vuex)
 
@@ -20,9 +23,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   actions,
   getters,
-  modules: {
-    drawer
-  },
+  modules,
   mutations,
   state
 })

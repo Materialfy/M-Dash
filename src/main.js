@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import './components'
+import './components' //this is where the auto registered components import
 import './plugins'
 
 // Sync router with store

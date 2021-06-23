@@ -1,3 +1,6 @@
+// you can import this file into vuetify.js if you want to store themes separately
+//changes global colors for theme 
+
 export default {
   primary: '#4caf50',
   secondary: '#4caf50',

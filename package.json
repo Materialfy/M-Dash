@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@mdi/font": "^5.9.55",
+    "@mdi/js": "^5.9.55",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-eslint": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
@@ -33,6 +34,7 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-vue": "^7.11.1",
+    "eslint-plugin-vuetify": "^1.0.1",
     "prettier": "^2.3.1",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
