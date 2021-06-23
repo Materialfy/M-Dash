@@ -8,7 +8,9 @@
     dense
     elevate-on-scroll
   >
-    <v-app-bar-nav-icon @click="drawer = true" /> <!-- controls the sidebar colapssing-->
+    <v-app-bar-nav-icon 
+      @click="drawerbutton" 
+    /> <!-- controls the sidebar colapssing-->
     <v-app-bar-title 
       shrink-on-scroll 
     >
@@ -62,7 +64,7 @@
         ["drawerOn"]
         ), 
 			drawerbutton() {
-				this.drawerOn();
+				return this.drawerOn;
 			},
 			onClick() {
         //this.toggleDrawer(this.)

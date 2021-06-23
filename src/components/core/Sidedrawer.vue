@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="drawertoggle"
+    v-model="toggle"
     absolute
     temporary
     app
