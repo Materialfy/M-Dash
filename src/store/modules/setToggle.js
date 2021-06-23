@@ -11,12 +11,9 @@ drawerapp state: color, drawer, image
 export const set = property => (state, newdata) => (state[property] = newdata)
 
 export const toggle = property => state => {
-   // console.log("the property:  " + property)
-    console.log( state.drawerState)
-    state.drawerState = true
-    state[property] = !state[property]
+    console.log("setToggle:  " + state.drawerState)
+    //state.drawer = true
     return (state[property] = !state[property])
-    //console.log("im inside the toggle mutation:  "+ state.property)
 } 
 
 export const toggleReset = state => {

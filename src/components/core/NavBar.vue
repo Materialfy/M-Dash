@@ -9,7 +9,7 @@
     elevate-on-scroll
   >
     <v-app-bar-nav-icon 
-      @click="drawerbutton" 
+      @click="drawerButton" 
     /> <!-- controls the sidebar colapssing-->
     <v-app-bar-title 
       shrink-on-scroll 
@@ -63,7 +63,7 @@
         "drawertoggle",// chooses which namespaced state module to get the mutations from
         ["drawerOn"]
         ), 
-			drawerbutton() { // this calls the action drawerOn which then commits the toggle mutation
+			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
 				//this.$store.state.drawertoggle.drawer = false
 				//this.toggleReset()
 				this.drawerOn();

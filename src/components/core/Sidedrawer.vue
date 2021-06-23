@@ -44,14 +44,21 @@ export default {
         'drawertoggle',
         ['drawerState']
     ),
-    toggle (){ //checks the drawertoggle module state to see if drawer is open or not
-      console.log("the sidedrawer.vue: -" + this.drawer)
+      toggle: function (){ //checks the drawertoggle module state to see if drawer is open or not
+        console.log("the sidedrawer.vue: -" + this.drawerState)
+        if (this.drawerState == false){
+          this.stateToggle()
+          console.log("inside IF: " + this.drawerState)
+          return this.drawerState }
+        console.log("outisde: " + this.drawerState)
         return this.drawerState
     }
 
     },
     methods: {
-
+      stateToggle: function() {
+      this.$store.state.drawertoggle.drawerState = true
+    }
     },
 
 }
