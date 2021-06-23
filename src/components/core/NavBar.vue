@@ -64,7 +64,7 @@
         ["drawerOn"]
         ), 
 			drawerbutton() {
-				this.drawerOn;
+				this.drawerOn();
 			},
 			onClick() {
         //this.toggleDrawer(this.)
