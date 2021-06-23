@@ -28,7 +28,7 @@
 </template>
 
 <script>
-	import { mapMutations, mapGetters } from "vuex";
+	import { mapActions, mapGetters } from "vuex";
 
 	export default {
 		data: () => ({
@@ -56,12 +56,16 @@
 		},
 
 		methods: {
-			...mapMutations("drawertoggle", ["setDrawer", "toggleDrawer"]), // chooses which namespaced state to get the mutations from
-			onClickBtn() {
-				this.setDrawer(!this.$store.state.drawertoggle.drawer);
+      
+			...mapActions(
+        "drawertoggle",// chooses which namespaced state module to get the mutations from
+        ["drawerOn"]
+        ), 
+			drawerbutton() {
+				this.drawerOn();
 			},
 			onClick() {
-				//
+        //this.toggleDrawer(this.)
 			},
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {

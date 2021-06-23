@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
+    v-model="drawertoggle"
     absolute
     temporary
     app
@@ -32,7 +32,26 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 export default {
+    data() {
+        return {
+            group: false,
+        }
+    },
+    computed : {
+    ...mapState(
+        "drawertoggle",
+        ['drawer']
+    ),
+    toggle (){
+        return this.drawer
+    }
+
+    },
+    methods: {
+
+    },
 
 }
 </script>

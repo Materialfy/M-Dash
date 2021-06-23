@@ -7,6 +7,7 @@ example: set = color => return (state, newcolor) => return (state[color] = newco
 youre adding new data to which ever state object property passed in
 drawerapp state: color, drawer, image
 */
+//you state[property] and state.property mean the same thing
 export const set = property => (state, newdata) => (state[property] = newdata)
 
 export const toggle = property => state => (state.property = !state[property])
