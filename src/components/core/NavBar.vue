@@ -63,7 +63,7 @@
         "drawertoggle",// chooses which namespaced state module to get the mutations from
         ["drawerOn"]
         ), 
-			drawerbutton() {
+			drawerbutton() { // this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
 			onClick() {
