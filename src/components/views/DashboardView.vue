@@ -2,7 +2,7 @@
 core-toolbar is core/toolbar.vue etc -->
 <template>
   <v-app id="dashboard-view">
-    <core-navbar />> 
+    <CoreNavBar />> 
 
     <!-- <core-toolbar /> -->
     <core-sidedrawer />
