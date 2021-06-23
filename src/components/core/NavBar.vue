@@ -58,15 +58,15 @@
 		},
 
 		methods: {
-			...mapMutations('drawertoggle', ["toggleOn"]),
+			...mapMutations('drawertoggle', ["toggleReset"]),
 			...mapActions(
         "drawertoggle",// chooses which namespaced state module to get the mutations from
         ["drawerOn"]
         ), 
 			drawerbutton() { // this calls the action drawerOn which then commits the toggle mutation
 				//this.$store.state.drawertoggle.drawer = false
-				this.toggleOn()
-				//this.drawerOn();
+				//this.toggleReset()
+				this.drawerOn();
 			},
 			onClick() {
         //this.toggleDrawer(this.)

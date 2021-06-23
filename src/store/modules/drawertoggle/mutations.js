@@ -1,4 +1,4 @@
-import { set, toggle, toggleOn  } from '../setToggle.js'
+import { set, toggle, toggleReset } from '../setToggle.js'
 
 
 
@@ -11,5 +11,5 @@ export default {
   setImage: set('image'),
   setColor: set('color'),
   toggleDrawer: toggle('drawerState'),
-  toggleOn 
+  toggleReset
 }
