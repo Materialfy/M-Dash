@@ -9,7 +9,7 @@
     elevate-on-scroll
   >
     <v-app-bar-nav-icon 
-      @click="drawerButton = true" 
+      @click="drawerButton" 
     /> <!-- controls the sidebar colapssing-->
     <v-app-bar-title 
       shrink-on-scroll 
@@ -26,11 +26,12 @@
     >
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
+	<CoreSidedrawer />
   </v-app-bar>
 </template>
 
 <script>
-	//import { mapActions, mapGetters, mapMutations } from "vuex";
+	import { mapActions, mapGetters, mapMutations } from "vuex";
 
 	export default {
 		data: () => ({
@@ -43,11 +44,11 @@
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
-			drawerButton : false
+			//drawerButton: false
 		}),
 
 		computed: {
-			//...mapGetters(["authorized"]),
+			...mapGetters(["authorized"]),
 		},
 
 		watch: {
@@ -59,20 +60,17 @@
 		},
 
 		methods: {
-			/*
 			...mapMutations('drawertoggle', ["toggleReset"]),
 			...mapActions(
-        "drawertoggle",// chooses which namespaced state module to get the mutations from
-        ["drawerOn"]
+				"drawertoggle",// chooses which namespaced state module to get the mutations from
+				["drawerOn"]
         ), 
 			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
-				//this.$store.state.drawertoggle.drawer = false
-				//this.toggleReset()
 				this.drawerOn();
 			},
 			onClick() {
         //this.toggleDrawer(this.)
-			}, */
+			}, 
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {
 					this.$router.push("/");

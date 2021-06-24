@@ -1,7 +1,19 @@
-import { set, toggle, toggleReset } from '../setToggle.js'
 
 
 
+const set = property => (state, newdata) => (state[property] = newdata)
+
+const toggle = property => state => {
+    console.log("setToggle:  " + state.drawerState)
+    //state.drawerState = true
+    state.skip = true
+    return (state[property] = !state[property])
+} 
+
+const toggleDrawerState = state => {
+    state.drawerState = !state.drawerState
+    console.log("toggleDrawerState mutation after:  " + state.drawerState)
+}
 // calls just the first part of the nested functions, but the second part still happens
 	// they are called in toolbar.vue, filter.vue and drawer.vue
 	//they change the state of what they are setting(image,color etc)
@@ -11,5 +23,5 @@ export default {
   setImage: set('image'),
   setColor: set('color'),
   toggleDrawer: toggle('drawerState'),
-  toggleReset
+  toggleDrawerState
 }

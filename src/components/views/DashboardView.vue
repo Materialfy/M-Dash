@@ -2,9 +2,9 @@
 core-toolbar is core/toolbar.vue etc -->
 <template>
   <v-app id="dashboard-view">
-    <CoreNavBar @click="drawerButton = true" /> 
-    <CoreSidedrawer v-model="drawerButton" ></CoreSidedrawer>
-    <!-- <core-sidedrawer /> -->
+    <CoreNavBar /> 
+
+    <core-sidedrawer />
     <core-filter />
 
     <v-main>
@@ -24,11 +24,6 @@ core-toolbar is core/toolbar.vue etc -->
 	//feel free to rename the title
 	export default {
 		name: "DashboardView",
-    data (){
-      return {
-        drawerButton: true
-      }
-    },
 		metaInfo() {
 			return {
 				title: "Vuetify Admin Dashboard by ClintOxx",

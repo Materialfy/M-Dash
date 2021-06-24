@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    v-model = "drawerStateUpdate"
     absolute
     temporary
     app
@@ -36,27 +37,31 @@ export default {
     data() {
         return {
             group: false,
+            drawer: this.drawerState,
         }
     },
     computed : {
-    ...mapState(
-        'drawertoggle',
-        ['drawerState']
-    ),
-      toggle: function (){ //checks the drawertoggle module state to see if drawer is open or not
-        console.log("the sidedrawer.vue: -" + this.drawerState)
-        if (this.drawerState == false && this.$store.state.drawertoggle.skip == true){
-          this.stateToggle()
-          console.log("inside IF: " + this.drawerState)
-          return this.drawerState }
-        console.log("outisde: " + this.drawerState)
-        return this.drawerState
+      ...mapState(
+          'drawertoggle',
+          ['drawerState']
+      ),
+      drawerStateUpdate:{
+        get: function (){ //checks the drawertoggle module state to see if drawer is open or not
+          console.log("sidedrawer.vue GETTER: -" + this.drawerState)
+          return this.drawerState
+        },
+        // this updates the drawerState to false so the button will work correctly
+        set: function (value) {
+          console.log("computed setter: " + value)
+          //this.$store.commit('drawertoggle/toggleDrawerState') 
+          console.log("setter after change: " + value)
+          }
     }
 
     },
     methods: {
       stateToggle: function() {
-      this.$store.state.drawertoggle.drawerState = true
+        this.$store.state.drawertoggle.drawerState = true
     }
     },
 
