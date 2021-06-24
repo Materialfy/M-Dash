@@ -38,18 +38,19 @@ export default {
         return {
             group: false,
             drawerShown: false,
-            drawer: null
+            drawer: this.drawerState
+            
         }
     },
-    created (){ // gets the initial drawer state so it can be watched in data.drawer
-      this.drawer = this.drawerState
+    mounted (){ // gets the initial drawer state so it can be watched in data.drawer
+      //this.drawer = this.drawerState
     },
     watch: {
-      drawer: function (data) {
-        console.log(`Watcher for drawer data: ${data}`)
-        this.drawerShown = data
+      drawerState: function () {
+        console.log(`Watcher for drawer data: ${this.drawerShown}`)
+        this.drawerShown = this.drawerState
       },
-      immediate: true
+      
     },
     computed : {
       ...mapState(
@@ -59,7 +60,7 @@ export default {
       drawerStateUpdate:{
         get: function (){ //checks the drawertoggle module state to see if drawer is open or not
           console.log("sidedrawer.vue GETTER: -" + this.drawerState)
-          return this.drawerState
+          return this.$store.state.drawertoggle.drawerState
         },
         // this updates the drawerState to false so the button will work correctly
         set: function (value) {
