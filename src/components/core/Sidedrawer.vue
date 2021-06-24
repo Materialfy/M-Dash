@@ -38,14 +38,18 @@ export default {
         return {
             group: false,
             drawerShown: false,
-            drawer: this.drawerState
+            drawer: null
         }
+    },
+    created (){ // gets the initial drawer state so it can be watched in data.drawer
+      this.drawer = this.drawerState
     },
     watch: {
       drawer: function (data) {
-        console.log(`This is the drawer data ${data} updating`)
+        console.log(`Watcher for drawer data: ${data}`)
         this.drawerShown = data
-      }
+      },
+      immediate: true
     },
     computed : {
       ...mapState(
