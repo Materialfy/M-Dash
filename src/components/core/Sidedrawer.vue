@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model = "drawerStateUpdate"
+    v-model = "drawerShown"
     absolute
     temporary
     app
@@ -37,8 +37,15 @@ export default {
     data() {
         return {
             group: false,
-            drawer: this.drawerState,
+            drawerShown: false,
+            drawer: this.drawerState
         }
+    },
+    watch: {
+      drawer: function (data) {
+        console.log(`This is the drawer data ${data} updating`)
+        this.drawerShown = data
+      }
     },
     computed : {
       ...mapState(
@@ -53,6 +60,7 @@ export default {
         // this updates the drawerState to false so the button will work correctly
         set: function (value) {
           console.log("computed setter: " + value)
+          this.drawerShown = value
           //this.$store.commit('drawertoggle/toggleDrawerState') 
           console.log("setter after change: " + value)
           }

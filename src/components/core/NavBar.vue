@@ -68,9 +68,6 @@
 			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
-			onClick() {
-        //this.toggleDrawer(this.)
-			}, 
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {
 					this.$router.push("/");
