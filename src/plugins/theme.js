@@ -3,7 +3,7 @@
 
 export default {
   primary: '#4caf50',
-  secondary: '#4caf50',
+  secondary: '#E0E0E0',
   tertiary: '#495057',
   accent: '#82B1FF',
   error: '#f55a4e',

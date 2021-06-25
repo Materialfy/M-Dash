@@ -4,6 +4,7 @@
     absolute
     temporary
     app
+    color="secondary"
   >
     <v-list
       nav
@@ -37,8 +38,8 @@ export default {
     data() {
         return {
             group: false,
-            drawerShown: false,
-            drawer: this.drawerState
+            drawerShown: false, // controls the opening and closing of drawer
+            drawer: this.drawerState // this is just here for the watcher to wrok
             
         }
     },
@@ -46,17 +47,18 @@ export default {
       this.drawer = this.drawerState
     },
     watch: { 
+      // this watches the Vuex state set to data.drawer an updates the drawer to open
       drawerState: function () {
-        console.log(`Watcher for data.drawer: ${this.drawer}`)
         this.drawerShown = this.drawerState
-        console.log(`Watcher for drawerShown: ${this.drawerShown}`)
       },
+      // when the drawer closes it emits am event with a value of false, used to udpate vuex state
       drawerShown (){
-        console.log("this is DrawerShown Watcher: " + this.drawerShown)
+        //this should be replaced with a mutation, cant use drawerState imported without setter
         this.$store.state.drawertoggle.drawerState = this.drawerShown
       }
     },
     computed : {
+      // this was used to check state with a getter and setter. Now its used in watcher
       ...mapState(
           'drawertoggle',
           ['drawerState']

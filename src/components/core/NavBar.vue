@@ -1,34 +1,71 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
-  <!-- app-bar props below customize bevaviotr and looks -->
-  <v-app-bar
+	<!-- app-bar props below customize bevaviotr and looks -->
+	<v-app-bar
     id="core-toolbar"
     app
     absolute
-    dense
+	color="secondary"
     elevate-on-scroll
-  >
-	<!-- controls the sidebar colapssing-->
-    <v-app-bar-nav-icon 
-      @click="drawerButton" 
-    /> 
-    <v-app-bar-title 
-      shrink-on-scroll 
-    >
-      {{ title }}
-    </v-app-bar-title>
-    <!-- When placing a single v-spacer before or after the child components, 
-    the components will push to the right and left of its container -->
- 
-    <v-spacer /> 
-    <v-btn
-      elevation="2"
-      icon
-    >
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
-	<CoreSidedrawer />
-  </v-app-bar>
+	scroll-target="#scrolling-techniques-7"
+	>
+		<!-- controls the sidebar colapsing-->
+		<v-app-bar-nav-icon 
+			@click="drawerButton" 
+		/>
+		<router-link to="/" >
+			<v-app-bar-title 
+				shrink-on-scroll 
+			>
+				{{ title }}
+			</v-app-bar-title>
+		</router-link>
+		<!-- When placing a single v-spacer before or after the child components, 
+		the components will push to the right and left of its container -->
+
+		<v-spacer /> 
+		<v-text-field 
+			v-model= "message"
+			label="Search here.."
+			prepend-inner-icon="mdi-magnify"
+			outlined
+			clearable
+			dense
+			hide-details
+		>
+		</v-text-field>
+		<v-badge
+			:content="notificationNum"
+			:value="notificationNum"
+			color ="blue"
+			overlap
+		>
+			<v-btn
+				elevation ="2"
+				icon
+			>
+				<v-icon>mdi-bell</v-icon>
+			</v-btn>
+		</v-badge>
+		<v-btn 
+			elevation ="2"
+			icon
+		>
+			<v-icon>mdi-account</v-icon>
+		</v-btn>
+		<v-btn
+			elevation="2"
+			icon
+		>
+			<v-icon>mdi-cog</v-icon>
+		</v-btn>
+		<v-btn
+			elevation ="2"
+			icon
+		>
+			<v-icon @click="logout">mdi-power</v-icon>
+		</v-btn>
+	</v-app-bar>
 </template>
 
 <script>
@@ -45,7 +82,7 @@
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
-			//drawerButton: false
+			notificationNum: 3
 		}),
 
 		computed: {
