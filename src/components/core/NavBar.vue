@@ -4,7 +4,6 @@
 	<v-app-bar
     id="core-toolbar"
     app
-    absolute
 	color="secondary"
     elevate-on-scroll
 	scroll-target="#scrolling-techniques-7"
@@ -39,6 +38,7 @@
 			:value="notificationNum"
 			color ="blue"
 			overlap
+			offset-y= 23px
 		>
 			<v-btn
 				elevation ="2"
@@ -82,7 +82,8 @@
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
-			notificationNum: 3
+			notificationNum: 3,
+			
 		}),
 
 		computed: {

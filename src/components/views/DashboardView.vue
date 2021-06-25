@@ -8,7 +8,7 @@ core-toolbar is core/toolbar.vue etc -->
     <core-filter />
 
     <v-main>
-      <v-container container--fluid>
+      <v-container fluid>
         <v-fade-transition mode="out-in">
           <router-view />
         </v-fade-transition>
