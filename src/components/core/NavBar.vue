@@ -8,9 +8,10 @@
     dense
     elevate-on-scroll
   >
+	<!-- controls the sidebar colapssing-->
     <v-app-bar-nav-icon 
       @click="drawerButton" 
-    /> <!-- controls the sidebar colapssing-->
+    /> 
     <v-app-bar-title 
       shrink-on-scroll 
     >
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-	import { mapActions, mapGetters, mapMutations } from "vuex";
+	import { mapActions, mapGetters } from "vuex";
 
 	export default {
 		data: () => ({
@@ -60,7 +61,6 @@
 		},
 
 		methods: {
-			...mapMutations('drawertoggle', ["toggleReset"]),
 			...mapActions(
 				"drawertoggle",// chooses which namespaced state module to get the mutations from
 				["drawerOn"]

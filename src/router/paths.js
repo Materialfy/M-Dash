@@ -25,7 +25,7 @@ export default [
 			{
 				path: "/home", // you leave this blank if you want it to default to the parents path
 				name: "home",
-				component: () => import(`@/components/unusedviews/Home.vue`),
+				component: () => import(`@/components/unused/Home.vue`),
 			},
 		],
 	},
