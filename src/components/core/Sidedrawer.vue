@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="drawertoggle"
+    v-model = "drawerShown"
     absolute
     temporary
     app
@@ -37,20 +37,33 @@ export default {
     data() {
         return {
             group: false,
+            drawerShown: false,
+            drawer: this.drawerState
+            
         }
     },
+    mounted (){ // gets the initial drawer state(false) so it can be watched in data.drawer
+      this.drawer = this.drawerState
+    },
+    watch: { 
+      drawerState: function () {
+        console.log(`Watcher for data.drawer: ${this.drawer}`)
+        this.drawerShown = this.drawerState
+        console.log(`Watcher for drawerShown: ${this.drawerShown}`)
+      },
+      drawerShown (){
+        console.log("this is DrawerShown Watcher: " + this.drawerShown)
+        this.$store.state.drawertoggle.drawerState = this.drawerShown
+      }
+    },
     computed : {
-    ...mapState(
-       'drawertoggle',
-        ['drawer']
-    ),
-    toggle (){
-        return this.drawer
-    }
+      ...mapState(
+          'drawertoggle',
+          ['drawerState']
+      ),
 
     },
     methods: {
-
     },
 
 }

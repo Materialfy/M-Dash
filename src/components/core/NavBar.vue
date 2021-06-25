@@ -8,7 +8,10 @@
     dense
     elevate-on-scroll
   >
-    <v-app-bar-nav-icon @click="drawer = true" /> <!-- controls the sidebar colapssing-->
+	<!-- controls the sidebar colapssing-->
+    <v-app-bar-nav-icon 
+      @click="drawerButton" 
+    /> 
     <v-app-bar-title 
       shrink-on-scroll 
     >
@@ -24,6 +27,7 @@
     >
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
+	<CoreSidedrawer />
   </v-app-bar>
 </template>
 
@@ -40,7 +44,8 @@
 				"Another One - Dj Khalid voice",
 			],
 			title: "Vuetify Admin Dash by ClintOxx",
-      group: null,
+			group: null,
+			//drawerButton: false
 		}),
 
 		computed: {
@@ -56,16 +61,12 @@
 		},
 
 		methods: {
-      
 			...mapActions(
-        "drawertoggle",// chooses which namespaced state module to get the mutations from
-        ["drawerOn"]
+				"drawertoggle",// chooses which namespaced state module to get the mutations from
+				["drawerOn"]
         ), 
-			drawerbutton() {
+			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
-			},
-			onClick() {
-        //this.toggleDrawer(this.)
 			},
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {

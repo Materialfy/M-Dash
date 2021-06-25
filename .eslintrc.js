@@ -8,10 +8,9 @@ module.exports = {
     browser: true
   },
   extends: [
-    // use the recommended rule set for both plain javascript and vue
+    // use the recommended rule set for both plain javascript and vue, this changes warning level
     "eslint:recommended",
     'plugin:vue/essential',
-    'plugin:vue/recommended',
     'plugin:vuetify/base'
     //'prettier/vue',
     //'plugin:prettier/recommended'
