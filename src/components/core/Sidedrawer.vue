@@ -43,14 +43,14 @@ export default {
         }
     },
     mounted (){ // gets the initial drawer state so it can be watched in data.drawer
-      //this.drawer = this.drawerState
+      this.drawer = this.drawerState
     },
     watch: {
       drawerState: function () {
-        console.log(`Watcher for drawer data: ${this.drawerShown}`)
+        console.log(`Watcher for data.drawer: ${this.drawer}`)
         this.drawerShown = this.drawerState
+        console.log(`Watcher for drawerShown: ${this.drawerShown}`)
       },
-      
     },
     computed : {
       ...mapState(
