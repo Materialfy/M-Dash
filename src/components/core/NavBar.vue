@@ -23,6 +23,7 @@
 		the components will push to the right and left of its container -->
 
 		<v-spacer /> 
+		
 		<v-text-field 
 			v-model= "message"
 			label="Search here.."
@@ -33,20 +34,47 @@
 			hide-details
 		>
 		</v-text-field>
-		<v-badge
-			:content="notificationNum"
-			:value="notificationNum"
-			color ="blue"
-			overlap
-			offset-y= 23px
+		
+		<v-spacer />
+		<v-menu
+			close-on-content-click
+			auto
 		>
-			<v-btn
-				elevation ="2"
-				icon
-			>
-				<v-icon>mdi-bell</v-icon>
-			</v-btn>
-		</v-badge>
+			<!-- this v-menu and activator is used to control the v-list showing -->
+			<template v-slot:activator="{ on, attrs }">
+				<v-badge
+					:content="notificationNum"
+					:value="notificationNum"
+					color ="blue"
+					overlap
+					offset-y= 23px
+				>
+					<v-btn
+						elevation ="2"
+						icon
+						v-bind="attrs"
+						v-on="on"
+					>
+						<v-icon>mdi-bell</v-icon>
+					</v-btn>
+				</v-badge>
+				<v-list>
+					<v-list-item
+						v-for="(item,index) in notifications"
+						:key="index"
+					>
+					<v-list-item-title> {{ index + ". "+ item }}</v-list-item-title>
+					</v-list-item>
+					<v-list-item>
+						<router-link to="notifications">
+							<v-btn>
+								View all notifications
+							</v-btn>
+						</router-link>
+					</v-list-item>
+				</v-list>
+			</template>
+		</v-menu>
 		<v-btn 
 			elevation ="2"
 			icon
@@ -83,6 +111,7 @@
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
 			notificationNum: 3,
+			notificationLimit: 6
 			
 		}),
 
