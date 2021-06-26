@@ -110,10 +110,10 @@
 		data () {
 			return {
 
-			notifications: null,
+			notifications: [],
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
-			notificationNum: this.notifications.length,
+			notificationNum: null,
 			notificationLimit: 5,
 			message: null
 			}
@@ -128,7 +128,10 @@
 		},
 
 		created() {
+			// sets the notification prop used in the v-badge
 			this.notifications = this.getNotifications
+			// gets the noticiation amount based on the length of the notificaitons array
+			this.notificationNum = this.notifications.length
 			console.log("this.notifcation:  " , this.notifications)
 		},
 		beforeDestroy() {
