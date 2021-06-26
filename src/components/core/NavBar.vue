@@ -60,7 +60,7 @@
 				</v-badge>
 				<v-list>
 					<v-list-item
-						v-for="(item,index) in notifications"
+						v-for="(item,index) in updateNotifications"
 						:key="index"
 					>
 					<v-list-item-title> {{ index + ". "+ item }}</v-list-item-title>
@@ -116,7 +116,15 @@
 		}),
 
 		computed: {
-			...mapGetters(["authorized"]),
+			...mapGetters(["authorized",'getNotifications']),
+			updateNotifications: {
+				get: function () {
+					return this.getNotifications
+				},
+				set: function(value) {
+					this.notifications = value
+				}
+			},
 		},
 
 		watch: {
@@ -135,6 +143,7 @@
 			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
+			
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {
 					this.$router.push("/");

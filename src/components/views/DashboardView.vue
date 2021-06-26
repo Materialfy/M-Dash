@@ -2,6 +2,7 @@
 core-toolbar is core/toolbar.vue etc -->
 <template>
   <v-app id="dashboard-view">
+    <v-container>
     <CoreNavBar /> 
 
     <core-sidedrawer />
@@ -16,6 +17,7 @@ core-toolbar is core/toolbar.vue etc -->
     </v-main>
     <!-- turns off footer in the maps component -->
     <core-footer v-if="$route.meta.name !== 'Maps'" />
+    </v-container>
   </v-app>
 </template>
 
