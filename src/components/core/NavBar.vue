@@ -39,6 +39,7 @@
 		<v-menu
 			close-on-content-click
 			auto
+			attach="notifbtn"
 		>
 			<!-- this v-menu and activator is used to control the v-list showing -->
 			<template v-slot:activator="{ on, attrs }">
@@ -50,6 +51,7 @@
 					offset-y= 23px
 				>
 					<v-btn
+						id = "notifbtn"
 						elevation ="2"
 						icon
 						v-bind="attrs"
@@ -60,13 +62,13 @@
 				</v-badge>
 				<v-list>
 					<template 
-						v-for="(item, index) in updateNotitications"
+						v-for="(value, key, index) in notifications"
 					>
-					<v-list-item
-						:key="index"
-					>
-					<v-list-item-title> {{ index + ". "+ item }}</v-list-item-title>
-					</v-list-item>
+						<v-list-item
+							:key="index"
+						>
+						<v-list-item-title> {{ index + ". "+ value }}</v-list-item-title>
+						</v-list-item>
 					</template>
 					<v-list-item>
 						<router-link to="notifications">
@@ -78,12 +80,14 @@
 				</v-list>
 			</template>
 		</v-menu>
+		<router-link to="user-profile">
 		<v-btn 
 			elevation ="2"
 			icon
 		>
 			<v-icon>mdi-account</v-icon>
 		</v-btn>
+		</router-link>
 		<v-btn
 			elevation="2"
 			icon
@@ -103,37 +107,29 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		data: () => ({
-			notifications: [
-				"Mike, Thanos is coming",
-				"5 new avengers joined the team",
-				"You're now friends with Capt",
-				"Another Notification",
-				"Another One - Dj Khalid voice",
-			],
+		data () {
+			return {
+
+			notifications: null,
 			title: "Vuetify Admin Dash by ClintOxx",
 			group: null,
-			notificationNum: 3,
-			notificationLimit: 6
-			
-		}),
+			notificationNum: this.notifications.length,
+			notificationLimit: 5,
+			message: null
+			}
+		},
 
 		computed: {
 			...mapGetters(["authorized",'getNotifications']),
-			updateNotifications: {
-				get: function () {
-					return this.getNotifications
-				},
-				set: function(value) {
-					this.notifications = value
-				}
-			},
+
 		},
 
 		watch: {
 		},
 
-		mounted() {
+		created() {
+			this.notifications = this.getNotifications
+			console.log("this.notifcation:  " , this.notifications)
 		},
 		beforeDestroy() {
 		},
@@ -146,7 +142,7 @@
 			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
-			
+
 			logout: function () {
 				this.$store.dispatch("logout").then(() => {
 					this.$router.push("/");

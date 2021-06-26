@@ -59,7 +59,7 @@ This is a general changelog
 - changed /modules/app to drawertoggle
 - added new drawer that closes on touch off or click off drawer
 - new notification system thats hooked up to state is well into dev
-
+- refixed notification state
 
 
 
