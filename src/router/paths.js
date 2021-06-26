@@ -41,9 +41,9 @@ export default [
 			{
 				path: "", //defaults to /dashboard if left blank
 				meta: {
-					name: 'Dashboard',
+					name: 'Dash',
 				},
-				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
+				component: () => import(`@/components/DashboardViews/Dash.vue`),
 			},
 			{
 				path: "user-profile", // ends up as /dashboard/user-profile

@@ -350,7 +350,7 @@
                       top
                       content-class="top"
                     >
-                      <template #activator="{ on }">
+                      <template v-slot:activator="{ on }">
                         <v-btn
                           class="v-btn--simple"
                           color="danger"
