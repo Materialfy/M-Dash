@@ -62,12 +62,12 @@
 				</v-badge>
 				<v-list>
 					<template 
-						v-for="(value, key, index) in notifications"
+						v-for="(value, index) in notifications"
 					>
 						<v-list-item
 							:key="index"
 						>
-						<v-list-item-title> {{ index + ". "+ value }}</v-list-item-title>
+						<v-list-item-title> {{ index + 1 + ". "+ "Value: " + value.title }}</v-list-item-title>
 						</v-list-item>
 					</template>
 					<v-list-item>
