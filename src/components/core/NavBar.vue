@@ -59,12 +59,15 @@
 					</v-btn>
 				</v-badge>
 				<v-list>
+					<template 
+						v-for="(item, index) in updateNotitications"
+					>
 					<v-list-item
-						v-for="(item,index) in updateNotifications"
 						:key="index"
 					>
 					<v-list-item-title> {{ index + ". "+ item }}</v-list-item-title>
 					</v-list-item>
+					</template>
 					<v-list-item>
 						<router-link to="notifications">
 							<v-btn>
