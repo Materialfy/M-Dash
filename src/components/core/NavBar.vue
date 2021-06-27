@@ -37,12 +37,13 @@
 		
 		<v-spacer />
 		<v-menu
-			close-on-content-click
+			:close-on-content-click ="false"
 			auto
 			attach="notifbtn"
+			
 		>
-			<!-- this v-menu and activator is used to control the v-list showing -->
-			<template #activator="{ on : notifOn, attrs }">
+			<!-- this v-menu and activator is usenotifOnd to control the v-list showing -->
+			<template #activator="{ on , attrs  }">
 				<v-badge
 					id ="notifbtn"
 					:content="notificationNum"
@@ -51,13 +52,16 @@
 					overlap
 					offset-y= 23px
 				>
-					<v-icon
+					<v-btn
+						elevation ="2"
+						icon
 						v-bind="attrs"
-						v-on="{...notifOn }"
+						v-on="on"
 					>
-						mdi-bell
-					</v-icon>
+						<v-icon>mdi-bell</v-icon>
+					</v-btn>
 				</v-badge>
+				</template>
 				<v-row>
 					<v-col
 					cols="12"
@@ -106,7 +110,7 @@
 						</v-card>
 					</v-col>
 				</v-row>
-			</template>
+			
 		</v-menu>
 		<router-link to="user-profile">
 		<v-btn 
