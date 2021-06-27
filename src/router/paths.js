@@ -102,7 +102,7 @@ export default [
 					name: "Notifications",	
 				},
 				component: () =>
-					import(`@/components/DashboardViews/Notifications.vue`),
+					import(`@/components/DashboardViews/NotificationsView.vue`),
 			},
 		],
 		//per route guard if you dont want to use the global version in /router/index

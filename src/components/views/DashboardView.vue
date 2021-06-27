@@ -3,7 +3,7 @@ core-toolbar is core/toolbar.vue etc -->
 <template>
     <v-container>
       <CoreNavBar /> 
-      <CoreSidedrawer />
+      <CoreSideDrawer />
 
       <v-main>
         <v-container fluid>
@@ -25,7 +25,7 @@ core-toolbar is core/toolbar.vue etc -->
 		name: "DashboardView",
 		metaInfo() {
 			return {
-				title: "Vuetify Admin Dashboard by ClintOxx",
+				title: "Materialfy Admin Dashboard by ClintOxx",
 			};
 		},
 	};

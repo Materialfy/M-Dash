@@ -42,7 +42,7 @@
 	export default {
 		data() {
 			return {
-				title: "Vuetify Admin Dash by ClintOxx",
+				title: "Materialfy Dashboard by Materialfy",
 				group: null,
 				message: null,
 				buttonColor: "primary",

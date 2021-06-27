@@ -2,7 +2,10 @@
     <v-menu
     :close-on-content-click ="false"
     auto
-    :bottom="true"
+    max-height="200"
+    max-width="400"
+    nudge-bottom="68"
+    transition="slide-y-transition"
     >
         <!-- this v-menu and activator is used to control the v-card showing -->
         <template #activator="{ on : onbtn , attrs  }" >
@@ -24,51 +27,45 @@
                 </v-btn>
             </v-badge>
         </template>
-        <v-card>
-            <v-list>
-                <v-container >
-                    <v-row wrap>
-                        <v-col >
-                            <v-subheader
-                                v-if="notifHeader"
-                                :key="notifHeader"
-                            >
-                                {{ notifHeader }}
-                            </v-subheader>
-                            <template 
-                                v-for="(value, index) in notifications"
-                            >
-                                <v-divider
-                                    v-if="value.divider"
-                                    :key="index"
-                                />
-                                <v-list-item
-                                    :key="value.title"
-                                >
-                                    <v-list-item-avatar
-                                        :key="value.avatar"
-                                    >
-                                        <img :src="value.avatar">
-                                    </v-list-item-avatar>
-                                    <v-list-item-content>
-                                        <v-list-item-title v-html="value.title" />
-                                        <v-list-item-subtitle v-html="value.subtitle" /> 
-                                    </v-list-item-content>
-                                </v-list-item>
-                            </template>
-                            <v-list-item 
-                            >
-                                <router-link to="notifications">
-                                    <v-btn >
-                                        View all notifications
-                                    </v-btn>
-                                </router-link>
-                            </v-list-item>
-                        </v-col>
-                    </v-row>
-                </v-container>
+            <v-list >
+                <v-subheader
+                    v-if="notifHeader"
+                    :key="notifHeader"
+                >
+                    {{ notifHeader }}
+                </v-subheader>
+                <template 
+                    v-for="(value, index) in notifications"
+                >
+                    <v-divider
+                        v-if="value.divider"
+                        :key="index"
+                    />
+                    <v-list-item
+                        :key="value.title"
+                        color = "primary"
+                        three-line
+                    >
+                        <v-list-item-avatar
+                            :key="value.avatar"
+                        >
+                            <img :src="value.avatar">
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                            <v-list-item-title v-html="value.title" />
+                            <v-list-item-subtitle v-html="value.subtitle" /> 
+                        </v-list-item-content>
+                    </v-list-item>
+                </template>
+                <v-list-item 
+                >
+                    <router-link  to="notifications">
+                        <v-btn justify-center>
+                            View all notifications
+                        </v-btn>
+                    </router-link>
+                </v-list-item>
             </v-list>
-        </v-card>
 		</v-menu>
 </template>
 
