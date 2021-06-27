@@ -39,7 +39,6 @@
 		<v-menu
 			:close-on-content-click ="false"
 			auto
-			attach="notifbtn"
 			
 		>
 			<!-- this v-menu and activator is usenotifOnd to control the v-list showing -->
