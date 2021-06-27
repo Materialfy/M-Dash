@@ -4,7 +4,7 @@
 
 ## Back under active development
 
-### Check changelog.markdown for updates on whats new
+### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
@@ -264,10 +264,8 @@ Within the download you'll find the following directories and files:
             LoginHome.vue # any views/components that are a child of this will not have the toolbar etc around it
 ```
 
-### Special thanks
-To [creativetim](https://github.com/creativetimofficial/vuetify-material-dashboard) for the base template
-
-I added a lot of functionality and features to his base desgin template, but kept the overall theme/design. Will continue to add more!
+### Note
+* im not longer using the template desgin or code from Creativetims dash that this repo was originally based on.
 
 
 You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
