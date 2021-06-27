@@ -4,7 +4,7 @@
     auto
     :bottom="true"
     >
-        <!-- this v-menu and activator is usenotifOnd to control the v-list showing -->
+        <!-- this v-menu and activator is used to control the v-card showing -->
         <template #activator="{ on : onbtn , attrs  }" >
             <v-badge
                 :content="notificationNum"

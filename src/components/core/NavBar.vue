@@ -1,27 +1,19 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
 	<!-- app-bar props below customize bevaviotr and looks -->
-	<v-app-bar
-    id="core-toolbar"
-    app
-	color="secondary"
-	>
+	<v-app-bar id="core-toolbar" app color="secondary">
 		<!-- controls the sidebar colapsing-->
-		<v-app-bar-nav-icon 
-			@click="drawerButton" 
-		/>
-		<router-link to="/" >
-			<v-app-bar-title 
-				shrink-on-scroll 
-			>
+		<v-app-bar-nav-icon @click="drawerButton" />
+		<router-link to="/">
+			<v-app-bar-title shrink-on-scroll>
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
 		<!-- When placing a single v-spacer before or after the child components, 
 		the components will push to the right and left of its container -->
-		<v-spacer /> 
-		<v-text-field 
-			v-model= "message"
+		<v-spacer />
+		<v-text-field
+			v-model="message"
 			label="Search here.."
 			prepend-inner-icon="mdi-magnify"
 			outlined
@@ -31,25 +23,14 @@
 		>
 		</v-text-field>
 		<v-spacer />
-		<MaterialNotifications />
+		<MaterialfyNotifications />
 		<router-link to="user-profile">
-			<v-btn 
-				elevation ="2"
-				icon
-			>
+			<v-btn elevation="2" icon :color:="buttonColor">
 				<v-icon>mdi-account</v-icon>
 			</v-btn>
 		</router-link>
-		<v-btn
-			elevation="2"
-			icon
-		>
-			<v-icon>mdi-cog</v-icon>
-		</v-btn>
-		<v-btn
-			elevation ="2"
-			icon
-		>
+		<MaterialfySettings />
+		<v-btn elevation="2" icon>
 			<v-icon @click="logout">mdi-power</v-icon>
 		</v-btn>
 	</v-app-bar>
@@ -59,30 +40,27 @@
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		data () {
+		data() {
 			return {
-			title: "Vuetify Admin Dash by ClintOxx",
-			group: null,
-			message: null,
-			}
+				title: "Vuetify Admin Dash by ClintOxx",
+				group: null,
+				message: null,
+				buttonColor: "primary",
+			};
 		},
 		computed: {
 			...mapGetters(["authorized"]),
 		},
-		watch: {
-
-		},
-		created() {
-
-		},
-		beforeDestroy() {
-		},
+		watch: {},
+		created() {},
+		beforeDestroy() {},
 		methods: {
 			...mapActions(
-				"drawertoggle",// chooses which namespaced state module to get the mutations from
+				"drawertoggle", // chooses which namespaced state module to get the mutations from
 				["drawerOn"]
-        ), 
-			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
+			),
+			drawerButton() {
+				// this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
 			logout: function () {

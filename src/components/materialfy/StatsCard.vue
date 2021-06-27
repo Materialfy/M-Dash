@@ -1,44 +1,37 @@
 <template>
-  <material-card
-    v-bind="$attrs"
-    class="v-card--material-stats"
-    v-on="$listeners"
-  >
-    <v-card
-      slot="offset"
-      :class="`elevation-${elevation}`"
-      :color="color"
-      class="pa-4"
-    >
-      <v-icon size="40">
-        {{ icon }}
-      </v-icon>
-    </v-card>
-    <div class="text-right">
-      <p
-        class="category grey--text font-weight-light"
-        v-text="title"
-      />
-      <h3 class="text-h6 text-h4 font-weight-light">
-        {{ value }} <small>{{ smallValue }}</small>
-      </h3>
-    </div>
+	<materialfy-card
+		v-bind="$attrs"
+		class="v-card--material-stats"
+		v-on="$listeners"
+	>
+		<v-card
+			slot="offset"
+			:class="`elevation-${elevation}`"
+			:color="color"
+			class="pa-4"
+		>
+			<v-icon size="40">
+				{{ icon }}
+			</v-icon>
+		</v-card>
+		<div class="text-right">
+			<p class="category grey--text font-weight-light" v-text="title" />
+			<h3 class="text-h6 text-h4 font-weight-light">
+				{{ value }} <small>{{ smallValue }}</small>
+			</h3>
+		</div>
 
-    <template slot="actions">
-      <v-icon
-        :color="subIconColor"
-        size="20"
-        class="mr-2"
-      >
-        {{ subIcon }}
-      </v-icon>
-      <span
-        :class="subTextColor"
-        class="text-caption font-weight-light"
-        v-text="subText"
-      />
-    </template>
-  </material-card>
+		<template slot="actions">
+			<v-icon :color="subIconColor" size="20" class="mr-2">
+				{{ subIcon }}
+			</v-icon>
+			<span
+				:class="subTextColor"
+				class="text-caption font-weight-light"
+				v-text="subText"
+			/>
+		</template>
+	</materialfy-card>
 </template>
 
 <script>
@@ -86,7 +79,7 @@
 </script>
 
 <style lang="scss">
-	.v-card--material-stats {
+	.v-card--materialfy-stats {
 		display: flex;
 		flex-wrap: wrap;
 		position: relative;
