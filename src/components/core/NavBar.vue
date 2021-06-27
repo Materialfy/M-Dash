@@ -58,38 +58,54 @@
 						mdi-bell
 					</v-icon>
 				</v-badge>
-				<v-card>
-					<v-list>
-						<template 
-							v-for="(value, index) in notifications"
-						>
-							<v-list-item
-								:key="index"
-							>
+				<v-row>
+					<v-col
+					cols="12"
+					sm="6"
+					offset-sm="3"
+					>
+						<v-card>
+							<v-list>
 								<v-subheader
 									v-if="notifHeader"
 									:key="notifHeader"
 								>
 									{{ notifHeader }}
 								</v-subheader>
-								<v-divider
-									v-else-if="value.divider"
+								<template 
+									v-for="(value, index) in notifications"
 								>
-									<v-list-item-title> 
-										{{ index + 1 + ". "+ "Value: " + value.title }}
-									</v-list-item-title>
-								</v-divider>
-							</v-list-item>
-						</template>
-						<v-list-item>
-							<router-link to="notifications">
-								<v-btn>
-									View all notifications
-								</v-btn>
-							</router-link>
-						</v-list-item>
-					</v-list>
-				</v-card>
+
+									<v-divider
+										v-if="value.divider"
+										:key="index"
+									/>
+									<v-list-item
+										:key="value.title"
+									>
+										<v-list-item-avatar
+											:key="value.avatar"
+										>
+											<img :src="value.avatar">
+										</v-list-item-avatar>
+										<v-list-item-content>
+											<v-list-item-title v-html="value.title" />
+											<v-list-item-subtitle v-html="value.subtitle" /> 
+										</v-list-item-content>
+									</v-list-item>
+								</template>
+								<v-list-item 
+								>
+									<router-link to="notifications">
+										<v-btn >
+											View all notifications
+										</v-btn>
+									</router-link>
+								</v-list-item>
+							</v-list>
+						</v-card>
+					</v-col>
+				</v-row>
 			</template>
 		</v-menu>
 		<router-link to="user-profile">
