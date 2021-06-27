@@ -5,7 +5,7 @@
     id="core-toolbar"
     app
 	color="secondary"
-    elevate-on-scroll
+
 
 	>
 		<!-- controls the sidebar colapsing-->
@@ -23,7 +23,7 @@
 		the components will push to the right and left of its container -->
 
 		<v-spacer /> 
-		
+
 		<v-text-field 
 			v-model= "message"
 			label="Search here.."
@@ -43,9 +43,9 @@
 			
 		>
 			<!-- this v-menu and activator is usenotifOnd to control the v-list showing -->
-			<template #activator="{ on , attrs  }">
+			<template #activator="{ on : onbtn , attrs  }" >
 				<v-badge
-					id ="notifbtn"
+					
 					:content="notificationNum"
 					:value="notificationNum"
 					color ="blue"
@@ -53,21 +53,17 @@
 					offset-y= 23px
 				>
 					<v-btn
+						id ="notifbtn"
 						elevation ="2"
 						icon
 						v-bind="attrs"
-						v-on="on"
+						v-on="onbtn"
 					>
 						<v-icon>mdi-bell</v-icon>
 					</v-btn>
 				</v-badge>
 				</template>
-				<v-row>
-					<v-col
-					cols="12"
-					sm="6"
-					offset-sm="3"
-					>
+
 						<v-card>
 							<v-list>
 								<v-subheader
@@ -108,8 +104,6 @@
 								</v-list-item>
 							</v-list>
 						</v-card>
-					</v-col>
-				</v-row>
 			
 		</v-menu>
 		<router-link to="user-profile">
