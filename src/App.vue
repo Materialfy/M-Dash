@@ -3,10 +3,10 @@
 depending on if you are logged in or not , 
 so that is what ExternalView and DashboardView are for. LoginForm renders in Externalview-->
 <template>
-  <v-app id="app-vue">
-    <transition mode="out-in">
-      <router-view />
-    </transition>
+<v-app id="app-vue">
+  <transition mode="out-in">
+    <router-view />
+  </transition>
   </v-app>
 </template>
 
