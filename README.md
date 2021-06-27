@@ -4,7 +4,7 @@
 
 ## Back under active development
 
-### Check changelog.markdown for updates on whats new
+### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
 
 ## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
