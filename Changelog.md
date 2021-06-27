@@ -60,6 +60,7 @@ This is a general changelog
 - added new drawer that closes on touch off or click off drawer
 - new notification system thats hooked up to state is well into dev
 - refixed notification state
+- added avatars, title, subtitle and header for new notication card drop down
 
 
 
