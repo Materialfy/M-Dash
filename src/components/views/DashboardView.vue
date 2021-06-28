@@ -25,7 +25,7 @@ core-toolbar is core/toolbar.vue etc -->
 		name: "DashboardView",
 		metaInfo() {
 			return {
-				title: "Materialfy Admin Dashboard by ClintOxx",
+				title: "V.Dashboard by Materialfy.",
 			};
 		},
 	};
