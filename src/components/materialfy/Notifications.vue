@@ -2,7 +2,7 @@
     <v-menu
     :close-on-content-click ="false"
     nudge-left="60"
-    nudge-bottom="69"
+    nudge-bottom="60"
     transition="slide-y-transition"
     >
         <!-- this v-menu and activator is used to control the v-card showing -->

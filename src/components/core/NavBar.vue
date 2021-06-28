@@ -42,7 +42,7 @@
 	export default {
 		data() {
 			return {
-				title: "Materialfy Dashboard by Materialfy",
+				title: "Dashboard by Materialfy.",
 				group: null,
 				message: null,
 				buttonColor: "primary",
