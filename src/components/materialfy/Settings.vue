@@ -6,6 +6,7 @@
 		min-width="300"
 		max-width="300"
 		nudge-left="12"
+		nudge-bottom="60"
 		offset-x
 		transition="slide-y-transition"
 	>

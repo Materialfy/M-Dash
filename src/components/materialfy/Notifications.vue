@@ -1,10 +1,8 @@
 <template>
     <v-menu
     :close-on-content-click ="false"
-    auto
-    max-height="200"
-    max-width="400"
-    nudge-bottom="68"
+    nudge-left="60"
+    nudge-bottom="69"
     transition="slide-y-transition"
     >
         <!-- this v-menu and activator is used to control the v-card showing -->
@@ -27,10 +25,11 @@
                 </v-btn>
             </v-badge>
         </template>
-            <v-list >
+            <v-list max-width="450">
                 <v-subheader
                     v-if="notifHeader"
                     :key="notifHeader"
+                    
                 >
                     {{ notifHeader }}
                 </v-subheader>
@@ -43,8 +42,9 @@
                     />
                     <v-list-item
                         :key="value.title"
-                        color = "primary"
                         three-line
+                        to="Notifications"
+                        
                     >
                         <v-list-item-avatar
                             :key="value.avatar"
