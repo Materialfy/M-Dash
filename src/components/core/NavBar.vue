@@ -1,11 +1,11 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
 	<!-- app-bar props below customize bevaviotr and looks -->
-	<v-app-bar id="core-toolbar" app color="secondary">
+	<v-app-bar id="core-toolbar" app color="primary">
 		<!-- controls the sidebar colapsing-->
 		<v-app-bar-nav-icon @click="drawerButton" />
 		<router-link to="/">
-			<v-app-bar-title shrink-on-scroll>
+			<v-app-bar-title  class="text-no-wrap">
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
@@ -23,16 +23,17 @@
 		>
 		</v-text-field>
 		<v-spacer />
-		<MaterialfyNotifications />
+		<MaterialfyNotifications buttonColor="tertiary" />
 		<router-link to="user-profile">
-			<v-btn elevation="2" icon :color:="buttonColor">
+			<v-btn elevation="2" icon :color="buttonColor">
 				<v-icon>mdi-account</v-icon>
 			</v-btn>
 		</router-link>
-		<MaterialfySettings />
-		<v-btn elevation="2" icon>
+		<MaterialfySettings buttonColor="tertiary"  />
+		<v-btn elevation="2" icon :color="buttonColor">
 			<v-icon @click="logout">mdi-power</v-icon>
 		</v-btn>
+		<v-spacer />
 	</v-app-bar>
 </template>
 
@@ -45,7 +46,7 @@
 				title: "V.Dashboard by Materialfy.",
 				group: null,
 				message: null,
-				buttonColor: "primary",
+				buttonColor: "tertiary",
 			};
 		},
 		computed: {

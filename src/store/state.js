@@ -26,5 +26,6 @@ export default {
       divider: true, inset: true 
      },
   ],
-  notificationsheader: new Date().toLocaleString()
+  notificationsheader: new Date().toLocaleString(),
+  notificationAmount: 0
 }

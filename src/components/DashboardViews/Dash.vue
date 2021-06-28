@@ -1,5 +1,6 @@
 <template>
-   <v-row>
+<v-container color="primary" >
+   <v-row >
           <v-col
             v-for="n in 24"
             :key="n"
@@ -9,6 +10,7 @@
             <v-card color ="secondary" height="200"></v-card>
           </v-col>
         </v-row>
+        </v-container>
 </template>
 
 <script>

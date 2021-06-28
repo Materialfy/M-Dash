@@ -5,24 +5,31 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.use(Vuetify);
 
-const vuetify = new Vuetify({
+
+
+export default new Vuetify({
+	icons: {
+		iconfont: "mdi",
+	},
 	theme: {
 		dark: false,
 		themes: {
 			light: {
-      primary: "#00bcd4",
-      secondary:" #ffc107",
-			tertiary: "#E0E0E0",
-      accent: '#607d8b',
-      error: '#f44336',
-      warning: '#ff5722',
-      info: '#2196f3',
-      success: '#4caf50',
+				primary: "#00bcd4",
+				secondary: "#607d8b",
+				tertiary: "#ffc107",
+				accent: "#ffc107",
+				error: "#f44336",
+				warning: "#ff5722",
+				info: "#ff9800",
+				success: "#8bc34a",
 				general: "#2196F3",
+				anchor: "#ffc107",
+				background: "#78909C",
 			},
 			dark: {
-				primary: "##FF6D00",
-				secondary: "#40C4FF",
+				primary: "#757575",
+				secondary: "#757575",
 				tertiary: "#E0E0E0",
 				accent: "#82B1FF",
 				error: "#f55a4e",
@@ -30,13 +37,9 @@ const vuetify = new Vuetify({
 				success: "#5cb860",
 				warning: "#ffa21a",
 				general: "#2196F3",
+				anchor: "#ffc107",
+				background: "#757575",
 			},
 		},
 	},
-	icons: {
-		// select from different types of icon libraries, can be moved above
-		iconfont: "mdi", // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-	},
 });
-
-export default vuetify;

@@ -15,6 +15,7 @@
 				v-on="on"
                 elevation ="2"
                 icon
+				:color="buttonColor"
 			>
 				<v-icon > mdi-cog </v-icon>
 			</v-btn>
@@ -111,6 +112,7 @@
 				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-4.3b7e38ed.jpg",
 			],
 		}),
+		props: ['buttonColor'],
 
 		computed: {
 			...mapState("drawertoggle", ["image", "color"]),

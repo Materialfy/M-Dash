@@ -18,6 +18,7 @@
                     id ="notifbtn"
                     elevation ="2"
                     icon
+                    :color="buttonColor"
                     v-bind="attrs"
                     v-on="onbtn"
                 >
@@ -27,7 +28,7 @@
         </template>
             <v-list 
                 max-width="450"
-                color="blue"
+                color="primary"
             >
                 <v-subheader
                     v-if="notifHeader"
@@ -83,6 +84,7 @@ data () {
         notifHeader: this.getNotifHeader
     }
 },
+props: ['buttonColor'],
 
 computed: {
     ...mapGetters(['getNotifications', 'getNotifHeader']),
