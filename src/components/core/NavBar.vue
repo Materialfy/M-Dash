@@ -73,7 +73,5 @@
 </script>
 
 <style>
-	#core-toolbar a {
-		text-decoration: none;
-	}
+
 </style>

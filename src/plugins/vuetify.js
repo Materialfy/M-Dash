@@ -7,7 +7,7 @@ Vue.use(Vuetify, {
   // change theme properties, dark mode is on by default
   // Will dynamically change when toggling $vuetify.theme.dark
   theme: {
-    dark: true,
+    dark: false,
     themes: {
       light: {
         primary: '#4caf50',

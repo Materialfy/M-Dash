@@ -25,7 +25,10 @@
                 </v-btn>
             </v-badge>
         </template>
-            <v-list max-width="450">
+            <v-list 
+                max-width="450"
+                color="blue"
+            >
                 <v-subheader
                     v-if="notifHeader"
                     :key="notifHeader"
