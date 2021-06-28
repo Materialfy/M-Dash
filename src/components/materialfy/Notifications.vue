@@ -16,7 +16,6 @@
             >
                 <v-btn
                     id ="notifbtn"
-                    elevation ="2"
                     icon
                     :color="buttonColor"
                     v-bind="attrs"

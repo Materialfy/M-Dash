@@ -13,7 +13,6 @@
 		<template #activator="{ on }">
 			<v-btn
 				v-on="on"
-                elevation ="2"
                 icon
 				:color="buttonColor"
 			>
@@ -38,6 +37,7 @@
 								size="23"
 								@click="setColor(c)"
 							/>
+							<v-btn @click="toggleTheme" color="primary" class="mr-2"> Dark/light mode</v-btn>
 						</v-layout>
 						<v-divider class="mt-3" />
 					</v-flex>
@@ -122,10 +122,13 @@
 		},
 
 		methods: {
-			...mapMutations("drawertoggle", ["setImage"]),
-			setColor(color) {
-				this.$store.state.drawertoggle.color = color;
-			},
+		...mapMutations("drawertoggle", ["setImage"]),
+		setColor(color) {
+			this.$store.state.drawertoggle.color = color;
+		},
+		toggleTheme() {
+			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;      
+		},
 		},
 	};
 </script>

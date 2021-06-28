@@ -1,39 +1,46 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
 	<!-- app-bar props below customize bevaviotr and looks -->
-	<v-app-bar id="core-toolbar" app color="primary">
+	<v-app-bar id="core-toolbar" app color="primary" :clipped-left="true" >
 		<!-- controls the sidebar colapsing-->
 		<v-app-bar-nav-icon @click="drawerButton" />
 		<router-link to="/">
-			<v-app-bar-title  class="text-no-wrap">
+			<v-app-bar-title  class="text-no-wrap" style="">
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
 		<!-- When placing a single v-spacer before or after the child components, 
 		the components will push to the right and left of its container -->
+
 		<v-spacer />
+		<MaterialfyNotifications 
+			buttonColor="tertiary" class ="ml3"
+		/>
+		<router-link to="user-profile">
+			<v-btn  icon :color="buttonColor" class ="ml3">
+				<v-icon>mdi-account</v-icon>
+			</v-btn>
+		</router-link>
+		<MaterialfySettings 
+			buttonColor="tertiary"  
+		/>
+		<v-btn  icon :color="buttonColor">
+			<v-icon @click="logout">mdi-power</v-icon>
+		</v-btn>
+
 		<v-text-field
 			v-model="message"
-			label="Search here.."
+			label="Search.."
 			prepend-inner-icon="mdi-magnify"
 			outlined
 			clearable
 			dense
 			hide-details
+			color = "tertiary"
+			class="shrink mx-4"
 		>
 		</v-text-field>
-		<v-spacer />
-		<MaterialfyNotifications buttonColor="tertiary" />
-		<router-link to="user-profile">
-			<v-btn elevation="2" icon :color="buttonColor">
-				<v-icon>mdi-account</v-icon>
-			</v-btn>
-		</router-link>
-		<MaterialfySettings buttonColor="tertiary"  />
-		<v-btn elevation="2" icon :color="buttonColor">
-			<v-icon @click="logout">mdi-power</v-icon>
-		</v-btn>
-		<v-spacer />
+
 	</v-app-bar>
 </template>
 
