@@ -1,15 +1,15 @@
 <template>
     <v-menu
-    :close-on-content-click ="false"
+    :close-on-content-click ="true"
     nudge-left="60"
-    nudge-bottom="60"
+    nudge-bottom="57"
     transition="slide-y-transition"
     >
         <!-- this v-menu and activator is used to control the v-card showing -->
         <template #activator="{ on : onbtn , attrs  }" >
             <v-badge
                 :content="getNotificationAmt"
-                :value="getNotificationAmt"
+                :value="badgeShow"
                 color ="blue"
                 overlap
                 offset-y= 23px
@@ -26,60 +26,73 @@
                 </v-btn>
             </v-badge>
         </template>
-            <v-list 
+
+            <v-card 
                 max-width="450"
                 color="primary"
             >
-                <v-subheader
-                    v-if="getNotifHeader"
-                    :key="getNotifHeader"
-                    
-                >
-                    Refreshed: {{ notificationHeader }}
-                </v-subheader>
-                <template 
-                    v-for="(value, index) in getNotifications"
-                >
-                    <v-divider
-                        v-if="value.divider"
-                        :key="index"
-                    />
-                    <v-list-item
-                        :key="value.title"
-                        three-line
-                        to="Notifications"
-                        
-                    >
-                        <v-list-item-avatar
-                            :key="value.avatar"
-                        >
-                            <img :src="value.avatar">
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                            <v-list-item-title v-html="value.title" />
-                            <v-list-item-subtitle v-html="value.subtitle" /> 
-                        </v-list-item-content>
-                    </v-list-item>
-                </template>
-                <v-list-item 
-                >
-                    <router-link  to="notifications">
-                        <v-btn justify-center>
-                            View all notifications
-                        </v-btn>
-                    </router-link>
-                </v-list-item>
-            </v-list>
+                <v-container fill-height>
+                    <v-row no-gutters >
+                        <v-col cols="7" class="mx-auto" >
+                            <v-subheader v-if="getNotifHeader" justify-center >
+                                Refreshed: {{ notificationHeader }}
+                            </v-subheader>
+                        </v-col>
+                        <v-col cols="12">
+                            <template 
+                                v-for="(value, index) in getNotifications"
+                                
+                            >
+                                <v-divider
+                                    v-if="value.divider"
+                                    :key="index"
+                                />
+                                <v-list-item
+                                    :key="value.title"
+                                    three-line
+                                    to="Notifications"
+                                    
+                                >
+                                    <v-list-item-avatar
+                                        :key="value.avatar"
+                                    >
+                                        <img :src="value.avatar">
+                                    </v-list-item-avatar>
+                                    <v-list-item-content>
+                                        <v-list-item-title v-html="value.title" />
+                                        <v-list-item-subtitle v-html="value.subtitle" /> 
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </template>
+                        </v-col>
+                    </v-row>
+                    <v-divider />
+                    <v-row >
+                        <v-col col="3" class="text-center">
+                            <router-link  to="notifications">
+                                <v-btn small >
+                                    View all notifications
+                                </v-btn>
+                            </router-link>
+                        </v-col>
+                        <v-col col= "3" class="text-center">
+                            <v-btn  small @click="clearNotifs">Clear Notifications</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card>
+            
 		</v-menu>
 </template>
 
 <script>
-import {  mapGetters } from "vuex";
+import {  mapGetters, mapMutations } from "vuex";
 export default {
 data () {
     return {
         notificationLimit: 5, //use in for loop 
-        notifHeader: null
+        notifHeader: null,
+        badgeShow: true
     }
 },
 props: ['buttonColor'],
@@ -92,7 +105,8 @@ computed: {
         console.log("notification header method")
 
         return this.getNotifHeader
-    }
+    },
+    ...mapMutations(['clearNotifications']),
 },
 
 watch: {
@@ -106,7 +120,10 @@ beforeDestroy() {
 },
 
 methods: {
-
+    clearNotifs: function (){
+        this.clearNotifications
+        this.badgeShow=false
+    }
 }
 }
 </script>

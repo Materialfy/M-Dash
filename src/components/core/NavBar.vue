@@ -82,6 +82,6 @@
 
 <style>
  .v-app-bar-title__content{
-  width: 300px;
+  width: 280px;
 }
 </style>

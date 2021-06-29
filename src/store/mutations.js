@@ -18,5 +18,8 @@ export default {
   },
   setTableList (state, tableList) {
     state.tableList = tableList
+  },
+  clearNotifications(state){
+    state.notifications = 0
   }
 }
