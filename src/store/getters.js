@@ -8,5 +8,6 @@ export default {
   authorized: state => !!state.token,
   authstatus: state => state.authStatus,
   getNotifications: state => state.notifications,
-  getNotifHeader: state => state.notificationsheader
+  getNotifHeader: state => state.currentTime,
+  getNotificationAmt: state => state.notifications.length
 }

@@ -1,11 +1,11 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
 	<!-- app-bar props below customize bevaviotr and looks -->
-	<v-app-bar id="core-toolbar" app color="primary" :clipped-left="true" >
+	<v-app-bar  app color="primary" :clipped-left="true" >
 		<!-- controls the sidebar colapsing-->
 		<v-app-bar-nav-icon @click="drawerButton" />
-		<router-link to="/">
-			<v-app-bar-title  class="text-no-wrap" style="">
+		<router-link to="/" >
+			<v-app-bar-title class="ml-2" >
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
@@ -14,7 +14,7 @@
 
 		<v-spacer />
 		<MaterialfyNotifications 
-			buttonColor="tertiary" class ="ml3"
+			buttonColor="tertiary"
 		/>
 		<router-link to="user-profile">
 			<v-btn  icon :color="buttonColor" class ="ml3">
@@ -81,5 +81,7 @@
 </script>
 
 <style>
-
+ .v-app-bar-title__content{
+  width: 300px;
+}
 </style>

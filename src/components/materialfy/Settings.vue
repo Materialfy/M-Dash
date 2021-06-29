@@ -5,7 +5,7 @@
 		float-left
 		min-width="300"
 		max-width="300"
-		nudge-left="12"
+		nudge-left="130"
 		nudge-bottom="60"
 		offset-x
 		transition="slide-y-transition"
@@ -24,7 +24,7 @@
 				<v-layout wrap>
 					<v-flex xs12>
 						<div class="text-center text-body-2 text-uppercase">
-							Sidebar Filters
+							Theme Color Picker
 						</div>
 
 						<v-layout justify-center>
@@ -37,7 +37,11 @@
 								size="23"
 								@click="setColor(c)"
 							/>
-							<v-btn @click="toggleTheme" color="primary" class="mr-2"> Dark/light mode</v-btn>
+						</v-layout>
+						<v-divider class="mt-3" />
+						<v-layout justify-center>
+
+							<v-btn @click="toggleTheme" color="primary" class="mt-3"> Dark/light mode</v-btn>
 						</v-layout>
 						<v-divider class="mt-3" />
 					</v-flex>
@@ -59,7 +63,7 @@
 							color="success"
 							block
 						>
-							Free Download
+							Github
 						</v-btn>
 					</v-flex>
 					<v-flex xs12>
@@ -79,6 +83,8 @@
 
 							<div>
 								<v-btn
+									href="https://twitter.com/"
+									target="_blank"
 									color="cyan"
 									class="v-btn-twitter"
 									fab

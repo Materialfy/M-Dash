@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     v-model = "drawerShown"
-    absolute
+
     temporary
     app
     color="secondary"

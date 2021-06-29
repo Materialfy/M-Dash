@@ -8,8 +8,8 @@
         <!-- this v-menu and activator is used to control the v-card showing -->
         <template #activator="{ on : onbtn , attrs  }" >
             <v-badge
-                :content="notificationNum"
-                :value="notificationNum"
+                :content="getNotificationAmt"
+                :value="getNotificationAmt"
                 color ="blue"
                 overlap
                 offset-y= 23px
@@ -20,8 +20,9 @@
                     :color="buttonColor"
                     v-bind="attrs"
                     v-on="onbtn"
+
                 >
-                    <v-icon>mdi-bell</v-icon>
+                    <v-icon  >mdi-bell</v-icon>
                 </v-btn>
             </v-badge>
         </template>
@@ -30,14 +31,14 @@
                 color="primary"
             >
                 <v-subheader
-                    v-if="notifHeader"
-                    :key="notifHeader"
+                    v-if="getNotifHeader"
+                    :key="getNotifHeader"
                     
                 >
-                    {{ notifHeader }}
+                    Refreshed: {{ notificationHeader }}
                 </v-subheader>
                 <template 
-                    v-for="(value, index) in notifications"
+                    v-for="(value, index) in getNotifications"
                 >
                     <v-divider
                         v-if="value.divider"
@@ -77,33 +78,29 @@ import {  mapGetters } from "vuex";
 export default {
 data () {
     return {
-        notifications: [],
-        notificationNum: null,
-        notificationLimit: 5,
-        notifHeader: this.getNotifHeader
+        notificationLimit: 5, //use in for loop 
+        notifHeader: null
     }
 },
 props: ['buttonColor'],
 
 computed: {
-    ...mapGetters(['getNotifications', 'getNotifHeader']),
-
-},
-
-watch: {
-    getNotifHeader: function (){
+    ...mapGetters(['getNotifications', 'getNotifHeader', 'getNotificationAmt']),
+    // getNotifAmt gets the noticiation amount based on the length of the notificaitons array
+        notificationHeader: function (){
         // waits for update on state and updates header from state
-        this.notifHeader = this.getNotifHeader
+        console.log("notification header method")
+
+        return this.getNotifHeader
     }
 },
 
+watch: {
+
+},
+
 created() {
-    // sets the notification prop used in the v-badge
-    this.notifications = this.getNotifications
-    // gets the noticiation amount based on the length of the notificaitons array
-    this.notificationNum = this.notifications.length
-    this.notifHeader = this.getNotifHeader
-    console.log("this.notifcation:  " , this.notifications)
+
 },
 beforeDestroy() {
 },
