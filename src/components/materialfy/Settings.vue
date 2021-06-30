@@ -24,29 +24,30 @@
 				<v-layout wrap>
 					<v-flex xs12>
 						<div class="text-center text-body-2 text-uppercase">
-							Theme Color Picker
+							Theme Primary Color Picker
 						</div>
 
 						<v-layout justify-center>
 							<v-avatar
-								v-for="c in colors"
-								:key="c"
-								:class="[
-									c === color ? 'color-active color-' + c : 'color-' + c,
-								]"
+								v-for="themecolor in colors"
+								:key="themecolor"
+								:color="themecolor"
+								class="ma-1"
 								size="23"
-								@click="setColor(c)"
+								@click="setColor(themecolor)"
 							/>
 						</v-layout>
 						<v-divider class="mt-3" />
+						<v-btn @click="$vuetify.theme.themes.light.primary = '#4caf50'"></v-btn>
+						<v-toolbar-title class="text-center">Dark Mode Toggle</v-toolbar-title>
 						<v-layout justify-center>
-
-							<v-btn @click="toggleTheme" color="primary" class="mt-3"> Dark/light mode</v-btn>
+							
+							<v-switch v-model="$vuetify.theme.dark" :label="toggleText()" color="primary"  />
 						</v-layout>
 						<v-divider class="mt-3" />
 					</v-flex>
 					<v-flex xs12>
-						<div class="text-center text-body-2 text-uppercase">Images</div>
+						<div class="text-center text-body-2 text-uppercase">Sidebar Background Images</div>
 					</v-flex>
 					<v-flex v-for="img in images" :key="img" xs3>
 						<v-img
@@ -109,7 +110,7 @@
 	import { mdiAccount, mdiCog } from "@mdi/js";
 	export default {
 		data: () => ({
-			colors: ["primary", "info", "success", "warning", "danger", "general"],
+			colors: ["#F44336", "#AB47BC", "#3949AB", "#1E88E5", "#26C6DA", "#43A047", "#FF9100"],
 			iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
 			images: [
 				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg",
@@ -122,8 +123,8 @@
 
 		computed: {
 			...mapState("drawertoggle", ["image", "color"]),
-			color() {
-				return this.$store.state.drawertoggle.color;
+			colorPicker() {
+				return this.color;
 			},
 		},
 
@@ -131,10 +132,21 @@
 		...mapMutations("drawertoggle", ["setImage"]),
 		setColor(color) {
 			this.$store.state.drawertoggle.color = color;
+			this.$vuetify.theme.themes.light.primary = color
+		},
+		setColor2(color) {
+			this.$store.state.drawertoggle.color = color;
+			this.$vuetify.theme.themes.light.secondary = color
 		},
 		toggleTheme() {
 			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;      
 		},
+		toggleText() {
+			if(this.$vuetify.theme.dark) {
+				return "Dark Mode On"
+			}
+			else return "Light Mode On"
+		}
 		},
 	};
 </script>
