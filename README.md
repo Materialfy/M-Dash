@@ -4,7 +4,7 @@
 
 ## Back under active development
 
-###  ![Sneakpeak](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png)
+### SneakPeak ![Sneakpeak](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png width="40" height="40")
 
 ### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
 
