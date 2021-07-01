@@ -1,7 +1,7 @@
 // Importing All Material Design Colors
 @import "./colors";
 
-//  Brand Colors 
+//  Brand Colors
 $brand-primary:                    $purple !default;
 $brand-success:                    $green !default;
 $brand-danger:                     $red !default;
@@ -93,7 +93,7 @@ $toolbar-min-height:                70px !default;
 $toolbar-margin-left:               260px !default;
 
 //  Body Background Color
-$body-color:                        #eee !default;
+$body-color:                        rgb(165, 35, 35) !default;
 
 // Black Color
 $black-color:                       #495057 !default;

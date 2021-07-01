@@ -8,20 +8,15 @@ you're adding new data to which ever state object property passed in
 drawerapp state: color, drawer, image
 */
 //state[property] and state.property mean the same thing
-const set = property => (state, newdata) => (state[property] = newdata)
+const set = property => (state, dataPayload) => (state[property] = dataPayload)
 
 const toggle = property => 
       state => {
-        console.log("setToggle:  " + state.drawerState)
-        //state.drawerState = true
-        state.skip = true
         return (state[property] = !state[property])
       } 
 
 const toggleDrawerState = state => {
-    console.log("toggleDrawerState mutation before:  " + state.drawerState)
     state.drawerState = true
-    console.log("toggleDrawerState mutation after:  " + state.drawerState)
 }
 /* 
   calls just the first part of the nested arrow functions, but the second nested arrow function executes

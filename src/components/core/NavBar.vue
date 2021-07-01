@@ -1,71 +1,74 @@
 <!-- <nav-bar /> in the DashboardView.vue -->
 <template>
-  <!-- app-bar props below customize bevaviotr and looks -->
-  <v-app-bar
-    id="core-toolbar"
-    app
-    absolute
-    dense
-    elevate-on-scroll
-  >
-	<!-- controls the sidebar colapssing-->
-    <v-app-bar-nav-icon 
-      @click="drawerButton" 
-    /> 
-    <v-app-bar-title 
-      shrink-on-scroll 
-    >
-      {{ title }}
-    </v-app-bar-title>
-    <!-- When placing a single v-spacer before or after the child components, 
-    the components will push to the right and left of its container -->
- 
-    <v-spacer /> 
-    <v-btn
-      elevation="2"
-      icon
-    >
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
-	<CoreSidedrawer />
-  </v-app-bar>
+	<!-- app-bar props below customize bevaviotr and looks -->
+	<v-app-bar  app color="primary" :clipped-left="true" >
+		<!-- controls the sidebar colapsing-->
+		<v-app-bar-nav-icon @click="drawerButton" />
+		<router-link to="/" >
+			<v-app-bar-title class="ml-2" >
+				{{ title }}
+			</v-app-bar-title>
+		</router-link>
+		<!-- When placing a single v-spacer before or after the child components, 
+		the components will push to the right and left of its container -->
+
+		<v-spacer />
+		<MaterialfyNotifications 
+			buttonColor="tertiary"
+		/>
+		<router-link to="user-profile">
+			<v-btn  icon :color="buttonColor" class ="ml3">
+				<v-icon>mdi-account</v-icon>
+			</v-btn>
+		</router-link>
+		<MaterialfySettings 
+			buttonColor="tertiary"  
+		/>
+		<v-btn  icon :color="buttonColor">
+			<v-icon @click="logout">mdi-power</v-icon>
+		</v-btn>
+
+		<v-text-field
+			v-model="message"
+			label="Search.."
+			prepend-inner-icon="mdi-magnify"
+			outlined
+			clearable
+			dense
+			hide-details
+			color = "tertiary"
+			class="shrink mx-4"
+		>
+		</v-text-field>
+
+	</v-app-bar>
 </template>
 
 <script>
 	import { mapActions, mapGetters } from "vuex";
 
 	export default {
-		data: () => ({
-			notifications: [
-				"Mike, Thanos is coming",
-				"5 new avengers joined the team",
-				"You're now friends with Capt",
-				"Another Notification",
-				"Another One - Dj Khalid voice",
-			],
-			title: "Vuetify Admin Dash by ClintOxx",
-			group: null,
-			//drawerButton: false
-		}),
-
+		data() {
+			return {
+				title: "V.Dashboard by Materialfy.",
+				group: null,
+				message: null,
+				buttonColor: "tertiary",
+			};
+		},
 		computed: {
 			...mapGetters(["authorized"]),
 		},
-
-		watch: {
-		},
-
-		mounted() {
-		},
-		beforeDestroy() {
-		},
-
+		watch: {},
+		created() {},
+		beforeDestroy() {},
 		methods: {
 			...mapActions(
-				"drawertoggle",// chooses which namespaced state module to get the mutations from
+				"drawertoggle", // chooses which namespaced state module to get the mutations from
 				["drawerOn"]
-        ), 
-			drawerButton() { // this calls the action drawerOn which then commits the toggle mutation
+			),
+			drawerButton() {
+				// this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
 			logout: function () {
@@ -73,12 +76,13 @@
 					this.$router.push("/");
 				});
 			},
+			
 		},
 	};
 </script>
 
 <style>
-	#core-toolbar a {
-		text-decoration: none;
-	}
+ .v-app-bar-title__content{
+  width: 280px;
+}
 </style>

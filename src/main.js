@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import './components' //this is where the auto registered components import
 import './plugins'
-
 // Sync router with store
 import { sync } from 'vuex-router-sync'
-
 // Application imports
 import App from './App'
 import i18n from '@/i18n'

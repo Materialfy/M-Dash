@@ -1,33 +1,36 @@
 <template>
   <v-navigation-drawer
     v-model = "drawerShown"
-    absolute
-    temporary
+    :temporary="alwaysClosed"
     app
+    color="secondary"
+    clipped
   >
-    <v-list
-      nav
-      dense
-    >
-      <v-list-item-group
-        v-model="group"
-        active-class="deep-purple--text text--accent-4"
-      >
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
 
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Account</v-list-item-title>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+      <v-img :src="image" height="100%">
+        <v-row class="fill-height"  column>
+
+          <v-divider />
+          <!-- this section builds the links by use a for loop and iterating through links section
+          the v-for iterates through the links in data(), i stands for index
+          we use the paths in the links array   -->
+          <v-list-item
+            v-for="(link, i) in links"
+            :key="i"
+            :to="link.to"
+            :active-class="color"
+            class="v-list-item"
+          >
+            <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
+            <v-list-item-action>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-title v-text="link.text" />
+          </v-list-item>
+          <v-switch v-model="alwaysClosed" label="Drawer Always Open" color="primary"  />
+        </v-row>
+      </v-img>
+
   </v-navigation-drawer>
 </template>
 
@@ -36,9 +39,53 @@ import { mapState } from "vuex"
 export default {
     data() {
         return {
-            group: false,
-            drawerShown: false,
-            drawer: this.drawerState
+          group: false,
+          drawerShown: false, // controls the opening and closing of drawer
+          drawer: this.drawerState, // this is just here for the watcher to wrok
+          alwaysClosed: true,
+          logo: "./img/redditicon.png",
+          links: [
+            {
+              to: "/",
+              icon: "mdi-view-dashboard",
+              text: "Home",
+            },
+            {
+              to: "/user-profile",
+              icon: "mdi-account",
+              text: "User Profile",
+            },
+            {
+              to: "/table-list",
+              icon: "mdi-clipboard-outline",
+              text: "Table List",
+            },
+            {
+              to: "/user-tables",
+              icon: "mdi-clipboard-outline",
+              text: "CRUD Tables",
+            },
+            {
+              to: "/typography",
+              icon: "mdi-format-font",
+              text: "Typography",
+            },
+            {
+              to: "/icons",
+              icon: "mdi-chart-bubble",
+              text: "Icons",
+            },
+            {
+              to: "/maps",
+              icon: "mdi-map-marker",
+              text: "Maps",
+            },
+            {
+              to: "/notifications",
+              icon: "mdi-bell",
+              text: "Notifications",
+            },
+          ],
             
         }
     },
@@ -46,24 +93,26 @@ export default {
       this.drawer = this.drawerState
     },
     watch: { 
+      // this watches the Vuex state set to data.drawer an updates the drawer to open
       drawerState: function () {
-        console.log(`Watcher for data.drawer: ${this.drawer}`)
         this.drawerShown = this.drawerState
-        console.log(`Watcher for drawerShown: ${this.drawerShown}`)
       },
+      // when the drawer closes it emits am event with a value of false, used to udpate vuex state
       drawerShown (){
-        console.log("this is DrawerShown Watcher: " + this.drawerShown)
+        //this should be replaced with a mutation, cant use drawerState imported without setter
         this.$store.state.drawertoggle.drawerState = this.drawerShown
       }
     },
     computed : {
-      ...mapState(
-          'drawertoggle',
-          ['drawerState']
+      // this was used to check state with a getter and setter. Now its used in watcher
+      ...mapState('drawertoggle',['drawerState',"image", "color"]
       ),
 
     },
     methods: {
+      persistantDrawer(){
+        this.alwaysClosed = !this.alwaysClosed
+      }
     },
 
 }

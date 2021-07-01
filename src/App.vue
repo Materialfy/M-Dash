@@ -1,11 +1,12 @@
- 64 lines (56 sloc) 1.69 KB
-<!--  This is set up this way since i wanted to have two completely different website layouts 
+<!--  This is set up to have two completely different website layouts 
 depending on if you are logged in or not , 
 so that is what ExternalView and DashboardView are for. LoginForm renders in Externalview-->
 <template>
-  <transition mode="out-in">
-    <router-view />
-  </transition>
+
+    <transition mode="out-in">
+      <router-view />
+    </transition>
+
 </template>
 
 
@@ -31,6 +32,7 @@ export default {
       }
     );
   },
+
 };
 </script>
 
@@ -54,7 +56,7 @@ $nprogress-color: #389df1;
 $nprogress-height: 4px;
 //@import "nprogress/css/nprogress.scss";
 // this imports the global styles used in components
-@import "@/styles/index.scss";
+//@import "@/styles/index.scss";
 /* Remove in 1.2 */
 .v-datatable thead th.column.sortable i {
   vertical-align: unset;

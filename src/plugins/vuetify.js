@@ -3,40 +3,45 @@ import Vuetify from 'vuetify/lib/framework';
 import "@mdi/font/css/materialdesignicons.css"; 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
-Vue.use(Vuetify, {
-  // change theme properties, dark mode is on by default
-  // Will dynamically change when toggling $vuetify.theme.dark
-  theme: {
-    dark: true,
-    themes: {
-      light: {
-        primary: '#4caf50',
-        secondary: '#4caf50',
-        tertiary: '#495057',
-        accent: '#82B1FF',
-        error: '#f55a4e',
-        info: '#00d3ee',
-        success: '#5cb860',
-        warning: '#ffa21a',
-        general: '#2196F3'
-      },
-      dark: {
-        primary: '#4caf50',
-        secondary: '#4caf50',
-        tertiary: '#495057',
-        accent: '#82B1FF',
-        error: '#f55a4e',
-        info: '#00d3ee',
-        success: '#5cb860',
-        warning: '#ffa21a',
-        general: '#2196F3'
-      }
-    }
-  } 
-  })
+Vue.use(Vuetify);
+
+
 
 export default new Vuetify({
-  icons: { // select from different types of icon libraries, can be moved above 
-    iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-  },
+	icons: {
+		iconfont: "mdi",
+	},
+	theme: {
+		dark: false,
+		themes: {
+			light: {
+				primary: "#607D8B",
+				secondary: "#607d8b",
+				tertiary: "#ffc107",
+				accent: "#ffc107",
+				error: "#f44336",
+				warning: "#ff5722",
+				danger: "#CE93D8",
+				info: "#ff9800",
+				success: "#8bc34a",
+				general: "#2196F3",
+				anchor: "#ffc107",
+				background: "#78909C",
+			},
+			dark: {
+				primary: "#FF6D00",
+				secondary: "#757575",
+				tertiary: "#E0E0E0",
+				accent: "#82B1FF",
+				error: "#f55a4e",
+				info: "#00d3ee",
+				success: "#5cb860",
+				warning: "#ffa21a",
+				danger: "#CE93D8",
+				general: "#2196F3",
+				anchor: "#ffc107",
+				background: "#757575",
+			},
+		},
+	},
 });

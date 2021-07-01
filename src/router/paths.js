@@ -41,9 +41,9 @@ export default [
 			{
 				path: "", //defaults to /dashboard if left blank
 				meta: {
-					name: 'Dashboard',
+					name: 'Dash',
 				},
-				component: () => import(`@/components/DashboardViews/Dashboard.vue`),
+				component: () => import(`@/components/DashboardViews/Dash.vue`),
 			},
 			{
 				path: "user-profile", // ends up as /dashboard/user-profile
@@ -102,7 +102,7 @@ export default [
 					name: "Notifications",	
 				},
 				component: () =>
-					import(`@/components/DashboardViews/Notifications.vue`),
+					import(`@/components/DashboardViews/NotificationsView.vue`),
 			},
 		],
 		//per route guard if you dont want to use the global version in /router/index

@@ -57,6 +57,10 @@ This is a general changelog
 - made new toolbar with vuetify so it will be easier to update and less complicated, easier to customize
 - changed the name of vuex.js to setToggle.js, its imported currently into modules/app
 - changed /modules/app to drawertoggle
+- added new drawer that closes on touch off or click off drawer
+- new notification system thats hooked up to state is well into dev
+- refixed notification state
+- added avatars, title, subtitle and header for new notication card drop down
 
 
 
