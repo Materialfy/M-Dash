@@ -20,8 +20,9 @@
                     </v-card-subtitle>
                 </v-col>
             </v-row>
-            <v-divider />
+            
             <v-card v-if="cardBottom" >
+                <v-divider />
                 <!-- this changes the background color based on theme -->
                 <v-row justify="center" :style="$vuetify.theme.dark ? 'background:#757575 ':'background:#78909C'" >
                     <v-col class="d-flex justify-center" >
