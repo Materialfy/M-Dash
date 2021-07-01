@@ -76,20 +76,6 @@ export default [
 				component: () => import(`@/components/DashboardViews/TableListView.vue`),
 			},
 			{
-				path: "typography",
-				meta: {
-					name: "Typography",
-				},
-				component: () => import(`@/components/DashboardViews/Typography.vue`),
-			},
-			{
-				path: "icons",
-				meta: {
-					name: "Icons",
-				},
-				component: () => import(`@/components/DashboardViews/Icons.vue`),
-			},
-			{
 				path: "maps",
 				meta: {
 					name: "Maps",

@@ -75,16 +75,6 @@ export default {
               text: "CRUD Tables",
             },
             {
-              to: "/typography",
-              icon: "mdi-format-font",
-              text: "Typography",
-            },
-            {
-              to: "/icons",
-              icon: "mdi-chart-bubble",
-              text: "Icons",
-            },
-            {
               to: "/maps",
               icon: "mdi-map-marker",
               text: "Maps",
