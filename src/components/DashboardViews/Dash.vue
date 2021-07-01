@@ -2,7 +2,7 @@
 <v-container color="primary" >
    <v-row >
           <v-col
-            v-for="n in 24"
+            v-for="n in 9"
             :key="n"
             cols="4"
             

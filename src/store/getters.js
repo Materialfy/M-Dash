@@ -9,5 +9,6 @@ export default {
   authstatus: state => state.authStatus,
   getNotifications: state => state.notifications,
   getNotifHeader: state => state.currentTime,
-  getNotificationAmt: state => state.notifications.length
+  getNotificationAmt: state => state.notifications.length,
+  getAvatar: state => state.avatarURL
 }

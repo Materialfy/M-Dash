@@ -1,8 +1,13 @@
-![version](https://img.shields.io/badge/version-1.3.0-blue.svg)
+
+![version](https://img.shields.io/badge/version-1.8.0-blue.svg)
+
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
 ## Back under active development
+
+### SneakPeak in Dev 
+<img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
 
 ### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
 

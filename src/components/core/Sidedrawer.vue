@@ -6,31 +6,38 @@
     color="secondary"
     clipped
   >
+      <v-list
+        dense
+      >
+        <v-img :src="image" height="100%">
+          <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
+          <v-row >
 
-      <v-img :src="image" height="100%">
-        <v-row class="fill-height"  column>
-
-          <v-divider />
-          <!-- this section builds the links by use a for loop and iterating through links section
-          the v-for iterates through the links in data(), i stands for index
-          we use the paths in the links array   -->
-          <v-list-item
-            v-for="(link, i) in links"
-            :key="i"
-            :to="link.to"
-            :active-class="color"
-            class="v-list-item"
-          >
-            <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
-            <v-list-item-action>
-              <v-icon>{{ link.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-title v-text="link.text" />
-          </v-list-item>
-          <v-switch v-model="alwaysClosed" label="Drawer Always Open" color="primary"  />
-        </v-row>
-      </v-img>
-
+            <v-divider class="mb-2" />
+            <!-- this section builds the links by use a for loop and iterating through links section
+            the v-for iterates through the links in data(), i stands for index
+            we use the paths in the links array-->
+            <v-list-item
+              v-for="(link, i) in links"
+              :key="i"
+              :to="link.to"
+              :active-class="color"
+              class="ms-4"
+            >
+              
+              <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
+              <v-list-item-action>
+                <v-icon>{{ link.icon }}</v-icon>
+              </v-list-item-action>
+              <v-list-item-title v-text="link.text" />
+            </v-list-item>
+            <v-divider class="mt-2"/>
+            <v-list-item class="ms-2">
+              <v-switch v-model="alwaysClosed" :label=' alwaysClosed ? "Temp Drawer on"  : "Persistant Drawer on"' color="primary"  />
+            </v-list-item>
+          </v-row>
+        </v-img>
+      </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -43,6 +50,8 @@ export default {
           drawerShown: false, // controls the opening and closing of drawer
           drawer: this.drawerState, // this is just here for the watcher to wrok
           alwaysClosed: true,
+          crdBottom: false,
+          btnColor: "tertiary",
           logo: "./img/redditicon.png",
           links: [
             {
@@ -64,16 +73,6 @@ export default {
               to: "/user-tables",
               icon: "mdi-clipboard-outline",
               text: "CRUD Tables",
-            },
-            {
-              to: "/typography",
-              icon: "mdi-format-font",
-              text: "Typography",
-            },
-            {
-              to: "/icons",
-              icon: "mdi-chart-bubble",
-              text: "Icons",
             },
             {
               to: "/maps",
