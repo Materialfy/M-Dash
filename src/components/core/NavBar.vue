@@ -76,6 +76,7 @@
 					this.$router.push("/");
 				});
 			},
+			
 		},
 	};
 </script>

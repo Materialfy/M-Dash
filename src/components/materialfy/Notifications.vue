@@ -102,8 +102,6 @@ computed: {
     // getNotifAmt gets the noticiation amount based on the length of the notificaitons array
         notificationHeader: function (){
         // waits for update on state and updates header from state
-        console.log("notification header method")
-
         return this.getNotifHeader
     },
     ...mapMutations(['clearNotifications']),

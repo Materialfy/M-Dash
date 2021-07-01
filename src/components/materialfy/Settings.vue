@@ -32,16 +32,32 @@
 								v-for="themecolor in colors"
 								:key="themecolor"
 								:color="themecolor"
-								class="ma-1"
+								:class="{'ma-1': true, 'highlighted': activeColor}"
 								size="23"
 								@click="setColor(themecolor)"
 							/>
 						</v-layout>
 						<v-divider class="mt-3" />
-						<v-btn @click="$vuetify.theme.themes.light.primary = '#4caf50'"></v-btn>
+					</v-flex>
+					<v-flex xs12>
+						<div class="text-center text-body-2 text-uppercase">
+							Theme Secondary Color Picker
+						</div>
+
+						<v-layout justify-center>
+							<v-avatar
+								v-for="themecolor in colors"
+								:key="themecolor"
+								:color="themecolor"
+								class="ma-1"
+								size="23"
+								@click="setColor2(themecolor)"
+							/>
+						</v-layout>
+						<v-divider class="mt-3" />
 						<v-toolbar-title class="text-center">Dark Mode Toggle</v-toolbar-title>
 						<v-layout justify-center>
-							
+							<!--!<v-btn v-on:click="$emit('persistant-drawer')" label="persistant-drawer" />-->
 							<v-switch v-model="$vuetify.theme.dark" :label="toggleText()" color="primary"  />
 						</v-layout>
 						<v-divider class="mt-3" />
@@ -112,11 +128,15 @@
 		data: () => ({
 			colors: ["#F44336", "#AB47BC", "#3949AB", "#1E88E5", "#26C6DA", "#43A047", "#FF9100"],
 			iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
+			activeColor: null,
 			images: [
-				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-1.23832d31.jpg",
-				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg",
-				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-3.3a54f533.jpg",
-				"https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-4.3b7e38ed.jpg",
+				// eslint-disable-next-line no-undef
+				require("@/assets/img/first.png"),
+				// eslint-disable-next-line no-undef
+				require("@/assets/img/second.png"),
+				// eslint-disable-next-line no-undef
+				require("@/assets/img/third.png"),
+				"",
 			],
 		}),
 		props: ['buttonColor'],
@@ -133,10 +153,14 @@
 		setColor(color) {
 			this.$store.state.drawertoggle.color = color;
 			this.$vuetify.theme.themes.light.primary = color
+			this.$vuetify.theme.themes.dark.primary = color
+			if (this.$vuetify.theme.themes.light.primary == color)
+				return this.activeColor = true
 		},
 		setColor2(color) {
 			this.$store.state.drawertoggle.color = color;
 			this.$vuetify.theme.themes.light.secondary = color
+			this.$vuetify.theme.themes.dark.secondary = color
 		},
 		toggleTheme() {
 			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;      
@@ -155,5 +179,9 @@
 	.v-avatar,
 	.v-responsive {
 		cursor: pointer;
+	}
+	.highlighted {
+		border: 2px;
+		border-color: blue;
 	}
 </style>
