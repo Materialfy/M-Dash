@@ -7,7 +7,7 @@
 ## Back under active development
 
 ### SneakPeak in Dev 
-<img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
+<img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/master/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
 
 ### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
 
