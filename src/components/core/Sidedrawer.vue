@@ -13,7 +13,7 @@
           <v-divider />
           <!-- this section builds the links by use a for loop and iterating through links section
           the v-for iterates through the links in data(), i stands for index
-          we use the paths in the links array   -->
+          we use the paths in the links array-->
           <v-list-item
             v-for="(link, i) in links"
             :key="i"
@@ -21,6 +21,7 @@
             :active-class="color"
             class="v-list-item"
           >
+            
             <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
             <v-list-item-action>
               <v-icon>{{ link.icon }}</v-icon>

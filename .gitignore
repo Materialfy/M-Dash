@@ -21,4 +21,5 @@ yarn-error.log*
 *.sln
 *.sw*
 What-is-this.txt
-.code-workspace
+*.code-workspace
+workspace.code-workspace

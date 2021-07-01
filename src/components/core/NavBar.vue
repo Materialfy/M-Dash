@@ -13,20 +13,22 @@
 		the components will push to the right and left of its container -->
 
 		<v-spacer />
-		<MaterialfyNotifications 
-			buttonColor="tertiary"
-		/>
-		<router-link to="user-profile">
-			<v-btn  icon :color="buttonColor" class ="ml3">
-				<v-icon>mdi-account</v-icon>
-			</v-btn>
-		</router-link>
-		<MaterialfySettings 
-			buttonColor="tertiary"  
-		/>
-		<v-btn  icon :color="buttonColor">
-			<v-icon @click="logout">mdi-power</v-icon>
-		</v-btn>
+		<MaterialfyNotifications :buttonColor='btnColor'  />
+		<v-menu nudge-bottom="57">
+			<template v-slot:activator="{ on }">
+				<v-btn 
+					v-on="on"  
+					icon 
+					:color="btnColor" 
+					class ="ml3"
+				>
+					<v-icon>mdi-account</v-icon>
+				</v-btn>
+			</template>
+			<MaterialfyUserSnippet :buttonColor='btnColor' />
+		</v-menu >
+		<MaterialfySettings :buttonColor='btnColor'  />
+
 
 		<v-text-field
 			v-model="message"
@@ -53,7 +55,7 @@
 				title: "V.Dashboard by Materialfy.",
 				group: null,
 				message: null,
-				buttonColor: "tertiary",
+				btnColor: "tertiary",
 			};
 		},
 		computed: {
@@ -71,12 +73,7 @@
 				// this calls the action drawerOn which then commits the toggle mutation
 				this.drawerOn();
 			},
-			logout: function () {
-				this.$store.dispatch("logout").then(() => {
-					this.$router.push("/");
-				});
-			},
-			
+
 		},
 	};
 </script>

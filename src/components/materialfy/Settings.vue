@@ -19,7 +19,7 @@
 				<v-icon > mdi-cog </v-icon>
 			</v-btn>
 		</template>
-		<v-card>
+		<v-card color="primary">
 			<v-container grid-list-xl>
 				<v-layout wrap>
 					<v-flex xs12>
@@ -59,7 +59,7 @@
 						<v-toolbar-title class="text-center">Dark Mode Toggle</v-toolbar-title>
 						<v-layout justify-center>
 							<!--!<v-btn v-on:click="$emit('persistant-drawer')" label="persistant-drawer" />-->
-							<v-switch v-model="$vuetify.theme.dark" :label="toggleText()" color="primary"  />
+							<v-switch v-model="$vuetify.theme.dark" :label="toggleText()" color="accent"  />
 						</v-layout>
 						<v-divider class="mt-3" />
 					</v-flex>
@@ -89,7 +89,7 @@
 							href="https://github.com/ClintOxx/vuetify-admin-dashboard"
 							target="_blank"
 							class="white--text"
-							color="primary"
+							color="accent"
 							block
 						>
 							Documentation
