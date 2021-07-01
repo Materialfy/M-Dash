@@ -32,6 +32,7 @@
 								v-for="themecolor in colors"
 								:key="themecolor"
 								:color="themecolor"
+								active-class="deep-purple--text text--accent-4"
 								:class="{'ma-1': true, 'highlighted': activeColor}"
 								size="23"
 								@click="setColor(themecolor)"

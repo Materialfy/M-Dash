@@ -1,68 +1,36 @@
 <template>
   <v-navigation-drawer
     v-model = "drawerShown"
-    v-on:persistant-drawer="persistantDrawer"
-    :temporary="alwaysOpen"
+    :temporary="alwaysClosed"
     app
     color="secondary"
+    clipped
   >
-    <v-img :src="image" height="100%">
-			<v-layout class="fill-height" tag="v-list" column>
-				<v-list-item>
-					<!-- this section builds the avatar and info surrounding it -->
-					<v-avatar color="white" size="60">
-						<img :src="logo" height="35" contain />
-					</v-avatar>
-					<v-list-item-title class="text-h6">
-						Vuetify Admin Dash
-					</v-list-item-title>
-				</v-list-item>
-				<v-divider />
-				<!-- this section builds the links by use a for loop and iterating through links section
-        the v-for iterates through the links in data(), i stands for index
-        we use the paths in the links array   -->
-				<v-list-item
-					v-for="(link, i) in links"
-					:key="i"
-					:to="link.to"
-					:active-class="color"
-					class="v-list-item"
-				>
-					<!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
-					<v-list-item-action>
-						<v-icon>{{ link.icon }}</v-icon>
-					</v-list-item-action>
-					<v-list-item-title v-text="link.text" />
-				</v-list-item>
-			</v-layout>
-		</v-img>
-    <v-list
-      nav
-      dense
-    >
-      <v-list-item-group
-        v-model="group"
-        active-class="deep-purple--text text--accent-4"
-      >
-        <router-link to="/">
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-        </router-link>
-        
-        <router-link to="user-profile">
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>User</v-list-item-title>
-        </v-list-item>
-        </router-link>
-      </v-list-item-group>
-    </v-list>
+
+      <v-img :src="image" height="100%">
+        <v-row class="fill-height"  column>
+
+          <v-divider />
+          <!-- this section builds the links by use a for loop and iterating through links section
+          the v-for iterates through the links in data(), i stands for index
+          we use the paths in the links array   -->
+          <v-list-item
+            v-for="(link, i) in links"
+            :key="i"
+            :to="link.to"
+            :active-class="color"
+            class="v-list-item"
+          >
+            <!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
+            <v-list-item-action>
+              <v-icon>{{ link.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-title v-text="link.text" />
+          </v-list-item>
+          <v-switch v-model="alwaysClosed" label="Drawer Always Open" color="primary"  />
+        </v-row>
+      </v-img>
+
   </v-navigation-drawer>
 </template>
 
@@ -74,7 +42,7 @@ export default {
           group: false,
           drawerShown: false, // controls the opening and closing of drawer
           drawer: this.drawerState, // this is just here for the watcher to wrok
-          alwaysOpen: false,
+          alwaysClosed: true,
           logo: "./img/redditicon.png",
           links: [
             {
@@ -143,8 +111,7 @@ export default {
     },
     methods: {
       persistantDrawer(){
-        console.log("persistant drawermethod")
-        this.alwaysOpen = true
+        this.alwaysClosed = !this.alwaysClosed
       }
     },
 

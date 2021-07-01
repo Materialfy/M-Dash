@@ -1,10 +1,9 @@
 <!-- This renders any components inside the dashboard with the elements you expect
 core-toolbar is core/toolbar.vue etc -->
 <template>
-    <v-container>
+  <v-app  :style="{background: $vuetify.theme.themes[theme].background}">
       <CoreNavBar /> 
       <CoreSideDrawer />
-
       <v-main>
         <v-container fluid>
           <v-fade-transition mode="out-in">
@@ -14,8 +13,7 @@ core-toolbar is core/toolbar.vue etc -->
       </v-main>
       <!-- turns off footer in the maps component -->
       <CoreFooter v-if="$route.meta.name !== 'Maps'" />
-    </v-container>
-
+  </v-app>
 </template>
 
 <script>
@@ -28,6 +26,12 @@ core-toolbar is core/toolbar.vue etc -->
 				title: "V.Dashboard by Materialfy.",
 			};
 		},
+    computed:{
+      //controls the background color
+      theme(){
+        return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+      }
+  }
 	};
 </script>
 
