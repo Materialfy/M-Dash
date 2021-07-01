@@ -8,6 +8,7 @@
   >
 
       <v-img :src="image" height="100%">
+        <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
         <v-row class="fill-height"  column>
 
           <v-divider />
@@ -44,6 +45,8 @@ export default {
           drawerShown: false, // controls the opening and closing of drawer
           drawer: this.drawerState, // this is just here for the watcher to wrok
           alwaysClosed: true,
+          crdBottom: false,
+          btnColor: "tertiary",
           logo: "./img/redditicon.png",
           links: [
             {

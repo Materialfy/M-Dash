@@ -70,13 +70,13 @@
                     <v-row >
                         <v-col col="3" class="text-center">
                             <router-link  to="notifications">
-                                <v-btn small >
+                                <v-btn small :color="buttonColor">
                                     View all notifications
                                 </v-btn>
                             </router-link>
                         </v-col>
                         <v-col col= "3" class="text-center">
-                            <v-btn  small @click="clearNotifs">Clear Notifications</v-btn>
+                            <v-btn  small @click="clearNotifs" :color="buttonColor">Clear Notifications</v-btn>
                         </v-col>
                     </v-row>
                 </v-container>

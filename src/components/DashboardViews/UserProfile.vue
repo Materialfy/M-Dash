@@ -62,7 +62,7 @@
 				<materialfy-card class="v-card-profile">
 					<v-avatar slot="offset" class="mx-auto d-block" size="130">
 						<img
-							src="https://bookingagentinfo.com/wp-content/uploads/2014/12/Travis-Scott-Contact-Information.jpg"
+							:src='getAvatar'
 						/>
 					</v-avatar>
 					<v-card-text class="text-center">
@@ -109,7 +109,10 @@
 </template>
 
 <script>
+	import {mapGetters} from 'vuex'
 	export default {
-		//
+		computed: {
+        ...mapGetters(['getAvatar'])
+    },
 	};
 </script>

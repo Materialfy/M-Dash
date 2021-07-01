@@ -25,7 +25,7 @@
 					<v-icon>mdi-account</v-icon>
 				</v-btn>
 			</template>
-			<MaterialfyUserSnippet :buttonColor='btnColor' />
+			<MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
 		</v-menu >
 		<MaterialfySettings :buttonColor='btnColor'  />
 
@@ -56,6 +56,7 @@
 				group: null,
 				message: null,
 				btnColor: "tertiary",
+				crdBottom: true,
 			};
 		},
 		computed: {
