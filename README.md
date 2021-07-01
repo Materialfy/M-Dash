@@ -1,4 +1,6 @@
+
 ![version](https://img.shields.io/badge/version-1.8.0-blue.svg)
+
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
@@ -109,6 +111,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 - Run `npm install`, or [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui) or `yarn install`if you use [Yarn](https://yarnpkg.com/en/)
 - Run `npm run dev --open` or `yarn serve --open` to start a local development server
 - A new tab will be opened in your browser or click the url in the terminal
+- - You can use [Reqres](https://reqres.in/) to use as an api to log in and out, otherwise turn off auth in /src/router/paths.js line: 37, 40 etc
 
 After installing the dependencies you can also run additional npm tasks such as
 
@@ -132,6 +135,8 @@ We used the latest 4.x [Vue CLI](https://github.com/vuejs/vue-cli)
 ## Documentation
 
 The documentation for the Vuetify Admin Dashboard is coming soon once i have some freetime. for now there is brief documentation in the [File-Structure](#File-Structure)
+
+There is also a lot of comments in every file documenting functions
 
 ## Reporting Issues
 
@@ -271,4 +276,4 @@ Within the download you'll find the following directories and files:
 * im not longer using the template desgin or code from Creativetims dash that this repo was originally based on.
 
 
-You can send a tweet to me if you need minor assistance https://twitter.com/SourBlueDream
+You can [send me a tweet](https://twitter.com/SourBlueDream) if you need minor assistance 
