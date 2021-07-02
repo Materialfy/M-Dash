@@ -1,5 +1,8 @@
 <template>
 <v-container color="primary" >
+      <v-row>
+    <MaterialfyCard />
+    </v-row>
    <v-row >
           <v-col
             v-for="n in 9"
