@@ -1,10 +1,15 @@
 <template>
-	<v-container fill-height fluid >
-		<v-row  justify="center" >
-			<v-col class="d-flex justify-center" >
-				<v-card elevation="12" min-width="500" max-width="500" color="secondary" >
+	<v-container fill-height fluid>
+		<v-row justify="center">
+			<v-col class="d-flex justify-center">
+				<v-card
+					elevation="12"
+					min-width="500"
+					max-width="500"
+					color="secondary"
+				>
 					<v-toolbar color="primary">
-						<v-toolbar-title>V.Dashboard</v-toolbar-title>
+						<v-toolbar-title>M-Dashboard</v-toolbar-title>
 						<v-spacer />
 					</v-toolbar>
 					<v-card-text>

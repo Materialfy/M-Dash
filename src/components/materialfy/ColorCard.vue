@@ -36,7 +36,7 @@
 
 <script>
 export default {
-    name:'MaterialfyCard'
+    name:'MaterialfyColorCard'
 }
 </script>
 
