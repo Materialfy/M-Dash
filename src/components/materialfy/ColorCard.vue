@@ -1,34 +1,41 @@
 <template>
- <v-card
-    class="mx-auto"
-    max-width="344"
-    outlined
+<v-card
+    class="mx-auto text-center"
+    color="tertiary"
+    dark
+    max-width="600"
   >
-    <v-list-item three-line>
-      <v-list-item-content>
-        <div class="text-overline mb-4">
-          OVERLINE
-        </div>
-        <v-list-item-title class="text-h5 mb-1">
-          Headline 5
-        </v-list-item-title>
-        <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-      </v-list-item-content>
+    <v-card-text>
+      <v-sheet color="rgba(0, 0, 0, .12)">
+        <v-sparkline
+          :value="value"
+          color="rgba(255, 255, 255, .7)"
+          height="100"
+          padding="24"
+          stroke-linecap="round"
+          smooth
+        >
+          <template v-slot:label="item">
+            ${{ item.value }}
+          </template>
+        </v-sparkline>
+      </v-sheet>
+    </v-card-text>
 
-      <v-list-item-avatar
-        tile
-        size="80"
-        color="grey"
-      ></v-list-item-avatar>
-    </v-list-item>
+    <v-card-text>
+      <div class="text-h4 font-weight-thin">
+        Sales Last 24h
+      </div>
+    </v-card-text>
 
-    <v-card-actions>
+    <v-divider></v-divider>
+
+    <v-card-actions class="justify-center">
       <v-btn
-        outlined
-        rounded
+        block
         text
       >
-        Button
+        Go to Report
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -36,7 +43,18 @@
 
 <script>
 export default {
-    name:'MaterialfyColorCard'
+    name:'MaterialfyColorCard',
+        data: () => ({
+      value: [
+        423,
+        446,
+        675,
+        510,
+        590,
+        610,
+        760,
+      ],
+    }),
 }
 </script>
 

@@ -3,6 +3,7 @@
     class="mx-auto"
     max-width="344"
     outlined
+    color="secondary"
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -16,10 +17,22 @@
       </v-list-item-content>
 
       <v-list-item-avatar
-        tile
+
         size="80"
-        color="grey"
-      ></v-list-item-avatar>
+        color="primary"
+      >    
+      <div class="text-center">
+        <v-progress-circular
+          :rotate="360"
+          :size="100"
+          :width="15"
+          :value="value"
+          color="teal"
+        >
+          {{ value }}
+        </v-progress-circular>
+      </div>
+    </v-list-item-avatar>
     </v-list-item>
 
     <v-card-actions>
@@ -31,15 +44,36 @@
         Button
       </v-btn>
     </v-card-actions>
+
   </v-card>
 </template>
 
 <script>
 export default {
-    name:'MaterialfyCard'
+    name:'MaterialfyCard',
+        data () {
+      return {
+        interval: {},
+        value: 0,
+      }
+    },
+    beforeDestroy () {
+      clearInterval(this.interval)
+    },
+    mounted () {
+      this.interval = setInterval(() => {
+        if (this.value === 100) {
+          return (this.value = 0)
+        }
+        this.value += 10
+      }, 1000)
+    },
+
 }
 </script>
 
-<style>
-
+<style scoped>
+.v-progress-circular {
+  margin: 1rem;
+}
 </style>

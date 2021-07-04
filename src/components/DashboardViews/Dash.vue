@@ -3,6 +3,9 @@
 		<v-row>
 			<MaterialfyCard />
 		</v-row>
+    <v-row>
+			<MaterialfyColorCard />
+		</v-row>
 		<v-row class="ma-3">
 			<MaterialfyHeaderCard
 				cardTitle="M-Dashboard Card"
@@ -24,11 +27,6 @@
 					</v-list-item-content>
 				</template>
 			</MaterialfyHeaderCard>
-		</v-row>
-		<v-row>
-			<v-col v-for="n in 9" :key="n" cols="4">
-				<v-card color="secondary" height="200"></v-card>
-			</v-col>
 		</v-row>
 	</v-container>
 </template>

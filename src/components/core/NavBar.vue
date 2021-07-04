@@ -14,7 +14,9 @@
 
 		<v-spacer />
 		<MaterialfyNotifications :buttonColor="btnColor" />
+		<!-- userSnippet.vue menu -->
 		<v-menu nudge-bottom="57">
+			<!-- recieving the "on" event lsitener -->
 			<template v-slot:activator="{ on }">
 				<v-btn v-on="on" icon :color="btnColor" class="ml3">
 					<v-icon>mdi-account</v-icon>
