@@ -3,13 +3,14 @@
     v-model = "drawerShown"
     :temporary="alwaysClosed"
     app
-    color="secondary"
+    color="primary"
     clipped
   >
       <v-list
         dense
       >
-        <v-img :src="image" height="100%" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+      <v-sheet color="rgba(0, 0, 0, .12)">
+        <v-img :src="image" height="100%" >
           <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
           <v-row >
 
@@ -37,6 +38,7 @@
             </v-list-item>
           </v-row>
         </v-img>
+        </v-sheet>
       </v-list>
   </v-navigation-drawer>
 </template>

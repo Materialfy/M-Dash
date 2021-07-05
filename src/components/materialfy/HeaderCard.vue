@@ -1,19 +1,26 @@
 <template>
-				<v-card elevation="12" min-width="400" :max-width="cardWidth" color="secondary" >
-					<v-toolbar  color="accent">
+				<v-card 
+					elevation="12" 
+					:min-width="cardMinWidth" 
+					:max-width="cardMaxWidth" 
+					:min-height ="cardMinHeight"
+					:color="cardColor" 
+				>
+					<v-toolbar  :color="cardHeaderColor">
 						<v-avatar  :tile="true" >
 							<v-icon  >
-								<slot :name='cardIcon'></slot>
+								<slot :name='cardIcon'> mdi-cog </slot>
 							</v-icon>
 						</v-avatar>
 						<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
 						<v-spacer />
 					</v-toolbar>
-					<v-list-item>
-						<slot :name='cardMiddle'>					
-							<v-list-item-content>
+					<v-list-item  >
+						<slot :name='cardInner'>
+							<div class="innercardheight"></div>					
+							<v-list-item-content >
 								<v-list-item-title class="text-h5 mb-1">
-									Headline 5
+									Headline 6
 								</v-list-item-title>
 								<v-list-item-subtitle
 									>Greyhound divisely hello coldly
@@ -27,20 +34,48 @@
 						<v-spacer />
 						<slot :name='cardActions'>
 							<v-btn text @click="snackbar = false"> Close </v-btn>
-						</slot>
-						
+						</slot>	
 					</v-card-actions>
-
 				</v-card>
 </template>
 
 <script>
 export default {
     name:'MaterialfyHeaderCard',
-	props: ['cardHeight', 'cardWidth', 'cardTitle', 'cardIcon','cardMiddle','cardActions']
+	props: {
+		cardMinHeight: {
+			default: '100',
+		}, 
+		cardMinWidth: {
+			default: '300',
+		},
+		cardMaxWidth: {
+			default: '700',
+		},
+		cardTitle: {
+			default: 'M-Dashboard Header Card',
+		},
+		cardIcon: {
+			default: 'crdIcon',
+		},
+		cardInner: {
+			default: 'crdInner',
+		},
+		cardActions: {
+			default: 'crdActions',
+		},
+		cardHeaderColor: {
+			default: 'tertiary',
+		},
+		cardColor: {
+			default: 'primary',
+		},
+	}
 }
 </script>
 
 <style>
-
+.innercardheight{
+	height: 200px;
+}
 </style>
