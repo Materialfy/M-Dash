@@ -10,11 +10,11 @@
   >
     <v-list-item three-line>
       <slot :name='cardInner'>	
-      <v-list-item-content>
-        <div class="text-overline mb-4">
+      <v-list-item-content >
+        <div class="text-overline mb-4" style="color: #ffc107" >
           OVERLINE
         </div>
-        <v-list-item-title class="text-h5 mb-1 innercardheight" >
+        <v-list-item-title class="text-h5 mb-1 innercardheight"  >
           Headline 5
         </v-list-item-title>
         <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
@@ -33,7 +33,7 @@
             :size="100"
             :width="15"
             :value="value"
-            color="teal"
+            color="tertiary"
           >
             {{ value }}
           </v-progress-circular>
@@ -48,6 +48,7 @@
           outlined
           rounded
           text
+          color="tertiary"
         >
           Button
         </v-btn>

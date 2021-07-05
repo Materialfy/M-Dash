@@ -51,11 +51,11 @@ export default {
           group: false,
           drawerShown: false, // controls the opening and closing of drawer
           drawer: this.drawerState, // this is just here for the watcher to wrok
-          alwaysClosed: true,
-          crdBottom: false,
+          alwaysClosed: true, //controls if side drawer is in temp mode or not
+          crdBottom: false, //for userSnippet, controls if it shows the full component
           btnColor: "tertiary",
           logo: "./img/redditicon.png",
-          links: [
+          links: [ //builds the list of links using v-for and this array
             {
               to: "/",
               icon: "mdi-view-dashboard",
@@ -68,13 +68,18 @@ export default {
             },
             {
               to: "/table-list",
-              icon: "mdi-clipboard-outline",
-              text: "Table List",
+              icon: "mdi-application",
+              text: "Basic Tables",
             },
             {
               to: "/user-tables",
-              icon: "mdi-clipboard-outline",
+              icon: "mdi-application-cog",
               text: "CRUD Tables",
+            },
+            {
+              to: "/cardsview",
+              icon: "mdi-badge-account-horizontal-outline",
+              text: "Card Types",
             },
             {
               to: "/maps",

@@ -29,11 +29,13 @@
 							</v-list-item-content>
 						</slot>
 					</v-list-item>
-					<v-divider class="mt-5" />
+					<slot name="divider">
+						<v-divider class="mt-5" />
+					</slot>
 					<v-card-actions>
-						<v-spacer />
 						<slot :name='cardActions'>
-							<v-btn text @click="snackbar = false"> Close </v-btn>
+							<v-spacer />
+							<v-btn text color="tertiary"> Close </v-btn>
 						</slot>	
 					</v-card-actions>
 				</v-card>

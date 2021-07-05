@@ -8,7 +8,8 @@
 export default [
 	// This section is primarily for the login but it allows you to add external other pages to be rendered outside the dashboard layout like the login
 	//if you want to add more external routes make them in the children array
-	{// using the named route option 
+	{
+		// using the named route option
 		path: "/login",
 		meta: {
 			name: "External",
@@ -29,11 +30,11 @@ export default [
 			},
 		],
 	},
-	
+
 	{
-		path: '/',
+		path: "/",
 		meta: {
-			name: 'dashboard-view',
+			name: "dashboard-view",
 			requiresAuth: false,
 		},
 		component: () => import(`@/components/views/DashboardView.vue`),
@@ -41,7 +42,7 @@ export default [
 			{
 				path: "", //defaults to /dashboard if left blank
 				meta: {
-					name: 'Dash',
+					name: "Dash",
 				},
 				component: () => import(`@/components/DashboardViews/Dash.vue`),
 			},
@@ -49,7 +50,6 @@ export default [
 				path: "user-profile", // ends up as /dashboard/user-profile
 				meta: {
 					name: "UserProfile",
-					
 				},
 				component: () => import(`@/components/DashboardViews/UserProfile.vue`),
 			},
@@ -58,13 +58,13 @@ export default [
 				meta: {
 					name: "TableList",
 				},
-				component: () => import(`@/components/DashboardViews/SimpleTablesView.vue`),
+				component: () =>
+					import(`@/components/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
 				path: "user-tables",
 				meta: {
 					name: "UserTable",
-					
 				},
 				component: () => import(`@/components/DashboardViews/UsersTable.vue`),
 			},
@@ -73,7 +73,8 @@ export default [
 				meta: {
 					name: "ComplexTablesTest",
 				},
-				component: () => import(`@/components/DashboardViews/TableListView.vue`),
+				component: () =>
+					import(`@/components/DashboardViews/TableListView.vue`),
 			},
 			{
 				path: "maps",
@@ -85,10 +86,18 @@ export default [
 			{
 				path: "notifications",
 				meta: {
-					name: "Notifications",	
+					name: "Notifications",
 				},
 				component: () =>
 					import(`@/components/DashboardViews/NotificationsView.vue`),
+			},
+			{
+				path: "cardsview",
+				meta: {
+					name: "CardsView",
+				},
+				component: () =>
+					import(`@/components/DashboardViews/CardsView.vue`),
 			},
 		],
 		//per route guard if you dont want to use the global version in /router/index
@@ -96,7 +105,7 @@ export default [
 		// 	// checks to see if you are trying to go to dashboard and are logged in
 		// 	if (to.name !== 'dashboard' && store.getters.authorized) {
 		// 		next("/dashboard");
-		// 	} 
+		// 	}
 		// 	// sends you to login if you arent authorized
 		// 	else if (to.name !== 'dashboard' && !store.getters.authorized) { //
 		// 		next("/login");
@@ -110,7 +119,7 @@ export default [
 	{
 		path: "*",
 		redirect: {
-			name: 'catchAll',
+			name: "catchAll",
 			path: "/dashboard",
 		},
 		meta: {

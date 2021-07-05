@@ -5,7 +5,7 @@
 		<!-- controls the sidebar colapsing-->
 		<v-app-bar-nav-icon @click="drawerButton" />
 		<router-link to="/">
-			<v-app-bar-title class="ml-2">
+			<v-app-bar-title >
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
@@ -47,7 +47,7 @@
 	export default {
 		data() {
 			return {
-				title: "M-Dashboard by Materialfy.",
+				title: "M-Dashboard by Materialfy",
 				group: null,
 				message: null,
 				btnColor: "tertiary",
@@ -75,6 +75,6 @@
 
 <style>
 	.v-app-bar-title__content {
-		width: 280px;
+		/*width: 280px; */
 	}
 </style>

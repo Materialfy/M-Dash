@@ -48,70 +48,6 @@
         </MaterialfyColorCard>
       </v-col>
 		</v-row>
-    <!-- Third Row with header, color and basic cards -->
-    <!-- Used named slots and props to overide the default card content below -->
-		<v-row class="ma-3">
-      <v-col>
-        <MaterialfyCard />
-      </v-col>
-      <v-col>
-        <MaterialfyHeaderCard
-          cardTitle="Monthly Users Login Rate"
-          cardIcon="crdIcon"
-          cardInner="crdInner"
-        >
-          <template #crdIcon> mdi-cog </template>
-          <template v-slot:crdInner>
-            <v-sheet
-              class="v-sheet--offset mx-auto mt-2"
-              color="tertiary"
-              elevation="4"
-              max-width="calc(100% - 32px)"
-            >
-              <v-sparkline
-                :labels="labels"
-                label-size="12"
-                :value="value"
-                color="white"
-                line-width="4"
-                padding="16"
-                height="150"
-              />
-            </v-sheet>
-          </template>
-          <template #divider><div /></template>
-          <template #crdActions >
-            <div></div>
-          </template>
-        </MaterialfyHeaderCard>
-      </v-col>
-      <v-col>
-        <MaterialfyColorCard >
-          <template v-slot:crdInner>
-            <v-list-item three-line>
-              <v-list-item-content>
-                <div class="text-overline mb-4">
-                  OVERLINE
-                </div>
-                <v-list-item-title class="text-h5 mb-1 " >
-                  Headline 5
-                </v-list-item-title>
-                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-          <template v-slot:crdActions>
-            <v-btn
-              outlined
-              rounded
-              text
-            >
-              Button
-            </v-btn>
-          </template>
-        </MaterialfyColorCard>
-      </v-col>
-		</v-row>
 	</v-container>
 </template>
 
@@ -125,6 +61,7 @@
     ['#f72047', '#ffd200', '#1feaea'],
   ]
 	export default {
+    name: "CardsView",
     data: () => ({
       labels: [
         'Feb',
