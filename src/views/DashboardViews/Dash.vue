@@ -16,7 +16,12 @@
 				<MaterialfyColorCard />
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard cardMaxWidth="400" cardInnerText="User Engagement" :cardShowDivider="false" :cardShowActions="false">
+				<MaterialfyColorCard 
+					cardMaxWidth="400" 
+					cardInnerText="User Engagement" 
+					:cardShowDivider="false" 
+					:cardShowActions="false"
+				>
 					<template v-slot:crdInner>
 						<v-sparkline
 							:value="value2"
@@ -45,10 +50,10 @@
 			<v-col>
 				<MaterialfyHeaderCard
 					cardTitle="Users Monthly Logins"
-					cardIcon="crdIcon"
-					cardInnerList="crdInner"
+					cardIcon="mdi-access-point-plus"
+					:cardShowDivider="false" 
+					:cardShowActions="false"
 				>
-					<template #crdIcon> mdi-access-point-plus </template>
 					<template v-slot:crdInner>
 						<v-sheet
 							class="v-sheet--offset mx-auto mt-2"
@@ -66,10 +71,6 @@
 								height="150"
 							/>
 						</v-sheet>
-					</template>
-					<template #divider><div /></template>
-					<template #crdActions>
-						<div></div>
 					</template>
 				</MaterialfyHeaderCard>
 			</v-col>

@@ -7,9 +7,9 @@
 		:color="cardColor"
 	>
 		<v-toolbar :color="cardHeaderColor">
-			<v-avatar :tile="true">
+			<v-avatar :tile="true" v-if="cardShowAvatar">
 				<v-icon>
-					<slot :name="cardIcon" v-if="cardShowAvatar"> mdi-alert-circle-outline </slot>
+					<slot name="crdIcon" > {{ cardIcon }} </slot>
 				</v-icon>
 			</v-avatar>
 			<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
@@ -28,9 +28,7 @@
 				</v-list-item-content>
 			</slot>
 		</v-list-item>
-		<slot name="divider">
-			<v-divider class="mt-5" />
-		</slot>
+		<v-divider class="mt-5" v-if="cardShowDivider" />
 		<v-card-actions>
 			<slot :name="cardActions" v-if="cardShowActions">
 				<v-spacer />
@@ -57,7 +55,7 @@
 				default: "Materailfy Header Card",
 			},
 			cardIcon: {
-				default: "crdIcon",
+				default: "mdi-alert-circle-outline",
 			},
 			cardInnerList: {
 				default: "crdInner",

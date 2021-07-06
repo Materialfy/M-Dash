@@ -11,9 +11,6 @@
 				<span class="font-weight-light copyright">
 					&copy;
 					{{ new Date().getFullYear() }}
-					<a href="https://twitter.com/SourBlueDream" target="_blank" class="ma-2"
-						>@SBD</a
-					>
 					M-Dashboard by Materialfy, crafted with Vuetify
 					<v-icon color="tertiary" size="17">mdi-heart</v-icon>
 				</span>
@@ -32,6 +29,7 @@
 					Link: "https://clintoxx.github.io/vuetify-admin-dashboard/",
 				},
 				{ name: "GitHub", Link: "https://github.com/ClintOxx" },
+				{ name: "Twitter", Link: "https://twitter.com/SourBlueDream" },
 			],
 		}),
 	};

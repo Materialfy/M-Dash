@@ -6,62 +6,63 @@
 					cardMaxWidth="800"
 					cardTitle="Edit Profile"
 					cardOverlineText="Complete your profile"
+					:cardShowAvatar="false"
 				>
 				
 				<template v-slot:crdInner>
 					<v-form>
 						<v-container >
-							<v-row wrap>
+							<v-row wrap >
 								<v-col xs12 md4>
-									<v-text-field label="Company (disabled)" disabled />
+									<v-text-field :color="textFieldColor" label="Company (disabled)" disabled />
 								</v-col>
 								<v-col xs12 md4>
-									<v-text-field class="purple-input" label="User Name" />
+									<v-text-field :color="textFieldColor" class="purple-input" label="User Name" />
 								</v-col>
 								<v-col xs12 md4>
-									<v-text-field label="Email Address"  />
+									<v-text-field :color="textFieldColor" label="Email Address"  />
 								</v-col>
 								</v-row>
 								<v-row wrap>
 								<v-col xs12 md6>
-									<v-text-field label="First Name"  />
+									<v-text-field :color="textFieldColor" label="First Name"  />
 								</v-col>
 								<v-col xs12 md6>
-									<v-text-field label="Last Name"  />
+									<v-text-field :color="textFieldColor" label="Last Name"  />
 								</v-col>
 								<v-col xs12 md12>
-									<v-text-field label="Adress"  />
+									<v-text-field :color="textFieldColor" label="Address"  />
 								</v-col>
 								</v-row>
 								<v-row wrap>
 								<v-col xs12 md4>
-									<v-text-field label="City"  />
+									<v-text-field :color="textFieldColor" label="City"  />
 								</v-col>
 								<v-col xs12 md4>
-									<v-text-field label="Country"  />
+									<v-text-field :color="textFieldColor" label="Country"  />
 								</v-col>
 								</v-row>
 								<v-row wrap>
 								<v-col xs12 md4>
 									<v-text-field
-										
+										:color="textFieldColor"
 										label="Postal Code"
 										type="number"
+										max-width="100"
 									/>
 								</v-col>
-								<v-col xs12>
+								<v-col xs12 cols='12'>
 									<v-textarea
-										
+										:color="textFieldColor"
 										label="About Me"
-										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit(Thats 'Hire me' in english)."
+										value="You wrote that yourself? wow congrats dude, really, that's very cool. i just told everyone in my family about it..."
+										filled
 									/>
 								</v-col>
 							</v-row>
 						</v-container>
 					</v-form>
 				</template>
-				
-				<template #crdAvatar> <div></div></template>
 				<template #crdActions> 
 					<v-btn class="mx-0 font-weight-light" color="tertiary">
 						Update Profile
@@ -127,6 +128,11 @@
 	import {mapGetters} from 'vuex'
 	export default {
 		name: "UserProfile",
+		data () {
+			return {
+				textFieldColor: "secondary"
+			}
+		},
 		computed: {
         ...mapGetters(['getAvatar'])
     },
