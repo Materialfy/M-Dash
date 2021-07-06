@@ -9,13 +9,13 @@
 		<v-toolbar :color="cardHeaderColor">
 			<v-avatar :tile="true">
 				<v-icon>
-					<slot :name="cardIcon"> mdi-alert-circle-outline </slot>
+					<slot :name="cardIcon" v-if="cardShowAvatar"> mdi-alert-circle-outline </slot>
 				</v-icon>
 			</v-avatar>
 			<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
 			<v-spacer />
 		</v-toolbar>
-		<v-list-item>
+		<v-list-item v-if="cardShowInnerText">
 			<slot :name="cardInnerList">
 				<div class="innercardheight"></div>
 				<v-list-item-content>
@@ -32,7 +32,7 @@
 			<v-divider class="mt-5" />
 		</slot>
 		<v-card-actions>
-			<slot :name="cardActions">
+			<slot :name="cardActions" v-if="cardShowActions">
 				<v-spacer />
 				<v-btn text color="tertiary"> Close </v-btn>
 			</slot>
@@ -70,6 +70,21 @@
 			},
 			cardColor: {
 				default: "primary",
+			},
+			cardShowDivider: {
+				default: true,
+			},
+			cardShowActions: {
+				default: true,
+			},
+			cardShowInnerText: {
+				default: true,
+			},
+			cardShowAvatar: {
+				default: true,
+			},
+			cardShowTitle: {
+				default: true,
 			},
 		},
 	};

@@ -14,13 +14,13 @@
 				<div class="text-overline mb-4 tertiary--text">
 					{{ cardOverlineText }}
 				</div>
-				<v-list-item-title class="text-h5  mb-4 tertiary--text">
+				<v-list-item-title class="text-h5  mb-4 tertiary--text" v-if="cardShowTitle">
 					{{ cardTitle }}
 				</v-list-item-title>
 				
 			</v-list-item-content>
 
-			<slot :name="cardAvatar">
+			<slot :name="cardAvatar" v-if="cardShowAvatar">
 				<v-list-item-avatar size="80" color="primary">
 					<div class="text-center">
 						<v-progress-circular
@@ -37,14 +37,14 @@
 			</slot>
 		</v-list-item>
 		<v-container >
-		<slot :name="cardInnerList">
+		<slot :name="cardInnerList" v-if="cardShowInnerText">
 			<v-list-item-subtitle
 				>Greyhound divisely hello coldly fonwderfully
 			</v-list-item-subtitle>
 		</slot>
 		</v-container>
 		<v-card-actions>
-			<slot :name="cardActions">
+			<slot :name="cardActions" v-if="cardShowActions">
 				<v-btn outlined rounded text color="tertiary"> Button </v-btn>
 			</slot>
 		</v-card-actions>
@@ -90,6 +90,21 @@
 			},
 			isDark: {
 				default: false,
+			},
+			cardShowDivider: {
+				default: true,
+			},
+			cardShowActions: {
+				default: true,
+			},
+			cardShowInnerText: {
+				default: true,
+			},
+			cardShowAvatar: {
+				default: true,
+			},
+			cardShowTitle: {
+				default: true,
 			},
 		},
 		data() {

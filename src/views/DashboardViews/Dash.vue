@@ -16,7 +16,7 @@
 				<MaterialfyColorCard />
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard cardMaxWidth="400">
+				<MaterialfyColorCard cardMaxWidth="400" cardInnerText="User Engagement" :cardShowDivider="false" :cardShowActions="false">
 					<template v-slot:crdInner>
 						<v-sparkline
 							:value="value2"
@@ -32,15 +32,6 @@
 							auto-draw
 							height="150"
 						></v-sparkline>
-					</template>
-					<template #crdInnerText>
-						<div class="text-h4">User Engagement</div>
-					</template>
-					<template v-slot:crdActions>
-						<div></div>
-					</template>
-					<template v-slot:crdDivider>
-						<div></div>
 					</template>
 				</MaterialfyColorCard>
 			</v-col>

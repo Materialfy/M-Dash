@@ -1,5 +1,5 @@
 <template>
-	<v-container fill-height container--fluid >
+	<v-container fill-height  >
 		<v-row justify-center wrap>
 			<v-col xs12 md8>
 				<MaterialfyBasicCard
@@ -19,33 +19,39 @@
 									<v-text-field class="purple-input" label="User Name" />
 								</v-col>
 								<v-col xs12 md4>
-									<v-text-field label="Email Address" class="purple-input" />
+									<v-text-field label="Email Address"  />
+								</v-col>
+								</v-row>
+								<v-row wrap>
+								<v-col xs12 md6>
+									<v-text-field label="First Name"  />
 								</v-col>
 								<v-col xs12 md6>
-									<v-text-field label="First Name" class="purple-input" />
-								</v-col>
-								<v-col xs12 md6>
-									<v-text-field label="Last Name" class="purple-input" />
+									<v-text-field label="Last Name"  />
 								</v-col>
 								<v-col xs12 md12>
-									<v-text-field label="Adress" class="purple-input" />
+									<v-text-field label="Adress"  />
+								</v-col>
+								</v-row>
+								<v-row wrap>
+								<v-col xs12 md4>
+									<v-text-field label="City"  />
 								</v-col>
 								<v-col xs12 md4>
-									<v-text-field label="City" class="purple-input" />
+									<v-text-field label="Country"  />
 								</v-col>
-								<v-col xs12 md4>
-									<v-text-field label="Country" class="purple-input" />
-								</v-col>
+								</v-row>
+								<v-row wrap>
 								<v-col xs12 md4>
 									<v-text-field
-										class="purple-input"
+										
 										label="Postal Code"
 										type="number"
 									/>
 								</v-col>
 								<v-col xs12>
 									<v-textarea
-										class="purple-input"
+										
 										label="About Me"
 										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit(Thats 'Hire me' in english)."
 									/>

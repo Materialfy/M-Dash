@@ -26,17 +26,13 @@
       </slot>
     </v-card-text>
 
-    <v-card-text>
-      <slot :name='cardInnerText'>
+    <v-card-text v-if="cardShowInnerText">
         <div class="text-h4 font-weight-thin">
-          Sales Last 24h
+          {{ cardInnerText }}
         </div>
-      </slot>
     </v-card-text>
-    <slot :name="cardDivider">
-      <v-divider></v-divider>
-    </slot>
-    <v-card-actions class="justify-center">
+    <v-divider v-if="cardShowDivider" />
+    <v-card-actions class="justify-center" v-if="cardShowActions">
       <slot :name='cardActions'>
         <v-btn
           block
@@ -83,7 +79,7 @@ export default {
         default: 'crdInner',
       },
       cardInnerText: {
-        default: 'crdInnerText',
+        default: 'Sales or something',
       },
       cardActions: {
         default: 'crdActions',
@@ -94,8 +90,14 @@ export default {
       isDark: {
         default: true,
       },
-      cardDivider: {
-        default: 'crdDivider',
+      cardShowDivider: {
+        default: true,
+      },
+      cardShowActions: {
+        default: true,
+      },
+      cardShowInnerText: {
+        default: true,
       },
     },
 }
