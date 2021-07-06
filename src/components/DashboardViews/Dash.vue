@@ -1,5 +1,5 @@
 <template>
-	<v-container color="primary" >
+	<v-container color="primary">
 		<!-- First Row with header and basic cards -->
 		<v-row class="d-flex align-center mb-2">
 			<v-col>
@@ -55,7 +55,7 @@
 				<MaterialfyHeaderCard
 					cardTitle="Users Monthly Logins"
 					cardIcon="crdIcon"
-					cardInner="crdInner"
+					cardInnerList="crdInner"
 				>
 					<template #crdIcon> mdi-access-point-plus </template>
 					<template v-slot:crdInner>

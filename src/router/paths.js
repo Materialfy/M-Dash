@@ -62,19 +62,19 @@ export default [
 					import(`@/components/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
-				path: "user-tables",
+				path: "crud-user-tables",
 				meta: {
-					name: "UserTable",
+					name: "CrudUserTable",
 				},
-				component: () => import(`@/components/DashboardViews/UsersTable.vue`),
+				component: () => import(`@/components/DashboardViews/CrudUsersTable.vue`),
 			},
 			{
-				path: "tablestest",
+				path: "tables-test",
 				meta: {
 					name: "ComplexTablesTest",
 				},
 				component: () =>
-					import(`@/components/DashboardViews/TableListView.vue`),
+					import(`@/components/unused/TableListView.vue`),
 			},
 			{
 				path: "maps",

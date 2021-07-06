@@ -73,7 +73,7 @@ export default {
               text: "Basic Tables",
             },
             {
-              to: "/user-tables",
+              to: "/crud-user-tables",
               icon: "mdi-application-cog",
               text: "CRUD Tables",
             },
