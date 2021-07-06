@@ -16,9 +16,9 @@ export default new Vuetify({
 		themes: {
 			light: {
 				primary: "#607D8B",
-				secondary: "#607d8b",
+				secondary: "#EEEEEE",
 				tertiary: "#ffc107",
-				accent: "#82B1FF",
+				accent: "#ffc107",
 				error: "#f44336",
 				warning: "#ff5722",
 				danger: "#CE93D8",
@@ -29,7 +29,7 @@ export default new Vuetify({
 				background: "#78909C",
 			},
 			dark: {
-				primary: "#212121",
+				primary: "#424242",
 				secondary: "#EEEEEE",
 				tertiary: "#82B1FF",
 				accent: "#82B1FF",

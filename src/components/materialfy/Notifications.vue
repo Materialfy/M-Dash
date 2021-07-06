@@ -10,7 +10,8 @@
             <v-badge
                 :content="getNotificationAmt"
                 :value="badgeShow"
-                color ="blue"
+                color ="tertiary"
+                
                 overlap
                 offset-y= 23px
             >

@@ -1,5 +1,5 @@
 <template>
-    <v-card color="primary" min-width="300" >
+    <v-card color="primary" min-width="250" >
         <v-container>
             <v-row justify="center" class="mb-1" >
                 <v-col cols="3" justify-center>
@@ -20,7 +20,24 @@
                     </v-card-subtitle>
                 </v-col>
             </v-row>
-            
+            <!-- these controls the search displaying in userSnippet -->
+            <v-divider />
+            <!-- this controls if the search box is shown -->
+            <v-row  v-if="cardSearch" >
+                <v-col class="d-flex justify-center" >
+                    <v-text-field
+                        v-model="message"
+                        label="Search.."
+                        prepend-inner-icon="mdi-magnify"
+                        outlined
+                        clearable
+                        dense
+                        color="tertiary"
+
+                    >
+                    </v-text-field>
+                </v-col>
+            </v-row>
             <v-card v-if="cardBottom" >
                 <v-divider />
                 <!-- this changes the background color based on theme -->
@@ -45,22 +62,22 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+    name: "UserSnippet",
     data() {
     return {
-        
+        message: null,
     }
     },
     computed: {
         ...mapGetters(['getAvatar'])
     },
-    props: ['buttonColor', 'cardBottom'],
+    props: ['buttonColor', 'cardBottom', 'cardSearch'],
     methods: {
     logout: function () {
         this.$store.dispatch("logout").then(() => {
             this.$router.push("/");
         });
-    },
-			
+    },		
 },
 }
 </script>

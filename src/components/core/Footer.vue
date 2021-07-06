@@ -1,21 +1,24 @@
 <template>
-	<v-footer id="core-footer" app absolute height="82">
-		<div class="footer-items">
-			<span v-for="link in links" :key="link.name">
-				<a :href="link.Link" class="tertiary--text footer-links">{{
-					link.name
-				}}</a>
-			</span>
-		</div>
-		<v-spacer />
-		<span class="font-weight-light copyright">
-			&copy;
-			{{ new Date().getFullYear() }}
-			<a href="https://twitter.com/SourBlueDream" target="_blank">@SBD</a>, made
-			with
-			<v-icon color="tertiary" size="17">mdi-heart</v-icon>
-			for a better web(Vue)
-		</span>
+	<v-footer id="core-footer" color="primary" app absolute padless >
+		<v-container>
+			<v-row class="d-flex align-center mb-2">
+				<div class="ma-2">
+					<span v-for="link in links" :key="link.name">
+						<a :href="link.Link" class="ma-2">{{ link.name }}</a>
+					</span>
+				</div>
+				<v-spacer />
+				<span class="font-weight-light copyright">
+					&copy;
+					{{ new Date().getFullYear() }}
+					<a href="https://twitter.com/SourBlueDream" target="_blank" class="ma-2"
+						>@SBD</a
+					>
+					M-Dashboard by Materialfy, crafted with Vuetify
+					<v-icon color="tertiary" size="17">mdi-heart</v-icon>
+				</span>
+			</v-row>
+		</v-container>
 	</v-footer>
 </template>
 

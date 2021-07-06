@@ -1,7 +1,23 @@
 <template>
-	<v-container color="primary" >
+	<v-container color="primary">
+		<v-row>
+			<v-col class="d-flex justify-center">
+				<header>
+					<span class="text-h3 text-uppercase" style="color: #ffc107"
+						>Materialfy Card Examples</span
+					>
+					<article class="d-flex justify-center mt-2">
+						<p class="text-center">
+							These are customizable with slots and props to dyanmically change
+							the content. <br />There are three types of cards: BasicCard,
+							HeaderCard, ColorCard
+						</p>
+					</article>
+				</header>
+			</v-col>
+		</v-row>
 		<!-- First Row with header and basic cards -->
-		<v-row class="d-flex align-center mb-2">
+		<v-row>
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
@@ -11,7 +27,7 @@
 		</v-row>
 		<!--  Second Row with basic color cards -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center mb-2">
+		<v-row>
 			<v-col>
 				<MaterialfyColorCard />
 			</v-col>
@@ -45,65 +61,6 @@
 				</MaterialfyColorCard>
 			</v-col>
 		</v-row>
-		<!-- Third Row with header, color and basic cards -->
-		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="ma-3 d-flex align-center">
-			<v-col>
-				<MaterialfyBasicCard />
-			</v-col>
-			<v-col>
-				<MaterialfyHeaderCard
-					cardTitle="Users Monthly Logins"
-					cardIcon="crdIcon"
-					cardInner="crdInner"
-				>
-					<template #crdIcon> mdi-access-point-plus </template>
-					<template v-slot:crdInner>
-						<v-sheet
-							class="v-sheet--offset mx-auto mt-2"
-							color="tertiary"
-							elevation="4"
-							max-width="calc(100% - 32px)"
-						>
-							<v-sparkline
-								:labels="labels"
-								label-size="12"
-								:value="value"
-								color="white"
-								line-width="4"
-								padding="16"
-								height="150"
-							/>
-						</v-sheet>
-					</template>
-					<template #divider><div /></template>
-					<template #crdActions>
-						<div></div>
-					</template>
-				</MaterialfyHeaderCard>
-			</v-col>
-			<v-col>
-				<MaterialfyColorCard>
-					<template v-slot:crdInner>
-						<v-list-item three-line>
-							<v-list-item-content>
-								<div class="text-overline mb-4">OVERLINE</div>
-								<v-list-item-title class="text-h5 mb-1">
-									Headline 5
-								</v-list-item-title>
-								<v-list-item-subtitle
-									>Greyhound divisely hello coldly
-									fonwderfully</v-list-item-subtitle
-								>
-							</v-list-item-content>
-						</v-list-item>
-					</template>
-					<template v-slot:crdActions>
-						<v-btn outlined rounded text> Button </v-btn>
-					</template>
-				</MaterialfyColorCard>
-			</v-col>
-		</v-row>
 	</v-container>
 </template>
 
@@ -117,6 +74,7 @@
 		["#f72047", "#ffd200", "#1feaea"],
 	];
 	export default {
+		name: "CardsView",
 		data: () => ({
 			labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
 			value: [200, 300, 410, 390, 420, 460, 420, 420],

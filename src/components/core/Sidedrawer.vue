@@ -3,16 +3,18 @@
     v-model = "drawerShown"
     :temporary="alwaysClosed"
     app
-    color="secondary"
+    color="primary"
     clipped
+    height="100%"
   >
       <v-list
         dense
+        height="100%"
       >
-        <v-img :src="image" height="100%">
-          <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
-          <v-row >
 
+        <v-img :src="image" height="100%" >
+          <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom" :cardSearch="true" />
+          <v-row >
             <v-divider class="mb-2" />
             <!-- this section builds the links by use a for loop and iterating through links section
             the v-for iterates through the links in data(), i stands for index
@@ -44,16 +46,17 @@
 <script>
 import { mapState } from "vuex"
 export default {
+  name:"NavDrawer",
     data() {
         return {
           group: false,
           drawerShown: false, // controls the opening and closing of drawer
           drawer: this.drawerState, // this is just here for the watcher to wrok
-          alwaysClosed: true,
-          crdBottom: false,
+          alwaysClosed: true, //controls if side drawer is in temp mode or not
+          crdBottom: false, //for userSnippet, controls if it shows the full component
           btnColor: "tertiary",
           logo: "./img/redditicon.png",
-          links: [
+          links: [ //builds the list of links using v-for and this array
             {
               to: "/",
               icon: "mdi-view-dashboard",
@@ -66,13 +69,18 @@ export default {
             },
             {
               to: "/table-list",
-              icon: "mdi-clipboard-outline",
-              text: "Table List",
+              icon: "mdi-application",
+              text: "Basic Tables",
             },
             {
               to: "/user-tables",
-              icon: "mdi-clipboard-outline",
+              icon: "mdi-application-cog",
               text: "CRUD Tables",
+            },
+            {
+              to: "/cardsview",
+              icon: "mdi-badge-account-horizontal-outline",
+              text: "Card Types",
             },
             {
               to: "/maps",
