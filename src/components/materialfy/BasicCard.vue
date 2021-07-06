@@ -8,20 +8,21 @@
 		:min-height="cardMinHeight"
 		:color="cardColor"
 	>
-		<v-list-item three-line>
-			<slot :name="cardInnerList">
-				<v-list-item-content>
-					<div class="text-overline mb-4 tertiary--text">OVERLINE</div>
-					<v-list-item-title class="text-h5 mb-1 innercardheight">
-						Headline 5
-					</v-list-item-title>
-					<v-list-item-subtitle
-						>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle
-					>
-				</v-list-item-content>
-			</slot>
 
-			<slot :name="cardSpinAvatar">
+		<v-list-item three-line>
+			<v-list-item-content>
+				<div class="text-overline mb-4 tertiary--text">{{ cardOverlineText }}</div>
+				<v-list-item-title class="text-h5  mb-4 tertiary--text">
+					{{ cardTitle }}
+				</v-list-item-title>
+			<slot :name="cardInnerList">
+				<v-list-item-subtitle
+					>Greyhound divisely hello coldly fonwderfully
+				</v-list-item-subtitle>
+			</slot>
+			</v-list-item-content>
+
+			<slot :name="cardAvatar">
 				<v-list-item-avatar size="80" color="primary">
 					<div class="text-center">
 						<v-progress-circular
@@ -62,6 +63,9 @@
 			cardTitle: {
 				default: "M-Dashboard Header Card",
 			},
+			cardOverlineText: {
+				default: "Overline",
+			},
 			cardIcon: {
 				default: "crdIcon",
 			},
@@ -77,8 +81,8 @@
 			cardColor: {
 				default: "primary",
 			},
-			cardSpinAvatar: {
-				default: "primary",
+			cardAvatar: {
+				default: "crdAvatar",
 			},
 			isDark: {
 				default: false,
