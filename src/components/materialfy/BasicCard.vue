@@ -11,15 +11,13 @@
 
 		<v-list-item three-line>
 			<v-list-item-content>
-				<div class="text-overline mb-4 tertiary--text">{{ cardOverlineText }}</div>
+				<div class="text-overline mb-4 tertiary--text">
+					{{ cardOverlineText }}
+				</div>
 				<v-list-item-title class="text-h5  mb-4 tertiary--text">
 					{{ cardTitle }}
 				</v-list-item-title>
-			<slot :name="cardInnerList">
-				<v-list-item-subtitle
-					>Greyhound divisely hello coldly fonwderfully
-				</v-list-item-subtitle>
-			</slot>
+				
 			</v-list-item-content>
 
 			<slot :name="cardAvatar">
@@ -38,7 +36,13 @@
 				</v-list-item-avatar>
 			</slot>
 		</v-list-item>
-
+		<v-container >
+		<slot :name="cardInnerList">
+			<v-list-item-subtitle
+				>Greyhound divisely hello coldly fonwderfully
+			</v-list-item-subtitle>
+		</slot>
+		</v-container>
 		<v-card-actions>
 			<slot :name="cardActions">
 				<v-btn outlined rounded text color="tertiary"> Button </v-btn>
@@ -61,7 +65,7 @@
 				default: "400",
 			},
 			cardTitle: {
-				default: "M-Dashboard Header Card",
+				default: "Materailfy Basic Card",
 			},
 			cardOverlineText: {
 				default: "Overline",

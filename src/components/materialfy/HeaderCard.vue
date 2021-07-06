@@ -54,7 +54,7 @@
 				default: "700",
 			},
 			cardTitle: {
-				default: "M-Dashboard Header Card",
+				default: "Materailfy Header Card",
 			},
 			cardIcon: {
 				default: "crdIcon",

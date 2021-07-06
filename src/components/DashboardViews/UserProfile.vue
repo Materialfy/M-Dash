@@ -1,5 +1,5 @@
 <template>
-	<v-container fill-height container--fluid grid-list-xl>
+	<v-container fill-height container--fluid >
 		<v-row justify-center wrap>
 			<v-col xs12 md8>
 				<MaterialfyBasicCard
@@ -7,6 +7,7 @@
 					cardTitle="Edit Profile"
 					cardOverlineText="Complete your profile"
 				>
+				
 				<template v-slot:crdInner>
 					<v-form>
 						<v-container >
@@ -53,6 +54,7 @@
 						</v-container>
 					</v-form>
 				</template>
+				
 				<template #crdAvatar> <div></div></template>
 				<template #crdActions> 
 					<v-btn class="mx-0 font-weight-light" color="tertiary">
@@ -118,6 +120,7 @@
 <script>
 	import {mapGetters} from 'vuex'
 	export default {
+		name: "UserProfile",
 		computed: {
         ...mapGetters(['getAvatar'])
     },
