@@ -11,7 +11,7 @@
       >
       <v-sheet color="rgba(0, 0, 0, .12)">
         <v-img :src="image" height="100%" >
-          <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom"  />
+          <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom" :cardSearch="true" />
           <v-row >
 
             <v-divider class="mb-2" />

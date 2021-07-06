@@ -11,33 +11,20 @@
 		</router-link>
 		<!-- When placing a single v-spacer before or after the child components, 
 		the components will push to the right and left of its container -->
-
 		<v-spacer />
 		<MaterialfyNotifications :buttonColor="btnColor" />
 		<!-- userSnippet.vue menu -->
-		<v-menu nudge-bottom="57">
+		<v-menu nudge-bottom="57" :close-on-content-click="false">
 			<!-- recieving the "on" event lsitener -->
 			<template v-slot:activator="{ on }">
 				<v-btn v-on="on" icon :color="btnColor" class="ml3">
 					<v-icon>mdi-account</v-icon>
 				</v-btn>
 			</template>
-			<MaterialfyUserSnippet :buttonColor="btnColor" :cardBottom="crdBottom" />
+			<MaterialfyUserSnippet :buttonColor="btnColor" :cardBottom="crdBottom" :cardSearch="true" />
 		</v-menu>
 		<MaterialfySettings :buttonColor="btnColor" />
 
-		<v-text-field
-			v-model="message"
-			label="Search.."
-			prepend-inner-icon="mdi-magnify"
-			outlined
-			clearable
-			dense
-			hide-details
-			color="tertiary"
-			class="shrink mx-4"
-		>
-		</v-text-field>
 	</v-app-bar>
 </template>
 
@@ -47,7 +34,8 @@
 	export default {
 		data() {
 			return {
-				title: "M-Dashboard by Materialfy",
+				//if the app is on mobile devices it changes the title
+				title: this.$vuetify.breakpoint.mobile ?' M-Dashboard' : 'M-Dashboard by Materialfy',
 				group: null,
 				message: null,
 				btnColor: "tertiary",

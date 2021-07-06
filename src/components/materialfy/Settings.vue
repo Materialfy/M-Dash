@@ -24,7 +24,7 @@
 				<v-layout wrap>
 					<v-flex xs12>
 						<div class="text-center text-body-2 text-uppercase">
-							Theme Primary Color Picker
+							Theme Accent Color Picker
 						</div>
 
 						<v-layout justify-center>
@@ -153,9 +153,11 @@
 		...mapMutations("drawertoggle", ["setImage"]),
 		setColor(color) {
 			this.$store.state.drawertoggle.color = color;
-			this.$vuetify.theme.themes.light.primary = color
-			this.$vuetify.theme.themes.dark.primary = color
-			if (this.$vuetify.theme.themes.light.primary == color)
+			this.$vuetify.theme.themes.light.tertiary = color
+			this.$vuetify.theme.themes.dark.tertiary = color
+			this.$vuetify.theme.themes.light.anchor = color
+			this.$vuetify.theme.themes.dark.anchor = color
+			if (this.$vuetify.theme.themes.light.tertiary == color)
 				return this.activeColor = true
 		},
 		setColor2(color) {
