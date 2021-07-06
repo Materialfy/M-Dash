@@ -9,9 +9,9 @@
 		:color="cardColor"
 	>
 		<v-list-item three-line>
-			<slot :name="cardInner">
+			<slot :name="cardInnerList">
 				<v-list-item-content>
-					<div class="text-overline mb-4 tertiary--text" >OVERLINE</div>
+					<div class="text-overline mb-4 tertiary--text">OVERLINE</div>
 					<v-list-item-title class="text-h5 mb-1 innercardheight">
 						Headline 5
 					</v-list-item-title>
@@ -65,7 +65,7 @@
 			cardIcon: {
 				default: "crdIcon",
 			},
-			cardInner: {
+			cardInnerList: {
 				default: "crdInner",
 			},
 			cardActions: {

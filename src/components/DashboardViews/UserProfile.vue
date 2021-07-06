@@ -1,65 +1,67 @@
 <template>
 	<v-container fill-height container--fluid grid-list-xl>
-		<v-layout justify-center wrap>
-			<v-flex xs12 md8>
-				<materialfy-card
+		<v-row justify-center wrap>
+			<v-col xs12 md8>
+				<MaterialfyBasicCard
 					color="general"
 					title="Edit Profile"
 					text="Complete your profile"
 				>
+				<template v-slot:crdInner>
 					<v-form>
 						<v-container py-0>
-							<v-layout wrap>
-								<v-flex xs12 md4>
+							<v-row wrap>
+								<v-col xs12 md4>
 									<v-text-field label="Company (disabled)" disabled />
-								</v-flex>
-								<v-flex xs12 md4>
+								</v-col>
+								<v-col xs12 md4>
 									<v-text-field class="purple-input" label="User Name" />
-								</v-flex>
-								<v-flex xs12 md4>
+								</v-col>
+								<v-col xs12 md4>
 									<v-text-field label="Email Address" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md6>
+								</v-col>
+								<v-col xs12 md6>
 									<v-text-field label="First Name" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md6>
+								</v-col>
+								<v-col xs12 md6>
 									<v-text-field label="Last Name" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md12>
+								</v-col>
+								<v-col xs12 md12>
 									<v-text-field label="Adress" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md4>
+								</v-col>
+								<v-col xs12 md4>
 									<v-text-field label="City" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md4>
+								</v-col>
+								<v-col xs12 md4>
 									<v-text-field label="Country" class="purple-input" />
-								</v-flex>
-								<v-flex xs12 md4>
+								</v-col>
+								<v-col xs12 md4>
 									<v-text-field
 										class="purple-input"
 										label="Postal Code"
 										type="number"
 									/>
-								</v-flex>
-								<v-flex xs12>
+								</v-col>
+								<v-col xs12>
 									<v-textarea
 										class="purple-input"
 										label="About Me"
 										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit(Thats 'Hire me' in english)."
 									/>
-								</v-flex>
-								<v-flex xs12 text-right>
+								</v-col>
+								<v-col xs12 text-right>
 									<v-btn class="mx-0 font-weight-light" color="general">
 										Update Profile
 									</v-btn>
-								</v-flex>
-							</v-layout>
+								</v-col>
+							</v-row>
 						</v-container>
 					</v-form>
-				</materialfy-card>
-			</v-flex>
-			<v-flex xs12 md4>
-				<materialfy-card class="v-card-profile">
+					</template>
+				</MaterialfyBasicCard>
+			</v-col>
+			<v-col xs12 md4>
+				<materialfy-color-card class="v-card-profile">
 					<v-avatar slot="offset" class="mx-auto d-block" size="130">
 						<img
 							:src='getAvatar'
@@ -102,9 +104,9 @@
 							Follow
 						</v-btn>
 					</v-card-text>
-				</materialfy-card>
-			</v-flex>
-		</v-layout>
+				</materialfy-color-card>
+			</v-col>
+		</v-row>
 	</v-container>
 </template>
 
