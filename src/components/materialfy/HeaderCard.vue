@@ -9,7 +9,7 @@
 					<v-toolbar  :color="cardHeaderColor">
 						<v-avatar  :tile="true" >
 							<v-icon  >
-								<slot :name='cardIcon'> mdi-cog </slot>
+								<slot :name='cardIcon'> mdi-alert-circle-outline </slot>
 							</v-icon>
 						</v-avatar>
 						<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>

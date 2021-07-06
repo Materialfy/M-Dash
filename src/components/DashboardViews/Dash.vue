@@ -1,7 +1,7 @@
 <template>
-	<v-container color="primary">
+	<v-container color="primary" >
 		<!-- First Row with header and basic cards -->
-		<v-row>
+		<v-row class="d-flex align-center mb-2">
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
@@ -11,7 +11,7 @@
 		</v-row>
 		<!--  Second Row with basic color cards -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row>
+		<v-row class="d-flex align-center mb-2">
 			<v-col>
 				<MaterialfyColorCard />
 			</v-col>
@@ -47,17 +47,17 @@
 		</v-row>
 		<!-- Third Row with header, color and basic cards -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="ma-3">
+		<v-row class="ma-3 d-flex align-center">
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
 			<v-col>
 				<MaterialfyHeaderCard
-					cardTitle="Monthly Users Login Rate"
+					cardTitle="Users Monthly Logins"
 					cardIcon="crdIcon"
 					cardInner="crdInner"
 				>
-					<template #crdIcon> mdi-cog </template>
+					<template #crdIcon> mdi-access-point-plus </template>
 					<template v-slot:crdInner>
 						<v-sheet
 							class="v-sheet--offset mx-auto mt-2"

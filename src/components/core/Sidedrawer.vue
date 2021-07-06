@@ -5,15 +5,16 @@
     app
     color="primary"
     clipped
+    height="100%"
   >
       <v-list
         dense
+        height="100%"
       >
-      <v-sheet color="rgba(0, 0, 0, .12)">
+
         <v-img :src="image" height="100%" >
           <MaterialfyUserSnippet :buttonColor='btnColor' :cardBottom="crdBottom" :cardSearch="true" />
           <v-row >
-
             <v-divider class="mb-2" />
             <!-- this section builds the links by use a for loop and iterating through links section
             the v-for iterates through the links in data(), i stands for index
@@ -38,7 +39,6 @@
             </v-list-item>
           </v-row>
         </v-img>
-        </v-sheet>
       </v-list>
   </v-navigation-drawer>
 </template>
@@ -46,6 +46,7 @@
 <script>
 import { mapState } from "vuex"
 export default {
+  name:"NavDrawer",
     data() {
         return {
           group: false,
