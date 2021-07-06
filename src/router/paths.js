@@ -15,18 +15,13 @@ export default [
 			name: "External",
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/views/ExternalView.vue`), // this renders the children in this layout
+		component: () => import(`@/views/ExternalView.vue`), // this renders the children in this layout
 		children: [
 			//any components in this path auto render in External
 			{
 				path: "", // you leave this blank if you want it to default to the parents path
 				name: "login",
 				component: () => import(`@/components/core/LoginForm.vue`),
-			},
-			{
-				path: "/home", // you leave this blank if you want it to default to the parents path
-				name: "home",
-				component: () => import(`@/components/unused/Home.vue`),
 			},
 		],
 	},
@@ -37,67 +32,56 @@ export default [
 			name: "dashboard-view",
 			requiresAuth: false,
 		},
-		component: () => import(`@/components/views/DashboardView.vue`),
+		component: () => import(`@/views/DashboardView.vue`),
 		children: [
 			{
 				path: "", //defaults to /dashboard if left blank
 				meta: {
 					name: "Dash",
 				},
-				component: () => import(`@/components/DashboardViews/Dash.vue`),
+				component: () => import(`@/views/DashboardViews/Dash.vue`),
 			},
 			{
 				path: "user-profile", // ends up as /dashboard/user-profile
 				meta: {
 					name: "UserProfile",
 				},
-				component: () => import(`@/components/DashboardViews/UserProfile.vue`),
+				component: () => import(`@/views/DashboardViews/UserProfile.vue`),
 			},
 			{
 				path: "table-list",
 				meta: {
 					name: "TableList",
 				},
-				component: () =>
-					import(`@/components/DashboardViews/SimpleTablesView.vue`),
+				component: () => import(`@/views/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
 				path: "crud-user-tables",
 				meta: {
 					name: "CrudUserTable",
 				},
-				component: () => import(`@/components/DashboardViews/CrudUsersTable.vue`),
-			},
-			{
-				path: "tables-test",
-				meta: {
-					name: "ComplexTablesTest",
-				},
-				component: () =>
-					import(`@/components/unused/TableListView.vue`),
+				component: () => import(`@/views/DashboardViews/CrudUsersTable.vue`),
 			},
 			{
 				path: "maps",
 				meta: {
 					name: "Maps",
 				},
-				component: () => import(`@/components/DashboardViews/Maps.vue`),
+				component: () => import(`@/views/DashboardViews/Maps.vue`),
 			},
 			{
 				path: "notifications",
 				meta: {
 					name: "Notifications",
 				},
-				component: () =>
-					import(`@/components/DashboardViews/NotificationsView.vue`),
+				component: () => import(`@/views/DashboardViews/NotificationsView.vue`),
 			},
 			{
 				path: "cardsview",
 				meta: {
 					name: "CardsView",
 				},
-				component: () =>
-					import(`@/components/DashboardViews/CardsView.vue`),
+				component: () => import(`@/views/DashboardViews/CardsView.vue`),
 			},
 		],
 		//per route guard if you dont want to use the global version in /router/index
