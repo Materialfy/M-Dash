@@ -1,5 +1,5 @@
 <template>
-    <v-card color="primary" min-width="300" >
+    <v-card color="primary" min-width="250" >
         <v-container>
             <v-row justify="center" class="mb-1" >
                 <v-col cols="3" justify-center>
@@ -22,8 +22,8 @@
             </v-row>
             <!-- these controls the search displaying in userSnippet -->
             <v-divider />
-            <!-- this changes the background color based on theme -->
-            <v-row  v-if="cardSearch" :style="$vuetify.theme.dark ? 'background:#757575 ':'background:#78909C'" >
+            <!-- this controls if the search box is shown -->
+            <v-row  v-if="cardSearch" >
                 <v-col class="d-flex justify-center" >
                     <v-text-field
                         v-model="message"
@@ -33,6 +33,7 @@
                         clearable
                         dense
                         color="tertiary"
+
                     >
                     </v-text-field>
                 </v-col>
@@ -64,7 +65,7 @@ export default {
     name: "UserSnippet",
     data() {
     return {
-        
+        message: null,
     }
     },
     computed: {
