@@ -7,16 +7,18 @@
 		:color="cardColor"
 	>
 		<v-toolbar :color="cardHeaderColor">
-			<v-avatar :tile="true" v-if="cardShowAvatar">
-				<v-icon>
-					<slot name="crdIcon" > {{ cardIcon }} </slot>
-				</v-icon>
-			</v-avatar>
-			<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
-			<v-spacer />
+			<slot name="crdHeader">
+				<v-avatar :tile="true" v-if="cardShowAvatar">
+					<v-icon>
+						<slot name="crdIcon" > {{ cardIcon }} </slot>
+					</v-icon>
+				</v-avatar>
+				<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
+				<v-spacer />
+			</slot>
 		</v-toolbar>
 		<v-list-item v-if="cardShowInnerText">
-			<slot :name="cardInnerList">
+			<slot name="crdInnerList">
 				<div class="innercardheight"></div>
 				<v-list-item-content>
 					<v-list-item-title class="text-h5 mb-1">
@@ -28,6 +30,12 @@
 				</v-list-item-content>
 			</slot>
 		</v-list-item>
+		<div v-if="cardShowInner">
+			<slot name="crdInner">
+				<div class="innercardheight"></div>
+			</slot>
+		</div>
+
 		<v-divider class="mt-5" v-if="cardShowDivider" />
 		<v-card-actions>
 			<slot :name="cardActions" v-if="cardShowActions">
@@ -58,6 +66,9 @@
 				default: "mdi-alert-circle-outline",
 			},
 			cardInnerList: {
+				default: "crdInnerList",
+			},
+			cardInner: {
 				default: "crdInner",
 			},
 			cardActions: {
@@ -82,6 +93,9 @@
 				default: true,
 			},
 			cardShowTitle: {
+				default: true,
+			},
+			cardShowInner: {
 				default: true,
 			},
 		},

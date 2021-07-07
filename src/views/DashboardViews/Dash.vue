@@ -1,7 +1,10 @@
 <template>
-	<v-container color="primary">
+	<v-container fluid color="primary">
 		<!-- First Row with header and basic cards -->
 		<v-row class="d-flex align-center mb-2">
+			<v-col>
+				<MaterialfyHeaderCard />
+			</v-col>
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
@@ -23,20 +26,22 @@
 					:cardShowActions="false"
 				>
 					<template v-slot:crdInner>
-						<v-sparkline
-							:value="value2"
-							:gradient="gradient"
-							:smooth="radius || false"
-							:padding="padding"
-							:line-width="width"
-							:stroke-linecap="lineCap"
-							:gradient-direction="gradientDirection"
-							:fill="fill"
-							:type="type"
-							:auto-line-width="autoLineWidth"
-							auto-draw
-							height="150"
-						></v-sparkline>
+						<v-sheet color="rgba(0, 0, 0, .12)">
+							<v-sparkline
+								:value="value2"
+								:gradient="gradient"
+								:smooth="radius || false"
+								:padding="padding"
+								:line-width="width"
+								:stroke-linecap="lineCap"
+								:gradient-direction="gradientDirection"
+								:fill="fill"
+								:type="type"
+								:auto-line-width="autoLineWidth"
+								auto-draw
+								height="150"
+							/>
+						</v-sheet>
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
@@ -54,7 +59,7 @@
 					:cardShowDivider="false" 
 					:cardShowActions="false"
 				>
-					<template v-slot:crdInner>
+					<template v-slot:crdInnerList>
 						<v-sheet
 							class="v-sheet--offset mx-auto mt-2"
 							color="tertiary"

@@ -71,7 +71,12 @@
 			</MaterialfyBasicCard>
 			</v-col>
 			<v-col xs12 md4>
-				<materialfy-color-card cardMaxWidth="500">
+				<materialfy-color-card 
+					cardMaxWidth="500"
+					:cardShowDivider="false" 
+					:cardShowActions="false"
+					:cardShowInnerText="false"
+				>
 					<template v-slot:crdInner>
 						<v-avatar slot="offset" class="mx-auto d-block" size="130">
 							<img

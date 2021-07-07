@@ -1,40 +1,48 @@
 <template>
-	<v-container container--fluid grid-list-xl fill-height>
-		<v-layout justify-center align-center>
-			<v-flex xs12>
-				<material-card color="general">
-					<div slot="header">
-						<div class="text-h6 font-weight-light mb-2">Notifications</div>
-						<div class="category">
-							Handcrafted by us with
-							<v-icon size="17"> mdi-heart </v-icon>
-						</div>
-					</div>
+	<v-container  fill-height>
+		<v-row justify-center align-center>
+			<v-col xs12>
+				<materialfy-header-card 
+					color="general"
+					cardMaxWidth="100%"
+					:cardShowDivider="false" 
+					:cardShowActions="false"
+				>
+					<template v-slot:crdHeader>
+						<v-row class="ma-1">
+							<v-col >
+							<div class="text-h5 font-weight-light mb-2">
+								Notifications
+							</div>
 
+							</v-col>
+						</v-row>
+					</template>
+					<template v-slot:crdInnerList>
 					<v-card-text>
-						<v-layout wrap>
-							<v-flex md6 sm12>
+						<v-row wrap>
+							<v-col md6 sm12>
 								<h2 class="text-h6 font-weight-light mb-3">
 									Notifications Style
 								</h2>
 
-								<material-notification class="mb-3" color="info">
+								<materialfy-toasts class="mb-3" color="tertiary">
 									This is a plain notification
-								</material-notification>
-								<material-notification class="mb-3" color="info" dismissible>
+								</materialfy-toasts>
+								<materialfy-toasts class="mb-3" color="tertiary" dismissible>
 									This is a notification with close button.
-								</material-notification>
-								<material-notification
+								</materialfy-toasts>
+								<materialfy-toasts
 									class="mb-3"
-									color="info"
+									color="tertiary"
 									dismissible
 									icon="mdi-bell-plus"
 								>
 									This is a notification with close button and icon.
-								</material-notification>
-								<material-notification
+								</materialfy-toasts>
+								<materialfy-toasts
 									class="mb-3"
-									color="info"
+									color="tertiary"
 									dismissible
 									icon="mdi-bell-plus"
 								>
@@ -42,42 +50,42 @@
 									many lines. You can see that the icon and the close button are
 									always vertically aligned. This is a beautiful notification.
 									So you don't have to worry about the style.
-								</material-notification>
-							</v-flex>
+								</materialfy-toasts>
+							</v-col>
 
-							<v-flex md6 sm12>
+							<v-col md6 sm12>
 								<h2 class="text-h6 font-weight-light">Notifcation States</h2>
 
-								<material-notification class="mb-3" color="info" dismissible>
+								<materialfy-toasts class="mb-3" color="info" dismissible>
 									<strong>INFO</strong> - This is a regular notification made
 									with `color="info"`
-								</material-notification>
+								</materialfy-toasts>
 
-								<material-notification class="mb-3" color="success" dismissible>
+								<materialfy-toasts class="mb-3" color="success" dismissible>
 									<strong>SUCCESS</strong> - This is a regular notification made
 									with `color="success"`
-								</material-notification>
+								</materialfy-toasts>
 
-								<material-notification class="mb-3" color="warning" dismissible>
+								<materialfy-toasts class="mb-3" color="warning" dismissible>
 									<strong>WARNING</strong> - This is a regular notification made
 									with `color="warning"`
-								</material-notification>
+								</materialfy-toasts>
 
-								<material-notification class="mb-3" color="error" dismissible>
+								<materialfy-toasts class="mb-3" color="error" dismissible>
 									<strong>DANGER</strong> - This is a regular notification made
 									with `color="error"`
-								</material-notification>
+								</materialfy-toasts>
 
-								<material-notification class="mb-3" color="purple" dismissible>
+								<materialfy-toasts class="mb-3" color="purple" dismissible>
 									<strong>PRIMARY</strong> - This is a regular notification made
 									with `color="purple"`
-								</material-notification>
-								<material-notification class="mb-3" color="general" dismissible>
+								</materialfy-toasts>
+								<materialfy-toasts class="mb-3" color="general" dismissible>
 									<strong>GENERAL</strong> - This is a regular notification made
 									with `color="general"`
-								</material-notification>
-							</v-flex>
-						</v-layout>
+								</materialfy-toasts>
+							</v-col>
+						</v-row>
 						<div class="text-center">
 							<h2 class="text-h6 font-weight-light mb-2">
 								Notification Places
@@ -88,37 +96,37 @@
 						</div>
 
 						<v-container grid-list-lg>
-							<v-layout justify-center wrap>
-								<v-flex xs12 sm4>
+							<v-row justify-center wrap>
+								<v-col xs12 sm4>
 									<v-btn block color="general" @click="snack('top', 'left')">
 										Top Left
 									</v-btn>
-								</v-flex>
-								<v-flex xs12 sm4>
+								</v-col>
+								<v-col xs12 sm4>
 									<v-btn block color="general" @click="snack('top')">
 										Top Center
 									</v-btn>
-								</v-flex>
-							</v-layout>
-							<v-layout justify-center wrap>
-								<v-flex xs12 sm4>
+								</v-col>
+							</v-row>
+							<v-row justify-center wrap>
+								<v-col xs12 sm4>
 									<v-btn block color="general" @click="snack('top', 'right')">
 										Top Right
 									</v-btn>
-								</v-flex>
-								<v-flex xs12 sm4>
+								</v-col>
+								<v-col xs12 sm4>
 									<v-btn block color="general" @click="snack('bottom', 'left')">
 										Bottom Left
 									</v-btn>
-								</v-flex>
-							</v-layout>
-							<v-layout justify-center wrap>
-								<v-flex xs12 sm4>
+								</v-col>
+							</v-row>
+							<v-row justify-center wrap>
+								<v-col xs12 sm4>
 									<v-btn block color="general" @click="snack('bottom')">
 										Bottom Center
 									</v-btn>
-								</v-flex>
-								<v-flex xs12 sm4>
+								</v-col>
+								<v-col xs12 sm4>
 									<v-btn
 										block
 										color="general"
@@ -126,8 +134,8 @@
 									>
 										Bottom Right
 									</v-btn>
-								</v-flex>
-							</v-layout>
+								</v-col>
+							</v-row>
 						</v-container>
 
 						<v-snackbar
@@ -148,9 +156,10 @@
 							</v-icon>
 						</v-snackbar>
 					</v-card-text>
-				</material-card>
-			</v-flex>
-		</v-layout>
+					</template>
+				</materialfy-header-card>
+			</v-col>
+		</v-row>
 	</v-container>
 </template>
 
