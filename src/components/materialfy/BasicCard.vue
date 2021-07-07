@@ -19,7 +19,6 @@
 				</v-list-item-title>
 				
 			</v-list-item-content>
-
 			<slot :name="cardAvatar" v-if="cardShowAvatar">
 				<v-list-item-avatar size="80" color="primary">
 					<div class="text-center">
@@ -37,11 +36,11 @@
 			</slot>
 		</v-list-item>
 		<v-container >
-		<slot :name="cardInnerList" v-if="cardShowInnerText">
-			<v-list-item-subtitle
-				>Greyhound divisely hello coldly fonwderfully
-			</v-list-item-subtitle>
-		</slot>
+			<slot :name="cardInnerList" v-if="cardShowInnerText">
+				<v-list-item-subtitle
+					>Greyhound divisely hello coldly fonwderfully
+				</v-list-item-subtitle>
+			</slot>
 		</v-container>
 		<v-card-actions>
 			<slot :name="cardActions" v-if="cardShowActions">

@@ -5,6 +5,7 @@
 		:max-width="cardMaxWidth"
 		:min-height="cardMinHeight"
 		:color="cardColor"
+		class="pa-3"
 	>
 		<v-toolbar :color="cardHeaderColor">
 			<slot name="crdHeader">
@@ -32,7 +33,7 @@
 		</v-list-item>
 		<div v-if="cardShowInner">
 			<slot name="crdInner">
-				<div class="innercardheight"></div>
+				
 			</slot>
 		</div>
 
