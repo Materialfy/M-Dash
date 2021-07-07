@@ -9,9 +9,9 @@
 ### SneakPeak in Dev 
 <img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
 
-### Check [Changelog.md](https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/Changelog.md) for updates on whats new
+## [Demo Site](https://focused-neumann-7a901d.netlify.app/) 
 
-## [Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
+## [Old ver 1.0 Demo Site](https://clintoxx.github.io/vuetify-admin-dashboard/)
 
 - Login auth system is disabled in demo along with every other api besides the Get request to the users table
 - demo has an extra login button on the side bar so you can see what it looks like

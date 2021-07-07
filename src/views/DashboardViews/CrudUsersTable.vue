@@ -1,174 +1,178 @@
 <template>
-	<v-container fill-height  grid-list-xl>
+	<v-container fill-height grid-list-xl>
 		<v-row justify-md="center" wrap>
 			<v-col class="d-flex justify-center" md12>
 				<div>
 					<materialfy-header-card
 						color="tertiary"
 						cardTitle="Usernames Table"
-						cardOverlineText ="Such a classic table"
+						cardOverlineText="Such a classic table"
 						:cardShowAvatar="false"
 						:cardShowActions="false"
-						:cardShowInnerText="false"
+						:cardShowInnerList="false"
 						class="pa-3"
 					>
-					<template v-slot:crdInner>
-						<v-spacer />
-						<v-text-field
-							v-model="search"
-							append-icon="search"
-							label="Search"
-							single-line
-							hide-details
-						/>
-						<v-dialog v-model="dialog" max-width="500px">
-							<template #activator="{ on }">
-								<v-btn color="tertiary" class="my-2" v-on="on"> New Item </v-btn>
-							</template>
-
-							<v-card>
-								<v-card-text>
-									<v-container grid-list-md>
-										<v-row wrap>
-											<v-col xs12 sm6 md4>
-												<v-text-field
-													v-model="editedItem.username"
-													label="Username"
-												/>
-											</v-col>
-											<v-col xs12 sm6 md4>
-												<v-text-field
-													v-model="editedItem.password"
-													label="Password"
-												/>
-											</v-col>
-											<v-col xs12 sm6 md4>
-												<v-text-field
-													v-model="editedItem.email"
-													label="Email"
-												/>
-											</v-col>
-											<v-col xs12 sm6 md4>
-												<v-checkbox
-													v-model="checkboxAdmin"
-													:label="`IsAdmin`"
-												/>
-											</v-col>
-											<v-col xs12 sm6 md4>
-												<v-checkbox
-													v-model="checkboxActive"
-													:label="`IsActive`"
-												/>
-											</v-col>
-										</v-row>
-									</v-container>
-								</v-card-text>
-
-								<v-card-actions>
-									<v-spacer />
-									<v-btn color="blue darken-1" text @click="close">
-										Cancel
+						<template v-slot:crdInner>
+							<v-spacer />
+							<v-text-field
+								v-model="search"
+								append-icon="search"
+								label="Search"
+								single-line
+								hide-details
+							/>
+							<v-dialog v-model="dialog" max-width="500px">
+								<template #activator="{ on }">
+									<v-btn color="tertiary" class="my-2" v-on="on">
+										New Item
 									</v-btn>
-									<v-btn color="blue darken-1" text @click="save"> Save </v-btn>
-								</v-card-actions>
-							</v-card>
-						</v-dialog>
-						<!-- lets you change the options for the data table -->
-						<v-data-table
-							:headers="headers"
-							:items="UserList"
-							:items-per-page-options="rowsAmount"
-							:search="search"
-							class="elevation-1"
-						>
-							<!-- change table header background and text color(or other properties) -->
-							<template slot="headerCell" slot-scope="{ header }">
-								<span
-									class="
-										subheading
-										font-weight-light
-										text-general text--darken-3
-									"
-									v-text="header.text"
-								/>
-							</template>
-							<template #items="props">
-								<td>{{ props.item.id }}</td>
-								<td class="justify-center">
-									<v-icon medium class="mr-2" @click="editItem(props.item)">
-										edit
-									</v-icon>
-									<v-icon medium @click="deleteItem(props.item)">
-										delete
-									</v-icon>
-								</td>
-								<td>
-									<v-edit-dialog
-										:return-value.sync="props.item.username"
-										large
-										lazy
-										persistent
-										@save="saveInline"
-										@cancel="cancelInline"
-										@open="openInline"
-										@close="closeInline"
-									>
-										<div>{{ props.item.username }}</div>
-										<template #input>
-											<v-text-field
-												v-model="props.item.username"
-												:rules="[max25chars]"
-												label="Edit"
-												single-line
-												counter
-												autofocus
-											/>
-										</template>
-									</v-edit-dialog>
-								</td>
+								</template>
 
-								<td>
-									<v-edit-dialog
-										:return-value.sync="props.item.email"
-										large
-										lazy
-										persistent
-										@save="save"
-										@cancel="cancelInline"
-										@open="openInline"
-										@close="closeInline"
-									>
-										<div>{{ props.item.email }}</div>
-										<template #input>
-											<v-text-field
-												v-model="props.item.email"
-												:rules="[max25chars]"
-												label="Edit"
-												single-line
-												counter
-												autofocus
-											/>
-										</template>
-									</v-edit-dialog>
-								</td>
-								<td class="">
-									{{ props.item.isAdmin }}
-								</td>
-								<td class="">
-									{{ props.item.isActive }}
-								</td>
-								<td class="">
-									{{ props.item.lastSeen }}
-								</td>
-								<td v-show="false">
-									{{ props.item.password }}
-								</td>
-							</template>
-						</v-data-table>
-						<v-snackbar v-model="snack" :timeout="3000" :color="snackColor">
-							{{ snackText }}
-							<v-btn text @click="snack = false"> Close </v-btn>
-						</v-snackbar>
+								<v-card>
+									<v-card-text>
+										<v-container grid-list-md>
+											<v-row wrap>
+												<v-col xs12 sm6 md4>
+													<v-text-field
+														v-model="editedItem.username"
+														label="Username"
+													/>
+												</v-col>
+												<v-col xs12 sm6 md4>
+													<v-text-field
+														v-model="editedItem.password"
+														label="Password"
+													/>
+												</v-col>
+												<v-col xs12 sm6 md4>
+													<v-text-field
+														v-model="editedItem.email"
+														label="Email"
+													/>
+												</v-col>
+												<v-col xs12 sm6 md4>
+													<v-checkbox
+														v-model="checkboxAdmin"
+														:label="`IsAdmin`"
+													/>
+												</v-col>
+												<v-col xs12 sm6 md4>
+													<v-checkbox
+														v-model="checkboxActive"
+														:label="`IsActive`"
+													/>
+												</v-col>
+											</v-row>
+										</v-container>
+									</v-card-text>
+
+									<v-card-actions>
+										<v-spacer />
+										<v-btn color="blue darken-1" text @click="close">
+											Cancel
+										</v-btn>
+										<v-btn color="blue darken-1" text @click="save">
+											Save
+										</v-btn>
+									</v-card-actions>
+								</v-card>
+							</v-dialog>
+							<!-- lets you change the options for the data table -->
+							<v-data-table
+								:headers="headers"
+								:items="UserList"
+								:items-per-page-options="rowsAmount"
+								:search="search"
+								class="elevation-1"
+							>
+								<!-- change table header background and text color(or other properties) -->
+								<template slot="headerCell" slot-scope="{ header }">
+									<span
+										class="
+											subheading
+											font-weight-light
+											text-general text--darken-3
+										"
+										v-text="header.text"
+									/>
+								</template>
+								<template #items="props">
+									<td>{{ props.item.id }}</td>
+									<td class="justify-center">
+										<v-icon medium class="mr-2" @click="editItem(props.item)">
+											edit
+										</v-icon>
+										<v-icon medium @click="deleteItem(props.item)">
+											delete
+										</v-icon>
+									</td>
+									<td>
+										<v-edit-dialog
+											:return-value.sync="props.item.username"
+											large
+											lazy
+											persistent
+											@save="saveInline"
+											@cancel="cancelInline"
+											@open="openInline"
+											@close="closeInline"
+										>
+											<div>{{ props.item.username }}</div>
+											<template #input>
+												<v-text-field
+													v-model="props.item.username"
+													:rules="[max25chars]"
+													label="Edit"
+													single-line
+													counter
+													autofocus
+												/>
+											</template>
+										</v-edit-dialog>
+									</td>
+
+									<td>
+										<v-edit-dialog
+											:return-value.sync="props.item.email"
+											large
+											lazy
+											persistent
+											@save="save"
+											@cancel="cancelInline"
+											@open="openInline"
+											@close="closeInline"
+										>
+											<div>{{ props.item.email }}</div>
+											<template #input>
+												<v-text-field
+													v-model="props.item.email"
+													:rules="[max25chars]"
+													label="Edit"
+													single-line
+													counter
+													autofocus
+												/>
+											</template>
+										</v-edit-dialog>
+									</td>
+									<td class="">
+										{{ props.item.isAdmin }}
+									</td>
+									<td class="">
+										{{ props.item.isActive }}
+									</td>
+									<td class="">
+										{{ props.item.lastSeen }}
+									</td>
+									<td v-show="false">
+										{{ props.item.password }}
+									</td>
+								</template>
+							</v-data-table>
+							<v-snackbar v-model="snack" :timeout="3000" :color="snackColor">
+								{{ snackText }}
+								<v-btn text @click="snack = false"> Close </v-btn>
+							</v-snackbar>
 						</template>
 					</materialfy-header-card>
 				</div>

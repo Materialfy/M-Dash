@@ -8,16 +8,17 @@
 		:min-height="cardMinHeight"
 		:color="cardColor"
 	>
-
 		<v-list-item three-line>
 			<v-list-item-content>
 				<div class="text-overline mb-4 tertiary--text">
 					{{ cardOverlineText }}
 				</div>
-				<v-list-item-title class="text-h5  mb-4 tertiary--text" v-if="cardShowTitle">
+				<v-list-item-title
+					class="text-h5 mb-4 tertiary--text"
+					v-if="cardShowTitle"
+				>
 					{{ cardTitle }}
 				</v-list-item-title>
-				
 			</v-list-item-content>
 			<slot :name="cardAvatar" v-if="cardShowAvatar">
 				<v-list-item-avatar size="80" color="primary">
@@ -35,8 +36,8 @@
 				</v-list-item-avatar>
 			</slot>
 		</v-list-item>
-		<v-container >
-			<slot :name="cardInnerList" v-if="cardShowInnerText">
+		<v-container>
+			<slot :name="cardInnerList" v-if="cardShowInnerList">
 				<v-list-item-subtitle
 					>Greyhound divisely hello coldly fonwderfully
 				</v-list-item-subtitle>
@@ -96,7 +97,7 @@
 			cardShowActions: {
 				default: true,
 			},
-			cardShowInnerText: {
+			cardShowInnerList: {
 				default: true,
 			},
 			cardShowAvatar: {

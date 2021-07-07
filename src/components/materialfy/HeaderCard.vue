@@ -18,7 +18,7 @@
 				<v-spacer />
 			</slot>
 		</v-toolbar>
-		<v-list-item v-if="cardShowInnerText">
+		<v-list-item v-if="cardShowInnerList">
 			<slot name="crdInnerList">
 				<div class="innercardheight"></div>
 				<v-list-item-content>
@@ -87,7 +87,7 @@
 			cardShowActions: {
 				default: true,
 			},
-			cardShowInnerText: {
+			cardShowInnerList: {
 				default: true,
 			},
 			cardShowAvatar: {

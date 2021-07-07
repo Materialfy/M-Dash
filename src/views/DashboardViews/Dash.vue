@@ -3,7 +3,42 @@
 		<!-- First Row with header and basic cards -->
 		<v-row class="d-flex align-center mb-2">
 			<v-col>
-				<MaterialfyHeaderCard />
+				<MaterialfyHeaderCard 
+					cardTitle="Employee Stats"
+					:cardShowInnerList="false"
+					:cardShowActions="false"
+					:cardShowDivider="false"
+				>
+					<template #crdInner>
+						<v-data-table 
+							:headers="headers" 
+							:items="items" 
+							hide-default-footer 
+							class="elevation-1 primary"
+						>
+						<template slot="headerCell" slot-scope="{ header }">
+							<span
+								class="font-weight-light text-warning text--darken-3 text--red"
+								v-text="header.text"
+							/>
+						</template>
+						<!-- use a scoped slot to send data to child to be processed and returned -->
+						<template slot="items" slot-scope="{ index, item }">
+							<td>{{ index + 1 }}</td>
+							<td>{{ item.name }}</td>
+							<td class="text-right">
+								{{ item.salary }}
+							</td>
+							<td class="text-right">
+								{{ item.country }}
+							</td>
+							<td class="text-right">
+								{{ item.city }}
+							</td>
+						</template>
+					</v-data-table>
+					</template>
+				</MaterialfyHeaderCard>
 			</v-col>
 			<v-col>
 				<MaterialfyBasicCard />
@@ -128,6 +163,79 @@
 			fill: false,
 			type: "trend",
 			autoLineWidth: false,
+			headers: [
+				{
+					sortable: false,
+					text: "ID",
+					value: "id",
+					class: "tertiary--text text-h6"
+				},
+				{
+					sortable: false,
+					text: "Name",
+					value: "name",
+					class: "tertiary--text text-h6"
+				},
+				{
+					sortable: false,
+					text: "Salary",
+					value: "salary",
+					align: "float-right",
+					class: "tertiary--text text-h6"
+				},
+				{
+					sortable: false,
+					text: "Country",
+					value: "country",
+					align: "float-right",
+					class: "tertiary--text text-h6"
+				},
+				{
+					sortable: false,
+					text: "City",
+					value: "city",
+					align: "float-right",
+					class: "tertiary--text text-h6"
+				},
+			],
+			items: [
+				{
+					name: "Dakota Rice",
+					country: "Niger",
+					city: "Oud-Tunrhout",
+					salary: "$35,738",
+				},
+				{
+					name: "Minerva Hooper",
+					country: "Curaçao",
+					city: "Sinaai-Waas",
+					salary: "$23,738",
+				},
+				{
+					name: "Sage Rodriguez",
+					country: "Netherlands",
+					city: "Overland Park",
+					salary: "$56,142",
+				},
+				{
+					name: "Philip Chanley",
+					country: "Korea, South",
+					city: "Gloucester",
+					salary: "$38,735",
+				},
+				{
+					name: "Doris Greene",
+					country: "Malawi",
+					city: "Feldkirchen in Kārnten",
+					salary: "$63,542",
+				},
+			],
+			tabs: 0,
+			list: {
+				0: false,
+				1: false,
+				2: false,
+			},
 		}),
 	};
 </script>

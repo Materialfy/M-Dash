@@ -25,11 +25,11 @@
 			links: [
 				{ name: "Home", Link: "" },
 				{
-					name: "Demo",
-					Link: "https://clintoxx.github.io/vuetify-admin-dashboard/",
+					name: "Docs",
+					Link: "https://materialfy.com",
 				},
-				{ name: "GitHub", Link: "https://github.com/ClintOxx" },
-				{ name: "Twitter", Link: "https://twitter.com/SourBlueDream" },
+				{ name: "GitHub", Link: "https://clintoxx.github.io/vuetify-admin-dashboard/" },
+				{ name: "Twitter", Link: "https://twitter.com/Materialfy" },
 			],
 		}),
 	};
