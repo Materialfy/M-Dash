@@ -42,7 +42,7 @@ export default [
 				component: () => import(`@/views/DashboardViews/Dash.vue`),
 			},
 			{
-				path: "user-profile", // ends up as /dashboard/user-profile
+				path: "user", // ends up as /dashboard/user-profile
 				meta: {
 					name: "UserProfile",
 				},

@@ -20,6 +20,7 @@
 								label="Search"
 								single-line
 								hide-details
+								
 							/>
 							<v-dialog v-model="dialog" max-width="500px">
 								<template #activator="{ on }">
@@ -242,8 +243,7 @@
 
 		methods: {
 			getusernames() {
-				this.$http
-					.get("/users")
+				this.$http.get("/users")
 					.then((response) => {
 						this.UserList = response.data.Users;
 					})
