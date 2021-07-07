@@ -13,7 +13,7 @@ const requireComponent = require.context( //gets config of component
   '@/components',
   // Whether or not to look in subfolders
   true,
-  //matches component filenames that have: .vue f
+  //matches component filenames that have: .vue
   /\.vue$/
 )
 //iterates using the context module  .keys array with foreach

@@ -14,7 +14,6 @@
 <script>
 export default {
   inheritAttrs: false,
-
   props: {
     elevation: {
       type: [Number, String],

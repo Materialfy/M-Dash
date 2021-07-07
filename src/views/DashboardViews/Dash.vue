@@ -1,7 +1,10 @@
 <template>
-	<v-container color="primary">
+	<v-container fluid color="primary">
 		<!-- First Row with header and basic cards -->
 		<v-row class="d-flex align-center mb-2">
+			<v-col>
+				<MaterialfyHeaderCard />
+			</v-col>
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
@@ -16,31 +19,29 @@
 				<MaterialfyColorCard />
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard cardMaxWidth="400">
+				<MaterialfyColorCard 
+					cardMaxWidth="400" 
+					cardInnerText="User Engagement" 
+					:cardShowDivider="false" 
+					:cardShowActions="false"
+				>
 					<template v-slot:crdInner>
-						<v-sparkline
-							:value="value2"
-							:gradient="gradient"
-							:smooth="radius || false"
-							:padding="padding"
-							:line-width="width"
-							:stroke-linecap="lineCap"
-							:gradient-direction="gradientDirection"
-							:fill="fill"
-							:type="type"
-							:auto-line-width="autoLineWidth"
-							auto-draw
-							height="150"
-						></v-sparkline>
-					</template>
-					<template #crdInnerText>
-						<div class="text-h4">User Engagement</div>
-					</template>
-					<template v-slot:crdActions>
-						<div></div>
-					</template>
-					<template v-slot:crdDivider>
-						<div></div>
+						<v-sheet color="rgba(0, 0, 0, .12)">
+							<v-sparkline
+								:value="value2"
+								:gradient="gradient"
+								:smooth="radius || false"
+								:padding="padding"
+								:line-width="width"
+								:stroke-linecap="lineCap"
+								:gradient-direction="gradientDirection"
+								:fill="fill"
+								:type="type"
+								:auto-line-width="autoLineWidth"
+								auto-draw
+								height="150"
+							/>
+						</v-sheet>
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
@@ -54,11 +55,11 @@
 			<v-col>
 				<MaterialfyHeaderCard
 					cardTitle="Users Monthly Logins"
-					cardIcon="crdIcon"
-					cardInnerList="crdInner"
+					cardIcon="mdi-access-point-plus"
+					:cardShowDivider="false" 
+					:cardShowActions="false"
 				>
-					<template #crdIcon> mdi-access-point-plus </template>
-					<template v-slot:crdInner>
+					<template v-slot:crdInnerList>
 						<v-sheet
 							class="v-sheet--offset mx-auto mt-2"
 							color="tertiary"
@@ -75,10 +76,6 @@
 								height="150"
 							/>
 						</v-sheet>
-					</template>
-					<template #divider><div /></template>
-					<template #crdActions>
-						<div></div>
 					</template>
 				</MaterialfyHeaderCard>
 			</v-col>

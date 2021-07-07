@@ -1,13 +1,18 @@
 <template>
-	<v-container fill-height container--fluid grid-list-xl>
-		<v-layout justify-center wrap>
-			<v-flex md12>
+	<v-container fill-height  grid-list-xl>
+		<v-row justify-md="center" wrap>
+			<v-col class="d-flex justify-center" md12>
 				<div>
-					<materialfy-card
-						color="general"
-						title="Usernames Table"
-						text="Such a classic table"
+					<materialfy-header-card
+						color="tertiary"
+						cardTitle="Usernames Table"
+						cardOverlineText ="Such a classic table"
+						:cardShowAvatar="false"
+						:cardShowActions="false"
+						:cardShowInnerText="false"
+						class="pa-3"
 					>
+					<template v-slot:crdInner>
 						<v-spacer />
 						<v-text-field
 							v-model="search"
@@ -18,44 +23,44 @@
 						/>
 						<v-dialog v-model="dialog" max-width="500px">
 							<template #activator="{ on }">
-								<v-btn color="general" class="mb-2" v-on="on"> New Item </v-btn>
+								<v-btn color="tertiary" class="my-2" v-on="on"> New Item </v-btn>
 							</template>
 
 							<v-card>
 								<v-card-text>
 									<v-container grid-list-md>
-										<v-layout wrap>
-											<v-flex xs12 sm6 md4>
+										<v-row wrap>
+											<v-col xs12 sm6 md4>
 												<v-text-field
 													v-model="editedItem.username"
 													label="Username"
 												/>
-											</v-flex>
-											<v-flex xs12 sm6 md4>
+											</v-col>
+											<v-col xs12 sm6 md4>
 												<v-text-field
 													v-model="editedItem.password"
 													label="Password"
 												/>
-											</v-flex>
-											<v-flex xs12 sm6 md4>
+											</v-col>
+											<v-col xs12 sm6 md4>
 												<v-text-field
 													v-model="editedItem.email"
 													label="Email"
 												/>
-											</v-flex>
-											<v-flex xs12 sm6 md4>
+											</v-col>
+											<v-col xs12 sm6 md4>
 												<v-checkbox
 													v-model="checkboxAdmin"
 													:label="`IsAdmin`"
 												/>
-											</v-flex>
-											<v-flex xs12 sm6 md4>
+											</v-col>
+											<v-col xs12 sm6 md4>
 												<v-checkbox
 													v-model="checkboxActive"
 													:label="`IsActive`"
 												/>
-											</v-flex>
-										</v-layout>
+											</v-col>
+										</v-row>
 									</v-container>
 								</v-card-text>
 
@@ -164,10 +169,11 @@
 							{{ snackText }}
 							<v-btn text @click="snack = false"> Close </v-btn>
 						</v-snackbar>
-					</materialfy-card>
+						</template>
+					</materialfy-header-card>
 				</div>
-			</v-flex>
-		</v-layout>
+			</v-col>
+		</v-row>
 	</v-container>
 </template>
 

@@ -8,20 +8,18 @@
 		:min-height="cardMinHeight"
 		:color="cardColor"
 	>
-		<v-list-item three-line>
-			<slot :name="cardInnerList">
-				<v-list-item-content>
-					<div class="text-overline mb-4 tertiary--text">OVERLINE</div>
-					<v-list-item-title class="text-h5 mb-1 innercardheight">
-						Headline 5
-					</v-list-item-title>
-					<v-list-item-subtitle
-						>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle
-					>
-				</v-list-item-content>
-			</slot>
 
-			<slot :name="cardSpinAvatar">
+		<v-list-item three-line>
+			<v-list-item-content>
+				<div class="text-overline mb-4 tertiary--text">
+					{{ cardOverlineText }}
+				</div>
+				<v-list-item-title class="text-h5  mb-4 tertiary--text" v-if="cardShowTitle">
+					{{ cardTitle }}
+				</v-list-item-title>
+				
+			</v-list-item-content>
+			<slot :name="cardAvatar" v-if="cardShowAvatar">
 				<v-list-item-avatar size="80" color="primary">
 					<div class="text-center">
 						<v-progress-circular
@@ -37,9 +35,15 @@
 				</v-list-item-avatar>
 			</slot>
 		</v-list-item>
-
+		<v-container >
+			<slot :name="cardInnerList" v-if="cardShowInnerText">
+				<v-list-item-subtitle
+					>Greyhound divisely hello coldly fonwderfully
+				</v-list-item-subtitle>
+			</slot>
+		</v-container>
 		<v-card-actions>
-			<slot :name="cardActions">
+			<slot :name="cardActions" v-if="cardShowActions">
 				<v-btn outlined rounded text color="tertiary"> Button </v-btn>
 			</slot>
 		</v-card-actions>
@@ -60,7 +64,10 @@
 				default: "400",
 			},
 			cardTitle: {
-				default: "M-Dashboard Header Card",
+				default: "Materailfy Basic Card",
+			},
+			cardOverlineText: {
+				default: "Overline",
 			},
 			cardIcon: {
 				default: "crdIcon",
@@ -77,11 +84,26 @@
 			cardColor: {
 				default: "primary",
 			},
-			cardSpinAvatar: {
-				default: "primary",
+			cardAvatar: {
+				default: "crdAvatar",
 			},
 			isDark: {
 				default: false,
+			},
+			cardShowDivider: {
+				default: true,
+			},
+			cardShowActions: {
+				default: true,
+			},
+			cardShowInnerText: {
+				default: true,
+			},
+			cardShowAvatar: {
+				default: true,
+			},
+			cardShowTitle: {
+				default: true,
 			},
 		},
 		data() {
