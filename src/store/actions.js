@@ -1,5 +1,6 @@
 // https://vuex.vuejs.org/en/actions.html
 import axios from 'axios'
+import { restApi} from "../plugins/axios";
 
 /* The login action(function) first param is the vuex commit object, 
 second is userData which is passed from where-ever you call that action.
@@ -66,13 +67,13 @@ export default {
       })
   },
   getTableList ({ commit }, tableName) {
-    this.$http.get(`/${tableName}`)
-      .then(response => {
-        console.log(response)
-        let tableList = response.data.Keys
-        commit('setTableList', { tableList })
-      })
-      .catch(error => console.log(error))
+    restApi.get(`/${tableName}`)
+			.then((response) => {
+				console.log(response);
+				let tableList = response.data.Keys;
+				commit("setTableList", { tableList });
+			})
+			.catch((error) => console.log(error));
   },
   updateTableItem ( tableData) {
     return new Promise((resolve, reject) => {

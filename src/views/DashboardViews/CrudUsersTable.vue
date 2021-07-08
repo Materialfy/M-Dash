@@ -109,7 +109,7 @@
 									</td>
 									<td>
 										<v-edit-dialog
-											:return-value.sync="props.item.username"
+											:return-value.sync="props.item.first_name"
 											large
 											lazy
 											persistent
@@ -118,10 +118,10 @@
 											@open="openInline"
 											@close="closeInline"
 										>
-											<div>{{ props.item.username }}</div>
+											<div>{{ props.item.first_name }}</div>
 											<template #input>
 												<v-text-field
-													v-model="props.item.username"
+													v-model="props.item.first_name"
 													:rules="[max25chars]"
 													label="Edit"
 													single-line
@@ -183,7 +183,8 @@
 </template>
 
 <script>
-	export default {
+import { genericApi } from "../../plugins/axios";
+	export default {  
 		data: () => ({
 			snack: false,
 			snackColor: "",
@@ -204,7 +205,7 @@
 			headers: [
 				{ text: "Id", align: "left", value: "id" },
 				{ text: "-----Actions-----", value: "actions", sortable: false },
-				{ text: "username", value: "username" },
+				{ text: "first name", value: "first_name" },
 				{ text: "email", value: "email" },
 				{ text: "isAdmin", value: "isAdmin" },
 				{ text: "isActive", value: "isActive" },
@@ -243,9 +244,10 @@
 
 		methods: {
 			getusernames() {
-				this.$http.get("/users")
+				genericApi.get("users")
 					.then((response) => {
-						this.UserList = response.data.Users;
+						this.UserList = response.data.data;
+						console.log(this.UserList)
 					})
 					.catch((error) => console.log(error));
 			},
@@ -255,7 +257,9 @@
 				this.editedIndex = this.UserList.indexOf(item);
 				item.isAdmin = this.checkboxAdmin;
 				item.isActive = this.checkboxActive;
+				// makes a new object with the same properties as the item object
 				this.editedItem = Object.assign({}, item);
+				//short for dialogbox
 				this.dialog = dbox;
 			},
 

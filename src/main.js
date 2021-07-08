@@ -18,46 +18,7 @@ Vue.use(restApi);
 // makes genericApi common base instance axios the default http handler
 Vue.prototype.$http = genericApi;
 
-// // makes axios the default http handler
-// Vue.prototype.$http = axios
-// // Sets the default global url used by all of this axios instance's requests
 
-// axios.defaults.baseURL = 'http://127.0.0.1:8001/admin/'
-// axios.defaults.headers.get['Accept'] = 'application/json'
-
-// const token = localStorage.getItem('token')
-// if (token) {
-//   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
-// }
-
-// // research if this is used anywhere
-//  axios.interceptors.request.use(
-//    function(request) {
-//      // Do something before request is sent
-//      NProgress.start();
-//      return request;
-//    },
-//    function(error) {
-//      // Do something with request error
-//      console.log(error);
-//      NProgress.done();
-//      return Promise.reject(error);
-//   }
-// );
-
-//  // Add a response interceptor
-//  axios.interceptors.response.use(
-//    function(response) {
-//      NProgress.done();
-//      return response;
-//    },
-//    function(error) {
-//      // Do something with response error
-//      console.log(error);
-//      NProgress.done();
-//      return Promise.reject(error);
-//    }
-//  );
 
 // Sync store with router
 sync(store, router);

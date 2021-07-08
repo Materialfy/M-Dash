@@ -9,22 +9,22 @@ if (token) {
 }
 
 // creates a new instance that you will call instead of axios.
-export const restApi = axios.create({
-	baseURL: "http://127.0.0.1:8001/admin/",
+ const restApi = axios.create({
+	baseURL: "", //"http://127.0.0.1:8001/admin/",
 	timeout: 3000,
 	headers: {
 		Authorization: "Bearer " + token,
 	},
 });
 // Sets the default global url used by all of this axios instance's requests
-export const genericApi = axios.create({
-	baseURL: "https://reqres.in/api",
+ const genericApi = axios.create({
+	baseURL: "https://reqres.in/api/",
 	timeout: 3000,
 	headers: {
-		Authorization: "Bearer " + token,
-		Accept: "application/json",
 	},
 });
+restApi.defaults.headers.get["Accepts"] = "application/json";
+genericApi.defaults.headers.get["Accepts"] = "application/json";
 
 restApi.interceptors.request.use(
 	function (request) {
@@ -56,4 +56,7 @@ restApi.interceptors.response.use(
 
 
 
-export default {};
+export  {
+  restApi,
+  genericApi
+};
