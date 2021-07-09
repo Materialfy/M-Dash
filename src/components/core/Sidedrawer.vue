@@ -23,7 +23,7 @@
 						v-for="(link, i) in links"
 						:key="i"
 						:to="link.to"
-						:active-class="color"
+						:active-class="activeColor"
 						class="ms-4"
 					>
 						<!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
@@ -56,6 +56,8 @@
 				group: false,
 				drawerShown: false, // controls the opening and closing of drawer
 				drawer: this.drawerState, // this is just here for the watcher to wrok
+				colorWatch: this.color, // this is just here for the watcher to wrok
+				activeColor: "secondary",
 				alwaysClosed: true, //controls if side drawer is in temp mode or not
 				crdBottom: false, //for userSnippet, controls if it shows the full component
 				btnColor: "tertiary",
@@ -108,6 +110,10 @@
 			// this watches the Vuex state set to data.drawer an updates the drawer to open
 			drawerState: function () {
 				this.drawerShown = this.drawerState;
+			},
+			// this watches the Vuex state set to data.drawer an updates the drawer to open
+			colorWatch: function () {
+				this.activeColor = this.color;
 			},
 			// when the drawer closes it emits am event with a value of false, used to udpate vuex state
 			drawerShown() {
