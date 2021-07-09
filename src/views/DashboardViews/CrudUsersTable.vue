@@ -1,6 +1,140 @@
 <!-- https://vuetifyjs.com/en/api/v-data-table/#api-props  -->
 <template>
 	<v-container fill-height grid-list-xl>
+		<!-- First table -->
+		<v-row justify-md="center" wrap>
+			<v-col class="d-flex justify-center" md12>
+				<!-- lets you change the props/options for the data table. vuetify iterates through the arrays you feed the headers & items props
+				the headers(array of objects) and items(array of objects)  prop is v-binded into the data () props and passed into the table
+				-->
+				<!-- Headers array object 'value'(value: "first_name") must be the same name as one of your items array(userList) objects propertys(first_name: George)  -->
+				<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
+				<v-data-table
+					:headers="headers"
+					:items="userList"
+					sort-by="id"
+					class="elevation-1 secondary"
+					:mobile-breakpoint="0"
+					:search="search"
+				>
+					<template v-slot:top>
+						<v-toolbar color="primary" flat>
+							<v-toolbar-title>Users CRUD 2</v-toolbar-title>
+							<v-divider class="mx-4" inset vertical></v-divider>
+
+							<v-text-field
+								v-model="search"
+								append-icon="mdi-magnify"
+								label="Search"
+								single-line
+								hide-details
+								class="ma-2 px-8"
+							></v-text-field>
+							<!-- this dialog section controls the new item button/pop-up functionality v-model controls dialog pop up -->
+							<v-dialog v-model="dialog" max-width="500px">
+								<!-- controls sending and capturing 'on' event to open v-card dialog pop up -->
+								<template v-slot:activator="{ on, attrs }">
+									<v-btn
+										color="primary"
+										dark
+										class="mb-2"
+										v-bind="attrs"
+										v-on="on"
+									>
+										New Item
+									</v-btn>
+								</template>
+								<!-- this pops up after the new item button is hit, controls the editing pop up -->
+								<v-card>
+									<v-card-title>
+										<!-- changes title based on formTitle index, -1 shows 'New item' any other index shows 'Edit Item' as the title -->
+										<span class="text-h5">{{ formTitle }}</span>
+									</v-card-title>
+									<!-- you add the fields you want to edit here. the v-model needs to bind to the editedItem, 
+									save() then uses the data in editedItem to create a new item or edit existing -->
+									<v-card-text>
+										<v-container>
+											<v-row>
+												<v-col cols="12" sm="6" md="4">
+													<!-- editedItem is set once you open this menu-->
+													<v-text-field
+														v-model="editedItem.first_name"
+														label="First Name"
+													></v-text-field>
+												</v-col>
+												<v-col cols="12" sm="6" md="4">
+													<v-text-field
+														v-model="editedItem.last_name"
+														label="Last Name"
+													></v-text-field>
+												</v-col>
+												<v-col cols="12" sm="6" md="4">
+													<v-text-field
+														v-model="editedItem.email"
+														label="Email"
+													></v-text-field>
+												</v-col>
+												<v-col cols="12" sm="6" md="4">
+													<v-checkbox
+														v-model="editedItem.isAdmin"
+														label="Admin"
+													/>
+												</v-col>
+												<v-col cols="12" sm="6" md="4">
+													<v-checkbox v-model="checkboxActive" label="Active" />
+												</v-col>
+												<v-col cols="12" sm="6" md="4">
+													<v-text-field
+														v-model="editedItem.lastSeen"
+														label="Last Seen"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</v-container>
+									</v-card-text>
+									<!--  save and cancel buttons for the new/edit dialog pop up-->
+									<v-card-actions>
+										<v-spacer></v-spacer>
+										<v-btn color="blue darken-1" text @click="close">
+											Cancel
+										</v-btn>
+										<v-btn color="blue darken-1" text @click="save">
+											Save
+										</v-btn>
+									</v-card-actions>
+								</v-card>
+							</v-dialog>
+							<!-- delete dialog menu popup -->
+							<!-- this does the same as my delete button below  -->
+						</v-toolbar>
+					</template>
+					<!-- TABLE ACTIONS -->
+					<!-- the v-table has slots you can use to change column content. We use this for actions column 
+					this allows us to pass in the edit and delete icons to the actions column
+					we then use the item object passed with scoped slot from v-table(child)-->
+					<template v-slot:[`item.actions`]="{ item }">
+						<!-- used Dynamic Slot Names with string template to get around linting error -->
+						<!-- this is the actions edit button -->
+						<v-icon small class="mr-2" @click="editItem(item)">
+							mdi-pencil
+						</v-icon>
+						<!-- this is the actions delete button -->
+						<v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+					</template>
+					<template #[`item.avatar`]="{ item }">
+						<v-avatar>
+							<img :src="item.avatar" :alt="item.first_name" />
+						</v-avatar>
+					</template>
+					<template v-slot:no-data>
+						<!-- this is the actions reset button that shows when you delete -->
+						<v-btn color="primary" @click="getusernames"> Reset </v-btn>
+					</template>
+				</v-data-table>
+			</v-col>
+		</v-row>
+
+		<!-- SECOND older style table -->
 		<v-row justify-md="center" wrap>
 			<v-col class="d-flex justify-center" md12>
 				<div>
@@ -22,6 +156,7 @@
 								label="Search"
 								single-line
 								hide-details
+								class="ma-2 px-8"
 							/>
 							<!-- New item button section  -->
 							<v-dialog v-model="dialog" max-width="500px">
@@ -91,7 +226,7 @@
 								:items="userList"
 								:items-per-page-options="rowsAmount"
 								:search="search"
-								class="elevation-1"
+								class="elevation-1 secondary"
 							>
 								<!-- change table header background color and text--color inside the headers data prop(class: "tertiary--text text-h6")-->
 								<template v-slot:headerCell="{ header }">
@@ -103,6 +238,11 @@
 								<!-- for item in items -->
 								<!-- You can use the dynamic slots item.<name> to customize only certain columns. <name> is the name of the value property in the corresponding header item sent to headers -->
 								<!--  -->
+								<template #[`item.avatar`]="{ item }">
+									<v-avatar>
+										<img :src="item.avatar" :alt="item.first_name" />
+									</v-avatar>
+								</template>
 								<template #items="props">
 									<!--  -->
 									<td>{{ props.item.id }}</td>
@@ -186,141 +326,6 @@
 				</div>
 			</v-col>
 		</v-row>
-
-		<!-- second table -->
-		<v-row justify-md="center" wrap>
-			<v-col class="d-flex justify-center" md12>
-				<!-- lets you change the props/options for the data table. vuetify iterates through the arrays you feed the headers & items props
-				the headers(array of objects) and items(array of objects)  prop is v-binded into the data () props and passed into the table
-				-->
-				<!-- Headers array object 'value'(value: "first_name") must be the same name as one of your items array(userList) objects propertys(first_name: George)  -->
-				<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
-				<v-data-table
-					:headers="headers"
-					:items="userList"
-					sort-by="id"
-					class="elevation-1 secondary"
-					:mobile-breakpoint="0"
-				>
-					<template v-slot:top>
-						<v-toolbar color="primary" flat>
-							<v-toolbar-title>Users CRUD 2</v-toolbar-title>
-							<v-divider class="mx-4" inset vertical></v-divider>
-							<v-spacer></v-spacer>
-							<!-- this dialog section controls the new item button/pop-up functionality v-model controls dialog pop up -->
-							<v-dialog v-model="dialog" max-width="500px">
-								<!-- controls sending and capturing 'on' event to open v-card dialog pop up -->
-								<template v-slot:activator="{ on, attrs }">
-									<v-btn
-										color="primary"
-										dark
-										class="mb-2"
-										v-bind="attrs"
-										v-on="on"
-									>
-										New Item
-									</v-btn>
-								</template>
-								<!-- this pops up after the new item button is hit, controls the editing pop up -->
-								<v-card>
-									<v-card-title>
-										<!-- changes title based on formTitle index, -1 shows 'New item' any other index shows 'Edit Item' as the title -->
-										<span class="text-h5">{{ formTitle }}</span>
-									</v-card-title>
-									<!-- you add the fields you want to edit here. the v-model needs to bind to the edited item  -->
-									<v-card-text>
-										<v-container>
-											<v-row>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.first_name"
-														label="First Name"
-													></v-text-field>
-												</v-col>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.last_name"
-														label="Last Name"
-													></v-text-field>
-												</v-col>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.email"
-														label="Email"
-													></v-text-field>
-												</v-col>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.isAdmin"
-														label="Adminstrator?"
-													></v-text-field>
-												</v-col>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.isActive"
-														label="Active"
-													></v-text-field>
-												</v-col>
-												<v-col cols="12" sm="6" md="4">
-													<v-text-field
-														v-model="editedItem.lastSeen"
-														label="Last Seen"
-													></v-text-field>
-												</v-col>
-											</v-row>
-										</v-container>
-									</v-card-text>
-									<!--  -->
-									<v-card-actions>
-										<v-spacer></v-spacer>
-										<v-btn color="blue darken-1" text @click="close">
-											Cancel
-										</v-btn>
-										<v-btn color="blue darken-1" text @click="save">
-											Save
-										</v-btn>
-									</v-card-actions>
-								</v-card>
-							</v-dialog>
-							<v-dialog v-model="dialogDelete" max-width="500px">
-								<v-card>
-									<v-card-title class="text-h5"
-										>Are you sure you want to delete this item?</v-card-title
-									>
-									<v-card-actions>
-										<v-spacer></v-spacer>
-										<v-btn color="blue darken-1" text @click="closeDelete"
-											>Cancel</v-btn
-										>
-										<v-btn color="blue darken-1" text @click="deleteItemConfirm"
-											>OK</v-btn
-										>
-										<v-spacer></v-spacer>
-									</v-card-actions>
-								</v-card>
-							</v-dialog>
-						</v-toolbar>
-					</template>
-					<!-- TABLE ACTIONS -->
-					<!-- the v-table has slots you can use to change column content. We use this for actions column 
-					this allows us to pass in the edit and delete icons to the actions column
-					we then use the item object passed with scoped slot from v-table(child)-->
-					<template v-slot:[`item.actions`]="{ item }">
-						<!-- used Dynamic Slot Names with string template to get around linting error -->
-						<!-- this is the actions edit button -->
-						<v-icon small class="mr-2" @click="editItem(item)">
-							mdi-pencil
-						</v-icon>
-						<!-- this is the actions delete button -->
-						<v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-					</template>
-					<template v-slot:no-data>
-						<!-- this is the actions reset button that shows when you delete -->
-						<v-btn color="primary" @click="getusernames"> Reset </v-btn>
-					</template>
-				</v-data-table>
-			</v-col>
-		</v-row>
 	</v-container>
 </template>
 
@@ -335,7 +340,7 @@ export default {
 		pagination: {},
 		userList: [],
 		checkboxAdmin: true,
-		checkboxActive: true,
+		checkboxActive: false,
 		rowsAmount: [
 			15,
 			20,
@@ -361,13 +366,14 @@ export default {
 			{ text: "Last Seen", value: "lastSeen" },
 		],
 		editedIndex: -1,
-		//this is the new item created by copying the userList item. its used in editing menu
+		//this is the new item created by copying the userList item. its used in editing menu and methods
 		editedItem: {
 			first_name: "",
 			last_name: "",
 			email: "",
 			isAdmin: true,
-			isActive: true,
+			isActive: false,
+			lastSeen: "6/18/2022",
 		},
 		defaultItem: {},
 		//second table
@@ -383,6 +389,7 @@ export default {
 	},
 
 	watch: {
+		//when dialog is updated this watcher returns the updated value if the value is true else it calls this.close() method
 		dialog(val) {
 			val || this.close();
 		},
@@ -419,7 +426,7 @@ export default {
 			this.editedIndex = this.userList.indexOf(item);
 			item.isAdmin = this.checkboxAdmin;
 			item.isActive = this.checkboxActive;
-			// makes a new object with the same properties as the item object
+			// makes a new object with the same properties as the item object that is able to be accessed easily by methods and others
 			this.editedItem = Object.assign({}, item);
 			//opens the dialog editing box connected to v-dialog v-model="dialog"
 			this.dialog = dialogbox;
@@ -430,13 +437,14 @@ export default {
 		you then dispatch the updateTableItem action with the new edited from html item
 		you then remove the item from the list as well to update the table
 		 */
+		//this is really only called by delete right now, to create or update we use save(). But it can be expanded with if/switch
 		callTableAction(item, endpoint, method) {
 			const index = this.userList.indexOf(item);
 			let tableItem = this.editedItem;
 			this.$store
 				.dispatch("updateTableItem", { endpoint, tableItem, method })
 				.then(() => {
-					this.userList.splice(index, 1);
+					this.userList.splice(index, 1); //remove/delete the item from the array the table is using
 					this.saveInline(); //calls snackbar noticiation
 				})
 				.catch((error) => {
@@ -446,6 +454,7 @@ export default {
 		},
 		// this sets the item, url path endpoint and the type of api method(delete) for calltableAction
 		deleteItem(item) {
+			//this causes config dialog with 'ok'/'cancel' and if ok is hit this runs
 			if (confirm("Are you sure you want to delete this item?")) {
 				this.editedItem = Object.assign({}, item);
 				let endpoint = `users/delete/${this.editedItem.username}`;
@@ -500,18 +509,7 @@ export default {
 			}
 			this.close();
 		},
-		// second table only
-		closeDelete() {
-			this.dialogDelete = false;
-			this.$nextTick(() => {
-				this.editedItem = Object.assign({}, this.defaultItem);
-				this.editedIndex = -1; // sets the index that controls the title text in the new item pop up
-			});
-		},
-		deleteItemConfirm() {
-			this.userList.splice(this.editedIndex, 1);
-			this.closeDelete();
-		},
+
 		// toasts/snackbar/pop-up messages when you pressactions
 		saveInline() {
 			this.snack = true;
