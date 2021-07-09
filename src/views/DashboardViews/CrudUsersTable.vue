@@ -207,7 +207,9 @@
 							<v-toolbar-title>Users CRUD 2</v-toolbar-title>
 							<v-divider class="mx-4" inset vertical></v-divider>
 							<v-spacer></v-spacer>
+							<!-- this dialog section controls the new item button/pop-up functionality -->
 							<v-dialog v-model="dialog" max-width="500px">
+								<!-- controls sending and capturing 'on' event to open v-card dialog pop up -->
 								<template v-slot:activator="{ on, attrs }">
 									<v-btn
 										color="primary"
@@ -219,12 +221,13 @@
 										New Item
 									</v-btn>
 								</template>
+								<!--  -->
 								<v-card>
 									<v-card-title>
 										<!-- changes title based on formTitle index -->
 										<span class="text-h5">{{ formTitle }}</span>
 									</v-card-title>
-
+									<!--  -->
 									<v-card-text>
 										<v-container>
 											<v-row>
@@ -267,7 +270,7 @@
 											</v-row>
 										</v-container>
 									</v-card-text>
-
+									<!--  -->
 									<v-card-actions>
 										<v-spacer></v-spacer>
 										<v-btn color="blue darken-1" text @click="close">
@@ -405,6 +408,7 @@ export default {
 
 		// object.assign fills in the empty object with the properties of item
 		editItem(item, dbox = true) {
+			// sets the index that controls the title text in the new item pop up
 			this.editedIndex = this.userList.indexOf(item);
 			item.isAdmin = this.checkboxAdmin;
 			item.isActive = this.checkboxActive;
@@ -413,7 +417,12 @@ export default {
 			//short for dialogbox
 			this.dialog = dbox;
 		},
-
+		/* This is a dynamic method that handles sending vuex actions to call different axios endpoints with different methods
+		you get the index of the item passed in via another method, 
+		you use the edited item created in the method that called this one and assign to tableITem to use later
+		you then dispatch the updateTableItem action with the new edited from html item
+		you then remove the item from the list as well to update the table
+		 */
 		callTableAction(item, endpoint, method) {
 			const index = this.userList.indexOf(item);
 			let tableItem = this.editedItem;
@@ -428,25 +437,27 @@ export default {
 					this.cancelInline; //calls snackbar noticiation
 				});
 		},
-
+		// this sets the item, url path endpoint and the type of api method(delete) for calltableAction
 		deleteItem(item) {
 			if (confirm("Are you sure you want to delete this item?")) {
 				this.editedItem = Object.assign({}, item);
 				let endpoint = `users/delete/${this.editedItem.username}`;
 				let method = "delete";
+				// calls callTableActions which is a method above that handles calling axios via vuex actions
 				this.callTableAction(item, endpoint, method);
 			}
 		},
-
+		// closes the dialog pop up
 		close() {
 			this.dialog = false;
 			setTimeout(() => {
 				this.editedItem = Object.assign({}, this.defaultItem);
-				this.editedIndex = -1;
+				this.editedIndex = -1; // resets the index that controls the title text in the new item pop up
 			}, 300);
 		},
 
 		save() {
+			//if its greater than -1 then its an already exisiting item, so we update the table differently
 			if (this.editedIndex > -1) {
 				let tableItem = this.editedItem;
 				let endpoint = `users/update/${this.editedItem.username}`;
@@ -454,6 +465,7 @@ export default {
 				this.$store
 					.dispatch("updateTableItem", { endpoint, tableItem, method })
 					.then(() => {
+						// merge both objects to update the original object in userList to update table
 						Object.assign(this.userList[this.editedIndex], this.editedItem);
 						this.saveInline(); //calls snackbar noticiation
 					})
@@ -462,12 +474,14 @@ export default {
 						this.cancelInline; //calls snackbar noticiation
 					});
 			} else {
+				//if the index is greater than -1 then its a new item/user so we do a different set of actions to add a new item
 				let tableItem = this.editedItem;
 				let endpoint = `users/new-user`;
 				let method = "post";
 				this.$store
 					.dispatch("updateTableItem", { endpoint, tableItem, method })
 					.then(() => {
+						// instead of merging objects in userList we add new object to user list with .push()
 						console.log("new user");
 						this.userList.push(this.editedItem);
 					})
@@ -483,7 +497,7 @@ export default {
 			this.dialogDelete = false;
 			this.$nextTick(() => {
 				this.editedItem = Object.assign({}, this.defaultItem);
-				this.editedIndex = -1;
+				this.editedIndex = -1; // sets the index that controls the title text in the new item pop up
 			});
 		},
 		deleteItemConfirm() {
