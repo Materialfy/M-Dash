@@ -57,11 +57,14 @@
 						>
 						<v-layout justify-center>
 							<!--!<v-btn v-on:click="$emit('persistant-drawer')" label="persistant-drawer" />-->
-							<v-switch
-								v-model="$vuetify.theme.dark"
-								:label="toggleText()"
-								color="secondary"
-							/>
+							<v-switch v-model="$vuetify.theme.dark" color="secondary">
+								<!-- this uses ternary operator to decide text -->
+								<template v-slot:label>
+									<span class="secondary--text">
+										{{ $vuetify.theme.dark ? "Dark Mode On" : "Light Mode On" }}
+									</span>
+								</template>
+							</v-switch>
 						</v-layout>
 						<v-divider class="mt-3" />
 					</v-flex>
@@ -151,7 +154,7 @@
 				"#1E88E5",
 				"#26C6DA",
 				"#43A047",
-				"#FF9100",
+				"#90A4AE",
 			],
 			iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
 			activeColor: null,

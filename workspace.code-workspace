@@ -17,6 +17,7 @@
 			".md": true,
 			"**/*.code-search": false,
 			"**/*.md": true
-		}
+		},
+		"editor.defaultFormatter": "octref.vetur"
 	}
 }
