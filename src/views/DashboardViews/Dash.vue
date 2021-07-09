@@ -1,42 +1,46 @@
 <template>
-	<v-container fluid color="primary">
+	<v-container fluid>
 		<!-- First Row with header and basic cards -->
 		<v-row class="d-flex align-center mb-2">
 			<v-col>
-				<MaterialfyHeaderCard 
+				<MaterialfyHeaderCard
 					cardTitle="Employee Stats"
 					:cardShowInnerList="false"
 					:cardShowActions="false"
 					:cardShowDivider="false"
 				>
 					<template #crdInner>
-						<v-data-table 
-							:headers="headers" 
-							:items="items" 
-							hide-default-footer 
+						<v-data-table
+							:headers="headers"
+							:items="items"
+							hide-default-footer
+							:mobile-breakpoint="0"
 							class="elevation-1 primary"
 						>
-						<template slot="headerCell" slot-scope="{ header }">
-							<span
-								class="font-weight-light text-warning text--darken-3 text--red"
-								v-text="header.text"
-							/>
-						</template>
-						<!-- use a scoped slot to send data to child to be processed and returned -->
-						<template slot="items" slot-scope="{ index, item }">
-							<td>{{ index + 1 }}</td>
-							<td>{{ item.name }}</td>
-							<td class="text-right">
-								{{ item.salary }}
-							</td>
-							<td class="text-right">
-								{{ item.country }}
-							</td>
-							<td class="text-right">
-								{{ item.city }}
-							</td>
-						</template>
-					</v-data-table>
+							<template slot="headerCell" slot-scope="{ header }">
+								<span
+									class="
+										font-weight-light
+										text-warning text--darken-3 text--red
+									"
+									v-text="header.text"
+								/>
+							</template>
+							<!-- use a scoped slot to send data to child to be processed and returned -->
+							<template slot="items" slot-scope="{ index, item }">
+								<td>{{ index + 1 }}</td>
+								<td>{{ item.name }}</td>
+								<td class="text-right">
+									{{ item.salary }}
+								</td>
+								<td class="text-right">
+									{{ item.country }}
+								</td>
+								<td class="text-right">
+									{{ item.city }}
+								</td>
+							</template>
+						</v-data-table>
 					</template>
 				</MaterialfyHeaderCard>
 			</v-col>
@@ -54,10 +58,10 @@
 				<MaterialfyColorCard />
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard 
-					cardMaxWidth="400" 
-					cardInnerText="User Engagement" 
-					:cardShowDivider="false" 
+				<MaterialfyColorCard
+					cardMaxWidth="400"
+					cardInnerText="User Engagement"
+					:cardShowDivider="false"
 					:cardShowActions="false"
 				>
 					<template v-slot:crdInner>
@@ -91,7 +95,7 @@
 				<MaterialfyHeaderCard
 					cardTitle="Users Monthly Logins"
 					cardIcon="mdi-access-point-plus"
-					:cardShowDivider="false" 
+					:cardShowDivider="false"
 					:cardShowActions="false"
 				>
 					<template v-slot:crdInnerList>
@@ -140,104 +144,104 @@
 </template>
 
 <script>
-	const gradients = [
-		["#222"],
-		["#42b3f4"],
-		["red", "orange", "yellow"],
-		["purple", "violet"],
-		["#00c6ff", "#F0F", "#FF0"],
-		["#f72047", "#ffd200", "#1feaea"],
-	];
-	export default {
-		data: () => ({
-			labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
-			value: [200, 300, 410, 390, 420, 460, 420, 420],
-			width: 2,
-			radius: 10,
-			padding: 8,
-			lineCap: "round",
-			gradient: gradients[5],
-			value2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
-			gradientDirection: "top",
-			gradients,
-			fill: false,
-			type: "trend",
-			autoLineWidth: false,
-			headers: [
-				{
-					sortable: false,
-					text: "ID",
-					value: "id",
-					class: "tertiary--text text-h6"
-				},
-				{
-					sortable: false,
-					text: "Name",
-					value: "name",
-					class: "tertiary--text text-h6"
-				},
-				{
-					sortable: false,
-					text: "Salary",
-					value: "salary",
-					align: "float-right",
-					class: "tertiary--text text-h6"
-				},
-				{
-					sortable: false,
-					text: "Country",
-					value: "country",
-					align: "float-right",
-					class: "tertiary--text text-h6"
-				},
-				{
-					sortable: false,
-					text: "City",
-					value: "city",
-					align: "float-right",
-					class: "tertiary--text text-h6"
-				},
-			],
-			items: [
-				{
-					name: "Dakota Rice",
-					country: "Niger",
-					city: "Oud-Tunrhout",
-					salary: "$35,738",
-				},
-				{
-					name: "Minerva Hooper",
-					country: "Curaçao",
-					city: "Sinaai-Waas",
-					salary: "$23,738",
-				},
-				{
-					name: "Sage Rodriguez",
-					country: "Netherlands",
-					city: "Overland Park",
-					salary: "$56,142",
-				},
-				{
-					name: "Philip Chanley",
-					country: "Korea, South",
-					city: "Gloucester",
-					salary: "$38,735",
-				},
-				{
-					name: "Doris Greene",
-					country: "Malawi",
-					city: "Feldkirchen in Kārnten",
-					salary: "$63,542",
-				},
-			],
-			tabs: 0,
-			list: {
-				0: false,
-				1: false,
-				2: false,
+const gradients = [
+	["#222"],
+	["#42b3f4"],
+	["red", "orange", "yellow"],
+	["purple", "violet"],
+	["#00c6ff", "#F0F", "#FF0"],
+	["#f72047", "#ffd200", "#1feaea"],
+];
+export default {
+	data: () => ({
+		labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
+		value: [200, 300, 410, 390, 420, 460, 420, 420],
+		width: 2,
+		radius: 10,
+		padding: 8,
+		lineCap: "round",
+		gradient: gradients[5],
+		value2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
+		gradientDirection: "top",
+		gradients,
+		fill: false,
+		type: "trend",
+		autoLineWidth: false,
+		headers: [
+			{
+				sortable: false,
+				text: "ID",
+				value: "id",
+				class: "tertiary--text text-h6",
 			},
-		}),
-	};
+			{
+				sortable: false,
+				text: "Name",
+				value: "name",
+				class: "tertiary--text text-h6",
+			},
+			{
+				sortable: false,
+				text: "Salary",
+				value: "salary",
+				align: "float-right",
+				class: "tertiary--text text-h6",
+			},
+			{
+				sortable: false,
+				text: "Country",
+				value: "country",
+				align: "float-right",
+				class: "tertiary--text text-h6",
+			},
+			{
+				sortable: false,
+				text: "City",
+				value: "city",
+				align: "float-right",
+				class: "tertiary--text text-h6",
+			},
+		],
+		items: [
+			{
+				name: "Dakota Rice",
+				country: "Niger",
+				city: "Oud-Tunrhout",
+				salary: "$35,738",
+			},
+			{
+				name: "Minerva Hooper",
+				country: "Curaçao",
+				city: "Sinaai-Waas",
+				salary: "$23,738",
+			},
+			{
+				name: "Sage Rodriguez",
+				country: "Netherlands",
+				city: "Overland Park",
+				salary: "$56,142",
+			},
+			{
+				name: "Philip Chanley",
+				country: "Korea, South",
+				city: "Gloucester",
+				salary: "$38,735",
+			},
+			{
+				name: "Doris Greene",
+				country: "Malawi",
+				city: "Feldkirchen in Kārnten",
+				salary: "$63,542",
+			},
+		],
+		tabs: 0,
+		list: {
+			0: false,
+			1: false,
+			2: false,
+		},
+	}),
+};
 </script>
 
 <style></style>

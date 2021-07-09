@@ -190,14 +190,20 @@
 		<!-- second table -->
 		<v-row justify-md="center" wrap>
 			<v-col class="d-flex justify-center" md12>
+				<!-- lets you change the props/options for the data table. vuetify iterates through the arrays you feed the headers & items props
+				the headers(array of objects) and items(array of objects)  prop is v-binded into the data () props and passed into the table
+				-->
+				<!-- Headers array object 'value'(value: "first_name") must be the same name as one of your items array(userList) objects propertys(first_name: George)  -->
+				<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
 				<v-data-table
 					:headers="headers"
 					:items="userList"
-					sort-by="calories"
-					class="elevation-1"
+					sort-by="id"
+					class="elevation-1 secondary"
+					:mobile-breakpoint="0"
 				>
 					<template v-slot:top>
-						<v-toolbar flat>
+						<v-toolbar color="primary" flat>
 							<v-toolbar-title>Users CRUD 2</v-toolbar-title>
 							<v-divider class="mx-4" inset vertical></v-divider>
 							<v-spacer></v-spacer>
@@ -215,7 +221,7 @@
 								</template>
 								<v-card>
 									<v-card-title>
-										<!-- changes title based on index -->
+										<!-- changes title based on formTitle index -->
 										<span class="text-h5">{{ formTitle }}</span>
 									</v-card-title>
 
@@ -348,7 +354,7 @@ export default {
 			{ text: "Actions", value: "actions", sortable: false },
 			{ text: "Admin", value: "isAdmin" },
 			{ text: "Active", value: "isActive" },
-			{ text: "lastSeen", value: "lastSeen" },
+			{ text: "Last Seen", value: "lastSeen" },
 		],
 		editedIndex: -1,
 		editedItem: {
