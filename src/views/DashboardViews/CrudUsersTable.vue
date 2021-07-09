@@ -207,7 +207,7 @@
 							<v-toolbar-title>Users CRUD 2</v-toolbar-title>
 							<v-divider class="mx-4" inset vertical></v-divider>
 							<v-spacer></v-spacer>
-							<!-- this dialog section controls the new item button/pop-up functionality -->
+							<!-- this dialog section controls the new item button/pop-up functionality v-model controls dialog pop up -->
 							<v-dialog v-model="dialog" max-width="500px">
 								<!-- controls sending and capturing 'on' event to open v-card dialog pop up -->
 								<template v-slot:activator="{ on, attrs }">
@@ -221,13 +221,13 @@
 										New Item
 									</v-btn>
 								</template>
-								<!--  -->
+								<!-- this pops up after the new item button is hit, controls the editing pop up -->
 								<v-card>
 									<v-card-title>
-										<!-- changes title based on formTitle index -->
+										<!-- changes title based on formTitle index, -1 shows 'New item' any other index shows 'Edit Item' as the title -->
 										<span class="text-h5">{{ formTitle }}</span>
 									</v-card-title>
-									<!--  -->
+									<!-- you add the fields you want to edit here. the v-model needs to bind to the edited item  -->
 									<v-card-text>
 										<v-container>
 											<v-row>
@@ -301,6 +301,7 @@
 							</v-dialog>
 						</v-toolbar>
 					</template>
+					<!-- TABLE ACTIONS -->
 					<!-- the v-table has slots you can use to change column content. We use this for actions column 
 					this allows us to pass in the edit and delete icons to the actions column
 					we then use the item object passed with scoped slot from v-table(child)-->
@@ -360,9 +361,10 @@ export default {
 			{ text: "Last Seen", value: "lastSeen" },
 		],
 		editedIndex: -1,
+		//this is the new item created by copying the userList item. its used in editing menu
 		editedItem: {
-			username: "",
-			password: "",
+			first_name: "",
+			last_name: "",
 			email: "",
 			isAdmin: true,
 			isActive: true,
@@ -374,6 +376,7 @@ export default {
 
 	computed: {
 		//Changes the title of the v-card based on if the editied index is the same as -1
+		//the default index is -1 so it assumes if there is no item index then its a new item
 		formTitle() {
 			return this.editedIndex === -1 ? "New Item" : "Edit Item";
 		},
@@ -396,6 +399,7 @@ export default {
 	},
 	//These are for both tables unless specified
 	methods: {
+		//uses axios to send get request to api in genericAPI
 		getusernames() {
 			genericApi
 				.get("users")
@@ -407,15 +411,18 @@ export default {
 		},
 
 		// object.assign fills in the empty object with the properties of item
-		editItem(item, dbox = true) {
-			// sets the index that controls the title text in the new item pop up
+		editItem(item, dialogbox = true) {
+			/* sets the index that controls the title text in the new item pop up
+			this updates the editedIndex from being -1 to whatever the index of the table item is that you are editing
+			this function is called by the @click edit icons in table actions
+			*/
 			this.editedIndex = this.userList.indexOf(item);
 			item.isAdmin = this.checkboxAdmin;
 			item.isActive = this.checkboxActive;
 			// makes a new object with the same properties as the item object
 			this.editedItem = Object.assign({}, item);
-			//short for dialogbox
-			this.dialog = dbox;
+			//opens the dialog editing box connected to v-dialog v-model="dialog"
+			this.dialog = dialogbox;
 		},
 		/* This is a dynamic method that handles sending vuex actions to call different axios endpoints with different methods
 		you get the index of the item passed in via another method, 
@@ -447,7 +454,7 @@ export default {
 				this.callTableAction(item, endpoint, method);
 			}
 		},
-		// closes the dialog pop up
+		// closes the dialog pop up and resets index until its opened again
 		close() {
 			this.dialog = false;
 			setTimeout(() => {
@@ -457,7 +464,8 @@ export default {
 		},
 
 		save() {
-			//if its greater than -1 then its an already exisiting item, so we update the table differently
+			//if editedIndex is greater than -1 then the item we are trying to save is an already exisiting item, so we update the table differently
+			//when you open the editItem menu it sets the index to the items index, which then is used here to determine what to do
 			if (this.editedIndex > -1) {
 				let tableItem = this.editedItem;
 				let endpoint = `users/update/${this.editedItem.username}`;
@@ -474,7 +482,7 @@ export default {
 						this.cancelInline; //calls snackbar noticiation
 					});
 			} else {
-				//if the index is greater than -1 then its a new item/user so we do a different set of actions to add a new item
+				//if the editedIndex isnt greater than -1 then its a new item/user so we do a different set of actions to add a new item
 				let tableItem = this.editedItem;
 				let endpoint = `users/new-user`;
 				let method = "post";
