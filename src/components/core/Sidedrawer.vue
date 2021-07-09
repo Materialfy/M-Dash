@@ -39,7 +39,13 @@
 							v-model="alwaysClosed"
 							:label="alwaysClosed ? 'Temp Drawer on' : 'Persistant Drawer on'"
 							color="secondary"
-						/>
+						>
+							<template v-slot:label>
+								<span class="secondary--text">
+									{{ alwaysClosed ? "Temp Drawer on" : "Persistant Drawer on" }}
+								</span>
+							</template>
+						</v-switch>
 					</v-list-item>
 				</v-row>
 			</v-img>
