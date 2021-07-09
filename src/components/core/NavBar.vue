@@ -5,10 +5,11 @@
 		<!-- controls the sidebar colapsing-->
 		<v-app-bar-nav-icon @click="drawerButton" />
 		<router-link to="/">
-			<v-app-bar-title >
+			<v-app-bar-title>
 				{{ title }}
 			</v-app-bar-title>
 		</router-link>
+		<v-divider class="mx-4" inset vertical></v-divider>
 		<!-- When placing a single v-spacer before or after the child components, 
 		the components will push to the right and left of its container -->
 		<v-spacer />
@@ -21,10 +22,13 @@
 					<v-icon>mdi-account</v-icon>
 				</v-btn>
 			</template>
-			<MaterialfyUserSnippet :buttonColor="btnColor" :cardBottom="crdBottom" :cardSearch="true" />
+			<MaterialfyUserSnippet
+				:buttonColor="btnColor"
+				:cardBottom="crdBottom"
+				:cardSearch="true"
+			/>
 		</v-menu>
 		<MaterialfySettings :buttonColor="btnColor" />
-
 	</v-app-bar>
 </template>
 
@@ -35,7 +39,9 @@
 		data() {
 			return {
 				//if the app is on mobile devices it changes the title
-				title: this.$vuetify.breakpoint.mobile ?' M-Dashboard' : 'M-Dashboard by Materialfy',
+				title: this.$vuetify.breakpoint.mobile
+					? " M-Dashboard"
+					: "M-Dashboard by Materialfy",
 				group: null,
 				message: null,
 				btnColor: "tertiary",

@@ -30,6 +30,7 @@
 						<v-list-item-action>
 							<v-icon>{{ link.icon }}</v-icon>
 						</v-list-item-action>
+
 						<v-list-item-title v-text="link.text" />
 					</v-list-item>
 					<v-divider class="mt-2" />
@@ -37,7 +38,7 @@
 						<v-switch
 							v-model="alwaysClosed"
 							:label="alwaysClosed ? 'Temp Drawer on' : 'Persistant Drawer on'"
-							color="primary"
+							color="secondary"
 						/>
 					</v-list-item>
 				</v-row>

@@ -1,3 +1,4 @@
+<!-- https://vuetifyjs.com/en/api/v-data-table/#api-props  -->
 <template>
 	<v-container fill-height grid-list-xl>
 		<v-row justify-md="center" wrap>
@@ -12,6 +13,7 @@
 						:cardShowInnerList="false"
 						class="pa-3"
 					>
+						<!-- passing the data table into materialfy card slot  -->
 						<template v-slot:crdInner>
 							<v-spacer />
 							<v-text-field
@@ -20,15 +22,16 @@
 								label="Search"
 								single-line
 								hide-details
-								
 							/>
+							<!-- New item button section  -->
 							<v-dialog v-model="dialog" max-width="500px">
+								<!-- activates the pop-up v-card by recieving 'on' event(v-on="on")  -->
 								<template #activator="{ on }">
 									<v-btn color="tertiary" class="my-2" v-on="on">
 										New Item
 									</v-btn>
 								</template>
-
+								<!-- Content of the add new item popup  -->
 								<v-card>
 									<v-card-text>
 										<v-container grid-list-md>
@@ -66,7 +69,7 @@
 											</v-row>
 										</v-container>
 									</v-card-text>
-
+									<!-- this is the actions section which calls close or save methods of the popup -->
 									<v-card-actions>
 										<v-spacer />
 										<v-btn color="blue darken-1" text @click="close">
@@ -78,7 +81,11 @@
 									</v-card-actions>
 								</v-card>
 							</v-dialog>
-							<!-- lets you change the options for the data table -->
+							<!-- lets you change the props/options for the data table. vuetify iterates through the arrays you feed the headers & items props
+							the headers(array of objects) and items(array of objects)  prop is v-binded into the data () props and passed into the table
+							-->
+							<!-- Headers array object 'value'(value: "first_name") must be the same name as one of your items array(UserList) objects propertys(first_name: George)  -->
+							<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
 							<v-data-table
 								:headers="headers"
 								:items="UserList"
@@ -86,20 +93,21 @@
 								:search="search"
 								class="elevation-1"
 							>
-								<!-- change table header background and text color(or other properties) -->
-								<template slot="headerCell" slot-scope="{ header }">
-									<span
-										class="
-											subheading
-											font-weight-light
-											text-general text--darken-3
-										"
-										v-text="header.text"
-									/>
+								<!-- change table header background color and text--color inside the headers data prop(class: "tertiary--text text-h6")-->
+								<template v-slot:headerCell="{ header }">
+									<!-- you get the value of the header objects property 'text'  -->
+									<span v-text="header.text" />
 								</template>
+								<!--  named(items) scoped(props) v-slot -->
+								<!-- This uses the array you passed into the items prop above -->
+								<!-- for item in items -->
+								<!-- You can use the dynamic slots item.<name> to customize only certain columns. <name> is the name of the value property in the corresponding header item sent to headers -->
+								<!--  -->
 								<template #items="props">
+									<!--  -->
 									<td>{{ props.item.id }}</td>
 									<td class="justify-center">
+										<!--  -->
 										<v-icon medium class="mr-2" @click="editItem(props.item)">
 											edit
 										</v-icon>
@@ -107,6 +115,7 @@
 											delete
 										</v-icon>
 									</td>
+									<!--  -->
 									<td>
 										<v-edit-dialog
 											:return-value.sync="props.item.first_name"
@@ -131,7 +140,7 @@
 											</template>
 										</v-edit-dialog>
 									</td>
-
+									<!--  -->
 									<td>
 										<v-edit-dialog
 											:return-value.sync="props.item.email"
@@ -156,6 +165,7 @@
 											</template>
 										</v-edit-dialog>
 									</td>
+									<!--  -->
 									<td class="">
 										{{ props.item.isAdmin }}
 									</td>
@@ -164,9 +174,6 @@
 									</td>
 									<td class="">
 										{{ props.item.lastSeen }}
-									</td>
-									<td v-show="false">
-										{{ props.item.password }}
 									</td>
 								</template>
 							</v-data-table>
@@ -183,8 +190,8 @@
 </template>
 
 <script>
-import { genericApi } from "../../plugins/axios";
-	export default {  
+	import { genericApi } from "../../plugins/axios";
+	export default {
 		data: () => ({
 			snack: false,
 			snackColor: "",
@@ -205,12 +212,13 @@ import { genericApi } from "../../plugins/axios";
 			headers: [
 				{ text: "Id", align: "left", value: "id" },
 				{ text: "-----Actions-----", value: "actions", sortable: false },
-				{ text: "first name", value: "first_name" },
+				{ text: "Avatar", value: "Avatar" },
+				{ text: "First Name", value: "first_name" },
+				{ text: "Last Name", value: "last_name" },
 				{ text: "email", value: "email" },
 				{ text: "isAdmin", value: "isAdmin" },
 				{ text: "isActive", value: "isActive" },
 				{ text: "lastSeen", value: "lastSeen" },
-				{ text: "password", value: "password" },
 			],
 			editedIndex: -1,
 			editedItem: {
@@ -244,10 +252,11 @@ import { genericApi } from "../../plugins/axios";
 
 		methods: {
 			getusernames() {
-				genericApi.get("users")
+				genericApi
+					.get("users")
 					.then((response) => {
 						this.UserList = response.data.data;
-						console.log(this.UserList)
+						console.log(this.UserList);
 					})
 					.catch((error) => console.log(error));
 			},
