@@ -1,11 +1,9 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
-import "@mdi/font/css/materialdesignicons.css"; 
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import Vue from "vue";
+import Vuetify from "vuetify/lib/framework";
+import "@mdi/font/css/materialdesignicons.css";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 Vue.use(Vuetify);
-
-
 
 export default new Vuetify({
 	icons: {
@@ -18,7 +16,7 @@ export default new Vuetify({
 				primary: "#607D8B",
 				secondary: "#EEEEEE",
 				tertiary: "#ffc107",
-				accent: "#ffc107",
+				accent: "#26C6DA",
 				error: "#f44336",
 				warning: "#ff5722",
 				danger: "#CE93D8",
@@ -32,7 +30,7 @@ export default new Vuetify({
 				primary: "#424242",
 				secondary: "#EEEEEE",
 				tertiary: "#82B1FF",
-				accent: "#82B1FF",
+				accent: "#26C6DA",
 				error: "#f55a4e",
 				info: "#00d3ee",
 				success: "#5cb860",
