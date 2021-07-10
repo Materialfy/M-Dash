@@ -45,9 +45,149 @@
 					</template>
 				</MaterialfyHeaderCard>
 			</v-col>
+			<!-- v-tab table card -->
 			<v-col>
-				<MaterialfyBasicCard>
-					<template v-slot:crdInnerList> </template>
+				<MaterialfyBasicCard :cardShowTitle="false">
+					<template v-slot:crdOverline
+						><v-tabs v-model="tabs" color="primary" slider-color="primary">
+							<!-- v-tab-item -> v-tab , span is the card text span-->
+							<span
+								class="text-subtitle-1 mr-3 secondary"
+								style="align-self: center"
+							>
+								Tasks:
+							</span>
+							<v-tab class="mr-3 secondary" eager>
+								<v-icon class="mr-2"> mdi-bug </v-icon>
+								Bugs
+							</v-tab>
+							<v-tab class="mr-3 secondary">
+								<v-icon class="mr-2"> mdi-code-tags </v-icon>
+								Website
+							</v-tab>
+							<v-tab class="secondary">
+								<v-icon class="mr-2"> mdi-cloud </v-icon>
+								Server
+							</v-tab>
+						</v-tabs>
+					</template>
+					<template #crdInner>
+						<v-tabs-items v-model="tabs">
+							<v-tab-item v-for="n in 3" :key="n">
+								<v-list three-line>
+									<v-list-item @click="complete(0)">
+										<v-list-item-action>
+											<v-checkbox :value="list[0]" color="green" />
+										</v-list-item-action>
+										<v-list-item-title>
+											Sign contract for "What are afraid of?"
+										</v-list-item-title>
+										<div class="d-flex">
+											<v-tooltip top content-class="top">
+												<template #activator="{ on }">
+													<v-btn
+														class="v-btn--simple"
+														color="success"
+														icon
+														v-on="on"
+													>
+														<v-icon color="primary"> mdi-pencil </v-icon>
+													</v-btn>
+												</template>
+												<span>Edit</span>
+											</v-tooltip>
+											<v-tooltip top content-class="top">
+												<template #activator="{ on }">
+													<v-btn
+														class="v-btn--simple"
+														color="danger"
+														icon
+														v-on="on"
+													>
+														<v-icon color="error"> mdi-close </v-icon>
+													</v-btn>
+												</template>
+												<span>Close</span>
+											</v-tooltip>
+										</div>
+									</v-list-item>
+									<v-divider />
+									<v-list-item @click="complete(1)">
+										<v-list-item-action>
+											<v-checkbox :value="list[1]" color="success" />
+										</v-list-item-action>
+										<v-list-item-title>
+											Lines From Great Russian Literature? Or E-mails From My
+											Boss?
+										</v-list-item-title>
+										<div class="d-flex">
+											<v-tooltip top content-class="top">
+												<template #activator="{ on }">
+													<v-btn
+														class="v-btn--simple"
+														color="success"
+														icon
+														v-on="on"
+													>
+														<v-icon color="primary"> mdi-pencil </v-icon>
+													</v-btn>
+												</template>
+												<span>Edit</span>
+											</v-tooltip>
+
+											<v-tooltip top content-class="top">
+												<template v-slot:activator="{ on }">
+													<v-btn
+														class="v-btn--simple"
+														color="danger"
+														icon
+														v-on="on"
+													>
+														<v-icon color="error"> mdi-close </v-icon>
+													</v-btn>
+												</template>
+												<span>Close</span>
+											</v-tooltip>
+										</div>
+									</v-list-item>
+									<v-divider />
+									<v-list-item @click="complete(2)">
+										<v-list-item-action>
+											<v-checkbox :value="list[2]" color="success" />
+										</v-list-item-action>
+										<v-list-item-title>
+											Flooded: One year later, assessing what was lost and what
+											was found when a ravaging rain swept through metro Detroit
+										</v-list-item-title>
+										<div class="d-flex">
+											<v-tooltip top content-class="top">
+												<v-btn
+													class="v-btn--simple"
+													color="success"
+													icon
+													v-on="on"
+												>
+													<v-icon color="primary"> mdi-pencil </v-icon>
+												</v-btn>
+												<span>Edit</span>
+											</v-tooltip>
+											<v-tooltip top content-class="top">
+												<v-btn
+													class="v-btn--simple"
+													color="danger"
+													icon
+													v-on="on"
+												>
+													<v-icon color="error"> mdi-close </v-icon>
+												</v-btn>
+												<span>Close</span>
+											</v-tooltip>
+										</div>
+									</v-list-item>
+								</v-list>
+							</v-tab-item>
+						</v-tabs-items>
+					</template>
 				</MaterialfyBasicCard>
 			</v-col>
 			<v-col>
@@ -245,6 +385,11 @@ export default {
 			2: false,
 		},
 	}),
+	methods: {
+		complete(index) {
+			this.list[index] = !this.list[index];
+		},
+	},
 };
 </script>
 

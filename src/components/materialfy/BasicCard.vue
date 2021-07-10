@@ -52,7 +52,7 @@ export default {
 			default: "300",
 		},
 		cardMaxWidth: {
-			default: "400",
+			default: "600",
 		},
 		cardTitle: {
 			default: "Materailfy Basic Card",
