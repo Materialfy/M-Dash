@@ -15,60 +15,54 @@
 		<v-spacer />
 		<MaterialfyNotifications :buttonColor="btnColor" />
 		<!-- userSnippet.vue menu -->
-		<v-menu nudge-bottom="57" :close-on-content-click="false">
-			<!-- recieving the "on" event lsitener -->
-			<template v-slot:activator="{ on }">
-				<v-btn v-on="on" icon :color="btnColor" class="ml3">
-					<v-icon>mdi-account</v-icon>
-				</v-btn>
-			</template>
-			<MaterialfyUserSnippet
-				:buttonColor="btnColor"
-				:cardBottom="crdBottom"
-				:cardSearch="true"
-			/>
-		</v-menu>
+
+		<MaterialfyUserSnippet
+			:buttonColor="btnColor"
+			:cardBottom="crdBottom"
+			:cardSearch="true"
+		/>
+
 		<MaterialfySettings :buttonColor="btnColor" />
 	</v-app-bar>
 </template>
 
 <script>
-	import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
-	export default {
-		data() {
-			return {
-				//if the app is on mobile devices it changes the title
-				title: this.$vuetify.breakpoint.mobile
-					? " M-Dashboard"
-					: "M-Dashboard by Materialfy",
-				group: null,
-				message: null,
-				btnColor: "tertiary",
-				crdBottom: true,
-			};
+export default {
+	data() {
+		return {
+			//if the app is on mobile devices it changes the title
+			title: this.$vuetify.breakpoint.mobile
+				? " M-Dashboard"
+				: "M-Dashboard by Materialfy",
+			group: null,
+			message: null,
+			btnColor: "tertiary",
+			crdBottom: true,
+		};
+	},
+	computed: {
+		...mapGetters(["authorized"]),
+	},
+	watch: {},
+	created() {},
+	beforeDestroy() {},
+	methods: {
+		...mapActions(
+			"drawertoggle", // chooses which namespaced state module to get the mutations from
+			["drawerOn"]
+		),
+		drawerButton() {
+			// this calls the action drawerOn which then commits the toggle mutation
+			this.drawerOn();
 		},
-		computed: {
-			...mapGetters(["authorized"]),
-		},
-		watch: {},
-		created() {},
-		beforeDestroy() {},
-		methods: {
-			...mapActions(
-				"drawertoggle", // chooses which namespaced state module to get the mutations from
-				["drawerOn"]
-			),
-			drawerButton() {
-				// this calls the action drawerOn which then commits the toggle mutation
-				this.drawerOn();
-			},
-		},
-	};
+	},
+};
 </script>
 
 <style>
-	.v-app-bar-title__content {
-		/*width: 280px; */
-	}
+.v-app-bar-title__content {
+	/*width: 280px; */
+}
 </style>

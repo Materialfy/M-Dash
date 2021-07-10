@@ -17,7 +17,7 @@
 							:items="items"
 							hide-default-footer
 							:mobile-breakpoint="0"
-							class="elevation-1 primary"
+							class="primary"
 						>
 							<template slot="headerCell" slot-scope="{ header }">
 								<span

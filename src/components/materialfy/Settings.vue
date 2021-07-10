@@ -140,78 +140,78 @@
 </template>
 
 <script>
-	// Utilities
-	import { mapMutations, mapState } from "vuex";
-	import { mdiAccount, mdiCog } from "@mdi/js";
-	export default {
-		data: () => ({
-			colors: [
-				"#ffc107",
-				"#82B1FF",
-				"#F44336",
-				"#AB47BC",
-				"#3949AB",
-				"#1E88E5",
-				"#26C6DA",
-				"#43A047",
-				"#90A4AE",
-			],
-			iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
-			activeColor: null,
-			images: [
-				// eslint-disable-next-line no-undef
-				require("@/assets/img/first.png"),
-				// eslint-disable-next-line no-undef
-				require("@/assets/img/second.png"),
-				// eslint-disable-next-line no-undef
-				require("@/assets/img/third.png"),
-				"",
-			],
-		}),
-		props: ["buttonColor"],
+// Utilities
+import { mapMutations, mapState } from "vuex";
+import { mdiAccount, mdiCog } from "@mdi/js";
+export default {
+	data: () => ({
+		colors: [
+			"#ffc107",
+			"#82B1FF",
+			"#F44336",
+			"#AB47BC",
+			"#3949AB",
+			"#1E88E5",
+			"#26C6DA",
+			"#43A047",
+			"#90A4AE",
+		],
+		iconSelect: [mdiAccount, mdiCog], // lets you import just the icons you need and switch by changing index
+		activeColor: null,
+		images: [
+			// eslint-disable-next-line no-undef
+			require("@/assets/img/first.png"),
+			// eslint-disable-next-line no-undef
+			require("@/assets/img/second.png"),
+			// eslint-disable-next-line no-undef
+			require("@/assets/img/third.png"),
+			"",
+		],
+	}),
+	props: ["buttonColor"],
 
-		computed: {
-			...mapState("drawertoggle", ["image", "color"]),
-			colorPicker() {
-				return this.color;
-			},
+	computed: {
+		...mapState("drawertoggle", ["image", "color"]),
+		colorPicker() {
+			return this.color;
 		},
+	},
 
-		methods: {
-			...mapMutations("drawertoggle", ["setImage"]),
-			setColor(color) {
-				this.$store.state.drawertoggle.color = color;
-				this.$vuetify.theme.themes.light.tertiary = color;
-				this.$vuetify.theme.themes.dark.tertiary = color;
-				this.$vuetify.theme.themes.light.anchor = color;
-				this.$vuetify.theme.themes.dark.anchor = color;
-				if (this.$vuetify.theme.themes.light.tertiary == color)
-					return (this.activeColor = true);
-			},
-			setColor2(color) {
-				this.$store.state.drawertoggle.color = color;
-				this.$vuetify.theme.themes.light.secondary = color;
-				this.$vuetify.theme.themes.dark.secondary = color;
-			},
-			toggleTheme() {
-				this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-			},
-			toggleText() {
-				if (this.$vuetify.theme.dark) {
-					return "Dark Mode On";
-				} else return "Light Mode On";
-			},
+	methods: {
+		...mapMutations("drawertoggle", ["setImage"]),
+		setColor(color) {
+			this.$store.state.drawertoggle.color = color;
+			this.$vuetify.theme.themes.light.tertiary = color;
+			this.$vuetify.theme.themes.dark.tertiary = color;
+			this.$vuetify.theme.themes.light.anchor = color;
+			this.$vuetify.theme.themes.dark.anchor = color;
+			if (this.$vuetify.theme.themes.light.tertiary == color)
+				return (this.activeColor = true);
 		},
-	};
+		setColor2(color) {
+			this.$store.state.drawertoggle.color = color;
+			this.$vuetify.theme.themes.light.secondary = color;
+			this.$vuetify.theme.themes.dark.secondary = color;
+		},
+		toggleTheme() {
+			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+		},
+		toggleText() {
+			if (this.$vuetify.theme.dark) {
+				return "Dark Mode";
+			} else return "Light Mode";
+		},
+	},
+};
 </script>
 
 <style lang="scss">
-	.v-avatar,
-	.v-responsive {
-		cursor: pointer;
-	}
-	.highlighted {
-		border: 2px;
-		border-color: blue;
-	}
+.v-avatar,
+.v-responsive {
+	cursor: pointer;
+}
+.highlighted {
+	border: 2px;
+	border-color: blue;
+}
 </style>

@@ -42,7 +42,7 @@
 						>
 							<template v-slot:label>
 								<span class="secondary--text">
-									{{ alwaysClosed ? "Temp Drawer on" : "Persistant Drawer on" }}
+									{{ alwaysClosed ? "Floating Drawer" : "Persistant Drawer" }}
 								</span>
 							</template>
 						</v-switch>
@@ -54,89 +54,89 @@
 </template>
 
 <script>
-	import { mapState } from "vuex";
-	export default {
-		name: "NavDrawer",
-		data() {
-			return {
-				group: false,
-				drawerShown: false, // controls the opening and closing of drawer
-				drawer: this.drawerState, // this is just here for the watcher to wrok
-				colorWatch: this.color, // this is just here for the watcher to wrok
-				activeColor: "secondary",
-				alwaysClosed: true, //controls if side drawer is in temp mode or not
-				crdBottom: false, //for userSnippet, controls if it shows the full component
-				btnColor: "tertiary",
-				logo: "./img/redditicon.png",
-				links: [
-					//builds the list of links using v-for and this array
-					{
-						to: "/",
-						icon: "mdi-view-dashboard",
-						text: "Home",
-					},
-					{
-						to: "/user",
-						icon: "mdi-account",
-						text: "User Profile",
-					},
-					{
-						to: "/table-list",
-						icon: "mdi-application",
-						text: "Basic Tables",
-					},
-					{
-						to: "/crud-user-tables",
-						icon: "mdi-application-cog",
-						text: "CRUD Tables",
-					},
-					{
-						to: "/cardsview",
-						icon: "mdi-badge-account-horizontal-outline",
-						text: "Card Types",
-					},
-					{
-						to: "/maps",
-						icon: "mdi-map-marker",
-						text: "Maps",
-					},
-					{
-						to: "/notifications",
-						icon: "mdi-bell",
-						text: "Notifications",
-					},
-				],
-			};
+import { mapState } from "vuex";
+export default {
+	name: "NavDrawer",
+	data() {
+		return {
+			group: false,
+			drawerShown: false, // controls the opening and closing of drawer
+			drawer: this.drawerState, // this is just here for the watcher to wrok
+			colorWatch: this.color, // this is just here for the watcher to wrok
+			activeColor: "secondary",
+			alwaysClosed: true, //controls if side drawer is in temp mode or not
+			crdBottom: false, //for userSnippet, controls if it shows the full component
+			btnColor: "tertiary",
+			logo: "./img/redditicon.png",
+			links: [
+				//builds the list of links using v-for and this array
+				{
+					to: "/",
+					icon: "mdi-view-dashboard",
+					text: "Home",
+				},
+				{
+					to: "/user",
+					icon: "mdi-account",
+					text: "User Profile",
+				},
+				{
+					to: "/table-list",
+					icon: "mdi-application",
+					text: "Basic Tables",
+				},
+				{
+					to: "/crud-user-tables",
+					icon: "mdi-application-cog",
+					text: "CRUD Tables",
+				},
+				{
+					to: "/cardsview",
+					icon: "mdi-badge-account-horizontal-outline",
+					text: "Card Types",
+				},
+				{
+					to: "/maps",
+					icon: "mdi-map-marker",
+					text: "Maps",
+				},
+				{
+					to: "/notifications",
+					icon: "mdi-bell",
+					text: "Notifications",
+				},
+			],
+		};
+	},
+	mounted() {
+		// gets the initial drawer state(false) so it can be watched in data.drawer
+		this.drawer = this.drawerState;
+	},
+	watch: {
+		// this watches the Vuex state set to data.drawer an updates the drawer to open
+		drawerState: function () {
+			this.drawerShown = this.drawerState;
 		},
-		mounted() {
-			// gets the initial drawer state(false) so it can be watched in data.drawer
-			this.drawer = this.drawerState;
+		// this watches the Vuex state set to data.drawer an updates the drawer to open
+		colorWatch: function () {
+			this.activeColor = this.color;
 		},
-		watch: {
-			// this watches the Vuex state set to data.drawer an updates the drawer to open
-			drawerState: function () {
-				this.drawerShown = this.drawerState;
-			},
-			// this watches the Vuex state set to data.drawer an updates the drawer to open
-			colorWatch: function () {
-				this.activeColor = this.color;
-			},
-			// when the drawer closes it emits am event with a value of false, used to udpate vuex state
-			drawerShown() {
-				//this should be replaced with a mutation, cant use drawerState imported without setter
-				this.$store.state.drawertoggle.drawerState = this.drawerShown;
-			},
+		// when the drawer closes it emits am event with a value of false, used to udpate vuex state
+		drawerShown() {
+			//this should be replaced with a mutation, cant use drawerState imported without setter
+			this.$store.state.drawertoggle.drawerState = this.drawerShown;
 		},
-		computed: {
-			// this was used to check state with a getter and setter. Now its used in watcher
-			...mapState("drawertoggle", ["drawerState", "image", "color"]),
+	},
+	computed: {
+		// this was used to check state with a getter and setter. Now its used in watcher
+		...mapState("drawertoggle", ["drawerState", "image", "color"]),
+	},
+	methods: {
+		persistantDrawer() {
+			this.alwaysClosed = !this.alwaysClosed;
 		},
-		methods: {
-			persistantDrawer() {
-				this.alwaysClosed = !this.alwaysClosed;
-			},
-		},
-	};
+	},
+};
 </script>
 
 <style></style>

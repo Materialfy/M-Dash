@@ -4,13 +4,16 @@
 		<v-row>
 			<v-col class="d-flex justify-center">
 				<header>
-					<span class="text-h3 text-uppercase" style="color: #ffc107"
+					<span
+						class="text-h3 text-uppercase d-flex justify-center"
+						style="color: #ffc107"
 						>Materialfy Crud Table Examples</span
 					>
 					<article class="d-flex justify-center mt-2">
 						<p class="text-center">
 							These are customizable using Vuetify's built in props and slots
-							for data Tables. Both are hooked up to
+							for data Tables.
+							<br />Both are hooked up to
 							<a href="https://reqres.in/">Reqres.in.</a>
 							<br />
 							There are two types of cards, one with pop up dialog editing and
@@ -167,6 +170,7 @@
 						:cardShowAvatar="false"
 						:cardShowActions="false"
 						:cardShowInnerList="false"
+						:cardShowDivider="false"
 						class="pa-3"
 					>
 						<!-- passing the data table into materialfy card slot  -->
@@ -201,7 +205,7 @@
 								:items="userList2"
 								:items-per-page-options="rowsAmount"
 								:search="search"
-								class="elevation-1 secondary"
+								class="secondary"
 							>
 								<!-- change table header background color and text--color inside the headers data prop(class: "tertiary--text text-h6")-->
 								<template v-slot:headerCell="{ header }">
@@ -415,7 +419,6 @@ export default {
 	methods: {
 		//uses axios to send get request to api in genericAPI
 		getusernames() {
-			console.log(this.apiEndpoint);
 			genericApi
 				.get(this.apiEndpoint)
 				.then((response) => {
