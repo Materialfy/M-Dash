@@ -48,143 +48,23 @@
 			<!-- v-tab table card -->
 			<v-col>
 				<MaterialfyBasicCard :cardShowTitle="false">
+					<!-- HEader -->
 					<template v-slot:crdOverline
-						><v-tabs v-model="tabs" color="primary" slider-color="primary">
-							<!-- v-tab-item -> v-tab , span is the card text span-->
-							<span
-								class="text-subtitle-1 mr-3 secondary"
-								style="align-self: center"
-							>
-								Tasks:
-							</span>
-							<v-tab class="mr-3 secondary" eager>
-								<v-icon class="mr-2"> mdi-bug </v-icon>
-								Bugs
-							</v-tab>
-							<v-tab class="mr-3 secondary">
-								<v-icon class="mr-2"> mdi-code-tags </v-icon>
-								Website
-							</v-tab>
-							<v-tab class="secondary">
-								<v-icon class="mr-2"> mdi-cloud </v-icon>
-								Server
+						><v-tabs v-model="tab" align-with-title background-color="tertiary">
+							<v-tabs-slider color="yellow"></v-tabs-slider>
+
+							<v-tab v-for="item in items2" :key="item">
+								{{ item }}
 							</v-tab>
 						</v-tabs>
 					</template>
+					<!-- Card inner area for tab content -->
 					<template #crdInner>
-						<v-tabs-items v-model="tabs">
-							<v-tab-item v-for="n in 3" :key="n">
-								<v-list three-line>
-									<v-list-item @click="complete(0)">
-										<v-list-item-action>
-											<v-checkbox :value="list[0]" color="green" />
-										</v-list-item-action>
-										<v-list-item-title>
-											Sign contract for "What are afraid of?"
-										</v-list-item-title>
-										<div class="d-flex">
-											<v-tooltip top content-class="top">
-												<template #activator="{ on }">
-													<v-btn
-														class="v-btn--simple"
-														color="success"
-														icon
-														v-on="on"
-													>
-														<v-icon color="primary"> mdi-pencil </v-icon>
-													</v-btn>
-												</template>
-												<span>Edit</span>
-											</v-tooltip>
-											<v-tooltip top content-class="top">
-												<template #activator="{ on }">
-													<v-btn
-														class="v-btn--simple"
-														color="danger"
-														icon
-														v-on="on"
-													>
-														<v-icon color="error"> mdi-close </v-icon>
-													</v-btn>
-												</template>
-												<span>Close</span>
-											</v-tooltip>
-										</div>
-									</v-list-item>
-									<v-divider />
-									<v-list-item @click="complete(1)">
-										<v-list-item-action>
-											<v-checkbox :value="list[1]" color="success" />
-										</v-list-item-action>
-										<v-list-item-title>
-											Lines From Great Russian Literature? Or E-mails From My
-											Boss?
-										</v-list-item-title>
-										<div class="d-flex">
-											<v-tooltip top content-class="top">
-												<template #activator="{ on }">
-													<v-btn
-														class="v-btn--simple"
-														color="success"
-														icon
-														v-on="on"
-													>
-														<v-icon color="primary"> mdi-pencil </v-icon>
-													</v-btn>
-												</template>
-												<span>Edit</span>
-											</v-tooltip>
-
-											<v-tooltip top content-class="top">
-												<template v-slot:activator="{ on }">
-													<v-btn
-														class="v-btn--simple"
-														color="danger"
-														icon
-														v-on="on"
-													>
-														<v-icon color="error"> mdi-close </v-icon>
-													</v-btn>
-												</template>
-												<span>Close</span>
-											</v-tooltip>
-										</div>
-									</v-list-item>
-									<v-divider />
-									<v-list-item @click="complete(2)">
-										<v-list-item-action>
-											<v-checkbox :value="list[2]" color="success" />
-										</v-list-item-action>
-										<v-list-item-title>
-											Flooded: One year later, assessing what was lost and what
-											was found when a ravaging rain swept through metro Detroit
-										</v-list-item-title>
-										<div class="d-flex">
-											<v-tooltip top content-class="top">
-												<v-btn
-													class="v-btn--simple"
-													color="success"
-													icon
-													v-on="on"
-												>
-													<v-icon color="primary"> mdi-pencil </v-icon>
-												</v-btn>
-												<span>Edit</span>
-											</v-tooltip>
-											<v-tooltip top content-class="top">
-												<v-btn
-													class="v-btn--simple"
-													color="danger"
-													icon
-													v-on="on"
-												>
-													<v-icon color="error"> mdi-close </v-icon>
-												</v-btn>
-												<span>Close</span>
-											</v-tooltip>
-										</div>
-									</v-list-item>
-								</v-list>
+						<v-tabs-items v-model="tab">
+							<v-tab-item v-for="item in items2" :key="item">
+								<v-card flat>
+									<v-card-text v-text="text"></v-card-text>
+								</v-card>
 							</v-tab-item>
 						</v-tabs-items>
 					</template>
@@ -384,12 +264,10 @@ export default {
 			1: false,
 			2: false,
 		},
+		tab: null,
+		items2: ["web", "shopping", "videos", "images", "news"],
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempmmodo consequat.",
 	}),
-	methods: {
-		complete(index) {
-			this.list[index] = !this.list[index];
-		},
-	},
 };
 </script>
 

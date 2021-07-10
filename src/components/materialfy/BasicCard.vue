@@ -18,15 +18,15 @@
 						</div>
 					</slot>
 				</v-col>
-				<v-col>
-					<slot name="crdTitle" v-if="cardShowTitle">
+				<v-col v-if="cardShowTitle">
+					<slot name="crdTitle">
 						<v-list-item-title class="text-h6 mb-4 tertiary--text">
 							{{ cardTitle }}
 						</v-list-item-title>
 					</slot>
 				</v-col>
 			</v-row>
-
+			<!-- Inner card area where yuou can put tables/tabs or anything -->
 			<slot :name="cardInner" v-if="cardShowInner">
 				<v-card-text class="text-h5 font-weight-bold">
 					This is a bunch of text saying words since i couldnt think of anything
