@@ -86,6 +86,7 @@
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					:cardShowInnerList="false"
+					:cardShowInnerText="false"
 				>
 					<template v-slot:crdInner>
 						<v-avatar slot="offset" class="mx-auto d-block" size="130">
@@ -139,16 +140,16 @@
 </template>
 
 <script>
-	import { mapGetters } from "vuex";
-	export default {
-		name: "UserProfile",
-		data() {
-			return {
-				textFieldColor: "secondary",
-			};
-		},
-		computed: {
-			...mapGetters(["getAvatar"]),
-		},
-	};
+import { mapGetters } from "vuex";
+export default {
+	name: "UserProfile",
+	data() {
+		return {
+			textFieldColor: "secondary",
+		};
+	},
+	computed: {
+		...mapGetters(["getAvatar"]),
+	},
+};
 </script>

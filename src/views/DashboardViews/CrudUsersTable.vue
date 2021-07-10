@@ -29,6 +29,7 @@
 								single-line
 								hide-details
 								class="ma-2 px-8"
+								color="secondary"
 							></v-text-field>
 							<!-- this dialog section controls the new item button/pop-up functionality v-model controls dialog pop up -->
 							<v-dialog v-model="dialog" max-width="500px">
@@ -134,13 +135,13 @@
 			</v-col>
 		</v-row>
 
-		<!-- SECOND older style table -->
+		<!-- SECOND INLINE EDIT older style table -->
 		<v-row justify-md="center" wrap>
 			<v-col class="d-flex justify-center" md12>
 				<div>
 					<materialfy-header-card
 						color="tertiary"
-						cardTitle="Usernames Table"
+						cardTitle="Inline Edit Crud Table"
 						cardOverlineText="Such a classic table"
 						:cardShowAvatar="false"
 						:cardShowActions="false"
@@ -157,6 +158,7 @@
 								single-line
 								hide-details
 								class="ma-2 px-8"
+								color="secondary"
 							/>
 							<!-- New item button section  -->
 							<v-dialog v-model="dialog" max-width="500px">
@@ -243,44 +245,60 @@
 										<img :src="item.avatar" :alt="item.first_name" />
 									</v-avatar>
 								</template>
-								<template #items="props">
-									<!--  -->
-									<td>{{ props.item.id }}</td>
-									<td class="justify-center">
-										<!--  -->
-										<v-icon medium class="mr-2" @click="editItem(props.item)">
-											edit
-										</v-icon>
-										<v-icon medium @click="deleteItem(props.item)">
-											delete
-										</v-icon>
-									</td>
-									<!--  -->
-									<td>
-										<v-edit-dialog
-											:return-value.sync="props.item.first_name"
-											large
-											lazy
-											persistent
-											@save="saveInline"
-											@cancel="cancelInline"
-											@open="openInline"
-											@close="closeInline"
-										>
-											<div>{{ props.item.first_name }}</div>
-											<template #input>
-												<v-text-field
-													v-model="props.item.first_name"
-													:rules="[max25chars]"
-													label="Edit"
-													single-line
-													counter
-													autofocus
-												/>
-											</template>
-										</v-edit-dialog>
-									</td>
-									<!--  -->
+								<!-- controls inline edit -->
+								<template #[`item.first_name`]="props">
+									<!-- these set up each individual column to inline ediot   -->
+									<v-edit-dialog
+										:return-value.sync="props.item.first_name"
+										large
+										lazy
+										persistent
+										@save="saveInline"
+										@cancel="cancelInline"
+										@open="openInline"
+										@close="closeInline"
+									>
+										<div>{{ props.item.first_name }}</div>
+										<template #input>
+											<v-text-field
+												v-model="props.item.first_name"
+												:rules="[max25chars]"
+												label="Edit"
+												single-line
+												counter
+												autofocus
+											/>
+										</template>
+									</v-edit-dialog>
+								</template>
+								<template #[`item.last_name`]="props">
+									<!-- they are just hooked up to snackbar messages, they dont do anything -->
+									<v-edit-dialog
+										:return-value.sync="props.item.last_name"
+										large
+										lazy
+										persistent
+										@save="saveInline"
+										@cancel="cancelInline"
+										@open="openInline"
+										@close="closeInline"
+									>
+										<div>{{ props.item.last_name }}</div>
+										<!-- this area is for the inline edit pop up -->
+										<template #input>
+											<v-text-field
+												v-model="props.item.last_name"
+												:rules="[max25chars]"
+												label="Edit"
+												single-line
+												counter
+												autofocus
+											/>
+										</template>
+									</v-edit-dialog>
+								</template>
+								<!--  -->
+								<template #[`item.email`]="props">
 									<td>
 										<v-edit-dialog
 											:return-value.sync="props.item.email"
