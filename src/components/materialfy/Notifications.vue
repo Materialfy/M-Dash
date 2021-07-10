@@ -28,18 +28,21 @@
 			</v-badge>
 		</template>
 
-		<v-card max-width="450" color="primary">
+		<v-card max-width="400" color="primary">
 			<v-container fill-height>
 				<v-row no-gutters>
 					<v-col cols="7" class="mx-auto">
-						<v-subheader v-if="getNotifHeader" justify-center>
+						<v-subheader
+							v-if="getNotifHeader"
+							class="d-flex justify-center pa-2"
+						>
 							Refreshed: {{ notificationHeader }}
 						</v-subheader>
 					</v-col>
 					<v-col cols="12">
 						<template v-for="(value, index) in getNotifications">
 							<v-divider v-if="value.divider" :key="index" />
-							<v-list-item :key="value.title" three-line to="Notifications">
+							<v-list-item :key="value.title" two-line to="Notifications">
 								<v-list-item-avatar :key="value.avatar">
 									<img :src="value.avatar" />
 								</v-list-item-avatar>

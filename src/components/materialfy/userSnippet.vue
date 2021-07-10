@@ -20,7 +20,7 @@
 							<img :src="getAvatar" alt="User Avatar" />
 						</v-avatar>
 					</v-col>
-					<v-col cols="9" justify-center align-self="auto">
+					<v-col cols="9" align-self="auto">
 						<v-card-title class="pa--20"> Travis Scott </v-card-title>
 						<v-card-subtitle>
 							<v-divider />
