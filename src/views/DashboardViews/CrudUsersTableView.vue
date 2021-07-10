@@ -31,7 +31,7 @@
 				<!-- Headers array object 'value'(value: "first_name") must be the same name as one of your items array(userList) objects propertys(first_name: George)  -->
 				<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
 				<v-data-table
-					:headers="headers"
+					:headers="headers2"
 					:items="userList"
 					sort-by="id"
 					class="elevation-1 secondary"
@@ -244,6 +244,7 @@
 										</template>
 									</v-edit-dialog>
 								</template>
+								<!-- props is userList data sent from the child, use it to access item data -->
 								<template #[`item.last_name`]="props">
 									<!-- they are just hooked up to snackbar messages, they dont do anything -->
 									<v-edit-dialog
@@ -270,7 +271,7 @@
 										</template>
 									</v-edit-dialog>
 								</template>
-								<!--  -->
+								<!-- email inline edit pop up -->
 								<template #[`item.email`]="props">
 									<td>
 										<v-edit-dialog
@@ -296,7 +297,7 @@
 											</template>
 										</v-edit-dialog>
 									</td>
-									<!--  -->
+									<!-- turn these into inline edits per column -->
 									<td class="">
 										{{ props.item.isAdmin }}
 									</td>
@@ -340,7 +341,8 @@ export default {
 		],
 		dialog: false,
 		search: "",
-		headers: [
+		headers: [],
+		headers2: [
 			{
 				text: "ID",
 				align: "start",
@@ -354,7 +356,6 @@ export default {
 			{ text: "Actions", value: "actions", sortable: false },
 			{ text: "Admin", value: "isAdmin" },
 			{ text: "Active", value: "isActive" },
-			{ text: "Last Seen", value: "lastSeen" },
 		],
 		editedIndex: -1,
 		//this is the new item created by copying the userList item. its used in editing menu and methods
@@ -366,7 +367,14 @@ export default {
 			isActive: false,
 			lastSeen: "6/18/2022",
 		},
-		defaultItem: {},
+		defaultItem: {
+			first_name: "",
+			last_name: "",
+			email: "",
+			isAdmin: true,
+			isActive: false,
+			lastSeen: "6/18/2022",
+		},
 		//second table
 		dialogDelete: false,
 	}),
@@ -380,22 +388,27 @@ export default {
 	},
 
 	watch: {
-		//when dialog is updated this watcher returns the updated value if the value is true else it calls this.close() method
+		//when dialog is updated this watcher returns the updated value only if the value is truthy, else it calls this.close() method
 		dialog(val) {
 			val || this.close();
 		},
 		dialogDelete(val) {
 			val || this.closeDelete();
 		},
+		//once the table list is loaded, load the headers
+		userList() {
+			this.getHeaders();
+		},
 	},
-	// called when page is created before dom
+	// called when page is created before dom to load data from api
 	created() {
 		this.getusernames();
+
 		// this.$store.dispatch('autoRefreshToken')
 		// .then(response => console.log(response))
 		// .catch(error => console.log(error))
 	},
-	//These are for both tables unless specified
+
 	methods: {
 		//uses axios to send get request to api in genericAPI
 		getusernames() {
@@ -403,9 +416,19 @@ export default {
 				.get("users")
 				.then((response) => {
 					this.userList = response.data.data;
-					console.log(this.userList);
 				})
 				.catch((error) => console.log(error));
+		},
+		//this dynamically creates the headers based off the keys of the first item in the userList array
+		getHeaders() {
+			const itemObject = this.userList[0];
+			console.log("item object: " + itemObject);
+			for (let key in itemObject) {
+				let headerText = key.replace(/_/, " ").toUpperCase();
+				console.log("HEADER TEXT " + headerText);
+				this.headers.push({ text: headerText, value: key });
+				console.log(this.headers);
+			}
 		},
 
 		// object.assign fills in the empty object with the properties of item

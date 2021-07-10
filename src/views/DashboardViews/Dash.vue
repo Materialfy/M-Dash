@@ -77,16 +77,18 @@
 		<!--  Second Row with basic color cards -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center mb-2">
+			<!-- first color card with default content -->
 			<v-col>
 				<MaterialfyColorCard />
 			</v-col>
+			<!-- second color card with secondary color -->
 			<v-col>
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="User Engagement"
 					:cardShowDivider="false"
 					:cardShowActions="false"
-					cardColor="accent"
+					cardColor="secondary"
 				>
 					<template v-slot:crdInner>
 						<v-sheet color="rgba(0, 0, 0, .12)">
