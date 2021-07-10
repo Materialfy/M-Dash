@@ -46,7 +46,7 @@ export default [
 				meta: {
 					name: "UserProfile",
 				},
-				component: () => import(`@/views/DashboardViews/UserProfile.vue`),
+				component: () => import(`@/views/DashboardViews/UserProfileView.vue`),
 			},
 			{
 				path: "table-list",
@@ -60,14 +60,15 @@ export default [
 				meta: {
 					name: "CrudUserTable",
 				},
-				component: () => import(`@/views/DashboardViews/CrudUsersTable.vue`),
+				component: () =>
+					import(`@/views/DashboardViews/CrudUsersTableView.vue`),
 			},
 			{
 				path: "maps",
 				meta: {
 					name: "Maps",
 				},
-				component: () => import(`@/views/DashboardViews/Maps.vue`),
+				component: () => import(`@/views/DashboardViews/MapsView.vue`),
 			},
 			{
 				path: "notifications",

@@ -1,6 +1,27 @@
 <!-- https://vuetifyjs.com/en/api/v-data-table/#api-props  -->
 <template>
 	<v-container fill-height grid-list-xl>
+		<v-row>
+			<v-col class="d-flex justify-center">
+				<header>
+					<span class="text-h3 text-uppercase" style="color: #ffc107"
+						>Materialfy Crud Table Examples</span
+					>
+					<article class="d-flex justify-center mt-2">
+						<p class="text-center">
+							These are customizable using Vuetify's built in props and slots
+							for data Tables. Both are hooked up to
+							<a href="https://reqres.in/">Reqres.in.</a>
+							<br />
+							There are two types of cards, one with pop up dialog editing and
+							one with inline editing. <br />
+							Inline Editing allows you to click the table cell to edit the
+							contents.
+						</p>
+					</article>
+				</header>
+			</v-col>
+		</v-row>
 		<!-- First table -->
 		<v-row justify-md="center" wrap>
 			<v-col class="d-flex justify-center" md12>
@@ -169,54 +190,6 @@
 									</v-btn>
 								</template>
 								<!-- Content of the add new item popup  -->
-								<v-card>
-									<v-card-text>
-										<v-container grid-list-md>
-											<v-row wrap>
-												<v-col xs12 sm6 md4>
-													<v-text-field
-														v-model="editedItem.username"
-														label="Username"
-													/>
-												</v-col>
-												<v-col xs12 sm6 md4>
-													<v-text-field
-														v-model="editedItem.password"
-														label="Password"
-													/>
-												</v-col>
-												<v-col xs12 sm6 md4>
-													<v-text-field
-														v-model="editedItem.email"
-														label="Email"
-													/>
-												</v-col>
-												<v-col xs12 sm6 md4>
-													<v-checkbox
-														v-model="checkboxAdmin"
-														:label="`IsAdmin`"
-													/>
-												</v-col>
-												<v-col xs12 sm6 md4>
-													<v-checkbox
-														v-model="checkboxActive"
-														:label="`IsActive`"
-													/>
-												</v-col>
-											</v-row>
-										</v-container>
-									</v-card-text>
-									<!-- this is the actions section which calls close or save methods of the popup -->
-									<v-card-actions>
-										<v-spacer />
-										<v-btn color="blue darken-1" text @click="close">
-											Cancel
-										</v-btn>
-										<v-btn color="blue darken-1" text @click="save">
-											Save
-										</v-btn>
-									</v-card-actions>
-								</v-card>
 							</v-dialog>
 							<!-- lets you change the props/options for the data table. vuetify iterates through the arrays you feed the headers & items props
 							the headers(array of objects) and items(array of objects)  prop is v-binded into the data () props and passed into the table

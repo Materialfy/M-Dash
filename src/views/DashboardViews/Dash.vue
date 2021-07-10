@@ -1,6 +1,6 @@
 <template>
 	<v-container fluid>
-		<!-- First Row with header and basic cards -->
+		<!-- First Row with header table card and basic tab cards -->
 		<v-row class="d-flex align-center mb-2">
 			<v-col>
 				<MaterialfyHeaderCard
@@ -9,6 +9,7 @@
 					:cardShowActions="false"
 					:cardShowDivider="false"
 				>
+					<!-- mobile-breakpoint =0 disables the table wrapping on mobile like in tables page -->
 					<template #crdInner>
 						<v-data-table
 							:headers="headers"
@@ -45,7 +46,9 @@
 				</MaterialfyHeaderCard>
 			</v-col>
 			<v-col>
-				<MaterialfyBasicCard />
+				<MaterialfyBasicCard>
+					<template v-slot:crdInnerList></template>
+				</MaterialfyBasicCard>
 			</v-col>
 			<v-col>
 				<MaterialfyHeaderCard />
@@ -63,6 +66,7 @@
 					cardInnerText="User Engagement"
 					:cardShowDivider="false"
 					:cardShowActions="false"
+					cardColor="accent"
 				>
 					<template v-slot:crdInner>
 						<v-sheet color="rgba(0, 0, 0, .12)">
