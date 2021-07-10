@@ -47,7 +47,7 @@
 			</v-col>
 			<v-col>
 				<MaterialfyBasicCard>
-					<template v-slot:crdInnerList></template>
+					<template v-slot:crdInnerList> </template>
 				</MaterialfyBasicCard>
 			</v-col>
 			<v-col>
@@ -123,7 +123,7 @@
 				</MaterialfyHeaderCard>
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard>
+				<MaterialfyColorCard cardColor="grey">
 					<template v-slot:crdInner>
 						<v-list-item three-line>
 							<v-list-item-content>
