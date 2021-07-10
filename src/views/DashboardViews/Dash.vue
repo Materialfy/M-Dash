@@ -1,7 +1,8 @@
 <template>
 	<v-container fluid>
-		<!-- First Row with header table card and basic tab cards -->
+		<!-- FIRST ROW with header table card and basic tab cards -->
 		<v-row class="d-flex align-center mb-2">
+			<!-- First DATA TABLE Card -->
 			<v-col>
 				<MaterialfyHeaderCard
 					cardTitle="Employee Stats"
@@ -45,11 +46,11 @@
 					</template>
 				</MaterialfyHeaderCard>
 			</v-col>
-			<!-- v-tab table card -->
+			<!-- V-TAB TO-DO CARD -->
 			<v-col>
 				<MaterialfyBasicCard :cardShowTitle="false">
 					<!-- HEader -->
-					<template v-slot:crdOverline
+					<template v-slot:crdSubHeader
 						><v-tabs v-model="tab" align-with-title background-color="tertiary">
 							<v-tabs-slider color="yellow"></v-tabs-slider>
 
@@ -70,18 +71,19 @@
 					</template>
 				</MaterialfyBasicCard>
 			</v-col>
+			<!-- LAST CARD -->
 			<v-col>
 				<MaterialfyHeaderCard />
 			</v-col>
 		</v-row>
-		<!--  Second Row with basic color cards -->
+		<!-- SECOND ROW with basic color cards -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center mb-2">
-			<!-- first color card with default content -->
+			<!-- FIRST COLOR CARD with default content -->
 			<v-col>
 				<MaterialfyColorCard />
 			</v-col>
-			<!-- second color card with secondary color -->
+			<!-- SECOND COLOR CARD with secondary color -->
 			<v-col>
 				<MaterialfyColorCard
 					cardMaxWidth="400"
@@ -111,7 +113,7 @@
 				</MaterialfyColorCard>
 			</v-col>
 		</v-row>
-		<!-- Third Row with header, color and basic cards -->
+		<!-- THIRD ROW with header, color and basic cards -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="ma-3 d-flex align-center">
 			<v-col>

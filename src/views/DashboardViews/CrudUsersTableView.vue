@@ -198,7 +198,7 @@
 							<!-- search: Text input used to filter items, binded to the search data prop which is two way binded via v-model in v-text-field  -->
 							<v-data-table
 								:headers="headers"
-								:items="userList"
+								:items="userList2"
 								:items-per-page-options="rowsAmount"
 								:search="search"
 								class="elevation-1 secondary"
@@ -331,6 +331,9 @@ export default {
 		max25chars: (v) => v.length <= 25 || "Input too long!",
 		pagination: {},
 		userList: [],
+		userList2: [],
+		apiEndpoint: "users",
+		apiEndpoint2: "users?page=2",
 		checkboxAdmin: true,
 		checkboxActive: false,
 		rowsAmount: [
@@ -412,22 +415,26 @@ export default {
 	methods: {
 		//uses axios to send get request to api in genericAPI
 		getusernames() {
+			console.log(this.apiEndpoint);
 			genericApi
-				.get("users")
+				.get(this.apiEndpoint)
 				.then((response) => {
 					this.userList = response.data.data;
+				})
+				.catch((error) => console.log(error));
+			genericApi
+				.get(this.apiEndpoint2)
+				.then((response) => {
+					this.userList2 = response.data.data;
 				})
 				.catch((error) => console.log(error));
 		},
 		//this dynamically creates the headers based off the keys of the first item in the userList array
 		getHeaders() {
 			const itemObject = this.userList[0];
-			console.log("item object: " + itemObject);
 			for (let key in itemObject) {
 				let headerText = key.replace(/_/, " ").toUpperCase();
-				console.log("HEADER TEXT " + headerText);
 				this.headers.push({ text: headerText, value: key });
-				console.log(this.headers);
 			}
 		},
 

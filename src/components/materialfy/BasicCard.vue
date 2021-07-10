@@ -7,17 +7,10 @@
 		:max-width="cardMaxWidth"
 		:min-height="cardMinHeight"
 		:color="cardColor"
+		elevation="4"
 	>
 		<v-container>
 			<v-row>
-				<v-col>
-					<slot name="crdOverline" v-if="cardShowOverline">
-						<!-- connected to props so you can change it -->
-						<div class="text-overline mb-4 tertiary--text">
-							{{ cardOverlineText }}
-						</div>
-					</slot>
-				</v-col>
 				<v-col v-if="cardShowTitle">
 					<slot name="crdTitle">
 						<v-list-item-title class="text-h6 mb-4 tertiary--text">
@@ -25,12 +18,21 @@
 						</v-list-item-title>
 					</slot>
 				</v-col>
+				<v-col>
+					<slot name="crdSubHeader" v-if="cardShowSubHeader">
+						<!-- connected to props so you can change it -->
+						<div class="text-overline mb-4 tertiary--text">
+							{{ cardSubHeaderText }}
+						</div>
+					</slot>
+				</v-col>
 			</v-row>
 			<!-- Inner card area where yuou can put tables/tabs or anything -->
 			<slot :name="cardInner" v-if="cardShowInner">
 				<v-card-text class="text-h5 font-weight-bold">
-					This is a bunch of text saying words since i couldnt think of anything
-					to fill up this card
+					This is a bunch of text that are words since i couldnt think of
+					anything to fill up the default content of this card. fix with pull
+					request lol
 				</v-card-text>
 			</slot>
 
@@ -57,8 +59,8 @@ export default {
 		cardTitle: {
 			default: "Materailfy Basic Card",
 		},
-		cardOverlineText: {
-			default: "Overline",
+		cardSubHeaderText: {
+			default: "Subheader",
 		},
 		cardIcon: {
 			default: "crdIcon",
@@ -96,7 +98,7 @@ export default {
 		cardShowTitle: {
 			default: true,
 		},
-		cardShowOverline: {
+		cardShowSubHeader: {
 			default: true,
 		},
 	},

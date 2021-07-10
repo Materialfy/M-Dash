@@ -1,6 +1,6 @@
 <template>
 	<v-card
-		elevation="12"
+		elevation="4"
 		:min-width="cardMinWidth"
 		:max-width="cardMaxWidth"
 		:min-height="cardMinHeight"

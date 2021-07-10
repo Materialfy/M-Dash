@@ -10,9 +10,12 @@
 	>
 		<v-list-item three-line>
 			<v-list-item-content>
-				<div class="text-overline mb-4 tertiary--text">
-					{{ cardOverlineText }}
-				</div>
+				<slot name="crdSubHeader" v-if="cardShowSubHeader">
+					<!-- connected to props so you can change it -->
+					<div class="text-overline mb-4 tertiary--text">
+						{{ cardSubHeaderText }}
+					</div>
+				</slot>
 				<v-list-item-title
 					class="text-h5 mb-4 tertiary--text"
 					v-if="cardShowTitle"
@@ -67,8 +70,8 @@ export default {
 		cardTitle: {
 			default: "Materailfy Basic Text Card",
 		},
-		cardOverlineText: {
-			default: "Overline",
+		cardSubHeaderText: {
+			default: "Subheader",
 		},
 		cardIcon: {
 			default: "crdIcon",
@@ -104,6 +107,9 @@ export default {
 			default: true,
 		},
 		cardShowTitle: {
+			default: true,
+		},
+		cardShowSubHeader: {
 			default: true,
 		},
 	},
