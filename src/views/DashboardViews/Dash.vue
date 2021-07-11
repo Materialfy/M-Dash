@@ -1,7 +1,7 @@
 <template>
 	<v-container fluid>
 		<!-- FIRST ROW with header table card and basic tab cards -->
-		<v-row class="d-flex align-center mb-2">
+		<v-row class="d-flex align-start mb-2">
 			<!-- First DATA TABLE Card -->
 			<v-col>
 				<MaterialfyHeaderCard
@@ -52,11 +52,16 @@
 					<!-- Header -->
 					<template v-slot:crdSubHeader>
 						<!-- add new tabs under -->
-						<v-tabs v-model="tab" align-with-title background-color="tertiary">
+						<v-tabs
+							v-model="tab"
+							align-with-title
+							background-color="tertiary"
+							class="elevation-3"
+						>
 							<span class="text-subtitle-1 mr-1 d-flex align-center">
 								<v-icon class="ma-1">mdi-ballot</v-icon> Tasks:
 							</span>
-							<v-tabs-slider color="background"></v-tabs-slider>
+							<v-tabs-slider color="secondary"></v-tabs-slider>
 
 							<v-tab v-for="item in tabItems" :key="item">
 								<v-icon class="ma-1">{{ item.icon }}</v-icon>
@@ -68,9 +73,29 @@
 					<template #crdInner>
 						<v-tabs-items v-model="tab">
 							<v-tab-item v-for="item in tabItems" :key="item">
-								<v-card flat>
-									<v-card-text v-text="text"></v-card-text>
-								</v-card>
+								<template v-for="i in 5">
+									<v-card flat color="primary">
+										<v-row wrap>
+											<v-list-item class="secondary"
+												><v-list-item-title>{{
+													"#" + i + " " + textList[0]
+												}}</v-list-item-title></v-list-item
+											>
+										</v-row>
+										<v-row wrap>
+											<v-list-item class="primary"
+												><v-list-item-title>{{
+													"#" + i + " " + textList[1]
+												}}</v-list-item-title></v-list-item
+											>
+										</v-row>
+										<v-row wrap>
+											<v-card-text class="secondary">{{
+												"#" + i + " " + textList[1]
+											}}</v-card-text>
+										</v-row>
+									</v-card>
+								</template>
 							</v-tab-item>
 						</v-tabs-items>
 					</template>
@@ -120,7 +145,7 @@
 		</v-row>
 		<!-- THIRD ROW with header, color and basic cards -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="ma-3 d-flex align-center">
+		<v-row class="ma-3 d-flex align-start">
 			<v-col>
 				<MaterialfyBasicCard />
 			</v-col>
@@ -276,7 +301,10 @@ export default {
 			{ tab: "New Issues", icon: "mdi-access-point" },
 			{ tab: "To-Do", icon: "mdi-alert-box-outline" },
 		],
-		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempmmodo consequat.",
+		textList: [
+			"You just read a sentence",
+			"Second sentence with a lot of merit",
+		],
 	}),
 };
 </script>
