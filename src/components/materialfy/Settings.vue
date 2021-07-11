@@ -20,7 +20,7 @@
 				<v-layout wrap>
 					<v-flex xs12>
 						<div class="text-center text-body-2 text-uppercase">
-							Theme Accent Color Picker
+							Theme Color
 						</div>
 
 						<v-layout justify-center>
@@ -38,7 +38,7 @@
 					</v-flex>
 					<v-flex xs12>
 						<div class="text-center text-body-2 text-uppercase">
-							Theme Secondary Color Picker
+							Secondary Color
 						</div>
 
 						<v-layout justify-center>

@@ -3,14 +3,17 @@
 		<v-row>
 			<v-col class="d-flex justify-center">
 				<header>
-					<span class="text-h3 text-uppercase" style="color: #ffc107"
+					<span
+						class="text-h3 text-uppercase d-flex text-center"
+						style="color: #ffc107"
 						>Materialfy Card Examples</span
 					>
 					<article class="d-flex justify-center mt-2">
 						<p class="text-center">
 							These are customizable with slots and props to dyanmically change
-							the content. <br />There are four types of cards: BasicCard,
-							BasicTextCard HeaderCard, ColorCard
+							the content.
+							<br />There are four types of cards: BasicCard, BasicTextCard
+							HeaderCard, ColorCard
 						</p>
 					</article>
 				</header>

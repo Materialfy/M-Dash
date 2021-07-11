@@ -55,6 +55,7 @@
 							<v-tabs-slider color="yellow"></v-tabs-slider>
 
 							<v-tab v-for="item in items2" :key="item">
+								<v-icon>mdi-phone</v-icon>
 								{{ item }}
 							</v-tab>
 						</v-tabs>

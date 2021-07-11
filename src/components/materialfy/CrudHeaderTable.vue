@@ -2,28 +2,30 @@
 <!-- This is a data table with dynamically generated headers using props to change url -->
 <template>
 	<v-container fill-height grid-list-xl>
-		<v-row>
+		<v-row class="d-flex justify-center">
 			<v-col class="d-flex justify-center">
-				<header>
-					<span
-						class="text-h3 text-uppercase d-flex justify-center"
-						style="color: #ffc107"
-						>Materialfy Crud Table Examples</span
-					>
-					<article class="d-flex justify-center mt-2">
-						<p class="text-center">
-							These are customizable using Vuetify's built in props and slots
-							for data Tables.
-							<br />Both are hooked up to
-							<a href="https://reqres.in/">Reqres.in.</a>
-							<br />
-							There are two types of cards, one with pop up dialog editing and
-							one with inline editing. <br />
-							Inline Editing allows you to click the table cell to edit the
-							contents.
-						</p>
-					</article>
-				</header>
+				<v-sheet>
+					<header>
+						<span
+							class="text-h3 text-uppercase d-flex justify-center"
+							style="color: #ffc107"
+							>Materialfy Crud Table Examples</span
+						>
+						<article class="d-flex justify-center mt-2">
+							<p class="text-center">
+								These are customizable using Vuetify's built in props and slots
+								for data Tables.
+								<br />Both are hooked up to
+								<a href="https://reqres.in/">Reqres.in.</a>
+								<br />
+								There are two types of cards, one with pop up dialog editing and
+								one with inline editing. <br />
+								Inline Editing allows you to click the table cell to edit the
+								contents.
+							</p>
+						</article>
+					</header>
+				</v-sheet>
 			</v-col>
 		</v-row>
 		<!-- First table -->
