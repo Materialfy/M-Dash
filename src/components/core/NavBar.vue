@@ -16,11 +16,15 @@
 		<MaterialfyNotifications :buttonColor="btnColor" />
 		<!-- userSnippet.vue menu -->
 
-		<MaterialfyUserSnippet
-			:buttonColor="btnColor"
-			:showBottom="crdBottom"
-			:showSearch="true"
-		/>
+		<v-menu nudge-bottom="57" :close-on-content-click="false">
+			<!-- recieving the "on" event lsitener -->
+			<template v-slot:activator="{ on }">
+				<v-btn v-on="on" icon :color="btnColor" class="ml3">
+					<v-icon>mdi-account</v-icon>
+				</v-btn>
+			</template>
+			<MaterialfyUserSnippet />
+		</v-menu>
 
 		<MaterialfySettings :buttonColor="btnColor" />
 	</v-app-bar>

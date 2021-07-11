@@ -9,12 +9,7 @@
 	>
 		<v-list dense height="100%">
 			<v-img :src="image" height="100%">
-				<MaterialfyUserSnippet
-					:buttonColor="btnColor"
-					:showBottom="crdBottom"
-					:showSearch="true"
-					:showBtn="false"
-				/>
+				<MaterialfyUserSnippet :showBottom="false" />
 				<v-row>
 					<v-divider class="mb-2" />
 					<!-- this section builds the links by use a for loop and iterating through links section
@@ -66,8 +61,6 @@ export default {
 			colorWatch: this.color, // this is just here for the watcher to wrok
 			activeColor: "secondary",
 			alwaysClosed: true, //controls if side drawer is in temp mode or not
-			crdBottom: false, //for userSnippet, controls if it shows the full component
-			btnColor: "tertiary",
 			logo: "./img/redditicon.png",
 			links: [
 				//builds the list of links using v-for and this array
