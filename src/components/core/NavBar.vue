@@ -18,8 +18,8 @@
 
 		<MaterialfyUserSnippet
 			:buttonColor="btnColor"
-			:cardBottom="crdBottom"
-			:cardSearch="true"
+			:showBottom="crdBottom"
+			:showSearch="true"
 		/>
 
 		<MaterialfySettings :buttonColor="btnColor" />

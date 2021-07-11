@@ -5,9 +5,10 @@
 		:close-on-content-click="false"
 		float-left
 		class="ma-2"
+		:v-if="showBtn"
 	>
 		<!-- recieving the "on" event lsitener -->
-		<template v-slot:activator="{ on }">
+		<template v-slot:activator="{ on }" :v-if="showBtn">
 			<v-btn v-on="on" icon :color="buttonColor" class="ml3">
 				<v-icon>mdi-account</v-icon>
 			</v-btn>
@@ -31,7 +32,7 @@
 				<!-- these controls the search displaying in userSnippet -->
 				<v-divider />
 				<!-- this controls if the search box is shown -->
-				<v-row v-if="cardSearch">
+				<v-row v-if="showSearch">
 					<v-col class="d-flex justify-center">
 						<v-text-field
 							v-model="message"
@@ -45,7 +46,7 @@
 						</v-text-field>
 					</v-col>
 				</v-row>
-				<v-card v-if="cardBottom">
+				<v-card v-if="showBottom">
 					<v-divider />
 					<!-- this changes the background color based on theme -->
 					<v-row
@@ -76,6 +77,12 @@
 import { mapGetters } from "vuex";
 export default {
 	name: "UserSnippet",
+	props: {
+		buttonColor: { default: "secondary" },
+		showBottom: { default: true },
+		showSearch: { default: true },
+		showBtn: { default: true },
+	},
 	data() {
 		return {
 			message: null,
@@ -84,7 +91,6 @@ export default {
 	computed: {
 		...mapGetters(["getAvatar"]),
 	},
-	props: ["buttonColor", "cardBottom", "cardSearch"],
 	methods: {
 		logout: function () {
 			this.$store.dispatch("logout").then(() => {

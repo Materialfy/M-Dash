@@ -10,11 +10,11 @@
 					:cardShowActions="false"
 					:cardShowDivider="false"
 				>
-					<!-- mobile-breakpoint =0 disables the table wrapping on mobile like in tables page -->
+					<!-- mobile-breakpoint =0 disables the table cells wrapping on mobile like in tables page -->
 					<template #crdInner>
 						<v-data-table
-							:headers="headers"
-							:items="items"
+							:headers="tableHeaders"
+							:items="tableItems"
 							hide-default-footer
 							:mobile-breakpoint="0"
 							class="primary"
@@ -49,21 +49,25 @@
 			<!-- V-TAB TO-DO CARD -->
 			<v-col>
 				<MaterialfyBasicCard :cardShowTitle="false">
-					<!-- HEader -->
-					<template v-slot:crdSubHeader
-						><v-tabs v-model="tab" align-with-title background-color="tertiary">
-							<v-tabs-slider color="yellow"></v-tabs-slider>
+					<!-- Header -->
+					<template v-slot:crdSubHeader>
+						<!-- add new tabs under -->
+						<v-tabs v-model="tab" align-with-title background-color="tertiary">
+							<span class="text-subtitle-1 mr-1 d-flex align-center">
+								<v-icon class="ma-1">mdi-ballot</v-icon> Tasks:
+							</span>
+							<v-tabs-slider color="background"></v-tabs-slider>
 
-							<v-tab v-for="item in items2" :key="item">
-								<v-icon>mdi-phone</v-icon>
-								{{ item }}
+							<v-tab v-for="item in tabItems" :key="item">
+								<v-icon class="ma-1">{{ item.icon }}</v-icon>
+								{{ item.tab }}
 							</v-tab>
 						</v-tabs>
 					</template>
 					<!-- Card inner area for tab content -->
 					<template #crdInner>
 						<v-tabs-items v-model="tab">
-							<v-tab-item v-for="item in items2" :key="item">
+							<v-tab-item v-for="item in tabItems" :key="item">
 								<v-card flat>
 									<v-card-text v-text="text"></v-card-text>
 								</v-card>
@@ -96,7 +100,7 @@
 					<template v-slot:crdInner>
 						<v-sheet color="rgba(0, 0, 0, .12)">
 							<v-sparkline
-								:value="value2"
+								:value="sparklineValue2"
 								:gradient="gradient"
 								:smooth="radius || false"
 								:padding="padding"
@@ -137,7 +141,7 @@
 							<v-sparkline
 								:labels="labels"
 								label-size="12"
-								:value="value"
+								:value="sparklineValue"
 								color="white"
 								line-width="4"
 								padding="16"
@@ -173,6 +177,7 @@
 </template>
 
 <script>
+// this is where the line chart sparkline gets its colors
 const gradients = [
 	["#222"],
 	["#42b3f4"],
@@ -184,19 +189,19 @@ const gradients = [
 export default {
 	data: () => ({
 		labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
-		value: [200, 300, 410, 390, 420, 460, 420, 420],
+		sparklineValue: [200, 300, 410, 390, 420, 460, 420, 420],
 		width: 2,
 		radius: 10,
 		padding: 8,
 		lineCap: "round",
 		gradient: gradients[5],
-		value2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
+		sparklineValue2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
 		gradientDirection: "top",
 		gradients,
 		fill: false,
 		type: "trend",
 		autoLineWidth: false,
-		headers: [
+		tableHeaders: [
 			{
 				sortable: false,
 				text: "ID",
@@ -231,7 +236,7 @@ export default {
 				class: "tertiary--text text-h6",
 			},
 		],
-		items: [
+		tableItems: [
 			{
 				name: "Dakota Rice",
 				country: "Niger",
@@ -263,14 +268,14 @@ export default {
 				salary: "$63,542",
 			},
 		],
-		tabs: 0,
-		list: {
-			0: false,
-			1: false,
-			2: false,
-		},
 		tab: null,
-		items2: ["web", "shopping", "videos", "images", "news"],
+		tabItems: [
+			{ tab: "Bugs", icon: "mdi-bug" },
+			{ tab: "Server Issues", icon: "mdi-cloud" },
+			{ tab: "Reminders", icon: "mdi-alert" },
+			{ tab: "New Issues", icon: "mdi-access-point" },
+			{ tab: "To-Do", icon: "mdi-alert-box-outline" },
+		],
 		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempmmodo consequat.",
 	}),
 };

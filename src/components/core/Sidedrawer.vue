@@ -11,8 +11,9 @@
 			<v-img :src="image" height="100%">
 				<MaterialfyUserSnippet
 					:buttonColor="btnColor"
-					:cardBottom="crdBottom"
-					:cardSearch="true"
+					:showBottom="crdBottom"
+					:showSearch="true"
+					:showBtn="false"
 				/>
 				<v-row>
 					<v-divider class="mb-2" />

@@ -18,8 +18,8 @@
 						</v-list-item-title>
 					</slot>
 				</v-col>
-				<v-col>
-					<slot name="crdSubHeader" v-if="cardShowSubHeader">
+				<v-col v-if="cardShowSubHeader">
+					<slot name="crdSubHeader">
 						<!-- connected to props so you can change it -->
 						<div class="text-overline mb-4 tertiary--text">
 							{{ cardSubHeaderText }}
