@@ -4,9 +4,11 @@
 		<v-container>
 			<v-row justify="center" class="mb-1">
 				<v-col cols="3" justify-center>
-					<v-avatar size="70">
-						<img :src="getAvatar" alt="User Avatar" />
-					</v-avatar>
+					<router-link to="user">
+						<v-avatar size="70">
+							<img :src="getAvatar" alt="User Avatar" />
+						</v-avatar>
+					</router-link>
 				</v-col>
 				<v-col cols="9" align-self="auto">
 					<v-card-title class="pa--20"> Travis Scott </v-card-title>

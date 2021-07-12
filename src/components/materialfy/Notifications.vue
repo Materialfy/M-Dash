@@ -15,6 +15,7 @@
 				color="tertiary"
 				overlap
 				offset-y="23px"
+				offset-x="17px"
 			>
 				<v-btn
 					id="notifbtn"

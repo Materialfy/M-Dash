@@ -64,7 +64,7 @@
 							</span>
 							<v-tabs-slider color="secondary"></v-tabs-slider>
 
-							<v-tab v-for="item in tabItems" :key="item">
+							<v-tab v-for="item in tabItems" :key="item.tab">
 								<v-icon class="ma-1">{{ item.icon }}</v-icon>
 								{{ item.tab }}
 							</v-tab>
@@ -73,14 +73,14 @@
 					<!-- Card inner area for tab content -->
 					<template #crdInner>
 						<v-tabs-items v-model="tab">
-							<v-tab-item v-for="item in tabItems" :key="item">
+							<v-tab-item v-for="item in tabItems" :key="item.tab">
 								<template v-for="(tabText, index) in textList">
 									<v-card flat color="primary" :key="index" class="my-3">
 										<v-row wrap>
 											<v-list-item
 												:class="index % 2 ? 'background' : 'secondary'"
 												><v-list-item-title>{{
-													"#" + (index + 1) + " " + tabText
+													index + 1 + "." + "  " + tabText
 												}}</v-list-item-title></v-list-item
 											>
 										</v-row>
@@ -98,9 +98,9 @@
 		</v-row>
 		<!-- SECOND ROW  -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center mb-2">
+		<v-row class="d-flex align-center mb-2" no-gutters>
 			<!-- FIRST COLOR CARD with default content -->
-			<v-col>
+			<v-col cols="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="Sign-ups per 1k users"
@@ -129,10 +129,10 @@
 				</MaterialfyColorCard>
 			</v-col>
 			<!-- SECOND COLOR CARD with secondary color -->
-			<v-col>
+			<v-col cols="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
-					cardInnerText="User Attrition"
+					cardInnerText="Users Usering"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="primary"
@@ -157,13 +157,41 @@
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			<v-col>
+			<v-col cols="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="User Engagement"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="accent"
+				>
+					<template v-slot:crdInner>
+						<v-sheet color="rgba(0, 0, 0, .12)">
+							<v-sparkline
+								:value="sparklineValue2"
+								:gradient="gradient"
+								:smooth="radius || false"
+								:padding="padding"
+								:line-width="width"
+								:stroke-linecap="lineCap"
+								:gradient-direction="gradientDirection"
+								:fill="fill"
+								:type="type"
+								:auto-line-width="autoLineWidth"
+								auto-draw
+								height="150"
+							/>
+						</v-sheet>
+					</template>
+				</MaterialfyColorCard>
+			</v-col>
+			<v-col cols="3">
+				<MaterialfyColorCard
+					cardMaxWidth="400"
+					cardInnerText="Horse Power"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					cardColor="blue"
 				>
 					<template v-slot:crdInner>
 						<v-sheet color="rgba(0, 0, 0, .12)">
@@ -216,7 +244,7 @@
 							class="v-sheet--offset mx-auto mt-2"
 							color="tertiary"
 							elevation="4"
-							max-width="calc(100% - 32px)"
+							max-width="calc(100% - 100px)"
 						>
 							<v-sparkline
 								:labels="labels"
@@ -225,7 +253,7 @@
 								color="white"
 								line-width="4"
 								padding="16"
-								height="150"
+								height="130"
 							/>
 						</v-sheet>
 					</template>
@@ -331,7 +359,7 @@ export default {
 		tabItems: [
 			{ tab: "Bugs", icon: "mdi-bug" },
 			{ tab: "Server Issues", icon: "mdi-cloud" },
-			{ tab: "Reminders", icon: "mdi-alert" },
+			{ tab: "Tickets", icon: "mdi-alert" },
 			{ tab: "New Issues", icon: "mdi-access-point" },
 			{ tab: "To-Do", icon: "mdi-alert-box-outline" },
 		],

@@ -20,7 +20,9 @@
 			<!-- recieving the "on" event lsitener -->
 			<template v-slot:activator="{ on }">
 				<v-btn v-on="on" icon :color="btnColor" class="ml3">
-					<v-icon>mdi-account</v-icon>
+					<v-avatar size="35" v-on="on">
+						<img :src="getAvatar" alt="User Avatar" />
+					</v-avatar>
 				</v-btn>
 			</template>
 			<MaterialfyUserSnippet />
@@ -47,7 +49,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters(["authorized"]),
+		...mapGetters(["authorized", "getAvatar"]),
 	},
 	watch: {},
 	created() {},
@@ -67,6 +69,6 @@ export default {
 
 <style>
 .v-app-bar-title__content {
-	/*width: 280px; */
+	width: 280px;
 }
 </style>
