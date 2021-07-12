@@ -56,7 +56,8 @@
 							v-model="tab"
 							align-with-title
 							background-color="tertiary"
-							class="elevation-3"
+							class="elevation-3 mb-1"
+							center-active
 						>
 							<span class="text-subtitle-1 mr-1 d-flex align-center">
 								<v-icon class="ma-1">mdi-ballot</v-icon> Tasks:
@@ -73,26 +74,15 @@
 					<template #crdInner>
 						<v-tabs-items v-model="tab">
 							<v-tab-item v-for="item in tabItems" :key="item">
-								<template v-for="i in 5">
-									<v-card flat color="primary">
+								<template v-for="(tabText, index) in textList">
+									<v-card flat color="primary" :key="index" class="my-3">
 										<v-row wrap>
-											<v-list-item class="secondary"
+											<v-list-item
+												:class="index % 2 ? 'background' : 'secondary'"
 												><v-list-item-title>{{
-													"#" + i + " " + textList[0]
+													"#" + (index + 1) + " " + tabText
 												}}</v-list-item-title></v-list-item
 											>
-										</v-row>
-										<v-row wrap>
-											<v-list-item class="primary"
-												><v-list-item-title>{{
-													"#" + i + " " + textList[1]
-												}}</v-list-item-title></v-list-item
-											>
-										</v-row>
-										<v-row wrap>
-											<v-card-text class="secondary">{{
-												"#" + i + " " + textList[1]
-											}}</v-card-text>
 										</v-row>
 									</v-card>
 								</template>
@@ -106,18 +96,14 @@
 				<MaterialfyHeaderCard />
 			</v-col>
 		</v-row>
-		<!-- SECOND ROW with basic color cards -->
+		<!-- SECOND ROW  -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
 			<v-col>
-				<MaterialfyColorCard />
-			</v-col>
-			<!-- SECOND COLOR CARD with secondary color -->
-			<v-col>
 				<MaterialfyColorCard
 					cardMaxWidth="400"
-					cardInnerText="User Engagement"
+					cardInnerText="Sign-ups per 1k users"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="secondary"
@@ -142,8 +128,77 @@
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
+			<!-- SECOND COLOR CARD with secondary color -->
+			<v-col>
+				<MaterialfyColorCard
+					cardMaxWidth="400"
+					cardInnerText="User Attrition"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					cardColor="primary"
+				>
+					<template v-slot:crdInner>
+						<v-sheet color="rgba(0, 0, 0, .12)">
+							<v-sparkline
+								:value="sparklineValue2"
+								:gradient="gradient"
+								:smooth="radius || false"
+								:padding="padding"
+								:line-width="width"
+								:stroke-linecap="lineCap"
+								:gradient-direction="gradientDirection"
+								:fill="fill"
+								:type="type"
+								:auto-line-width="autoLineWidth"
+								auto-draw
+								height="150"
+							/>
+						</v-sheet>
+					</template>
+				</MaterialfyColorCard>
+			</v-col>
+			<v-col>
+				<MaterialfyColorCard
+					cardMaxWidth="400"
+					cardInnerText="User Engagement"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					cardColor="accent"
+				>
+					<template v-slot:crdInner>
+						<v-sheet color="rgba(0, 0, 0, .12)">
+							<v-sparkline
+								:value="sparklineValue2"
+								:gradient="gradient"
+								:smooth="radius || false"
+								:padding="padding"
+								:line-width="width"
+								:stroke-linecap="lineCap"
+								:gradient-direction="gradientDirection"
+								:fill="fill"
+								:type="type"
+								:auto-line-width="autoLineWidth"
+								auto-draw
+								height="150"
+							/>
+						</v-sheet>
+					</template>
+				</MaterialfyColorCard>
+			</v-col>
 		</v-row>
-		<!-- THIRD ROW with header, color and basic cards -->
+
+		<!-- THIRD ROW -->
+		<!-- Used named slots and props to overide the default card content below -->
+		<v-row class="d-flex align-center mb-2">
+			<!-- FIRST COLOR CARD with default content -->
+			<v-col>
+				<MaterialfyColorCard />
+			</v-col>
+			<v-col>
+				<MaterialfyColorCard />
+			</v-col>
+		</v-row>
+		<!-- FOURTH ROW with header, color and basic cards -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="ma-3 d-flex align-start">
 			<v-col>
@@ -151,7 +206,7 @@
 			</v-col>
 			<v-col>
 				<MaterialfyHeaderCard
-					cardTitle="Users Monthly Logins"
+					cardTitle="Monthly User Logins"
 					cardIcon="mdi-access-point-plus"
 					:cardShowDivider="false"
 					:cardShowActions="false"
@@ -175,27 +230,6 @@
 						</v-sheet>
 					</template>
 				</MaterialfyHeaderCard>
-			</v-col>
-			<v-col>
-				<MaterialfyColorCard cardColor="grey">
-					<template v-slot:crdInner>
-						<v-list-item three-line>
-							<v-list-item-content>
-								<div class="text-overline mb-4">OVERLINE</div>
-								<v-list-item-title class="text-h5 mb-1">
-									Headline 5
-								</v-list-item-title>
-								<v-list-item-subtitle
-									>Greyhound divisely hello coldly
-									fonwderfully</v-list-item-subtitle
-								>
-							</v-list-item-content>
-						</v-list-item>
-					</template>
-					<template v-slot:crdActions>
-						<v-btn outlined rounded text> Button </v-btn>
-					</template>
-				</MaterialfyColorCard>
 			</v-col>
 		</v-row>
 	</v-container>
@@ -304,6 +338,10 @@ export default {
 		textList: [
 			"You just read a sentence",
 			"Second sentence with a lot of merit",
+			"Fix bugs",
+			"Look at Pull Requests",
+			"Hope pull request fix bugs?",
+			"Figure out some other text to put here",
 		],
 	}),
 };

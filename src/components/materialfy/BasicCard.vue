@@ -30,9 +30,8 @@
 			<!-- Inner card area where yuou can put tables/tabs or anything -->
 			<slot :name="cardInner" v-if="cardShowInner">
 				<v-card-text class="text-h5 font-weight-bold">
-					This is a bunch of text that are words since i couldnt think of
-					anything to fill up the default content of this card. fix with pull
-					request lol
+					This is a bunch of text since i couldnt think of anything to fill up
+					the default content of this card. fix with pull request lol
 				</v-card-text>
 			</slot>
 
