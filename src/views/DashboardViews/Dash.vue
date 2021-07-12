@@ -230,7 +230,7 @@
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="ma-3 d-flex align-start">
 			<v-col>
-				<MaterialfyBasicCard />
+				<MaterialfyCalendar />
 			</v-col>
 			<v-col>
 				<MaterialfyHeaderCard

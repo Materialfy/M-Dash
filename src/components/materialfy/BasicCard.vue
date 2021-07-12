@@ -56,7 +56,7 @@ export default {
 			default: "600",
 		},
 		cardTitle: {
-			default: "Materailfy Basic Card",
+			default: "Materialfy Basic Card",
 		},
 		cardSubHeaderText: {
 			default: "Subheader",

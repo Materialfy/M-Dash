@@ -19,11 +19,9 @@
 		<v-menu nudge-bottom="57" :close-on-content-click="false">
 			<!-- recieving the "on" event lsitener -->
 			<template v-slot:activator="{ on }">
-				<v-btn v-on="on" icon :color="btnColor" class="ml3">
-					<v-avatar size="35" v-on="on">
-						<img :src="getAvatar" alt="User Avatar" />
-					</v-avatar>
-				</v-btn>
+				<v-avatar size="35" v-on="on" class="mx-2">
+					<img :src="getAvatar" alt="User Avatar" />
+				</v-avatar>
 			</template>
 			<MaterialfyUserSnippet />
 		</v-menu>
