@@ -46,7 +46,7 @@ export default {
 	logout({ commit }) {
 		return new Promise((resolve, reject) => {
 			commit('logout')
-			localStorage.removeItem('token')
+			ls.remove('token')
 			delete axios.defaults.headers.common['Authorization']
 			resolve()
 				//catches any errors and passed them to the promise for you to do something with
@@ -54,11 +54,11 @@ export default {
 		})
 	},
 	refreshtoken({ commit }) {
-		axios
+		restApi
 			.get('/refresh')
 			.then((response) => {
 				const token = response.data.access_token
-				localStorage.setItem('token', token)
+				ls.set('tokenKey', { token: token }) 
 				axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
 				commit('auth_success', { token })
 			})

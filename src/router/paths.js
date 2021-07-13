@@ -108,7 +108,7 @@ export default [
 		path: '*',
 		redirect: {
 			name: 'catchAll',
-			path: '/dashboard',
+			path: '/',
 		},
 		meta: {
 			requiresAuth: true,

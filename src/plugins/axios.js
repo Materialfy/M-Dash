@@ -9,9 +9,7 @@ let ls = new SecureLS()
 const token = ls.get('tokenKey')
 console.log(token)
 //const token = localStorage.getItem("token");
-if (token) {
-	axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
-}
+
 
 // creates a new instance that you will call instead of axios.
 const restApi = axios.create({
@@ -28,6 +26,9 @@ const restApi = axios.create({
 	headers: {
 	},
 });
+if (token) {
+	restApi.defaults.headers.common['Authorization'] = 'Bearer ' + token
+}
 restApi.defaults.headers.get["Accepts"] = "application/json";
 genericApi.defaults.headers.get["Accepts"] = "application/json";
 
