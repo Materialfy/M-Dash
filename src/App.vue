@@ -1,6 +1,6 @@
 <!--  This is set up to have two completely different website layouts 
 depending on if you are logged in or not , 
-so that is what ExternalView and DashboardView are for. LoginForm renders in Externalview-->
+so that is what ExternalView and DashboardView are for. LoginView renders in Externalview-->
 <template>
 
     <transition mode="out-in">

@@ -23,6 +23,14 @@
 		"editor.formatOnSave": true,
 		"html.format.endWithNewline": true,
 		"html.format.indentHandlebars": true,
-		"html.format.indentInnerHtml": true
+		"html.format.indentInnerHtml": true,
+		"eslint.run": "onSave",
+		"prettier.quoteProps": "preserve",
+		"prettier.semi": false,
+		"prettier.singleQuote": true,
+		"prettier.tabWidth": 3,
+		"prettier.useTabs": true,
+		"eslint.codeActionsOnSave.mode": "problems",
+		"eslint.lintTask.enable": true
 	}
 }

@@ -58,11 +58,11 @@
 
 <script>
 	export default {
-		name: "LoginForm",
+		name: "LoginView",
 		data: function () {
 			return {
-				username: "",
-				password: "",
+				username: "eve.holt@reqres.in",
+				password: "cityslicka",
 				errorMessages: "Incorrect login info",
 				snackbar: false, // this is the wrong pass notification
 				color: "general",
@@ -78,7 +78,7 @@
 				let password = this.password;
 				this.$store
 					.dispatch("login", { username, password }) //calls the login action and passes login info
-					.then(() => this.$router.push("")) //redirect to dash after login
+					.then(() => this.$router.push("/")) //redirect to dash after login
 					.catch((err) => {
 						console.log(err);
 						this.snackbar = true; //shows error on wrong pass

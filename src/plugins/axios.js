@@ -1,21 +1,26 @@
 // Lib imports
 import axios from "axios";
 import NProgress from "nprogress";
+import SecureLS from 'secure-ls'
 
+let ls = new SecureLS()
 
-const token = localStorage.getItem("token");
+// state set to the previous token, the authorization Axios header set to same
+const token = ls.get('tokenKey')
+console.log(token)
+//const token = localStorage.getItem("token");
 if (token) {
-	restApi.defaults.headers.common["Authorization"] = "Bearer " + token;
+	axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }
 
 // creates a new instance that you will call instead of axios.
- const restApi = axios.create({
-	baseURL: "", //"http://127.0.0.1:8001/admin/",
+const restApi = axios.create({
+	baseURL: 'https://reqres.in/api/',
 	timeout: 3000,
 	headers: {
-		Authorization: "Bearer " + token,
+		Authorization: 'Bearer ' + token,
 	},
-});
+})
 // Sets the default global url used by all of this axios instance's requests
  const genericApi = axios.create({
 	baseURL: "https://reqres.in/api/",
