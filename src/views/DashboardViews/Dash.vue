@@ -98,9 +98,9 @@
 		</v-row>
 		<!-- SECOND ROW  -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center mb-2" no-gutters>
+		<v-row class="d-flex align-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
-			<v-col cols="3">
+			<v-col md="3" class="my-2">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="Sign-ups per 1k users"
@@ -129,7 +129,7 @@
 				</MaterialfyColorCard>
 			</v-col>
 			<!-- SECOND COLOR CARD with secondary color -->
-			<v-col cols="3">
+			<v-col md="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="Users Usering"
@@ -157,7 +157,7 @@
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			<v-col cols="3">
+			<v-col md="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="User Engagement"
@@ -185,7 +185,7 @@
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			<v-col cols="3">
+			<v-col md="3">
 				<MaterialfyColorCard
 					cardMaxWidth="400"
 					cardInnerText="Horse Power"
@@ -228,36 +228,11 @@
 		</v-row>
 		<!-- FOURTH ROW with header, color and basic cards -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="ma-3 d-flex align-start">
-			<v-col>
-				<MaterialfyCalendar />
-			</v-col>
-			<v-col>
-				<MaterialfyHeaderCard
-					cardTitle="Monthly User Logins"
-					cardIcon="mdi-access-point-plus"
-					:cardShowDivider="false"
-					:cardShowActions="false"
-				>
-					<template v-slot:crdInnerList>
-						<v-sheet
-							class="v-sheet--offset mx-auto mt-2"
-							color="tertiary"
-							elevation="4"
-							max-width="calc(100% - 100px)"
-						>
-							<v-sparkline
-								:labels="labels"
-								label-size="12"
-								:value="sparklineValue"
-								color="white"
-								line-width="4"
-								padding="16"
-								height="130"
-							/>
-						</v-sheet>
-					</template>
-				</MaterialfyHeaderCard>
+		<v-row class="ma-3 d-flex align-start justify-center">
+			<v-col md="9">
+				<v-responsive :aspect-ratio="16 / 9">
+					<MaterialfyCalendar />
+				</v-responsive>
 			</v-col>
 		</v-row>
 	</v-container>

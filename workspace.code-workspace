@@ -18,6 +18,11 @@
 			"**/*.code-search": false,
 			"**/*.md": true
 		},
-		"editor.defaultFormatter": "octref.vetur"
+		"eslint.packageManager": "yarn",
+		"editor.formatOnSaveMode": "modifications",
+		"editor.formatOnSave": true,
+		"html.format.endWithNewline": true,
+		"html.format.indentHandlebars": true,
+		"html.format.indentInnerHtml": true
 	}
 }

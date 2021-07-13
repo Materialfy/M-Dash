@@ -153,4 +153,4 @@ moving to documentation
 * This Dashboard is no longer using the template desgin/code from CreativeTims vueitfy material dash that this repo originally based its design on. 
 
 
-You can [send me a tweet](https://twitter.com/SourBlueDream) if you need minor assistance 
+You can [send me a tweet](https://twitter.com/Materialfy) if you need minor assistance 

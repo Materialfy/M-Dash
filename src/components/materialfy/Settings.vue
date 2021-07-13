@@ -119,7 +119,7 @@
 
 							<div>
 								<v-btn
-									href="https://twitter.com/"
+									href="https://twitter.com/Materialfy"
 									target="_blank"
 									color="cyan"
 									class="v-btn-twitter"
@@ -196,11 +196,7 @@ export default {
 		toggleTheme() {
 			this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
 		},
-		toggleText() {
-			if (this.$vuetify.theme.dark) {
-				return "Dark Mode";
-			} else return "Light Mode";
-		},
+
 	},
 };
 </script>

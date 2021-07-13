@@ -66,7 +66,7 @@ import { mapGetters } from "vuex";
 export default {
 	name: "UserSnippet",
 	props: {
-		buttonColor: { default: "secondary" },
+		buttonColor: { default: "tertiary" },
 		showBottom: { default: true },
 		showSearch: { default: true },
 		showBtn: { default: true },
