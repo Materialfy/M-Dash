@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.authorized) {
       next() // if you are authorized you can continue on
-      next()
+
     }
     else{
     next('/') //sends to login if auth token isnt true
