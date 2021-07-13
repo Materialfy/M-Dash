@@ -32,8 +32,7 @@ requireModule.keys().forEach((fileName) => {
 	modules[moduleName][imported] = requireModule(fileName).default;
 });
 
-export //modules,
-let plugins = [
+export let plugins = [
 	createPersistedState({
 		paths: ["drawertoggle"],
 	}),

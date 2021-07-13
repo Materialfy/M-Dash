@@ -58,7 +58,7 @@ export default {
 			group: false,
 			drawerShown: false, // controls the opening and closing of drawer
 			drawer: this.drawerState, // this is just here for the watcher to wrok
-			colorWatch: this.color, // this is just here for the watcher to wrok
+			colorWatch: this.color, // this is just here for the color watcher to wrok
 			activeColor: "secondary",
 			alwaysClosed: true, //controls if side drawer is in temp mode or not
 			logo: "./img/redditicon.png",
@@ -111,13 +111,13 @@ export default {
 		drawerState: function () {
 			this.drawerShown = this.drawerState;
 		},
-		// this watches the Vuex state set to data.drawer an updates the drawer to open
+		// this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly
 		colorWatch: function () {
 			this.activeColor = this.color;
 		},
 		// when the drawer closes it emits am event with a value of false, used to udpate vuex state
 		drawerShown() {
-			//this should be replaced with a mutation, cant use drawerState imported without setter
+			//this should be replaced with a mutation
 			this.$store.state.drawertoggle.drawerState = this.drawerShown;
 		},
 	},
