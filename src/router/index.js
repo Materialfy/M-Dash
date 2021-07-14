@@ -41,12 +41,17 @@ if they have requireAuth(dashboard routes) you use the "to" objects name prop to
 https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
  */
 router.beforeEach((to, from, next) => {
-  if (to.matched.some((record) => record.meta.requiresAuth) && store.getters.authorized ) {
-    console.log('authorize for route: ' + store.getters.authorized)
-    console.log(next())
-    next() // if the authorized getter returns true, you can continue on to the current route. to.name
+  if (
+		to.matched.some((record) => record.meta.requiresAuth) &&
+		!store.getters.authorized
+  ) {
+		console.log('authorize for route: ' + store.getters.authorized)
+		console.log('next() value: ' + next())
+		next('/login') // if the authorized getter returns true, you can continue on to the current route. to.name
+  } else if (to.name == 'login' && store.getters.authorized) {
+		next('/') //sends to login if auth token isnt true
   } else {
-    next('/login') //sends to login if auth token isnt true
+		next() // you called `next('/')` which redirected to the homepage over and over again.
   }
   } 
 );

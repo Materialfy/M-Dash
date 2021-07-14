@@ -8,11 +8,11 @@ import App from "./App";
 import i18n from "@/i18n";
 import router from "@/router";
 import store from "@/store";
-import { restApi, genericApi } from "./plugins/axios";
+import { genericApi } from './plugins/axios'
 //import NProgress from "nprogress";
-import vuetify from "./plugins/vuetify";
+import vuetify from './plugins/vuetify'
 
-Vue.use(restApi);
+
 
 
 // makes genericApi common base instance axios the default http handler

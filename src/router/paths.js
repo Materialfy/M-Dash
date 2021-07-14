@@ -35,14 +35,14 @@ export default [
 		component: () => import(`@/views/DashboardView.vue`),
 		children: [
 			{
-				path: '', //defaults to /dashboard if left blank
+				path: '', //defaults to / if left blank
 				meta: {
 					name: 'Dash',
 				},
 				component: () => import(`@/views/DashboardViews/Dash.vue`),
 			},
 			{
-				path: 'user', // ends up as /dashboard/user-profile
+				path: 'user', // ends up as /user
 				meta: {
 					name: 'UserProfile',
 				},

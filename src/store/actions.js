@@ -65,7 +65,7 @@ export default {
 			.catch((error) => {
 				console.log('refresh token error')
 				commit('logout')
-				localStorage.removeItem('token')
+				ls.remove('token')
 				console.log(error)
 			})
 	},
