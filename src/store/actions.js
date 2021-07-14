@@ -13,7 +13,7 @@ that we will use to trigger mutations.
 async function login({ commit }, userData) {
 	// one day ill implement snackbars with the auth state or use it in a component or footer
 	commit('auth_request')
-	restApi
+  let response = await restApi
 		.post('login', {
 			username: userData.username,
 			password: userData.password,
@@ -37,6 +37,7 @@ async function login({ commit }, userData) {
 			commit('auth_error')
 			ls.remove('token')
 		})
+  return response
 }
 
 export default {
