@@ -17,6 +17,7 @@ const set = property => (state, dataPayload) => (state[property] = dataPayload)
 
 const toggleDrawerState = state => {
     state.drawerState = true
+    console.log('mutation drawerOn()')
 }
 /* 
   calls just the first part of the nested arrow functions, but the second nested arrow function executes
