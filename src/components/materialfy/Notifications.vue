@@ -45,7 +45,8 @@
 							<v-divider v-if="value.divider" :key="index" />
 							<v-list-item :key="value.title" two-line to="Notifications">
 								<v-list-item-avatar :key="value.avatar">
-									<img :src="value.avatar" />
+									<img v-if="value.avatar" :src="value.avatar" />
+									<v-icon v-if="value.icon">{{value.icon}}</v-icon>
 								</v-list-item-avatar>
 								<v-list-item-content>
 									<v-list-item-title v-html="value.title" />
