@@ -60,7 +60,6 @@ export default {
 		drawerButton() {
 			// this calls the action drawerOn which then commits the toggle mutation
 			this.drawerOn();
-			console.log('commit drawerOn()')
 		},
 	},
 };

@@ -1,6 +1,5 @@
 
 /*
-This is generic actions that you can import to use in any module
 these are nested arrow functions aka curried functions
 this passes in the state to thats gonna be changed and the payload with the data to change it
 example: set = color => return (state, newcolor) => return (state[color] = newcolor)
@@ -17,13 +16,10 @@ const set = property => (state, dataPayload) => (state[property] = dataPayload)
 
 const toggleDrawerState = state => {
     state.drawerState = true
-    console.log('mutation drawerOn()')
+    console.log('mutation drawerOn(): ' + state.drawerState)
 }
 /* 
-  calls just the first part of the nested arrow functions, but the second nested arrow function executes
-	they are called in toolbar.vue, filter.vue and drawer.vue
-	they change the state of what they are setting(image,color etc)
-  we are exporting an object with methods
+	these are called in navbar.vue, settings.vue and sidedrawer.vue
 */
 export default {
   setDrawer: set('drawer'),
