@@ -7,7 +7,6 @@ let ls = new SecureLS()
 
 // state set to the previous token, the authorization Axios header set to same
 const token = ls.get('tokenKey')
-console.log(token)
 //const token = localStorage.getItem("token");
 
 

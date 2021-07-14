@@ -1,12 +1,11 @@
 
-![version](https://img.shields.io/badge/version-1.8.0-blue.svg)
+![version](https://img.shields.io/badge/version-2.0-blue.svg)
 
 
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
-## Back under active development
 
-### SneakPeak in Dev 
+##
 <img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
 
 ## [2.0 Demo Site](https://focused-neumann-7a901d.netlify.app/) 
@@ -82,7 +81,7 @@ Vuetify Admin Dashboard is a beautiful resource built over [Vuetify](https://vue
 
 ![Crud Table](2019-04-03_04-17-17.gif)
 
-## Whats New
+## Whats New in 2.0:
 
 ## Few things on the roadmap
 

@@ -110,6 +110,7 @@ export default {
 		// this watches the Vuex state set to data.drawer an updates the drawer to open
 		drawerState: function () {
 			this.drawerShown = this.drawerState;
+			console.log('drawer watcher in sideDrawer.vue')
 		},
 		// this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly
 		colorWatch: function () {

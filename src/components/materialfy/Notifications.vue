@@ -32,10 +32,10 @@
 		<v-card max-width="400" color="primary">
 			<v-container fill-height>
 				<v-row no-gutters>
-					<v-col cols="7" class="mx-auto">
+					<v-col cols="7" class="mx-auto ">
 						<v-subheader
 							v-if="getNotifHeader"
-							class="d-flex justify-center pa-2"
+							class="d-flex justify-center pa-2 secondary--text "
 						>
 							Refreshed: {{ notificationHeader }}
 						</v-subheader>
@@ -46,7 +46,7 @@
 							<v-list-item :key="value.title" two-line to="Notifications">
 								<v-list-item-avatar :key="value.avatar">
 									<img v-if="value.avatar" :src="value.avatar" />
-									<v-icon v-if="value.icon">{{value.icon}}</v-icon>
+									<v-icon v-if="value.icon" large color="secondary">{{value.icon}}</v-icon>
 								</v-list-item-avatar>
 								<v-list-item-content>
 									<v-list-item-title v-html="value.title" />
@@ -56,7 +56,7 @@
 						</template>
 					</v-col>
 				</v-row>
-				<v-divider />
+				<v-row><v-divider class="mb-1 px-2" /></v-row>
 				<v-row>
 					<v-col col="3" class="text-center">
 						<router-link to="notifications">
