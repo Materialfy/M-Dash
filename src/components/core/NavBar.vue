@@ -34,6 +34,7 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+	name: 'AppBar',
 	data() {
 		return {
 			//if the app is on mobile devices it changes the title

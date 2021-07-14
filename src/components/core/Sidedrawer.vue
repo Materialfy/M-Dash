@@ -52,11 +52,11 @@
 <script>
 import { mapState } from "vuex";
 export default {
-	name: "NavDrawer",
+	name: "SideDrawer",
 	data() {
 		return {
 			group: false,
-			drawerShown: true, // controls the opening and closing of drawer
+			drawerShown: null, // controls the opening and closing of drawer
 			drawer: this.drawerState, // this is just here for the watcher to wrok
 			colorWatch: this.color, // this is just here for the color watcher to wrok
 			activeColor: "secondary",
