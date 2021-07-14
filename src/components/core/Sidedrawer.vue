@@ -102,24 +102,25 @@ export default {
 			],
 		};
 	},
-	mounted() {
-		// gets the initial drawer state(false) so it can be watched in data.drawer
-		this.drawer = this.drawerState;
-	},
+
 	watch: {
-		// this watches the Vuex state set to data.drawer an updates the drawer to open
+		/* watches for changes in drawerState, you cant watch state directly, 
+		its assigned to drawer as a work around to indriectly watch the state.
+		once it updates, you update drawerShown which is used in v-model for drawer opening/closing */
 		drawerState: function () {
 			this.drawerShown = this.drawerState;
-			console.log('drawer watcher in sideDrawer.vue')
+			
 		},
 		// this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly
 		colorWatch: function () {
 			this.activeColor = this.color;
 		},
-		// when the drawer closes it emits am event with a value of false, used to udpate vuex state
+		/* when the drawer closes it emits am event with a value of false, that updates drawerShown,
+		 which causes this to run. its used to udpate vuex state back to false */
 		drawerShown() {
 			//this should be replaced with a mutation
 			this.$store.state.drawertoggle.drawerState = this.drawerShown;
+			console.log('drawer watcher updated drawerState to false in sideDrawer.vue')
 		},
 	},
 	computed: {

@@ -10,10 +10,10 @@ drawerapp state: color, drawer, image
 //state[property] and state.property mean the same thing
 const set = property => (state, dataPayload) => (state[property] = dataPayload)
 
-const toggle = property => 
-      state => {
-        return (state[property] = !state[property])
-      } 
+// const toggle = property => 
+//       state => {
+//         return (state[property] = !state[property])
+//       } 
 
 const toggleDrawerState = state => {
     state.drawerState = true
@@ -28,6 +28,5 @@ export default {
   setDrawer: set('drawer'),
   setImage: set('image'),
   setColor: set('color'),
-  toggleDrawer: toggle('drawerState'),
   toggleDrawerState
 }
