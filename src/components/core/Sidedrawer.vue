@@ -56,14 +56,14 @@ export default {
 	data() {
 		return {
 			group: false,
-			drawerShown: false, // controls the opening and closing of drawer
-			drawer: this.drawerState, // this is just here for the watcher to wrok
-			colorWatch: this.color, // this is just here for the color watcher to wrok
+			drawerShown: false, /* controls the opening and closing of drawer */
+			drawer: this.drawerState, /* this is just here for the watcher to wrok */
+			colorWatch: this.color, /* this is just here for the color watcher to wrok */
 			activeColor: "secondary",
-			alwaysClosed: false, //controls if side drawer is in temp mode or not
+			alwaysClosed: true, /* controls if side drawer is in temp mode or not */
 			logo: "./img/redditicon.png",
 			links: [
-				//builds the list of links using v-for and this array
+				/* builds the list of links using v-for and this array */
 				{
 					to: "/",
 					icon: "mdi-view-dashboard",
@@ -113,7 +113,7 @@ export default {
 			console.log(this.drawerShown)
 			
 		},
-		// this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly
+		/* this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly */
 		colorWatch: function () {
 			console.log('active color change')
 			this.activeColor = this.color;
@@ -121,13 +121,13 @@ export default {
 		/* when the drawer closes it emits am event with a value of false, that updates drawerShown,
 		 which causes this to run. its used to udpate vuex state back to false */
 		drawerShown() {
-			//this should be replaced with a mutation
+			/* this should be replaced with a mutation*/
 			this.$store.state.drawertoggle.drawerState = this.drawerShown;
 			console.log('drawer watcher updated drawerState to false in sideDrawer.vue')
 		},
 	},
 	computed: {
-		// this was used to check state with a getter and setter. Now its used in watcher
+		/* this was used to check state with a getter and setter. Now its used in watcher */
 		...mapState("drawertoggle", ["drawerState", "image", "color"]),
 	},
 	methods: {
