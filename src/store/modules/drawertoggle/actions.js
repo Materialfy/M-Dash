@@ -2,6 +2,6 @@
 export default {
 	drawerOn({ commit }) {
 		commit('toggleDrawerState')
-		console.log('action drawerOn()')
+		console.log('action ')
 	},
 }
