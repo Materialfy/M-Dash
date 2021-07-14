@@ -61,7 +61,6 @@ export default {
 			colorWatch: this.color, /* this is just here for the color watcher to wrok */
 			activeColor: "secondary",
 			alwaysClosed: true, /* controls if side drawer is in temp mode or not */
-			logo: "./img/redditicon.png",
 			links: [
 				/* builds the list of links using v-for and this array */
 				{
