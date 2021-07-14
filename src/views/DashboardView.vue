@@ -1,6 +1,7 @@
 <!-- This renders any components inside the dashboard with the elements you expect
 core-toolbar is core/toolbar.vue etc -->
 <template>
+<!-- this sets the background color to the background color property of the themes/theme object in plugins/vuetify -->
 	<v-app :style="{ background: $vuetify.theme.themes[theme].background }">
 		<CoreNavBar />
 		<CoreSideDrawer />
@@ -26,7 +27,7 @@ core-toolbar is core/toolbar.vue etc -->
 			};
 		},
 		computed: {
-			//controls the background color
+			//controls the background color depending on mode
 			theme() {
 				return this.$vuetify.theme.dark ? "dark" : "light";
 			},

@@ -56,7 +56,7 @@ export default {
 	data() {
 		return {
 			group: false,
-			drawerShown: false, // controls the opening and closing of drawer
+			drawerShown: true, // controls the opening and closing of drawer
 			drawer: this.drawerState, // this is just here for the watcher to wrok
 			colorWatch: this.color, // this is just here for the color watcher to wrok
 			activeColor: "secondary",
