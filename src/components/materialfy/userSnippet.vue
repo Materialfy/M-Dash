@@ -50,9 +50,9 @@
 						</router-link>
 					</v-col>
 					<v-col class="d-flex justify-center">
-						<v-btn icon :color="buttonColor">
+						<v-btn icon :color="buttonColor" block @click="logout">
 							Logout
-							<v-icon @click="logout">mdi-power</v-icon>
+							<v-icon >mdi-power</v-icon>
 						</v-btn>
 					</v-col>
 				</v-row>
@@ -81,9 +81,9 @@ export default {
 	},
 	methods: {
 		logout: function () {
-			this.$store.dispatch("logout")
+			this.$store.dispatch("logout").then(() => {
 				this.$router.push("/login");
-			
+			});
 		},
 	},
 };

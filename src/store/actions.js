@@ -46,7 +46,7 @@ export default {
 		return new Promise((resolve, reject) => {
 			commit('logout')
 			ls.remove('token')
-			delete axios.defaults.headers.common['Authorization']
+			delete restApi.defaults.headers.common['Authorization']
 			resolve()
 				//catches any errors and passed them to the promise for you to do something with
 				.catch((error) => reject(error))
