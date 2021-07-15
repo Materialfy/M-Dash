@@ -107,14 +107,13 @@ export default {
 		its assigned to drawer as a work around to indriectly watch the state.
 		once it updates, you update drawerShown which is used in v-model for drawer opening/closing */
 		drawerState: function () {
-			console.log('drawer state updated')
+
 			this.drawerShown = this.drawerState;
-			console.log(this.drawerShown)
+
 			
 		},
 		/* this watches the Vuex state color, which is assigned to colorWatch which allows you to watch color state indirectly */
 		colorWatch: function () {
-			console.log('active color change')
 			this.activeColor = this.color;
 		},
 		/* when the drawer closes it emits am event with a value of false, that updates drawerShown,
@@ -122,7 +121,6 @@ export default {
 		drawerShown() {
 			/* this should be replaced with a mutation*/
 			this.$store.state.drawertoggle.drawerState = this.drawerShown;
-			console.log('drawer watcher updated drawerState to false in sideDrawer.vue')
 		},
 	},
 	computed: {

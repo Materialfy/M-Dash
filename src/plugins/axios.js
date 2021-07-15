@@ -20,14 +20,15 @@ const restApi = axios.create({
 })
 // Sets the default global url used by all of this axios instance's requests
  const genericApi = axios.create({
-	baseURL: "https://reqres.in/api/",
-	timeout: 3000,
-	headers: {
-	},
-});
-if (token) {
-	restApi.defaults.headers.common['Authorization'] = 'Bearer ' + token
-}
+		baseURL: 'https://reqres.in/api/',
+		timeout: 3000,
+		headers: {},
+ })
+ if (token) {
+		restApi.defaults.headers.common['Authorization'] = 'Bearer ' + token
+ }
+ axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
+ restApi.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 restApi.defaults.headers.get["Accepts"] = "application/json";
 genericApi.defaults.headers.get["Accepts"] = "application/json";
 

@@ -16,7 +16,6 @@ const set = property => (state, dataPayload) => (state[property] = dataPayload)
 
 const toggleDrawerState = state => {
     state.drawerState = true
-    console.log('mutation drawerOn(): ' + state.drawerState)
 }
 /* 
 	these are called in navbar.vue, settings.vue and sidedrawer.vue
