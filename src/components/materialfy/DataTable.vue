@@ -85,7 +85,7 @@
 									</v-col>
 									<v-col cols="12" sm="6" md="4">
 										<v-text-field
-											v-model="editedItem.lastSeen"
+											v-model="defaultItem.lastSeen"
 											label="Last Seen"
 										></v-text-field>
 									</v-col>
@@ -106,6 +106,97 @@
 				</v-dialog>
 			</v-toolbar>
 		</template>
+		<!-- Inline Edit section -->
+		<!-- props is userList sent from the child, use it to access item data -->
+		
+		<template #[`item.first_name`]="props">
+			<!-- these set up each individual column to inline ediot   -->
+			<v-edit-dialog
+				:return-value.sync="props.item.first_name"
+				large
+				lazy
+				persistent
+				@save="saveInline"
+				@cancel="cancelInline"
+				@open="openInline"
+				@close="closeInline"
+			>
+				<div>{{ props.item.first_name }}</div>
+				<template #input>
+					<v-text-field
+						v-model="props.item.first_name"
+						:rules="[max25chars]"
+						label="Edit"
+						single-line
+						counter
+						autofocus
+					/>
+				</template>
+			</v-edit-dialog>
+		</template>
+<template #[`item.last_name`]="props">
+									<!-- they are just hooked up to snackbar messages, they dont do anything -->
+									<v-edit-dialog
+										:return-value.sync="props.item.last_name"
+										large
+										lazy
+										persistent
+										@save="saveInline"
+										@cancel="cancelInline"
+										@open="openInline"
+										@close="closeInline"
+									>
+										<div>{{ props.item.last_name }}</div>
+										<!-- this area is for the inline edit pop up -->
+										<template #input>
+											<v-text-field
+												v-model="props.item.last_name"
+												:rules="[max25chars]"
+												label="Edit"
+												single-line
+												counter
+												autofocus
+											/>
+										</template>
+									</v-edit-dialog>
+								</template>
+								<!-- email inline edit pop up -->
+								<template #[`item.email`]="props">
+									<td>
+										<v-edit-dialog
+											:return-value.sync="props.item.email"
+											large
+											lazy
+											persistent
+											@save="save"
+											@cancel="cancelInline"
+											@open="openInline"
+											@close="closeInline"
+										>
+											<div>{{ props.item.email }}</div>
+											<template #input>
+												<v-text-field
+													v-model="props.item.email"
+													:rules="[max25chars]"
+													label="Edit"
+													single-line
+													counter
+													autofocus
+												/>
+											</template>
+										</v-edit-dialog>
+									</td>
+									<!-- turn these into inline edits per column -->
+									<td class="">
+										{{ props.item.isAdmin }}
+									</td>
+									<td class="">
+										{{ props.item.isActive }}
+									</td>
+									<td class="">
+										{{ props.item.lastSeen }}
+									</td>
+								</template>
 		<!-- TABLE ACTIONS column -->
 		<!-- the v-table has slots you can use to change column content. We use this for actions column 
 		this allows us to pass in the edit and delete icons to the actions column
@@ -172,7 +263,7 @@ export default {
 			email: "",
 			isAdmin: true,
 			isActive: false,
-			lastSeen: "6/18/2022",
+			lastSeen: '',
 		},
 		defaultItem: {
 			first_name: "",
@@ -180,7 +271,7 @@ export default {
 			email: "",
 			isAdmin: true,
 			isActive: false,
-			lastSeen: "6/18/2022",
+			lastSeen: `${new Date().toLocaleString()}`,
 		},
 		//second table
 		dialogDelete: false,
