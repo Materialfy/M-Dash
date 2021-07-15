@@ -1,5 +1,23 @@
 <template>
 	<v-container fill-height fluid>
+		<v-row>
+			<v-col class="d-flex justify-center">
+				<v-sheet color="background">
+					<header>
+						<span
+							class="text-h3 text-uppercase d-flex text-center"
+							style="color: #ffc107"
+							>Materialfy Basic tables Examples</span
+						>
+						<article class="d-flex justify-center mt-2">
+							<p class="text-center">
+								These are about as basic as you get
+							</p>
+						</article>
+					</header>
+				</v-sheet>
+			</v-col>
+		</v-row>
 		<v-row wrap>
 			<v-col md6 class="justify-end" justify="center" offset-md="1">
 				<materialfy-header-card
@@ -87,74 +105,74 @@
 </template>
 
 <script>
-export default {
-	data: () => ({
-		headers: [
-			{
-				sortable: false,
-				text: "Name",
-				value: "name",
-			},
-			{
-				sortable: false,
-				text: "Country",
-				value: "country",
-			},
-			{
-				sortable: false,
-				text: "City",
-				value: "city",
-			},
-			{
-				sortable: false,
-				text: "Salary",
-				value: "salary",
-				align: "right",
-			},
-		],
-		items: [
-			{
-				name: "Dakota Rice",
-				country: "Niger",
-				city: "Oud-Tunrhout",
-				salary: "$35,738",
-			},
-			{
-				name: "Minerva Hooper",
-				country: "Curaçao",
-				city: "Sinaai-Waas",
-				salary: "$23,738",
-			},
-			{
-				name: "Sage Rodriguez",
-				country: "Netherlands",
-				city: "Overland Park",
-				salary: "$56,142",
-			},
-			{
-				name: "Philip Chanley",
-				country: "Korea, South",
-				city: "Gloucester",
-				salary: "$38,735",
-			},
-			{
-				name: "Doris Greene",
-				country: "Malawi",
-				city: "Feldkirchen in Kārnten",
-				salary: "$63,542",
-			},
-			{
-				name: "Mason Porter",
-				country: "Chile",
-				city: "Gloucester",
-				salary: "$78,615",
-			},
-		],
-	}),
-};
+	export default {
+		data: () => ({
+			headers: [
+				{
+					sortable: false,
+					text: 'Name',
+					value: 'name',
+				},
+				{
+					sortable: false,
+					text: 'Country',
+					value: 'country',
+				},
+				{
+					sortable: false,
+					text: 'City',
+					value: 'city',
+				},
+				{
+					sortable: false,
+					text: 'Salary',
+					value: 'salary',
+					align: 'right',
+				},
+			],
+			items: [
+				{
+					name: 'Dakota Rice',
+					country: 'Niger',
+					city: 'Oud-Tunrhout',
+					salary: '$35,738',
+				},
+				{
+					name: 'Minerva Hooper',
+					country: 'Curaçao',
+					city: 'Sinaai-Waas',
+					salary: '$23,738',
+				},
+				{
+					name: 'Sage Rodriguez',
+					country: 'Netherlands',
+					city: 'Overland Park',
+					salary: '$56,142',
+				},
+				{
+					name: 'Philip Chanley',
+					country: 'Korea, South',
+					city: 'Gloucester',
+					salary: '$38,735',
+				},
+				{
+					name: 'Doris Greene',
+					country: 'Malawi',
+					city: 'Feldkirchen in Kārnten',
+					salary: '$63,542',
+				},
+				{
+					name: 'Mason Porter',
+					country: 'Chile',
+					city: 'Gloucester',
+					salary: '$78,615',
+				},
+			],
+		}),
+	}
 </script>
 <style>
-/* tbody tr:nth-of-type(even) {
+	/* tbody tr:nth-of-type(even) {
     background-color: rgba(236, 237, 237);
   }
 
