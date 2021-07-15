@@ -1,1 +1,2 @@
 import './chartist'
+import './apexcharts'

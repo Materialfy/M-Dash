@@ -11,6 +11,7 @@
   "dependencies": {
     "@sentry/tracing": "^6.9.0",
     "@sentry/vue": "^6.9.0",
+    "apexcharts": "^3.27.2",
     "axios": "^0.21.1",
     "chartist": "0.11.4",
     "eslint-plugin-prettier": "^3.4.0",
@@ -19,6 +20,7 @@
     "nprogress": "^0.2.0",
     "secure-ls": "^1.2.6",
     "vue": "^2.6.14",
+    "vue-apexcharts": "^1.6.1",
     "vue-chartist": "^2.3.1",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.5.1",

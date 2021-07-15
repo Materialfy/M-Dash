@@ -100,88 +100,45 @@
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center justify-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
-			<v-col md="3" class="my-2">
+			<v-col md="4" class="my-2">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="Horse Power"
 					:cardShowDivider="false"
-					:cardShowActions="false"
+					:cardShowActions="false" 
 					cardColor="secondary"
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-polar-map /> 
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
 			<!-- SECOND COLOR CARD with secondary color -->
-			<v-col md="3">
+			<v-col md="4">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="Users Usering"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="primary"
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-donut /> 
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			<v-col md="3">
+			<v-col md="4">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="User Engagement"
 					:cardShowDivider="false"
 					:cardShowActions="false"
+					:cardShowInnerText="false"
 					cardColor="accent"
+
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-multiple-radial-bars /> 
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
@@ -193,10 +150,26 @@
 		<v-row class="d-flex align-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
 			<v-col>
-				<MaterialfyColorCard />
+				<MaterialfyColorCard 
+					cardInnerText="$$$$$$$ emoji"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					> 
+					<template v-slot:crdInner>
+					<materialfy-apex-y-axis /> 
+					</template>
+					</MaterialfyColorCard>
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard />
+				<MaterialfyColorCard 
+					cardInnerText="User Engagement"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					cardColor="secondary"> 
+					<template v-slot:crdInner>
+					<materialfy-apex-line-graph /> 
+					</template>
+					</MaterialfyColorCard>
 			</v-col>
 		</v-row>
 		<!-- FOURTH ROW with header, color and basic cards -->
