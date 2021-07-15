@@ -1,8 +1,8 @@
 <template>
-	<v-container fill-height>
+	<v-container fill-height fluid>
 		<v-row justify-center wrap class="d-flex align-start">
 			<!-- USER TABs section -->
-			<v-col xs12 md="8">
+			<v-col xs12 md="7">
 				<v-card flat color="secondary" class="elevation-0" :tile="true">
 					<v-toolbar color="background" class="elevation-0">
 						<v-toolbar-title class="tertiary--text"
@@ -26,7 +26,7 @@
 						<v-tab-item>
 							<!-- input edit form -->
 							<MaterialfyBasicCard
-								cardMaxWidth="800"
+								cardMaxWidth="802"
 								cardTitle="Edit Profile"
 								cardSubHeaderText="Complete your profile"
 								:cardShowAvatar="false"
