@@ -5,21 +5,26 @@
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
 
-## Formerly named Vuetify-admin-dashboard
+### Formerly known by Vuetify Admin Dashboard
 
-<img src="https://github.com/ClintOxx/vuetify-admin-dashboard/blob/dev/public/img/Screenshot%202021-07-01%20143732.png" width="600" height="450" />
+<img src="" width="600" height="450" />
 
-## [2.0 Demo Site](https://materialfy-demo.netlify.app) 
-
-## [Old version: 1 Demo](https://clintoxx.github.io/vuetify-admin-dashboard/)
-
-- Login auth system is disabled in demo along with every other api besides the Get request to the users table
-- demo has an extra login button on the side bar so you can see what it looks like
 
 ![Preview]()
 
-M-Dashboard is a beautiful crud admin panel/Dashboard builwith [Vuetify](https://vuetifyjs.com/en/) and [Vuex](https://vuex.vuejs.org/installation.html).  
-Using the Dashboard is pretty simple but requires basic knowledge of Javascript, [Vue](https://vuejs.org/v2/guide/), [Vuex](https://vuex.vuejs.org/installation.html) and [Vue-Router](https://router.vuejs.org/en/).
+M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard or can be used as an crud admin panel.
+Built with [Vuetify](https://vuetifyjs.com/en/), [Vue](https://vuejs.org/v2/guide/), [Vuex](https://vuex.vuejs.org/installation.html) and [Vue-Router](https://router.vuejs.org/en/) and Axios.
+Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the above libraries (Really just the last four)
+
+### Vuetify
+Vuetify 2.x is a frontend Vue UI library that allows you to quickly develop designs according to Material Design spec.
+
+### Vuex
+Vuex 3.x is a state management library for Vue.js applications. It serves as a centralized store for all the components.
+
+### Vue-cli
+Vue-CLI 4.x handles a lot of the set up and boilerplate also configures webpack and more [Vue CLI](https://github.com/vuejs/vue-cli)
+
 
 ## Table of Contents
 
@@ -30,58 +35,44 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 - [Documentation](#documentation)
 - [Reporting Issues](#reporting-issues)
 
+## [2.0 Demo Site](https://materialfy-demo.netlify.app) 
+### logout button is in user menu in app bar
+## login data is already saved
 
 # Features
-- Powerful **CRUD Data Table** with sorting, pagination, searching, display images...
-- Powerful **Edit Form Builder** can display/edit any value of text, image, boolean...
-- Fully support for REST Api's
-- Vue-Chart js built in
+- **CRUD Data Table** with sorting, pagination, searching, display images...
+- Cool user page? 
+- Full support for REST Api's
 - Rewrote the router to add support for nested/child routes. Also enabled external pages without the sidebar/footer/header etc.
-- **Highly Configurable** Such as: Dark/light themes, sidebar images, site name, colors, logo, Menu and footer...
-- data in demo is only hooked up to read from https://reqres.in/
+- **Highly Configurable** Such as: Dark/light themes, theme colors, components, sidebar images, site name, colors, logo, Menu and footer...
+- data in demo is only hooked up to read from https://reqres.in/ 
 
-- **CRUD Table Features**
-  - operations on records:
-    - Store,
-    - Update,
-    - Suspend/Restore,
+- **More Dashboard Features**
+  - Data Tables can:
+    - Create
+    - Read
+    - Update/POST
     - Delete
-  - Search filtering:
-    - Search phrase in whole table,
-    - Sorting by column
-  - VUEX
-  - other functions and features:
-    - datatable mechanism allows selection of the number of records per page, page transition and sorting,
+    - Search filter:
+      - Using search bar for filtering table content
+      - Sorting by column
+    - data table allows selection of the number of records per page, page transition and sorting,
     - Inline table editing
-    - Edit whole row menu
-    - Search
+    - Edit item dialog
     - Rest APi support built in
+    - dynamic table headers
 - **Authentication**
-  - login form (built-in communication with API, validation),
-  - redirecting from login to the app if already signed in
-  - redirecting to login from app if you arent signed in
-  - Automatically gets JWT Refresh token once its expires
-  - stores JWT in local storage(I havent made built in support for storing in https cookies yet)
-  - retrieves JWT when revisiting the page
+  - login form (communication with rest API via axios, basic validation),
+  - redirecting to from login depending on auth status and JWT
+  - Gets JWT Refresh token once its expires(pretty sure we put that in)
+  - stores JWT in secured local storage(using Secure-LS)
+  - beforeEach Router gaurds in router/index.js
 - **App layout components**
-  - Toolbar (with optional elements):
-    - title,
-    - logo,
-    - Notifications
-    - user profile,
-    - logout,
-    - slots for developer
-  - Sidebar/Drawer:
-    - List of routes,
-    - Slot for title or user avatar,
-    - Slots for developer,
-  - Drawer Filter:
-    - Allows you to change Drawer background image and color scheme
-  - Footer,
-  - Maps
-  - ... and others
+  - The core layout components are pretty standard if you have worked with Vuetify before. I tried to stick to that library only.
 
-![Crud Table](2019-04-03_04-17-17.gif)
+## [Old version 1.0 Demo](https://clintoxx.github.io/vuetify-admin-dashboard/)
+
+![Crud Table]()
 
 # Whats New in 2.0:
 * rewrote from the ground up to fix many of the lingering issues and to make this simplier, easier to read and easier to miantain.
@@ -105,11 +96,10 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 - more prepackaged components
 - pro version(if I get to it)
 - this will always be free
-- more features and support 
+- more features and support
+- dynamic inline edit 
 
 
-## Bugs
-Checkout the Issues tab
 
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
@@ -130,24 +120,15 @@ After installing the dependencies you can also run additional npm tasks such as
 - `npm/yarn run build` to build your app for production
 - `npm/yarn run lint` to run linting.
 
-### Vuetify
-
-Vuetify 2.x is a frontend Vue UI library that allows you to quickly develop designs according to Material Design spec.
-
-### Vuex
-
-Vuex 3.x is a state management library for Vue.js applications. It serves as a centralized store for all the components.
-
-### Vue-cli
-
-We used 4.x [Vue CLI](https://github.com/vuejs/vue-cli)
-
 
 ## Documentation
 
 The documentation for the Vuetify Admin Dashboard is coming soon once i have some freetime. for now there is brief documentation in the [File-Structure](#File-Structure)
 
-There is also a lot of comments in every file documenting functions
+There are also comments in a lot of files.
+
+## Current Bugs
+Checkout the Issues tab
 
 ## Reporting Issues
 
@@ -158,12 +139,6 @@ There is also a lot of comments in every file documenting functions
 
 You can [send us a tweet](https://twitter.com/Materialfy) if you need faster minorish assistance, otherwise create an issue on here.
 
-
-## File Structure
-
-```
-moving to documentation
-```
 
 ### Note
 * This Dashboard is no longer using the template desgin/code from CreativeTims vueitfy material dash that this repo originally based its design on. 
