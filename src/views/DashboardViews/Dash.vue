@@ -93,7 +93,7 @@
 			</v-col>
 			<!-- LAST CARD -->
 			<v-col>
-				<MaterialfyHeaderCard />
+				<MaterialfyDataTable />
 			</v-col>
 		</v-row>
 		<!-- SECOND ROW  -->
