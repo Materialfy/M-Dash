@@ -84,7 +84,7 @@ export default {
       }, 3000)
     },
     updateSeriesLine () {
-      this.$refs.realtimeChart.updateSeries([{
+      this.$refs.realtimeChart.updateSeries([{// eslint-disable-line no-use-before-define
         data: this.series[0].data
       }], false, true)
     }

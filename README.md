@@ -7,7 +7,9 @@
 
 ### Formerly known by Vuetify Admin Dashboard
 
-<img src="" width="600" height="450" />
+### https://www.Materialfy.com
+<
+img src="" width="600" height="450" />
 
 
 ![Preview]("picture link")
@@ -34,6 +36,10 @@ Vue-CLI 4.x handles a lot of the set up and boilerplate also configures webpack 
 
 ### Axios
 Handles making requests and custom instances for different urls
+
+### Apex charts
+
+### Sentry
 
 ## Table of Contents
 
@@ -96,6 +102,7 @@ Handles making requests and custom instances for different urls
 * toggle side nav drawer to temporary pop up or persistant 
 * made a new user page then redid it at the last minute and made another when i should have been sleeping 
 * made tables and card components with slots and props that are plug and play 
+* 17 custom components
 * idk man 
 
 
@@ -107,6 +114,7 @@ Handles making requests and custom instances for different urls
 - this will always be free
 - more features and support
 - dynamic inline edit 
+- Cool new login screen
 
 
 ### [Old version 1.0 Demo](https://clintoxx.github.io/vuetify-admin-dashboard/)
@@ -131,7 +139,7 @@ After installing the dependencies you can also run additional tasks such as thes
 
 ## Documentation
 
-The documentation for the Vuetify Admin Dashboard is coming soon tm.
+[Click here for docs](https://www.docs.materialfy.com)
 
 There are also comments in a lot of files.
 

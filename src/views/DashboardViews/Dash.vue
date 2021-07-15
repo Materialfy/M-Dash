@@ -1,7 +1,7 @@
 <template>
 	<v-container fluid>
 		<!-- FIRST ROW with header table card and basic tab cards -->
-		<v-row class="d-flex align-start mb-2">
+		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
 			<v-col>
 				<MaterialfyHeaderCard
@@ -98,7 +98,7 @@
 		</v-row>
 		<!-- SECOND ROW  -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center justify-center mb-2">
+		<v-row class="d-flex align-start justify-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
 			<v-col md="4" class="my-2">
 				<MaterialfyColorCard
