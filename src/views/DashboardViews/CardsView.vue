@@ -3,13 +3,16 @@
 		<v-row>
 			<v-col class="d-flex justify-center">
 				<header>
-					<span class="text-h3 text-uppercase" style="color: #ffc107"
+					<span
+						class="text-h3 text-uppercase d-flex text-center"
+						style="color: #ffc107"
 						>Materialfy Card Examples</span
 					>
 					<article class="d-flex justify-center mt-2">
 						<p class="text-center">
 							These are customizable with slots and props to dyanmically change
-							the content. <br />There are three types of cards: BasicCard,
+							the content.
+							<br />There are four types of cards: BasicCard, BasicTextCard
 							HeaderCard, ColorCard
 						</p>
 					</article>
@@ -20,6 +23,9 @@
 		<v-row>
 			<v-col>
 				<MaterialfyBasicCard />
+			</v-col>
+			<v-col>
+				<MaterialfyBasicTextCard />
 			</v-col>
 			<v-col>
 				<MaterialfyHeaderCard />
@@ -65,32 +71,32 @@
 </template>
 
 <script>
-	const gradients = [
-		["#222"],
-		["#42b3f4"],
-		["red", "orange", "yellow"],
-		["purple", "violet"],
-		["#00c6ff", "#F0F", "#FF0"],
-		["#f72047", "#ffd200", "#1feaea"],
-	];
-	export default {
-		name: "CardsView",
-		data: () => ({
-			labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
-			value: [200, 300, 410, 390, 420, 460, 420, 420],
-			width: 2,
-			radius: 10,
-			padding: 8,
-			lineCap: "round",
-			gradient: gradients[5],
-			value2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
-			gradientDirection: "top",
-			gradients,
-			fill: false,
-			type: "trend",
-			autoLineWidth: false,
-		}),
-	};
+const gradients = [
+	["#222"],
+	["#42b3f4"],
+	["red", "orange", "yellow"],
+	["purple", "violet"],
+	["#00c6ff", "#F0F", "#FF0"],
+	["#f72047", "#ffd200", "#1feaea"],
+];
+export default {
+	name: "CardsView",
+	data: () => ({
+		labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
+		value: [200, 300, 410, 390, 420, 460, 420, 420],
+		width: 2,
+		radius: 10,
+		padding: 8,
+		lineCap: "round",
+		gradient: gradients[5],
+		value2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
+		gradientDirection: "top",
+		gradients,
+		fill: false,
+		type: "trend",
+		autoLineWidth: false,
+	}),
+};
 </script>
 
 <style></style>

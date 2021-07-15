@@ -15,6 +15,7 @@ export default {
   logout (state) {
     state.authStatus = ''
     state.token = ''
+    state.user = ''
   },
   setTableList (state, tableList) {
     state.tableList = tableList

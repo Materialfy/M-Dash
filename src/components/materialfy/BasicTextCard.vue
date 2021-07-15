@@ -7,44 +7,56 @@
 		:max-width="cardMaxWidth"
 		:min-height="cardMinHeight"
 		:color="cardColor"
-		elevation="4"
 	>
-		<v-container>
-			<v-row>
-				<v-col v-if="cardShowTitle">
-					<slot name="crdTitle">
-						<v-list-item-title class="text-h6 mb-4 tertiary--text">
-							{{ cardTitle }}
-						</v-list-item-title>
-					</slot>
-				</v-col>
-				<v-col v-if="cardShowSubHeader">
-					<slot name="crdSubHeader">
-						<!-- connected to props so you can change it -->
-						<div class="text-overline mb-4 tertiary--text">
-							{{ cardSubHeaderText }}
-						</div>
-					</slot>
-				</v-col>
-			</v-row>
-			<!-- Inner card area where yuou can put tables/tabs or anything -->
-			<slot :name="cardInner" v-if="cardShowInner">
-				<v-card-text class="text-h5 font-weight-bold">
-					This is a bunch of text since i couldnt think of anything to fill up
-					the default content of this card. fix with pull request lol
-				</v-card-text>
+		<v-list-item three-line>
+			<v-list-item-content>
+				<slot name="crdSubHeader" v-if="cardShowSubHeader">
+					<!-- connected to props so you can change it -->
+					<div class="text-overline mb-4 tertiary--text">
+						{{ cardSubHeaderText }}
+					</div>
+				</slot>
+				<v-list-item-title
+					class="text-h5 mb-4 tertiary--text"
+					v-if="cardShowTitle"
+				>
+					{{ cardTitle }}
+				</v-list-item-title>
+			</v-list-item-content>
+			<slot :name="cardAvatar" v-if="cardShowAvatar">
+				<v-list-item-avatar size="80" color="primary">
+					<div class="text-center">
+						<v-progress-circular
+							:rotate="360"
+							:size="100"
+							:width="15"
+							:value="value"
+							color="tertiary"
+						>
+							{{ value }}
+						</v-progress-circular>
+					</div>
+				</v-list-item-avatar>
 			</slot>
-
-			<v-card-actions>
-				<slot :name="cardActions" v-if="cardShowActions"> </slot>
-			</v-card-actions>
+		</v-list-item>
+		<v-container>
+			<slot :name="cardInnerList" v-if="cardShowInnerList">
+				<v-list-item-subtitle
+					>Greyhound divisely hello coldly fonwderfully
+				</v-list-item-subtitle>
+			</slot>
 		</v-container>
+		<v-card-actions>
+			<slot :name="cardActions" v-if="cardShowActions">
+				<v-btn outlined rounded text color="tertiary"> Button </v-btn>
+			</slot>
+		</v-card-actions>
 	</v-card>
 </template>
 
 <script>
 export default {
-	name: "MaterialfyBasicCard",
+	name: "MaterialfyBasicTextCard",
 	props: {
 		cardMinHeight: {
 			default: "100",
@@ -53,10 +65,10 @@ export default {
 			default: "300",
 		},
 		cardMaxWidth: {
-			default: "600",
+			default: "400",
 		},
 		cardTitle: {
-			default: "Materialfy Basic Card",
+			default: "Materailfy Basic Text Card",
 		},
 		cardSubHeaderText: {
 			default: "Subheader",
@@ -64,7 +76,7 @@ export default {
 		cardIcon: {
 			default: "crdIcon",
 		},
-		cardInner: {
+		cardInnerList: {
 			default: "crdInner",
 		},
 		cardActions: {
@@ -88,7 +100,7 @@ export default {
 		cardShowActions: {
 			default: true,
 		},
-		cardShowInner: {
+		cardShowInnerList: {
 			default: true,
 		},
 		cardShowAvatar: {

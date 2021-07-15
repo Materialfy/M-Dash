@@ -1,6 +1,6 @@
 
 export default {
-    drawerOn ({ commit }) {
-      commit('toggleDrawerState')},
-
-  }
+	drawerOn({ commit }) {
+		commit('toggleDrawerState')
+	},
+}

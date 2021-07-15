@@ -1,6 +1,6 @@
 {
-  "name": "vuetify-admin-dashboard",
-  "version": "1.3.0",
+  "name": "m-dashboard",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,12 +9,15 @@
     "dev": "npm run serve"
   },
   "dependencies": {
+    "@sentry/tracing": "^6.9.0",
+    "@sentry/vue": "^6.9.0",
     "axios": "^0.21.1",
     "chartist": "0.11.4",
     "eslint-plugin-prettier": "^3.4.0",
     "material-design-icons-iconfont": "^6.1.0",
     "node-sass": "4.14.1",
     "nprogress": "^0.2.0",
+    "secure-ls": "^1.2.6",
     "vue": "^2.6.14",
     "vue-chartist": "^2.3.1",
     "vue-meta": "^2.4.0",
@@ -44,6 +47,7 @@
     "vue-cli-plugin-vuetify": "~2.4.1",
     "vue-i18n": "^8.24.4",
     "vue-template-compiler": "^2.6.14",
-    "vuetify-loader": "^1.7.0"
+    "vuetify-loader": "^1.7.0",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   }
 }

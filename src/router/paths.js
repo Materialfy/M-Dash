@@ -10,76 +10,80 @@ export default [
 	//if you want to add more external routes make them in the children array
 	{
 		// using the named route option
-		path: "/login",
+		path: '/login',
 		meta: {
-			name: "External",
+			name: 'External',
 			requiresAuth: false,
 		},
 		component: () => import(`@/views/ExternalView.vue`), // this renders the children in this layout
 		children: [
 			//any components in this path auto render in External
 			{
-				path: "", // you leave this blank if you want it to default to the parents path
-				name: "login",
-				component: () => import(`@/components/core/LoginForm.vue`),
+				path: '', // you leave this blank if you want it to default to the parents path
+				name: 'login',
+				component: () => import(`@/views/LoginView.vue`),
 			},
 		],
 	},
 
 	{
-		path: "/",
+		path: '/',
 		meta: {
-			name: "dashboard-view",
-			requiresAuth: false,
+			name: 'dashboard-view',
+			requiresAuth: true,
 		},
 		component: () => import(`@/views/DashboardView.vue`),
 		children: [
 			{
-				path: "", //defaults to /dashboard if left blank
+				path: '', //defaults to / if left blank
 				meta: {
-					name: "Dash",
+					name: 'Dash',
 				},
 				component: () => import(`@/views/DashboardViews/Dash.vue`),
 			},
 			{
-				path: "user-profile", // ends up as /dashboard/user-profile
+				path: 'user', // ends up as /user
 				meta: {
-					name: "UserProfile",
+					name: 'UserProfile',
 				},
-				component: () => import(`@/views/DashboardViews/UserProfile.vue`),
+				component: () =>
+					import(`@/views/DashboardViews/UserProfileView.vue`),
 			},
 			{
-				path: "table-list",
+				path: 'table-list',
 				meta: {
-					name: "TableList",
+					name: 'TableList',
 				},
-				component: () => import(`@/views/DashboardViews/SimpleTablesView.vue`),
+				component: () =>
+					import(`@/views/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
-				path: "crud-user-tables",
+				path: 'crud-user-tables',
 				meta: {
-					name: "CrudUserTable",
+					name: 'CrudUserTable',
 				},
-				component: () => import(`@/views/DashboardViews/CrudUsersTable.vue`),
+				component: () =>
+					import(`@/views/DashboardViews/CrudUsersTableView.vue`),
 			},
 			{
-				path: "maps",
+				path: 'maps',
 				meta: {
-					name: "Maps",
+					name: 'Maps',
 				},
-				component: () => import(`@/views/DashboardViews/Maps.vue`),
+				component: () => import(`@/views/DashboardViews/MapsView.vue`),
 			},
 			{
-				path: "notifications",
+				path: 'notifications',
 				meta: {
-					name: "Notifications",
+					name: 'Notifications',
 				},
-				component: () => import(`@/views/DashboardViews/NotificationsView.vue`),
+				component: () =>
+					import(`@/views/DashboardViews/NotificationsView.vue`),
 			},
 			{
-				path: "cardsview",
+				path: 'cardsview',
 				meta: {
-					name: "CardsView",
+					name: 'CardsView',
 				},
 				component: () => import(`@/views/DashboardViews/CardsView.vue`),
 			},
@@ -101,10 +105,10 @@ export default [
 	},
 	// This is a catch all aka page not found route. it will send you to the dashboard
 	{
-		path: "*",
+		path: '*',
 		redirect: {
-			name: "catchAll",
-			path: "/dashboard",
+			name: 'catchAll',
+			path: '/',
 		},
 		meta: {
 			requiresAuth: true,
@@ -112,8 +116,8 @@ export default [
 	},
 	//Error component fallback
 	{
-		path: "/:catchAll(.*)",
+		path: '/:catchAll(.*)',
 		component: () => import(`@/components/error/NotFound.vue`),
-		name: "NotFound",
+		name: 'NotFound',
 	},
-];
+]

@@ -35,23 +35,26 @@ const router = new Router({
   }
 })
 
-// Route guard checks to see if you are logged in, if not reroutes to login
-//"to" is where you are going, "matched.some" looks for any matching props, it uses it 
-//to find which routes(records) have requiresAuth meta data
-//this just checks to see if it should check for a auth token or just send you to your route
+/* Route guard checks to see if you are logged in(has valid auth token), if not reroutes to login, 
+"matched.some" looks for any matching props in 'record', its used to find which routes(aka records) have requiresAuth meta data
+if they have requireAuth(dashboard routes) you use the "to" objects name prop to direct you to where you were already going
+https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards
+ */
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.authorized) {
-      next() // if you are authorized you can continue on
-      next()
-    }
-    else{
-    next('/') //sends to login if auth token isnt true
-    }
+  if (
+		to.matched.some((record) => record.meta.requiresAuth) &&
+		!store.getters.authorized
+  ) {
+		console.log('authorize for route: ' + store.getters.authorized)
+		console.log('next() value: ' + next())
+		next('/login') // if the authorized getter returns true, you can continue on to the current route. to.name
+  } else if (to.name == 'login' && store.getters.authorized) {
+		next('/') //sends to login if auth token isnt true
   } else {
-    next()// external routes only: this forwards you to continue to your route outside the dash layout
+		next() // you called `next('/')` which redirected to the homepage over and over again.
   }
-});
+  } 
+);
 
 //N progress bar
 router.beforeResolve((to, from, next) => {

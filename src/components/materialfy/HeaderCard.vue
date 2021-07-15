@@ -1,6 +1,6 @@
 <template>
 	<v-card
-		elevation="12"
+		elevation="4"
 		:min-width="cardMinWidth"
 		:max-width="cardMaxWidth"
 		:min-height="cardMinHeight"
@@ -11,14 +11,14 @@
 			<slot name="crdHeader">
 				<v-avatar :tile="true" v-if="cardShowAvatar">
 					<v-icon>
-						<slot name="crdIcon" > {{ cardIcon }} </slot>
+						<slot name="crdIcon"> {{ cardIcon }} </slot>
 					</v-icon>
 				</v-avatar>
 				<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
 				<v-spacer />
 			</slot>
 		</v-toolbar>
-		<v-list-item v-if="cardShowInnerText">
+		<v-list-item v-if="cardShowInnerList">
 			<slot name="crdInnerList">
 				<div class="innercardheight"></div>
 				<v-list-item-content>
@@ -32,9 +32,7 @@
 			</slot>
 		</v-list-item>
 		<div v-if="cardShowInner">
-			<slot name="crdInner">
-				
-			</slot>
+			<slot name="crdInner"> </slot>
 		</div>
 
 		<v-divider class="mt-5" v-if="cardShowDivider" />
@@ -48,63 +46,63 @@
 </template>
 
 <script>
-	export default {
-		name: "MaterialfyHeaderCard",
-		props: {
-			cardMinHeight: {
-				default: "100",
-			},
-			cardMinWidth: {
-				default: "300",
-			},
-			cardMaxWidth: {
-				default: "700",
-			},
-			cardTitle: {
-				default: "Materailfy Header Card",
-			},
-			cardIcon: {
-				default: "mdi-alert-circle-outline",
-			},
-			cardInnerList: {
-				default: "crdInnerList",
-			},
-			cardInner: {
-				default: "crdInner",
-			},
-			cardActions: {
-				default: "crdActions",
-			},
-			cardHeaderColor: {
-				default: "tertiary",
-			},
-			cardColor: {
-				default: "primary",
-			},
-			cardShowDivider: {
-				default: true,
-			},
-			cardShowActions: {
-				default: true,
-			},
-			cardShowInnerText: {
-				default: true,
-			},
-			cardShowAvatar: {
-				default: true,
-			},
-			cardShowTitle: {
-				default: true,
-			},
-			cardShowInner: {
-				default: true,
-			},
+export default {
+	name: "MaterialfyHeaderCard",
+	props: {
+		cardMinHeight: {
+			default: "100",
 		},
-	};
+		cardMinWidth: {
+			default: "300",
+		},
+		cardMaxWidth: {
+			default: "820",
+		},
+		cardTitle: {
+			default: "Materailfy Header Card",
+		},
+		cardIcon: {
+			default: "mdi-alert-circle-outline",
+		},
+		cardInnerList: {
+			default: "crdInnerList",
+		},
+		cardInner: {
+			default: "crdInner",
+		},
+		cardActions: {
+			default: "crdActions",
+		},
+		cardHeaderColor: {
+			default: "tertiary",
+		},
+		cardColor: {
+			default: "primary",
+		},
+		cardShowDivider: {
+			default: true,
+		},
+		cardShowActions: {
+			default: true,
+		},
+		cardShowInnerList: {
+			default: true,
+		},
+		cardShowAvatar: {
+			default: true,
+		},
+		cardShowTitle: {
+			default: true,
+		},
+		cardShowInner: {
+			default: true,
+		},
+	},
+};
 </script>
 
 <style>
-	.innercardheight {
-		height: 200px;
-	}
+.innercardheight {
+	height: 200px;
+}
 </style>
