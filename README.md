@@ -13,18 +13,26 @@
 ![Preview]("picture link")
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
-Built with [Vuetify](https://vuetifyjs.com/en/), [Vue](https://vuejs.org/v2/guide/), [Vuex](https://vuex.vuejs.org/installation.html), [Vue-Router](https://router.vuejs.org/en/) and Axios.
 Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the above libraries (Really just the last four)
 
-### Vuetify
+## Built with
+
+### [Vue](https://vuejs.org/v2/guide/)
+
+### [Vuetify](https://vuetifyjs.com/en/)
 Vuetify 2.x is a frontend Vue UI library that allows you to quickly develop designs according to Material Design spec.
 
-### Vuex
+### [Vue-Router](https://router.vuejs.org/en/)
+Vue Router is allows you to build routes/paths and handle the single page app routing.
+
+### [Vuex](https://vuex.vuejs.org/installation.html)
 Vuex 3.x is a state management library for Vue.js applications. It serves as a centralized store for all the components.
 
-### Vue-cli
-Vue-CLI 4.x handles a lot of the set up and boilerplate also configures webpack and more [Vue CLI](https://github.com/vuejs/vue-cli)
+### [Vue CLI](https://github.com/vuejs/vue-cli)
+Vue-CLI 4.x handles a lot of the set up and boilerplate also configures webpack and more 
 
+### Axios
+Handles making requests and custom instances for different urls
 
 ## Table of Contents
 
@@ -137,8 +145,5 @@ Checkout the Issues tab to see if any have been reported or closed.
 
 You can [send us a tweet](https://twitter.com/Materialfy) if you need faster minorish assistance, otherwise create an issue on here.
 
-
-### Note
-* This Dashboard is no longer using the template desgin/code from CreativeTims vueitfy material dash that this repo originally based its design on. 
 
 
