@@ -12,6 +12,22 @@ so that is what ExternalView and DashboardView are for. LoginView renders in Ext
 
 <script>
 // checks to see if auth jwt token is valid or has expired, if it gets back 401 error log out
+import Vue from "vue";
+import * as Sentry from '@sentry/vue'
+import { Integrations } from '@sentry/tracing'
+
+Sentry.init({
+	Vue,
+	logErrors: true,
+	dsn: 'https://6c05050f794343c286b87c6ea643df31@o920341.ingest.sentry.io/5865924',
+	integrations: [new Integrations.BrowserTracing()],
+
+	// Set tracesSampleRate to 1.0 to capture 100%
+	// of transactions for performance monitoring.
+	// We recommend adjusting this value in production
+	tracesSampleRate: 1.0,
+})
+
 export default {
   name: 'App',
   created: function () {

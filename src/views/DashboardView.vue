@@ -3,7 +3,7 @@ core-Side-Drawer is core/toolbar.vue etc -->
 <template>
 <!-- this sets the background color to the background color property of the themes/theme object in plugins/vuetify -->
 	<v-app :style="{ background: $vuetify.theme.themes[theme].background }">
-		<core-side-drawer />
+		<CoreSidedrawer />
 		<CoreNavBar />
 		<v-main>
 			<v-container fluid>
