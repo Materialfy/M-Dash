@@ -4,9 +4,6 @@
 		<v-row class="d-flex align-start mb-2">
 			<!-- First DATA TABLE Card -->
 			<v-col>
-				<button :onClick="throwError" >
-    Throw error
-</button>
 				<MaterialfyHeaderCard
 					cardTitle="Employee Stats"
 					:cardShowInnerList="false"

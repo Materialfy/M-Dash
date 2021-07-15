@@ -18,9 +18,10 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 ## Built with
 
 ### [Vue](https://vuejs.org/v2/guide/)
+2.x
 
 ### [Vuetify](https://vuetifyjs.com/en/)
-Vuetify 2.x is a frontend Vue UI library that allows you to quickly develop designs according to Material Design spec.
+Vuetify 2.x is a Vue UI library that allows you to quickly develop designs according to Material Design spec.
 
 ### [Vue-Router](https://router.vuejs.org/en/)
 Vue Router is allows you to build routes/paths and handle the single page app routing.
