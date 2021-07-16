@@ -1,13 +1,10 @@
+<!-- @format -->
+
 <template>
 	<v-container fill-height fluid>
 		<v-row justify="center">
 			<v-col class="d-flex justify-center">
-				<v-card
-					elevation="12"
-					min-width="500"
-					max-width="500"
-					color="secondary"
-				>
+				<v-card elevation="12" min-width="300" width="500" color="secondary">
 					<v-toolbar color="primary">
 						<v-toolbar-title>M-Dashboard</v-toolbar-title>
 						<v-spacer />
@@ -42,9 +39,7 @@
 					<v-divider class="mt-5" />
 					<v-card-actions>
 						<v-spacer />
-						<v-btn align-center justify-center color="tertiary" @click="login">
-							Login
-						</v-btn>
+						<v-btn align-center justify-center color="tertiary" @click="login"> Login </v-btn>
 					</v-card-actions>
 					<v-snackbar v-model="snackbar" :color="color" :top="true">
 						{{ errorMessages }}
@@ -58,37 +53,37 @@
 
 <script>
 	export default {
-		name: "LoginView",
+		name: 'LoginView',
 		data: function () {
 			return {
-				username: "eve.holt@reqres.in",
-				password: "cityslicka",
-				errorMessages: "Incorrect login info",
+				username: 'eve.holt@reqres.in',
+				password: 'cityslicka',
+				errorMessages: 'Incorrect login info',
 				snackbar: false, // this is the wrong pass notification
-				color: "general",
+				color: 'general',
 				showPassword: false,
-			};
+			}
 		},
 
 		// Sends action to Vuex that will log you in and redirect to the dash otherwise, error
 		//needs to finish implementing using the states in mutations
 		methods: {
 			login: function () {
-				let username = this.username; // you use this.username to access the username saved in the data
-				let password = this.password;
+				let username = this.username // you use this.username to access the username saved in the data
+				let password = this.password
 				this.$store
-					.dispatch("login", { username, password }) //calls the login action and passes login info
-					.then(() => this.$router.push("/")) //redirect to dash after login
+					.dispatch('login', { username, password }) //calls the login action and passes login info
+					.then(() => this.$router.push('/')) //redirect to dash after login
 					.catch((err) => {
-						console.log(err);
-						this.snackbar = true; //shows error on wrong pass
-					});
+						console.log(err)
+						this.snackbar = true //shows error on wrong pass
+					})
 			},
 		},
 		metaInfo() {
 			return {
-				title: "Super Secret | Login",
-			};
+				title: 'Super Secret | Login',
+			}
 		},
-	};
+	}
 </script>

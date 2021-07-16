@@ -5,13 +5,7 @@
 		}
 	],
 	"settings": {
-		"cSpell.words": [
-			"externalview",
-			"externalviews",
-			"loginview",
-			"newdata",
-			"tablestest"
-		],
+		"cSpell.words": ["externalview", "externalviews", "loginview", "newdata", "tablestest"],
 		"search.exclude": {
 			"./.markdown": true,
 			".md": true,
@@ -19,7 +13,6 @@
 			"**/*.md": true
 		},
 		"eslint.packageManager": "yarn",
-		"editor.formatOnSaveMode": "modifications",
 		"editor.formatOnSave": true,
 		"html.format.endWithNewline": true,
 		"html.format.indentHandlebars": true,
@@ -31,6 +24,12 @@
 		"prettier.tabWidth": 3,
 		"prettier.useTabs": true,
 		"eslint.codeActionsOnSave.mode": "problems",
-		"eslint.lintTask.enable": true
+		"eslint.lintTask.enable": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"prettier.insertPragma": true,
+		"prettier.printWidth": 120,
+		"prettier.vueIndentScriptAndStyle": true,
+		"prettier.proseWrap": "never",
+		"vetur.format.options.useTabs": true
 	}
 }

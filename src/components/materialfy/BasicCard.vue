@@ -8,6 +8,7 @@
 		:min-height="cardMinHeight"
 		:color="cardColor"
 		elevation="4"
+		:tile="true"
 	>
 		<v-container>
 			<v-row>
@@ -30,8 +31,8 @@
 			<!-- Inner card area where yuou can put tables/tabs or anything -->
 			<slot :name="cardInner" v-if="cardShowInner">
 				<v-card-text class="text-h5 font-weight-bold">
-					This is a bunch of text since i couldnt think of anything to fill up
-					the default content of this card. fix with pull request lol
+					This is a bunch of text since i couldnt think of anything to fill
+					up the default content of this card. fix with pull request lol
 				</v-card-text>
 			</slot>
 
@@ -43,89 +44,89 @@
 </template>
 
 <script>
-export default {
-	name: "MaterialfyBasicCard",
-	props: {
-		cardMinHeight: {
-			default: "100",
+	export default {
+		name: 'MaterialfyBasicCard',
+		props: {
+			cardMinHeight: {
+				default: '100',
+			},
+			cardMinWidth: {
+				default: '300',
+			},
+			cardMaxWidth: {
+				default: '600',
+			},
+			cardTitle: {
+				default: 'Materialfy Basic Card',
+			},
+			cardSubHeaderText: {
+				default: 'Subheader',
+			},
+			cardIcon: {
+				default: 'crdIcon',
+			},
+			cardInner: {
+				default: 'crdInner',
+			},
+			cardActions: {
+				default: 'crdActions',
+			},
+			cardHeaderColor: {
+				default: 'tertiary',
+			},
+			cardColor: {
+				default: 'primary',
+			},
+			cardAvatar: {
+				default: 'crdAvatar',
+			},
+			isDark: {
+				default: false,
+			},
+			cardShowDivider: {
+				default: true,
+			},
+			cardShowActions: {
+				default: true,
+			},
+			cardShowInner: {
+				default: true,
+			},
+			cardShowAvatar: {
+				default: true,
+			},
+			cardShowTitle: {
+				default: true,
+			},
+			cardShowSubHeader: {
+				default: true,
+			},
 		},
-		cardMinWidth: {
-			default: "300",
-		},
-		cardMaxWidth: {
-			default: "600",
-		},
-		cardTitle: {
-			default: "Materialfy Basic Card",
-		},
-		cardSubHeaderText: {
-			default: "Subheader",
-		},
-		cardIcon: {
-			default: "crdIcon",
-		},
-		cardInner: {
-			default: "crdInner",
-		},
-		cardActions: {
-			default: "crdActions",
-		},
-		cardHeaderColor: {
-			default: "tertiary",
-		},
-		cardColor: {
-			default: "primary",
-		},
-		cardAvatar: {
-			default: "crdAvatar",
-		},
-		isDark: {
-			default: false,
-		},
-		cardShowDivider: {
-			default: true,
-		},
-		cardShowActions: {
-			default: true,
-		},
-		cardShowInner: {
-			default: true,
-		},
-		cardShowAvatar: {
-			default: true,
-		},
-		cardShowTitle: {
-			default: true,
-		},
-		cardShowSubHeader: {
-			default: true,
-		},
-	},
-	data() {
-		return {
-			interval: {},
-			value: 0,
-		};
-	},
-	beforeDestroy() {
-		clearInterval(this.interval);
-	},
-	mounted() {
-		this.interval = setInterval(() => {
-			if (this.value === 100) {
-				return (this.value = 0);
+		data() {
+			return {
+				interval: {},
+				value: 0,
 			}
-			this.value += 10;
-		}, 1000);
-	},
-};
+		},
+		beforeDestroy() {
+			clearInterval(this.interval)
+		},
+		mounted() {
+			this.interval = setInterval(() => {
+				if (this.value === 100) {
+					return (this.value = 0)
+				}
+				this.value += 10
+			}, 1000)
+		},
+	}
 </script>
 
 <style scoped>
-.v-progress-circular {
-	margin: 1rem;
-}
-.innercardheight {
-	height: 100px;
-}
+	.v-progress-circular {
+		margin: 1rem;
+	}
+	.innercardheight {
+		height: 100px;
+	}
 </style>

@@ -58,12 +58,11 @@ export default [
 					import(`@/views/DashboardViews/SimpleTablesView.vue`),
 			},
 			{
-				path: 'crud-user-tables',
+				path: 'data-tables',
 				meta: {
-					name: 'CrudUserTable',
+					name: 'DataTable',
 				},
-				component: () =>
-					import(`@/views/DashboardViews/CrudUsersTableView.vue`),
+				component: () => import(`@/views/DashboardViews/DataTableView.vue`),
 			},
 			{
 				path: 'maps',

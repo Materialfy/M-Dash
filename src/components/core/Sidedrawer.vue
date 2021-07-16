@@ -79,9 +79,9 @@ export default {
 					text: "Basic Tables",
 				},
 				{
-					to: "/crud-user-tables",
+					to: "/data-tables",
 					icon: "mdi-application-cog",
-					text: "CRUD Tables",
+					text: "CRUD Data Tables",
 				},
 				{
 					to: "/cardsview",

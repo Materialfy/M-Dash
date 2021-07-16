@@ -1,12 +1,11 @@
+<!-- @format -->
+
 <template>
 	<v-container fluid>
 		<!-- FIRST ROW with header table card and basic tab cards -->
-		<v-row class="d-flex align-start mb-2">
+		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
-			<v-col>
-				<button :onClick="throwError" >
-    Throw error
-</button>
+			<v-col col md="4">
 				<MaterialfyHeaderCard
 					cardTitle="Employee Stats"
 					:cardShowInnerList="false"
@@ -23,13 +22,7 @@
 							class="primary"
 						>
 							<template slot="headerCell" slot-scope="{ header }">
-								<span
-									class="
-										font-weight-light
-										text-warning text--darken-3 text--red
-									"
-									v-text="header.text"
-								/>
+								<span class="font-weight-light text-warning text--darken-3 text--red" v-text="header.text" />
 							</template>
 							<!-- use a scoped slot to send data to child to be processed and returned -->
 							<template slot="items" slot-scope="{ index, item }">
@@ -50,7 +43,7 @@
 				</MaterialfyHeaderCard>
 			</v-col>
 			<!-- V-TAB TO-DO CARD -->
-			<v-col>
+			<v-col col md="4">
 				<MaterialfyBasicCard :cardShowTitle="false">
 					<!-- Header -->
 					<template v-slot:crdSubHeader>
@@ -80,10 +73,9 @@
 								<template v-for="(tabText, index) in textList">
 									<v-card flat color="primary" :key="index" class="my-3">
 										<v-row wrap>
-											<v-list-item
-												:class="index % 2 ? 'background' : 'secondary'"
+											<v-list-item :class="index % 2 ? 'background' : 'secondary'"
 												><v-list-item-title>{{
-													index + 1 + "." + "  " + tabText
+													index + 1 + '.' + '  ' + tabText
 												}}</v-list-item-title></v-list-item
 											>
 										</v-row>
@@ -95,115 +87,81 @@
 				</MaterialfyBasicCard>
 			</v-col>
 			<!-- LAST CARD -->
-			<v-col>
-				<MaterialfyHeaderCard />
+			<v-col md="4">
+				<MaterialfyDataTable />
 			</v-col>
 		</v-row>
 		<!-- SECOND ROW  -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center justify-center mb-2">
+		<v-row class="d-flex align-start justify-center mb-2">
 			<!-- FIRST COLOR CARD with default content -->
-			<v-col md="3" class="my-2">
+			<v-col md="4" class="my-2">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="Horse Power"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="secondary"
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-polar-map />
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
 			<!-- SECOND COLOR CARD with secondary color -->
-			<v-col md="3">
+			<v-col md="4">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="Users Usering"
 					:cardShowDivider="false"
 					:cardShowActions="false"
 					cardColor="primary"
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-donut />
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			<v-col md="3">
+			<v-col md="4">
 				<MaterialfyColorCard
-					cardMaxWidth="300"
+					cardMaxWidth="500"
 					cardInnerText="User Engagement"
 					:cardShowDivider="false"
 					:cardShowActions="false"
+					:cardShowInnerText="false"
 					cardColor="accent"
 				>
 					<template v-slot:crdInner>
-						<v-sheet color="rgba(0, 0, 0, .12)">
-							<v-sparkline
-								:value="sparklineValue2"
-								:gradient="gradient"
-								:smooth="radius || false"
-								:padding="padding"
-								:line-width="width"
-								:stroke-linecap="lineCap"
-								:gradient-direction="gradientDirection"
-								:fill="fill"
-								:type="type"
-								:auto-line-width="autoLineWidth"
-								auto-draw
-								height="150"
-							/>
-						</v-sheet>
+						<materialfy-apex-multiple-radial-bars />
 					</template>
 				</MaterialfyColorCard>
 			</v-col>
-			
 		</v-row>
 
 		<!-- THIRD ROW -->
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center mb-2">
-			<!-- FIRST COLOR CARD with default content -->
 			<v-col>
-				<MaterialfyColorCard />
+				<MaterialfyColorCard cardInnerText="$$$$$$$ emoji" :cardShowDivider="false" :cardShowActions="false">
+					<template v-slot:crdInner>
+						<materialfy-apex-y-axis />
+					</template>
+				</MaterialfyColorCard>
 			</v-col>
 			<v-col>
-				<MaterialfyColorCard />
+				<MaterialfyColorCard
+					cardInnerText="User Engagement"
+					:cardShowDivider="false"
+					:cardShowActions="false"
+					cardColor="secondary"
+				>
+					<template v-slot:crdInner>
+						<materialfy-apex-line-graph />
+					</template>
+				</MaterialfyColorCard>
 			</v-col>
 		</v-row>
-		<!-- FOURTH ROW with header, color and basic cards -->
-		<!-- Used named slots and props to overide the default card content below -->
+		<!-- FOURTH ROW with calendar -->
 		<v-row class="ma-3 d-flex align-start justify-center">
 			<v-col md="9">
 				<v-responsive :aspect-ratio="16 / 9">
@@ -215,121 +173,120 @@
 </template>
 
 <script>
-// this is where the line chart sparkline gets its colors
-const gradients = [
-	["#222"],
-	["#42b3f4"],
-	["red", "orange", "yellow"],
-	["purple", "violet"],
-	["#00c6ff", "#F0F", "#FF0"],
-	["#f72047", "#ffd200", "#1feaea"],
-];
-export default {
-	data: () => ({
-		labels: ["Feb", "March", "April", "420", "May", "June", "July", "Aug"],
-		sparklineValue: [200, 300, 410, 390, 420, 460, 420, 420],
-		width: 2,
-		radius: 10,
-		padding: 8,
-		lineCap: "round",
-		gradient: gradients[5],
-		sparklineValue2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
-		gradientDirection: "top",
-		gradients,
-		fill: false,
-		type: "trend",
-		autoLineWidth: false,
-		tableHeaders: [
-			{
-				sortable: false,
-				text: "ID",
-				value: "id",
-				class: "tertiary--text text-h6",
+	// this is where the line chart sparkline gets its colors
+	const gradients = [
+		['#222'],
+		['#42b3f4'],
+		['red', 'orange', 'yellow'],
+		['purple', 'violet'],
+		['#00c6ff', '#F0F', '#FF0'],
+		['#f72047', '#ffd200', '#1feaea'],
+	]
+	export default {
+		data: () => ({
+			labels: ['Feb', 'March', 'April', '420', 'May', 'June', 'July', 'Aug'],
+			sparklineValue: [200, 300, 410, 390, 420, 460, 420, 420],
+			width: 2,
+			radius: 10,
+			padding: 8,
+			lineCap: 'round',
+			gradient: gradients[5],
+			sparklineValue2: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 10],
+			gradientDirection: 'top',
+			gradients,
+			fill: false,
+			type: 'trend',
+			autoLineWidth: false,
+			tableHeaders: [
+				{
+					sortable: false,
+					text: 'ID',
+					value: 'id',
+					class: 'tertiary--text text-h6',
+				},
+				{
+					sortable: false,
+					text: 'Name',
+					value: 'name',
+					class: 'tertiary--text text-h6',
+				},
+				{
+					sortable: false,
+					text: 'Salary',
+					value: 'salary',
+					align: 'float-right',
+					class: 'tertiary--text text-h6',
+				},
+				{
+					sortable: false,
+					text: 'Country',
+					value: 'country',
+					align: 'float-right',
+					class: 'tertiary--text text-h6',
+				},
+				{
+					sortable: false,
+					text: 'City',
+					value: 'city',
+					align: 'float-right',
+					class: 'tertiary--text text-h6',
+				},
+			],
+			tableItems: [
+				{
+					name: 'Dakota Rice',
+					country: 'Niger',
+					city: 'Oud-Tunrhout',
+					salary: '$35,738',
+				},
+				{
+					name: 'Minerva Hooper',
+					country: 'Curaçao',
+					city: 'Sinaai-Waas',
+					salary: '$23,738',
+				},
+				{
+					name: 'Sage Rodriguez',
+					country: 'Netherlands',
+					city: 'Overland Park',
+					salary: '$56,142',
+				},
+				{
+					name: 'Philip Chanley',
+					country: 'Korea, South',
+					city: 'Gloucester',
+					salary: '$38,735',
+				},
+				{
+					name: 'Doris Greene',
+					country: 'Malawi',
+					city: 'Feldkirchen in Kārnten',
+					salary: '$63,542',
+				},
+			],
+			tab: null,
+			tabItems: [
+				{ tab: 'Bugs', icon: 'mdi-bug' },
+				{ tab: 'Server Issues', icon: 'mdi-cloud' },
+				{ tab: 'Tickets', icon: 'mdi-alert' },
+				{ tab: 'New Issues', icon: 'mdi-access-point' },
+				{ tab: 'To-Do', icon: 'mdi-alert-box-outline' },
+			],
+			textList: [
+				'You just read a sentence',
+				'Second sentence with a lot of merit',
+				'Fix bugs',
+				'Look at Pull Requests',
+				'Hope pull request fix bugs?',
+				'Figure out some other text to put here',
+			],
+		}),
+		methods: {
+			throwError: function () {
+				throw new Error('Sentry Error')
 			},
-			{
-				sortable: false,
-				text: "Name",
-				value: "name",
-				class: "tertiary--text text-h6",
-			},
-			{
-				sortable: false,
-				text: "Salary",
-				value: "salary",
-				align: "float-right",
-				class: "tertiary--text text-h6",
-			},
-			{
-				sortable: false,
-				text: "Country",
-				value: "country",
-				align: "float-right",
-				class: "tertiary--text text-h6",
-			},
-			{
-				sortable: false,
-				text: "City",
-				value: "city",
-				align: "float-right",
-				class: "tertiary--text text-h6",
-			},
-		],
-		tableItems: [
-			{
-				name: "Dakota Rice",
-				country: "Niger",
-				city: "Oud-Tunrhout",
-				salary: "$35,738",
-			},
-			{
-				name: "Minerva Hooper",
-				country: "Curaçao",
-				city: "Sinaai-Waas",
-				salary: "$23,738",
-			},
-			{
-				name: "Sage Rodriguez",
-				country: "Netherlands",
-				city: "Overland Park",
-				salary: "$56,142",
-			},
-			{
-				name: "Philip Chanley",
-				country: "Korea, South",
-				city: "Gloucester",
-				salary: "$38,735",
-			},
-			{
-				name: "Doris Greene",
-				country: "Malawi",
-				city: "Feldkirchen in Kārnten",
-				salary: "$63,542",
-			},
-		],
-		tab: null,
-		tabItems: [
-			{ tab: "Bugs", icon: "mdi-bug" },
-			{ tab: "Server Issues", icon: "mdi-cloud" },
-			{ tab: "Tickets", icon: "mdi-alert" },
-			{ tab: "New Issues", icon: "mdi-access-point" },
-			{ tab: "To-Do", icon: "mdi-alert-box-outline" },
-		],
-		textList: [
-			"You just read a sentence",
-			"Second sentence with a lot of merit",
-			"Fix bugs",
-			"Look at Pull Requests",
-			"Hope pull request fix bugs?",
-			"Figure out some other text to put here",
-		],
-	}),
-	methods: {
-    throwError: function() {
-        throw new Error('Sentry Error')
-    }
-  }
-
-};
+		},
+	}
 </script>
 
 <style></style>
