@@ -5,7 +5,7 @@
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
 
-### Formerly known by Vuetify Admin Dashboard
+#### Formerly known by Vuetify Admin Dashboard
 
 ### [Materialfy](https://www.Materialfy.com)
 
@@ -115,7 +115,7 @@ Handles making requests and custom instances for different urls
 - Cool new login screen
 
 
-### [Old version 1.0 Demo](https://clintoxx.github.io/vuetify-admin-dashboard/)
+### [Old version 1.0 Demo](https://clintoxx.github.io/M-Dashboard-Materialfy/)
 
 
 ## Getting Started
