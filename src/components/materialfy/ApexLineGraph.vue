@@ -1,11 +1,7 @@
+<!-- @format -->
+
 <template>
-	<apexchart
-		ref="realtimeChart"
-		type="line"
-		height="200"
-		:options="chartOptions"
-		:series="series"
-	/>
+	<apexchart ref="realtimeChart" type="line" height="200" :options="chartOptions" :series="series" />
 </template>
 
 <script>
@@ -60,17 +56,7 @@
 						},
 					},
 					xaxis: {
-						categories: [
-							'Jan',
-							'Feb',
-							'Mar',
-							'Apr',
-							'May',
-							'Jun',
-							'Jul',
-							'Aug',
-							'Sep',
-						],
+						categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
 						labels: {
 							style: {
 								colors: '#fff',
@@ -91,8 +77,7 @@
 			this.setDataLineChart()
 		},
 		methods: {
-			getRandomArbitrary(min, max) {
-				// eslint-disable-line no-use-before-define
+			getRandomArbitrary() {
 				return Math.floor(Math.random() * 99)
 			},
 			setDataLineChart() {
@@ -103,10 +88,10 @@
 				}, 3000)
 			},
 			updateSeriesLine() {
+				// eslint-disable-next-line no-use-before-define
 				this.$refs.realtimeChart.updateSeries(
 					[
 						{
-							// eslint-disable-line no-use-before-define
 							data: this.series[0].data,
 						},
 					],
