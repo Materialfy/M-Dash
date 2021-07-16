@@ -1,9 +1,11 @@
+<!-- @format -->
+
 <template>
 	<v-container fluid>
 		<!-- FIRST ROW with header table card and basic tab cards -->
 		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
-			<v-col>
+			<v-col col md="4">
 				<MaterialfyHeaderCard
 					cardTitle="Employee Stats"
 					:cardShowInnerList="false"
@@ -20,13 +22,7 @@
 							class="primary"
 						>
 							<template slot="headerCell" slot-scope="{ header }">
-								<span
-									class="
-										font-weight-light
-										text-warning text--darken-3 text--red
-									"
-									v-text="header.text"
-								/>
+								<span class="font-weight-light text-warning text--darken-3 text--red" v-text="header.text" />
 							</template>
 							<!-- use a scoped slot to send data to child to be processed and returned -->
 							<template slot="items" slot-scope="{ index, item }">
@@ -47,7 +43,7 @@
 				</MaterialfyHeaderCard>
 			</v-col>
 			<!-- V-TAB TO-DO CARD -->
-			<v-col>
+			<v-col col md="4">
 				<MaterialfyBasicCard :cardShowTitle="false">
 					<!-- Header -->
 					<template v-slot:crdSubHeader>
@@ -75,17 +71,9 @@
 						<v-tabs-items v-model="tab">
 							<v-tab-item v-for="item in tabItems" :key="item.tab">
 								<template v-for="(tabText, index) in textList">
-									<v-card
-										flat
-										color="primary"
-										:key="index"
-										class="my-3"
-									>
+									<v-card flat color="primary" :key="index" class="my-3">
 										<v-row wrap>
-											<v-list-item
-												:class="
-													index % 2 ? 'background' : 'secondary'
-												"
+											<v-list-item :class="index % 2 ? 'background' : 'secondary'"
 												><v-list-item-title>{{
 													index + 1 + '.' + '  ' + tabText
 												}}</v-list-item-title></v-list-item
@@ -99,7 +87,7 @@
 				</MaterialfyBasicCard>
 			</v-col>
 			<!-- LAST CARD -->
-			<v-col>
+			<v-col md="4">
 				<MaterialfyDataTable />
 			</v-col>
 		</v-row>
@@ -154,11 +142,7 @@
 		<!-- Used named slots and props to overide the default card content below -->
 		<v-row class="d-flex align-center mb-2">
 			<v-col>
-				<MaterialfyColorCard
-					cardInnerText="$$$$$$$ emoji"
-					:cardShowDivider="false"
-					:cardShowActions="false"
-				>
+				<MaterialfyColorCard cardInnerText="$$$$$$$ emoji" :cardShowDivider="false" :cardShowActions="false">
 					<template v-slot:crdInner>
 						<materialfy-apex-y-axis />
 					</template>

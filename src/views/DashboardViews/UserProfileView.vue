@@ -4,7 +4,7 @@
 	<v-container fill-height fluid>
 		<v-row justify-center wrap class="d-flex align-start">
 			<!-- USER TABs section -->
-			<v-col xs12 md="7">
+			<v-col xs12 md="6">
 				<v-card flat color="secondary" class="elevation-0" :tile="true">
 					<v-toolbar color="background" class="elevation-0">
 						<v-toolbar-title class="tertiary--text">User Profile</v-toolbar-title>

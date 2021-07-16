@@ -1,10 +1,7 @@
+<!-- @format -->
+
 <template>
-	<apexchart
-		type="radialBar"
-		height="350"
-		:options="chartOptions"
-		:series="series"
-	/>
+	<apexchart type="radialBar" height="350" :options="chartOptions" :series="series" />
 </template>
 
 <script>
@@ -35,6 +32,9 @@
 					chart: {
 						toolbar: {
 							show: true,
+							tools: {
+								download: false,
+							},
 						},
 					},
 					title: {
@@ -81,12 +81,7 @@
 							size: 0,
 						},
 						formatter: function (seriesName, opts) {
-							return (
-								seriesName +
-								':  ' +
-								opts.w.globals.series[opts.seriesIndex] +
-								'%'
-							)
+							return seriesName + ':  ' + opts.w.globals.series[opts.seriesIndex] + '%'
 						},
 						itemMargin: {
 							horizontal: 1,
