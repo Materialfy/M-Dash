@@ -9,10 +9,10 @@
 
 ### https://www.Materialfy.com
 <
-img src="" width="600" height="450" />
+img src="https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/6psvwPPYlc.gif" width="600" height="450" />
 
 
-![Preview]("picture link")
+![Preview]("https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/6psvwPPYlc.gif")
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
 Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the above libraries (Really just the last four)
