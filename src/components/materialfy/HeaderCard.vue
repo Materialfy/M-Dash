@@ -10,11 +10,11 @@
 		<v-toolbar :color="cardHeaderColor">
 			<slot name="crdHeader">
 				<v-avatar :tile="true" v-if="cardShowAvatar">
-					<v-icon>
-						<slot name="crdIcon"> {{ cardIcon }} </slot>
+					<v-icon color="tertiary">
+						<slot name="crdIcon" > {{ cardIcon }} </slot>
 					</v-icon>
 				</v-avatar>
-				<v-toolbar-title>{{ cardTitle }}</v-toolbar-title>
+				<v-toolbar-title class="tertiary--text">{{ cardTitle }}</v-toolbar-title>
 				<v-spacer />
 			</slot>
 		</v-toolbar>
@@ -74,7 +74,7 @@ export default {
 			default: "crdActions",
 		},
 		cardHeaderColor: {
-			default: "tertiary",
+			default: "primary",
 		},
 		cardColor: {
 			default: "primary",

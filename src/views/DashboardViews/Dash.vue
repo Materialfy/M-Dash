@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-container fluid>
+	<v-container fluid style="width: 85%">
 		<!-- FIRST ROW with header table card and basic tab cards -->
 		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
@@ -43,7 +43,7 @@
 				</MaterialfyHeaderCard>
 			</v-col>
 			<!-- V-TAB TO-DO CARD -->
-			<v-col col md="4">
+			<v-col col md="3">
 				<MaterialfyBasicCard :cardShowTitle="false">
 					<!-- Header -->
 					<template v-slot:crdSubHeader>
@@ -87,7 +87,7 @@
 				</MaterialfyBasicCard>
 			</v-col>
 			<!-- LAST CARD -->
-			<v-col md="4">
+			<v-col md="5">
 				<MaterialfyDataTable />
 			</v-col>
 		</v-row>
@@ -140,7 +140,7 @@
 
 		<!-- THIRD ROW -->
 		<!-- Used named slots and props to overide the default card content below -->
-		<v-row class="d-flex align-center mb-2">
+		<v-row class="d-flex align-start mb-2">
 			<v-col>
 				<MaterialfyColorCard cardInnerText="$$$$$$$ emoji" :cardShowDivider="false" :cardShowActions="false">
 					<template v-slot:crdInner>

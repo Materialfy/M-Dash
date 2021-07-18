@@ -22,9 +22,8 @@
 				>
 					{{ cardTitle }}
 				</v-list-item-title>
-			</v-list-item-content>
-			<slot :name="cardAvatar" v-if="cardShowAvatar">
-				<v-list-item-avatar size="80" color="primary">
+				<slot :name="cardAvatar" v-if="cardShowAvatar">
+				
 					<div class="text-center">
 						<v-progress-circular
 							:rotate="360"
@@ -36,8 +35,10 @@
 							{{ value }}
 						</v-progress-circular>
 					</div>
-				</v-list-item-avatar>
+				
 			</slot>
+			</v-list-item-content>
+			
 		</v-list-item>
 		<v-container>
 			<slot :name="cardInnerList" v-if="cardShowInnerList">
