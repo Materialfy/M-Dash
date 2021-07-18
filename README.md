@@ -16,7 +16,7 @@
 - logout button is in user menu in app bar
 
 
-![Preview](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/6psvwPPYlc.gif)
+![Preview](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/mwQYxL1mES.gif)
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
 Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the below libraries (Really just the first four)

@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-container fluid :style="$vuetify.breakpoint.mdAndUp ? 'width: 80%' : 'width: 100%' ">
+	<v-container fluid :style="$vuetify.breakpoint.mdAndUp ? 'width: 83%' : 'width: 100%' ">
 		<!-- FIRST ROW with header table card and basic tab cards -->
 		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
@@ -101,7 +101,7 @@
 					cardInnerText="Horse Power"
 					:cardShowDivider="false"
 					:cardShowActions="false"
-					cardColor="secondary"
+					cardColor="tertiary"
 				>
 					<template v-slot:crdInner>
 						<materialfy-apex-polar-map />
