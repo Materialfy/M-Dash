@@ -101,7 +101,7 @@
 					cardInnerText="Horse Power"
 					:cardShowDivider="false"
 					:cardShowActions="false"
-					cardColor="secondary"
+					cardColor="tertiary"
 				>
 					<template v-slot:crdInner>
 						<materialfy-apex-polar-map />
