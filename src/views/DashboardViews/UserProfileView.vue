@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-container fill-height fluid>
+	<v-container fill-height >
 		<v-row justify-center wrap class="d-flex align-start">
 			<!-- USER TABs section -->
 			<v-col xs12 md="6">
