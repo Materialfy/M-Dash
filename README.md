@@ -7,7 +7,10 @@
 
 ##### Formerly known by Vuetify Admin Dashboard
 
+
+
 #### [Materialfy](https://www.Materialfy.com)
+
 
 ### [2.0 Demo Site](https://materialfy-demo.netlify.app) 
 - logout button is in user menu in app bar
@@ -19,6 +22,8 @@ M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor t
 Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the below libraries (Really just the first four)
 
 ## Table of Contents
+
+
 
 - [Whats New in 2.0](#whats-new)
 - [Quick Start](#getting-started)
@@ -49,6 +54,7 @@ Handles making requests and custom instances for different urls
 charts
 #### Sentry
 error monitoring
+
 
 
 # Dashboard Features
@@ -84,9 +90,8 @@ error monitoring
   - stores JWT in secured local storage(using Secure-LS)
   - beforeEach Router gaurds in router/index.js
   - better off using Auth0
-  -
 
-# Whats New
+# Whats New in 2.0:
 * rewrote from the ground up to fix many of the lingering issues and to make this simplier, easier to read and easier to miantain.
 * Redid the design to make it simplier and less neon boy wonder cyberpunktastic
 * Removed some baggage that was adding unnecessary weight to the project
@@ -138,7 +143,7 @@ After installing the dependencies you can also run additional tasks such as thes
 
 [Click here for docs](https://www.docs.materialfy.com)
 
-There are also comments in a lot of files.
+There are also comments in files.
 
 ### Current Bugs
 Checkout the Issues tab to see if any have been reported or closed.
