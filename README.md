@@ -5,44 +5,43 @@
 [![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/1512-shield.svg)](https://madewithvuejs.com/p/functional-vuetify-admin-dashboard/shield-link)
 
 
-### Formerly known by Vuetify Admin Dashboard
+##### Formerly known by Vuetify Admin Dashboard
 
-### https://www.Materialfy.com
+#### https://www.Materialfy.com
 <
-img src="https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/6psvwPPYlc.gif" width="600" height="450" />
+img src="https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/n9AC6lJxQ7.gif" width="600" height="450" />
 
 
 ![Preview]("https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/6psvwPPYlc.gif")
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
-Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the above libraries (Really just the last four)
+Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the below libraries (Really just the first four)
 
 ## Built with
 
-### [Vue](https://vuejs.org/v2/guide/)
-2.x
+#### [Vue 2.x](https://vuejs.org/v2/guide/)
 
-### [Vuetify](https://vuetifyjs.com/en/)
-Vuetify 2.x is a Vue UI library that allows you to quickly develop designs according to Material Design spec.
+#### [Vuetify 2.x ](https://vuetifyjs.com/en/)
+is a Vue UI library that allows you to quickly develop designs according to Material Design spec.
 
-### [Vue-Router](https://router.vuejs.org/en/)
-Vue Router is allows you to build routes/paths and handle the single page app routing.
+#### [Vue-Router](https://router.vuejs.org/en/)
+allows you to build routes/paths and handle the single page app routing.
 
-### [Vuex](https://vuex.vuejs.org/installation.html)
-Vuex 3.x is a state management library for Vue.js applications. It serves as a centralized store for all the components.
+#### [Vuex3.x](https://vuex.vuejs.org/installation.html)
+is a state management library for Vue.js applications. It serves as a centralized store for all the components.
 
-### [Vue CLI](https://github.com/vuejs/vue-cli)
-Vue-CLI 4.x handles a lot of the set up and boilerplate also configures webpack and more 
+#### [Vue CLI 4.x](https://github.com/vuejs/vue-cli)
+handles a lot of the set up and boilerplate also configures webpack and more 
 
-### Axios
+#### Axios
 Handles making requests and custom instances for different urls
 
-### Apex charts
-
-### Sentry
+#### Apex charts
+charts
+#### Sentry
+error monitoring
 
 ## Table of Contents
-
 - [Whats New in 2.0](#Whats-new)
 - [Versions](#versions)
 - [Demo](#2.0-Demo-Site)
@@ -52,7 +51,6 @@ Handles making requests and custom instances for different urls
 
 ## [2.0 Demo Site](https://materialfy-demo.netlify.app) 
 ### logout button is in user menu in app bar
-## login data is already saved
 
 # Dashboard Features
 
@@ -73,21 +71,22 @@ Handles making requests and custom instances for different urls
   - dynamic table headers
 
 - **Highly Configurable** 
-  - Such as: Dark/light themes, theme colors, components, sidebar images, site name, colors, logo, Menu and footer...
+  - Dark/light themes, theme colors, components, sidebar images, site name, colors, logo, Menu and footer...
 - **It Has:**
-  - data in demo that is get requesting from https://reqres.in/ 
+  - data in demo that requests from https://reqres.in/ 
   - A cool user page?(lol) 
   - Support for REST Api's
 
-- **Authentication**
+- **Login**
   - login form (communication with rest API via axios, basic validation),
   - redirecting to from login depending on auth status and JWT
   - Gets JWT Refresh token once its expires(pretty sure we put that in)
   - stores JWT in secured local storage(using Secure-LS)
   - beforeEach Router gaurds in router/index.js
+  - better off using Auth0
+
 - **App layout components**
   - The core layout components are pretty standard if you have worked with Vuetify before. I tried to stick to that library only to simplfy.
-
 
 # Whats New in 2.0:
 * rewrote from the ground up to fix many of the lingering issues and to make this simplier, easier to read and easier to miantain.
@@ -106,7 +105,7 @@ Handles making requests and custom instances for different urls
 * idk man 
 
 
-## Few things on the roadmap
+### Few things on the roadmap
 - user roles
 - user page api's
 - more prepackaged components
@@ -137,16 +136,16 @@ After installing the dependencies you can also run additional tasks such as thes
 - `npm/yarn run build` to build your app for production
 - `npm/yarn run lint` to run linting.
 
-## Documentation
+### Documentation
 
 [Click here for docs](https://www.docs.materialfy.com)
 
-There are also comments in a lot of files.
+There are also comments in files.
 
-## Current Bugs
+### Current Bugs
 Checkout the Issues tab to see if any have been reported or closed.
 
-## Reporting Issues
+### Reporting Issues
 1. Make sure that you are using the latest version of the M-Dashboard and installed corerct versions of the dependcies with NPM/YARN.
 2. Provide reproducible steps on how to recreate the issue, this can speed things up & will help a lot.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
