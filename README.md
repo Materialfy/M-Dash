@@ -7,17 +7,31 @@
 
 ##### Formerly known by Vuetify Admin Dashboard
 
-#### https://www.Materialfy.com
-<
-img src="https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/n9AC6lJxQ7.gif" width="600" height="450" />
 
 
-![Preview]("https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/dev/public/img/6psvwPPYlc.gif")
+#### [Materialfy](https://www.Materialfy.com)
+
+
+### [2.0 Demo Site](https://materialfy-demo.netlify.app) 
+- logout button is in user menu in app bar
+
+
+![Preview](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/6psvwPPYlc.gif)
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
 Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the below libraries (Really just the first four)
 
-## Built with
+## Table of Contents
+
+
+
+- [Whats New in 2.0](#whats-new)
+- [Quick Start](#getting-started)
+- [Documentation](#documentation)
+- [Reporting Issues](#reporting-issues)
+
+
+### Built with
 
 #### [Vue 2.x](https://vuejs.org/v2/guide/)
 
@@ -41,20 +55,12 @@ charts
 #### Sentry
 error monitoring
 
-## Table of Contents
-- [Whats New in 2.0](#Whats-new)
-- [Versions](#versions)
-- [Demo](#2.0-Demo-Site)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [Reporting Issues](#reporting-issues)
 
-## [2.0 Demo Site](https://materialfy-demo.netlify.app) 
-### logout button is in user menu in app bar
 
 # Dashboard Features
 
-![Crud Table]()
+
+![Crud Table](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/Screenshot%202021-07-15%20at%2021-28-53%20M-Dashboard%20by%20Materialfy%20.png)
 - **CRUD Data Table** with sorting, pagination, searching, display images...
 - Data Tables can:
   - Create
@@ -85,9 +91,6 @@ error monitoring
   - beforeEach Router gaurds in router/index.js
   - better off using Auth0
 
-- **App layout components**
-  - The core layout components are pretty standard if you have worked with Vuetify before. I tried to stick to that library only to simplfy.
-
 # Whats New in 2.0:
 * rewrote from the ground up to fix many of the lingering issues and to make this simplier, easier to read and easier to miantain.
 * Redid the design to make it simplier and less neon boy wonder cyberpunktastic
@@ -116,7 +119,7 @@ error monitoring
 - Cool new login screen
 
 
-### [Old version 1.0 Demo](https://clintoxx.github.io/vuetify-admin-dashboard/)
+#### [Old version 1.0 Demo](https://clintoxx.github.io/M-Dashboard-Materialfy/)
 
 
 ## Getting Started
