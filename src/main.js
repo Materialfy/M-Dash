@@ -14,7 +14,7 @@ import vuetify from './plugins/vuetify'
 // makes genericApi common base instance axios the default http handler
 Vue.prototype.$http = genericApi;
 
-
+Vue.use(vuetify);
 
 // Sync store with router
 sync(store, router);

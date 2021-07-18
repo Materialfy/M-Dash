@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<v-container fluid style="width: 85%">
+	<v-container fluid :style="$vuetify.breakpoint.mdAndUp ? 'width: 80%' : 'width: 100%' ">
 		<!-- FIRST ROW with header table card and basic tab cards -->
 		<v-row class="d-flex align-start mb-1">
 			<!-- First DATA TABLE Card -->
@@ -289,4 +289,10 @@
 	}
 </script>
 
-<style></style>
+<style>
+@media only screen and (min-width: map-get($grid-breakpoints, 'xl')) {
+.container {
+max-width: 1440px !important;
+}
+}
+</style>

@@ -19,15 +19,16 @@
 						v-for="(link, i) in links"
 						:key="i"
 						:to="link.to"
+						
 						:active-class="activeColor"
-						class="ms-4"
+						class="ms-4 tertiary--text"
 					>
 						<!-- this builds the list of links by iterating, uses it to get correct icons/text too -->
 						<v-list-item-action>
 							<v-icon>{{ link.icon }}</v-icon>
 						</v-list-item-action>
 
-						<v-list-item-title v-text="link.text" />
+						<v-list-item-title v-text="link.text" class="tertiary--text"  />
 					</v-list-item>
 					<v-divider class="mt-2" />
 					<v-list-item class="ms-2">
@@ -67,6 +68,7 @@ export default {
 					to: "/",
 					icon: "mdi-view-dashboard",
 					text: "Home",
+					
 				},
 				{
 					to: "/user",
