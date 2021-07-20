@@ -8,10 +8,6 @@
 ##### Formerly known by Vuetify Admin Dashboard
 
 
-
-#### [Materialfy](https://www.Materialfy.com)
-
-
 ### [2.0 Demo Site](https://materialfy-demo.netlify.app) 
 - logout button is in user menu in app bar
 
@@ -23,89 +19,16 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 
 ## Table of Contents
 
-
-
-- [Whats New in 2.0](#whats-new)
+- [Whats New in 2.0](https://docs.materialfy.com/guide/features.html#whats-new-in-2-0)
 - [Quick Start](#getting-started)
-- [Documentation](#documentation)
+- [Documentation](https://docs.materialfy.com/)
 - [Reporting Issues](#reporting-issues)
 
 
-### Built with
-
-#### [Vue 2.x](https://vuejs.org/v2/guide/)
-
-#### [Vuetify 2.x ](https://vuetifyjs.com/en/)
-is a Vue UI library that allows you to quickly develop designs according to Material Design spec.
-
-#### [Vue-Router](https://router.vuejs.org/en/)
-allows you to build routes/paths and handle the single page app routing.
-
-#### [Vuex3.x](https://vuex.vuejs.org/installation.html)
-is a state management library for Vue.js applications. It serves as a centralized store for all the components.
-
-#### [Vue CLI 4.x](https://github.com/vuejs/vue-cli)
-handles a lot of the set up and boilerplate also configures webpack and more 
-
-#### Axios
-Handles making requests and custom instances for different urls
-
-#### Apex charts
-charts
-#### Sentry
-error monitoring
-
-
-
 # Dashboard Features
-
+[Link](https://docs.materialfy.com/guide/features.html)
 
 ![Crud Table](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/Screenshot%202021-07-15%20at%2021-28-53%20M-Dashboard%20by%20Materialfy%20.png)
-- **CRUD Data Table** with sorting, pagination, searching, display images...
-- Data Tables can:
-  - Create
-  - Read
-  - Update/POST
-  - Delete
-  - Search filter:
-    - Using search bar for filtering table content
-    - Sorting by column
-  - data table allows selection of the number of records per page, page transition and sorting,
-  - Inline table editing
-  - Edit item dialog
-  - Rest APi support built in
-  - dynamic table headers
-
-- **Highly Configurable** 
-  - Dark/light themes, theme colors, components, sidebar images, site name, colors, logo, Menu and footer...
-- **It Has:**
-  - data in demo that requests from https://reqres.in/ 
-  - A cool user page?(lol) 
-  - Support for REST Api's
-
-- **Login**
-  - login form (communication with rest API via axios, basic validation),
-  - redirecting to from login depending on auth status and JWT
-  - Gets JWT Refresh token once its expires(pretty sure we put that in)
-  - stores JWT in secured local storage(using Secure-LS)
-  - beforeEach Router gaurds in router/index.js
-  - better off using Auth0
-
-# Whats New in 2.0:
-* rewrote from the ground up to fix many of the lingering issues and to make this simplier, easier to read and easier to miantain.
-* Redid the design to make it simplier and less neon boy wonder cyberpunktastic
-* Removed some baggage that was adding unnecessary weight to the project
-* provided in file documentation on many of the more poterinally confusing things, some might have said we went too far.
-* fixed routing issues forreal this time
-* the process to get it up and running should be simplier now
-* the documentation should actually exist now 
-* functional basic noticiation component hooked up to state, same for new User Snippets component and settings
-* theme picker and dark mode toggle
-* toggle side nav drawer to temporary pop up or persistant 
-* made a new user page then redid it at the last minute and made another when i should have been sleeping 
-* made tables and card components with slots and props that are plug and play 
-* 17 custom components
-* idk man 
 
 
 ### Few things on the roadmap
@@ -119,7 +42,7 @@ error monitoring
 - Cool new login screen
 
 
-#### [Old version 1.0 Demo](https://clintoxx.github.io/M-Dashboard-Materialfy/)
+##### [Old version 1.0 Demo](https://clintoxx.github.io/M-Dashboard-Materialfy/)
 
 
 ## Getting Started
@@ -139,11 +62,6 @@ After installing the dependencies you can also run additional tasks such as thes
 - `npm/yarn run build` to build your app for production
 - `npm/yarn run lint` to run linting.
 
-### Documentation
-
-[Click here for docs](https://www.docs.materialfy.com)
-
-There are also comments in files.
 
 ### Current Bugs
 Checkout the Issues tab to see if any have been reported or closed.
