@@ -15,7 +15,7 @@
 ![Preview](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/mwQYxL1mES.gif)
 
 M-Dashboard is a simple (Hopefully not ugly) productivity Dashboard to monitor tasks/work, it can also be used as an crud admin panel.
-Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and the below libraries (Really just the first four)
+Using the Dashboard is pretty simple but requires basic knowledge of Javascript, and basic knowledge on libraries listed in the [docs](https://docs.materialfy.com/guide/)
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 
 
 # Dashboard Features
-[Link](https://docs.materialfy.com/guide/features.html)
+[Link to Features](https://docs.materialfy.com/guide/features.html)
 
 ![Crud Table](https://github.com/ClintOxx/M-Dashboard-Materialfy/blob/master/public/img/Screenshot%202021-07-15%20at%2021-28-53%20M-Dashboard%20by%20Materialfy%20.png)
 
@@ -46,16 +46,16 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 
 
 ## Getting Started
-- Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
-- Install @Vue/cli 4 [globally](https://cli.vuejs.org/guide/installation.html)
-- clone repo
--  & navigate to the folder you cloned the repo to
-- Open your terminal(CMD/Power Shell etc) to project root( or use Shift + right-click in the folder on windows)
-- at project root (/M-Dashboard) run one of the following commands in the terminal depending on which you use:
+1. Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
+2. Install @Vue/cli 4 [globally](https://cli.vuejs.org/guide/installation.html)
+3. clone repo
+4.  & navigate to the folder you cloned the repo to
+5. Open your terminal(CMD/Power Shell etc) to project root( or use Shift + right-click in the folder on windows)
+6. at project root (/M-Dashboard) run one of the following commands in the terminal depending on which you use:
   - `npm install`, or `yarn install`if you use [Yarn](https://yarnpkg.com/en/) 
-- Run `npm run dev --open` or `yarn serve --open` to start a local development server or use [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui)
-- A new tab will be opened in your browser or click the url in the terminal
-- You can use [Reqres](https://reqres.in/) to test logging in/out, or for data tables api(its already hooked up)
+7. Run `npm run dev --open` or `yarn serve --open` to start a local development server or use [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui)
+8. A new tab will be opened in your browser or click the url in the terminal
+9. You can use [Reqres](https://reqres.in/) to test logging in/out, or for data tables api(its already hooked up)
   - otherwise use your own backend or a package like [Json Server](https://github.com/typicode/json-server) or [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 
 After installing the dependencies you can also run additional tasks such as these fun ones:
