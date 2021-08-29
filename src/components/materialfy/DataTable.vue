@@ -11,7 +11,7 @@
 		:headers="headers"
 		:items="userList"
 		sort-by="id"
-		class="elevation-1 secondary"
+		class="elevation-1 secondary mx-auto"
 		:mobile-breakpoint="activateBreakpoint"
 		:search="search"
 	>
