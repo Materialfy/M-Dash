@@ -97,7 +97,7 @@
 						</v-btn>
 					</v-flex>
 					<v-flex xs12>
-						<v-btn href="Materialfy.com" target="_blank" class="white--text" color="secondary" block>
+						<v-btn href="https://www.materialfy.com/" target="_blank" class="white--text" color="secondary" block>
 							Materialfy.com
 						</v-btn>
 					</v-flex>
