@@ -77,7 +77,7 @@
 					</v-flex>
 					<v-flex xs12>
 						<v-btn
-							href="https://github.com/ClintOxx/vuetify-admin-dashboard"
+							href="https://github.com/Materialfy/M-Dash"
 							target="_blank"
 							color="success"
 							block
@@ -87,7 +87,7 @@
 					</v-flex>
 					<v-flex xs12>
 						<v-btn
-							href="https://github.com/ClintOxx/vuetify-admin-dashboard"
+							href="https://docs.materialfy.com/"
 							target="_blank"
 							class="white--text"
 							color="accent"
