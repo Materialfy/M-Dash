@@ -20,9 +20,13 @@ module.exports = {
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'template-curly-spacing': 'off',
 		'indent': 'off',
+		'vue/multi-word-component-names': ['error', {
+		    'ignores': ['Footer', 'Error', 'Calendar', 'Notifications', 'Settings', 'Toasts', 'apexchart', 'Dash']
+		  }]
 	},
 	parserOptions: {
-		parser: 'babel-eslint',
+		parser: '@babel/eslint-parser',
 		'sourceType': 'module',
+		'requireConfigFile': false
 	},
 }

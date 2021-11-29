@@ -53,6 +53,7 @@ Using the Dashboard is pretty simple but requires basic knowledge of Javascript,
 5. Open your terminal(CMD/Power Shell etc) to project root( or use Shift + right-click in the folder on windows)
 6. at project root (/M-Dashboard) run one of the following commands in the terminal depending on which you use:
   - `npm install`, or `yarn install`if you use [Yarn](https://yarnpkg.com/en/) 
+  - use `npm install --legacy-peer-deps` if getting dependency fatal errors (see issue #80)
 7. Run `npm run dev --open` or `yarn serve --open` to start a local development server or use [Vue UI](https://cli.vuejs.org/guide/creating-a-project.html#using-the-gui)
 8. A new tab will be opened in your browser or click the url in the terminal
 9. You can use [Reqres](https://reqres.in/) to test logging in/out, or for data tables api(its already hooked up)
